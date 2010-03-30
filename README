@@ -31,6 +31,7 @@ While rendering:
 
 	ftglInitImmediateModeGL();
 	FTFont *font = new FTTextureFont("myfont.ttf");
+	font->FaceSize(72);
 	font->render("Lorem ipsum dolor sit amet");
 
-See XCode/demo for an in-depth example.
+See XCode/demo for an in-depth example that can run on an iPhone.
