@@ -148,7 +148,7 @@ void ViewController::Draw()
 	glPushMatrix();
 	glTranslatef(10.0f, 280.0f, 0.0f);
 	glColor4f(0.4f, 0.8f, 0.0f, 1.0f);
-	layouts[1].Render("Lorem ipsum dolor sit amet", -1, FTPoint(), renderMode);
+	layouts[1].Render("Lorem ipsum", -1, FTPoint(), renderMode);
 	glPopMatrix();
 	
 	glPushMatrix();
