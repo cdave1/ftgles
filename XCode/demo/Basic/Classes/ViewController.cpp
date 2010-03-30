@@ -66,7 +66,7 @@ ViewController::ViewController(const char* path)
 	{
         printf("Could not load font `%s'\n", fontname);	
 	}
-	fonts[1]->FaceSize(60);
+	fonts[1]->FaceSize(48);
 	fonts[1]->CharMap(ft_encoding_unicode);
 	
 	layouts[1].SetLineLength(320.0f);
@@ -148,7 +148,7 @@ void ViewController::Draw()
 	glPushMatrix();
 	glTranslatef(10.0f, 280.0f, 0.0f);
 	glColor4f(0.4f, 0.8f, 0.0f, 1.0f);
-	layouts[1].Render("Lorem ipsum", -1, FTPoint(), renderMode);
+	layouts[1].Render("Lorem ipsum dolor sit amet.", -1, FTPoint(), renderMode);
 	glPopMatrix();
 	
 	glPushMatrix();

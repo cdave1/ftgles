@@ -332,7 +332,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>E46B923E1162079E00C9C9CE</string>
+										<string>E46B925D1162085700C9C9CE</string>
 										<key>history</key>
 										<array>
 											<string>E4D14640112E718000CAD4E4</string>
@@ -553,6 +553,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>E46B924F1162080D00C9C9CE</string>
+		<string>E46B92501162080D00C9C9CE</string>
+		<string>1C78EAAD065D492600B07095</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>E45B368F112B7CC700E5B2E6</string>
 		<string>/Users/davidpetrie/Documents/Projects/ftgles/XCode/demo/Basic/DemoApps.xcodeproj</string>
 	</array>
@@ -756,13 +760,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>E479B6BF1161C2330088CFA0</string>
+				<string>E46B92471162080D00C9C9CE</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>E479B6C01161C2330088CFA0</string>
-				<string>E479B6C11161C2330088CFA0</string>
-				<string>E479B6C21161C2330088CFA0</string>
-				<string>E479B6C31161C2330088CFA0</string>
-				<string>E479B6C41161C2330088CFA0</string>
+				<string>E46B92481162080D00C9C9CE</string>
+				<string>E46B92491162080D00C9C9CE</string>
+				<string>E46B924A1162080D00C9C9CE</string>
+				<string>E46B924B1162080D00C9C9CE</string>
+				<string>E46B924C1162080D00C9C9CE</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -879,8 +883,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -916,7 +918,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>E479B6C51161C2330088CFA0</string>
+				<string>E46B924D1162080D00C9C9CE</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -926,7 +928,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
