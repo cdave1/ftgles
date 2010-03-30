@@ -75,7 +75,6 @@ ViewController::ViewController(const char* path)
 	layouts[1].SetAlignment(FTGL::ALIGN_CENTER);
 	
 	snprintf(fontname, 256, "%s/BorisBlackBloxx.ttf", path);
-	//snprintf(fontname, 256, "%s/Diavlo_BLACK_II_37.otf", path);
 	fonts[2] = new FTTextureFont(fontname);
 	if (fonts[2]->Error())
 	{
@@ -140,7 +139,6 @@ void ViewController::Draw()
 	glPushMatrix();
 	glTranslatef(0.0f, 420.0f, 0.0f);
 	glColor4f(1.0f, 0.6f, 0.3f, 1.0f);
-	//fonts[0]->Render("FTGL ES on an iPhone!");
 	layouts[0].Render("FTGL ES on an iPhone!", -1, FTPoint(), renderMode);
 	glPopMatrix();
 	
@@ -150,14 +148,12 @@ void ViewController::Draw()
 	glPushMatrix();
 	glTranslatef(10.0f, 280.0f, 0.0f);
 	glColor4f(0.4f, 0.8f, 0.0f, 1.0f);
-	//fonts[1]->Render("Lorem ipsum dolor sit amet");
 	layouts[1].Render("Lorem ipsum dolor sit amet", -1, FTPoint(), renderMode);
 	glPopMatrix();
 	
 	glPushMatrix();
 	glTranslatef(10.0f, 140.0f, 0.0f);
 	glColor4f(1.0f, 1.0f, 0.75f, 1.0f);
-	//fonts[2]->Render("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
 	layouts[2].Render("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", -1, FTPoint(), renderMode);
 	glPopMatrix();
 	
