@@ -1,7 +1,8 @@
 FTGLES 0.1
 ===========
 
-FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1. It is a port of FTGL. It's primary target is the iPhone.
+FTGLES is a C++ library for rendering fonts on mobile operating systems with 
+OpenGL ES 1.1. It is a port of FTGL. Its primary target is the iPhone.
 
 From the FTGL notes:
 
@@ -20,7 +21,8 @@ FTGLES 0.1 supports the following font types from the original FTGL library:
 	* FTGLPolygonFont
 	* FTGLTextureFont
 
-Extrusion and pixmap rendering from the original FTGL library are currently not supported.
+Extrusion and pixmap rendering from the original FTGL library are currently 
+not supported.
 
 ===========
 USAGE:
