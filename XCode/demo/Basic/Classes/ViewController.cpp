@@ -106,7 +106,7 @@ ViewController::~ViewController()
 static float angle = 0.0f;
 void ViewController::Draw()
 {
-	
+	ftglInitImmediateModeGL();
 	
 	glClearColor(0.0f, 0.0f, 0.25f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -146,7 +146,7 @@ void ViewController::Draw()
 	
 	glBindTexture(GL_TEXTURE_2D, aTexture);
 	
-	ftglInitImmediateModeGL();
+	
 	glPushMatrix();
 	glTranslatef(10.0f, 280.0f, 0.0f);
 	glColor4f(0.4f, 0.8f, 0.0f, 1.0f);

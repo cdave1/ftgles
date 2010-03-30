@@ -1,0 +1,34 @@
+FTGLES 0.1
+===========
+
+FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1. It is a port of FTGL. It's primary target is the iPhone.
+
+From the FTGL notes:
+
+"Unlike other OpenGL font libraries FTGL uses standard font file formats
+so doesn't need a preprocessing step to convert the high quality font data
+into a lesser quality, proprietary format."
+
+"FTGL uses the Freetype (www.freetype.org) font library to open and 'decode'
+the fonts. It then takes that output and stores it in a format most efficient
+for OpenGL rendering."
+
+FTGLES 0.1 supports the following font types from the original FTGL library:
+	* FTGLBitmapFont
+	* FTBufferFont
+	* FTGLOutlineFont
+	* FTGLPolygonFont
+	* FTGLTextureFont
+
+Extrusion and pixmap rendering from the original FTGL library are currently not supported.
+
+===========
+USAGE:
+
+While rendering:
+
+	ftglInitImmediateModeGL();
+	FTFont *font = new FTTextureFont("myfont.ttf");
+	font->render("Lorem ipsum dolor sit amet");
+
+See XCode/demo for an in-depth example.

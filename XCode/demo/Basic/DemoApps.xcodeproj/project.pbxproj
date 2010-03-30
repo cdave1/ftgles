@@ -22,7 +22,6 @@
 		63B7CA9810A23BB800E709A5 /* brown_bear_funk.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63B7CA9510A23BB800E709A5 /* brown_bear_funk.ttf */; };
 		7914067C0DBAD8D100C9A379 /* Delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */; };
 		E431F7EE112E8F0000E393A2 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E431F7E5112E8EED00E393A2 /* libFTGLES.a */; };
-		E4451144112E95AC00AF94E6 /* Arial Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E445113E112E95AC00AF94E6 /* Arial Black.ttf */; };
 		E4451145112E95AC00AF94E6 /* BorisBlackBloxx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E445113F112E95AC00AF94E6 /* BorisBlackBloxx.ttf */; };
 		E4451146112E95AC00AF94E6 /* Cardo98s.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4451140112E95AC00AF94E6 /* Cardo98s.ttf */; };
 		E4451147112E95AC00AF94E6 /* Charybdis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4451141112E95AC00AF94E6 /* Charybdis.ttf */; };
@@ -70,7 +69,6 @@
 		7914067B0DBAD8D100C9A379 /* Delegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Delegate.mm; path = Classes/Delegate.mm; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ftgles.xcodeproj; path = ../../ftgles/ftgles.xcodeproj; sourceTree = SOURCE_ROOT; };
-		E445113E112E95AC00AF94E6 /* Arial Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Arial Black.ttf"; path = "Fonts/Arial Black.ttf"; sourceTree = "<group>"; };
 		E445113F112E95AC00AF94E6 /* BorisBlackBloxx.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BorisBlackBloxx.ttf; path = Fonts/BorisBlackBloxx.ttf; sourceTree = "<group>"; };
 		E4451140112E95AC00AF94E6 /* Cardo98s.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Cardo98s.ttf; path = Fonts/Cardo98s.ttf; sourceTree = "<group>"; };
 		E4451141112E95AC00AF94E6 /* Charybdis.ttf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Charybdis.ttf; path = Fonts/Charybdis.ttf; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 		63B7CA9C10A23C1700E709A5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E445113E112E95AC00AF94E6 /* Arial Black.ttf */,
 				E445113F112E95AC00AF94E6 /* BorisBlackBloxx.ttf */,
 				E4451140112E95AC00AF94E6 /* Cardo98s.ttf */,
 				E4451141112E95AC00AF94E6 /* Charybdis.ttf */,
@@ -254,7 +251,6 @@
 				63B7CA9610A23BB800E709A5 /* Gartentika.ttf in Resources */,
 				63B7CA9710A23BB800E709A5 /* Diavlo_BLACK_II_37.otf in Resources */,
 				63B7CA9810A23BB800E709A5 /* brown_bear_funk.ttf in Resources */,
-				E4451144112E95AC00AF94E6 /* Arial Black.ttf in Resources */,
 				E4451145112E95AC00AF94E6 /* BorisBlackBloxx.ttf in Resources */,
 				E4451146112E95AC00AF94E6 /* Cardo98s.ttf in Resources */,
 				E4451147112E95AC00AF94E6 /* Charybdis.ttf in Resources */,

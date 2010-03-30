@@ -192,6 +192,21 @@
 			E479B8961161F3450088CFA0 /* PBXTextBookmark */ = E479B8961161F3450088CFA0 /* PBXTextBookmark */;
 			E479B8981161F3450088CFA0 /* PBXTextBookmark */ = E479B8981161F3450088CFA0 /* PBXTextBookmark */;
 			E479B8991161F3450088CFA0 /* PBXTextBookmark */ = E479B8991161F3450088CFA0 /* PBXTextBookmark */;
+			E479B8A91161FE750088CFA0 /* PBXBookmark */ = E479B8A91161FE750088CFA0 /* PBXBookmark */;
+			E479B8AA1161FE750088CFA0 /* PBXTextBookmark */ = E479B8AA1161FE750088CFA0 /* PBXTextBookmark */;
+			E479B8AB1161FE750088CFA0 /* PBXTextBookmark */ = E479B8AB1161FE750088CFA0 /* PBXTextBookmark */;
+			E479B8AC1161FE750088CFA0 /* PBXTextBookmark */ = E479B8AC1161FE750088CFA0 /* PBXTextBookmark */;
+			E479B8AD1161FE750088CFA0 /* PBXTextBookmark */ = E479B8AD1161FE750088CFA0 /* PBXTextBookmark */;
+			E479B8AE1161FE750088CFA0 /* PBXTextBookmark */ = E479B8AE1161FE750088CFA0 /* PBXTextBookmark */;
+			E479B8AF1161FE750088CFA0 /* PBXTextBookmark */ = E479B8AF1161FE750088CFA0 /* PBXTextBookmark */;
+			E479B8B01161FE750088CFA0 /* PBXTextBookmark */ = E479B8B01161FE750088CFA0 /* PBXTextBookmark */;
+			E479B8B11161FE750088CFA0 /* PBXTextBookmark */ = E479B8B11161FE750088CFA0 /* PBXTextBookmark */;
+			E479B8B21161FE750088CFA0 /* PBXTextBookmark */ = E479B8B21161FE750088CFA0 /* PBXTextBookmark */;
+			E479B8B31161FE750088CFA0 /* PBXTextBookmark */ = E479B8B31161FE750088CFA0 /* PBXTextBookmark */;
+			E479B8CA116200570088CFA0 /* PBXTextBookmark */ = E479B8CA116200570088CFA0 /* PBXTextBookmark */;
+			E479B8CB116200570088CFA0 /* PBXTextBookmark */ = E479B8CB116200570088CFA0 /* PBXTextBookmark */;
+			E479B8CC116200570088CFA0 /* PBXTextBookmark */ = E479B8CC116200570088CFA0 /* PBXTextBookmark */;
+			E479B8CD116200570088CFA0 /* PBXTextBookmark */ = E479B8CD116200570088CFA0 /* PBXTextBookmark */;
 			E4D14640112E718000CAD4E4 = E4D14640112E718000CAD4E4 /* PBXTextBookmark */;
 			E4D1468C112E74A200CAD4E4 = E4D1468C112E74A200CAD4E4 /* PBXTextBookmark */;
 			E4D14759112E84A400CAD4E4 = E4D14759112E84A400CAD4E4 /* PBXTextBookmark */;
@@ -216,21 +231,22 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1032, 1638}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{2462, 1566}";
+			sepNavVisRange = "{0, 2539}";
 		};
 	};
 	63AF0C180F5F2D2500BF520B /* EAGLView.mm */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1881, 3770}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{7756, 1459}";
+			sepNavVisRange = "{7755, 1460}";
 		};
 	};
 	63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1251, 2418}}";
-			sepNavSelRange = "{3725, 0}";
-			sepNavVisRange = "{3383, 1308}";
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 2392}}";
+			sepNavSelRange = "{3087, 0}";
+			sepNavVisRange = "{2662, 861}";
+			sepNavWindowFrame = "{{15, 495}, {750, 558}}";
 		};
 	};
 	63AF0F9D0F5F2FA300BF520B /* ViewController.h */ = {
@@ -256,9 +272,9 @@
 	};
 	7914067B0DBAD8D100C9A379 /* Delegate.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1032, 1040}}";
-			sepNavSelRange = "{1204, 0}";
-			sepNavVisRange = "{1087, 1252}";
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 1066}}";
+			sepNavSelRange = "{0, 1085}";
+			sepNavVisRange = "{0, 1533}";
 		};
 	};
 	E440405C113134250028DF09 /* PBXTextBookmark */ = {
@@ -438,15 +454,15 @@
 	E479B6EF1161C4460088CFA0 /* TextureLoader.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1032, 622}}";
-			sepNavSelRange = "{191, 0}";
-			sepNavVisRange = "{0, 394}";
+			sepNavSelRange = "{609, 0}";
+			sepNavVisRange = "{0, 1339}";
 		};
 	};
 	E479B6F01161C4460088CFA0 /* TextureLoader.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1032, 622}}";
-			sepNavSelRange = "{193, 0}";
-			sepNavVisRange = "{0, 1256}";
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 806}}";
+			sepNavSelRange = "{791, 0}";
+			sepNavVisRange = "{0, 1648}";
 		};
 	};
 	E479B6F91161D08A0088CFA0 /* XCBuildMessageTextBookmark */ = {
@@ -526,7 +542,7 @@
 		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
 		name = "TextureLoader.mm: 15";
 		rLen = 0;
-		rLoc = 370;
+		rLoc = 1314;
 		rType = 0;
 		vrLen = 1375;
 		vrLoc = 0;
@@ -546,7 +562,7 @@
 		fRef = E479B6EF1161C4460088CFA0 /* TextureLoader.h */;
 		name = "TextureLoader.h: 11";
 		rLen = 0;
-		rLoc = 192;
+		rLoc = 1137;
 		rType = 0;
 		vrLen = 445;
 		vrLoc = 0;
@@ -556,7 +572,7 @@
 		fRef = E479B6EF1161C4460088CFA0 /* TextureLoader.h */;
 		name = "TextureLoader.h: 11";
 		rLen = 0;
-		rLoc = 192;
+		rLoc = 1137;
 		rType = 0;
 		vrLen = 445;
 		vrLoc = 0;
@@ -625,7 +641,7 @@
 		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
 		name = "TextureLoader.mm: 20";
 		rLen = 0;
-		rLoc = 1254;
+		rLoc = 2198;
 		rType = 0;
 		vrLen = 1376;
 		vrLoc = 0;
@@ -635,7 +651,7 @@
 		fRef = E479B6EF1161C4460088CFA0 /* TextureLoader.h */;
 		name = "TextureLoader.h: 12";
 		rLen = 0;
-		rLoc = 251;
+		rLoc = 1196;
 		rType = 0;
 		vrLen = 409;
 		vrLoc = 0;
@@ -645,7 +661,7 @@
 		fRef = E479B6EF1161C4460088CFA0 /* TextureLoader.h */;
 		name = "TextureLoader.h: 16";
 		rLen = 0;
-		rLoc = 251;
+		rLoc = 1196;
 		rType = 0;
 		vrLen = 409;
 		vrLoc = 0;
@@ -702,7 +718,7 @@
 		fRef = E479B6EF1161C4460088CFA0 /* TextureLoader.h */;
 		name = "TextureLoader.h: 19";
 		rLen = 0;
-		rLoc = 394;
+		rLoc = 1339;
 		rType = 0;
 		vrLen = 409;
 		vrLoc = 0;
@@ -722,7 +738,7 @@
 		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
 		name = "TextureLoader.mm: 20";
 		rLen = 0;
-		rLoc = 1254;
+		rLoc = 2198;
 		rType = 0;
 		vrLen = 1357;
 		vrLoc = 24;
@@ -732,7 +748,7 @@
 		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
 		name = "TextureLoader.mm: 27";
 		rLen = 0;
-		rLoc = 1256;
+		rLoc = 2200;
 		rType = 0;
 		vrLen = 1357;
 		vrLoc = 24;
@@ -762,7 +778,7 @@
 		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
 		name = "TextureLoader.mm: 49";
 		rLen = 0;
-		rLoc = 1256;
+		rLoc = 2200;
 		rType = 0;
 		vrLen = 1349;
 		vrLoc = 37;
@@ -772,7 +788,7 @@
 		fRef = E479B6EF1161C4460088CFA0 /* TextureLoader.h */;
 		name = "TextureLoader.h: 19";
 		rLen = 0;
-		rLoc = 301;
+		rLoc = 1246;
 		rType = 0;
 		vrLen = 404;
 		vrLoc = 0;
@@ -782,7 +798,7 @@
 		fRef = E479B6EF1161C4460088CFA0 /* TextureLoader.h */;
 		name = "TextureLoader.h: 12";
 		rLen = 0;
-		rLoc = 251;
+		rLoc = 1196;
 		rType = 0;
 		vrLen = 402;
 		vrLoc = 0;
@@ -861,7 +877,7 @@
 		fRef = E479B6EF1161C4460088CFA0 /* TextureLoader.h */;
 		name = "TextureLoader.h: 10";
 		rLen = 0;
-		rLoc = 191;
+		rLoc = 1136;
 		rType = 0;
 		vrLen = 464;
 		vrLoc = 0;
@@ -881,7 +897,7 @@
 		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
 		name = "TextureLoader.mm: 21";
 		rLen = 0;
-		rLoc = 1256;
+		rLoc = 2200;
 		rType = 0;
 		vrLen = 1357;
 		vrLoc = 40;
@@ -891,7 +907,7 @@
 		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
 		name = "TextureLoader.mm: 21";
 		rLen = 0;
-		rLoc = 1256;
+		rLoc = 2200;
 		rType = 0;
 		vrLen = 1357;
 		vrLoc = 40;
@@ -911,7 +927,7 @@
 		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
 		name = "TextureLoader.mm: 49";
 		rLen = 0;
-		rLoc = 1256;
+		rLoc = 2200;
 		rType = 0;
 		vrLen = 1344;
 		vrLoc = 37;
@@ -921,7 +937,7 @@
 		fRef = E479B6EF1161C4460088CFA0 /* TextureLoader.h */;
 		name = "TextureLoader.h: 27";
 		rLen = 0;
-		rLoc = 394;
+		rLoc = 1339;
 		rType = 0;
 		vrLen = 512;
 		vrLoc = 0;
@@ -1031,7 +1047,7 @@
 		fRef = E479B6EF1161C4460088CFA0 /* TextureLoader.h */;
 		name = "TextureLoader.h: 11";
 		rLen = 0;
-		rLoc = 191;
+		rLoc = 1136;
 		rType = 0;
 		vrLen = 394;
 		vrLoc = 0;
@@ -1041,7 +1057,7 @@
 		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
 		name = "TextureLoader.mm: 12";
 		rLen = 0;
-		rLoc = 193;
+		rLoc = 1137;
 		rType = 0;
 		vrLen = 1256;
 		vrLoc = 0;
@@ -1086,7 +1102,7 @@
 		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
 		name = "ViewController.cpp: 144";
 		rLen = 0;
-		rLoc = 3856;
+		rLoc = 3882;
 		rType = 0;
 		vrLen = 928;
 		vrLoc = 2957;
@@ -1096,7 +1112,7 @@
 		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
 		name = "ViewController.cpp: 107";
 		rLen = 0;
-		rLoc = 3061;
+		rLoc = 3087;
 		rType = 0;
 		vrLen = 873;
 		vrLoc = 2862;
@@ -1106,7 +1122,7 @@
 		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
 		name = "ViewController.cpp: 107";
 		rLen = 0;
-		rLoc = 3061;
+		rLoc = 3087;
 		rType = 0;
 		vrLen = 871;
 		vrLoc = 2862;
@@ -1116,7 +1132,7 @@
 		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
 		name = "ViewController.cpp: 146";
 		rLen = 0;
-		rLoc = 3858;
+		rLoc = 3884;
 		rType = 0;
 		vrLen = 1075;
 		vrLoc = 3362;
@@ -1126,7 +1142,7 @@
 		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
 		name = "ViewController.cpp: 141";
 		rLen = 0;
-		rLoc = 3727;
+		rLoc = 3753;
 		rType = 0;
 		vrLen = 1131;
 		vrLoc = 3331;
@@ -1136,7 +1152,7 @@
 		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
 		name = "ViewController.cpp: 141";
 		rLen = 0;
-		rLoc = 3727;
+		rLoc = 3753;
 		rType = 0;
 		vrLen = 1152;
 		vrLoc = 3279;
@@ -1146,7 +1162,7 @@
 		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
 		name = "ViewController.cpp: 141";
 		rLen = 0;
-		rLoc = 3727;
+		rLoc = 3753;
 		rType = 0;
 		vrLen = 1106;
 		vrLoc = 3279;
@@ -1156,7 +1172,7 @@
 		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
 		name = "ViewController.cpp: 141";
 		rLen = 0;
-		rLoc = 3727;
+		rLoc = 3753;
 		rType = 0;
 		vrLen = 1524;
 		vrLoc = 0;
@@ -1236,7 +1252,7 @@
 		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
 		name = "ViewController.cpp: 148";
 		rLen = 0;
-		rLoc = 3858;
+		rLoc = 3884;
 		rType = 0;
 		vrLen = 1281;
 		vrLoc = 3409;
@@ -1272,10 +1288,154 @@
 		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
 		name = "ViewController.cpp: 143";
 		rLen = 0;
-		rLoc = 3725;
+		rLoc = 3751;
 		rType = 0;
 		vrLen = 1308;
 		vrLoc = 3383;
+	};
+	E479B8A91161FE750088CFA0 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = E479B7C71161D9660088CFA0 /* mousePoint.png */;
+	};
+	E479B8AA1161FE750088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7914067A0DBAD8D100C9A379 /* Delegate.h */;
+		name = "Delegate.h: 28";
+		rLen = 0;
+		rLoc = 1148;
+		rType = 0;
+		vrLen = 1236;
+		vrLoc = 0;
+	};
+	E479B8AB1161FE750088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */;
+		name = "Delegate.mm: 1";
+		rLen = 1085;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1533;
+		vrLoc = 0;
+	};
+	E479B8AC1161FE750088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63AF0F9D0F5F2FA300BF520B /* ViewController.h */;
+		name = "ViewController.h: 26";
+		rLen = 0;
+		rLoc = 1138;
+		rType = 0;
+		vrLen = 1394;
+		vrLoc = 0;
+	};
+	E479B8AD1161FE750088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
+		name = "ViewController.cpp: 143";
+		rLen = 0;
+		rLoc = 3751;
+		rType = 0;
+		vrLen = 1524;
+		vrLoc = 0;
+	};
+	E479B8AE1161FE750088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63AF0C170F5F2D2500BF520B /* EAGLView.h */;
+		name = "EAGLView.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2539;
+		vrLoc = 0;
+	};
+	E479B8AF1161FE750088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63AF0C180F5F2D2500BF520B /* EAGLView.mm */;
+		name = "EAGLView.mm: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1460;
+		vrLoc = 7755;
+	};
+	E479B8B01161FE750088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63B7C93D10A218E500E709A5 /* main.m */;
+		name = "main.m: 22";
+		rLen = 0;
+		rLoc = 1081;
+		rType = 0;
+		vrLen = 1293;
+		vrLoc = 0;
+	};
+	E479B8B11161FE750088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E479B6EF1161C4460088CFA0 /* TextureLoader.h */;
+		name = "TextureLoader.h: 13";
+		rLen = 0;
+		rLoc = 609;
+		rType = 0;
+		vrLen = 1339;
+		vrLoc = 0;
+	};
+	E479B8B21161FE750088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
+		name = "TextureLoader.mm: 23";
+		rLen = 0;
+		rLoc = 1085;
+		rType = 0;
+		vrLen = 1648;
+		vrLoc = 0;
+	};
+	E479B8B31161FE750088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
+		name = "TextureLoader.mm: 17";
+		rLen = 0;
+		rLoc = 791;
+		rType = 0;
+		vrLen = 1648;
+		vrLoc = 0;
+	};
+	E479B8CA116200570088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */;
+		name = "TextureLoader.mm: 17";
+		rLen = 0;
+		rLoc = 791;
+		rType = 0;
+		vrLen = 1648;
+		vrLoc = 0;
+	};
+	E479B8CB116200570088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7914067A0DBAD8D100C9A379 /* Delegate.h */;
+		name = "Delegate.h: 28";
+		rLen = 0;
+		rLoc = 1148;
+		rType = 0;
+		vrLen = 1236;
+		vrLoc = 0;
+	};
+	E479B8CC116200570088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63AF0F9D0F5F2FA300BF520B /* ViewController.h */;
+		name = "ViewController.h: 26";
+		rLen = 0;
+		rLoc = 1138;
+		rType = 0;
+		vrLen = 1394;
+		vrLoc = 0;
+	};
+	E479B8CD116200570088CFA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
+		name = "ViewController.cpp: 109";
+		rLen = 0;
+		rLoc = 3087;
+		rType = 0;
+		vrLen = 861;
+		vrLoc = 2662;
 	};
 	E493D68B10D122CB0020CDF5 /* BasicDemo */ = {
 		isa = PBXExecutable;
