@@ -27,11 +27,14 @@ not supported.
 ===========
 USAGE:
 
-While rendering:
-
-	ftglInitImmediateModeGL();
+Creating a font from a truetype file:
+	
 	FTFont *font = new FTTextureFont("myfont.ttf");
 	font->FaceSize(72);
+	
+Rendering the font:
+
+	ftglInitImmediateModeGL();
 	font->render("Lorem ipsum dolor sit amet");
 
 See XCode/demo for an in-depth example that can run on an iPhone.
