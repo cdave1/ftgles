@@ -332,7 +332,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>E48DCBFA1165F4FB0002AB11</string>
+										<string>E48DCC191165F6390002AB11</string>
 										<key>history</key>
 										<array>
 											<string>E4D14640112E718000CAD4E4</string>
@@ -555,6 +555,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>E48DCC0B1165F5E70002AB11</string>
+		<string>E48DCC0C1165F5E70002AB11</string>
+		<string>1C78EAAD065D492600B07095</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>E45B368F112B7CC700E5B2E6</string>
 		<string>/Users/davidpetrie/Documents/Projects/ftgles/iPhone/demos/Unicode/UnicodeDemo.xcodeproj</string>
 	</array>
@@ -758,13 +762,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>E4E7CFA6116468EC008FAD8A</string>
+				<string>E48DCC031165F5E70002AB11</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>E4E7CFA7116468EC008FAD8A</string>
-				<string>E4E7CFA8116468EC008FAD8A</string>
-				<string>E4E7CFA9116468EC008FAD8A</string>
-				<string>E4E7CFAA116468EC008FAD8A</string>
-				<string>E4E7CFAB116468EC008FAD8A</string>
+				<string>E48DCC041165F5E70002AB11</string>
+				<string>E48DCC051165F5E70002AB11</string>
+				<string>E48DCC061165F5E70002AB11</string>
+				<string>E48DCC071165F5E70002AB11</string>
+				<string>E48DCC081165F5E70002AB11</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -916,7 +920,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>E4E7CFAC116468EC008FAD8A</string>
+				<string>E48DCC091165F5E70002AB11</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

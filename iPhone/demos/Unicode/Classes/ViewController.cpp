@@ -52,7 +52,7 @@ ViewController::ViewController(const char* path)
     {
         printf("Could not load font `%s'\n", fontname);
     }
-	font->FaceSize(20);
+	font->FaceSize(25);
 	font->CharMap(ft_encoding_unicode);
 	
 	layout.SetLineLength(320.0f);
@@ -89,7 +89,7 @@ void ViewController::Draw()
 	
 	glPushMatrix();
 	
-	glTranslatef(0.0f, 240.0f, 0.0f);
+	glTranslatef(0.0f, 340.0f, 0.0f);
 	
 	glPushMatrix();
 	glTranslatef(0.0f, 60.0f, 0.0f);
