@@ -22,6 +22,9 @@
 extern "C" {
 #endif
 	
+	/**
+	 * This function is deprecated.
+	 */
 	extern GLvoid ftglInitImmediateModeGL();
 	
 	extern GLvoid ftglBegin( GLenum prim );

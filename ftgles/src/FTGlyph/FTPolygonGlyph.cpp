@@ -143,14 +143,13 @@ void FTPolygonGlyphImpl::DoRender()
 		glBindTexture(GL_TEXTURE_2D, 0);
 		
         ftglBegin(polygonType);
-		
 		ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
-            for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
-            {
-                FTPoint point = subMesh->Point(i);
-                ftglTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
-                ftglVertex3f(point.Xf() / 64.0f, point.Yf() / 64.0f, 0.0f);
-            }
+		for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
+		{
+			FTPoint point = subMesh->Point(i);
+			ftglTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
+			ftglVertex3f(point.Xf() / 64.0f, point.Yf() / 64.0f, 0.0f);
+		}
         ftglEnd();
     }
 }

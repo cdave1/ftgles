@@ -82,29 +82,12 @@ FTOutlineGlyphImpl::FTOutlineGlyphImpl(FT_GlyphSlot glyph, float _outset,
     }
 
     outset = _outset;
-
-    if(useDisplayList)
-    {
-        //glList = glGenLists(1);
-       // glNewList(glList, GL_COMPILE);
-
-        DoRender();
-
-        //glEndList();
-
-        delete vectoriser;
-        vectoriser = NULL;
-    }
 }
 
 
 FTOutlineGlyphImpl::~FTOutlineGlyphImpl()
 {
-    if(glList)
-    {
-        //glDeleteLists(glList, 1);
-    }
-    else if(vectoriser)
+	if (vectoriser)
     {
         delete vectoriser;
     }
@@ -115,11 +98,7 @@ const FTPoint& FTOutlineGlyphImpl::RenderImpl(const FTPoint& pen,
                                               int renderMode)
 {
     glTranslatef(pen.Xf(), pen.Yf(), pen.Zf());
-    if(glList)
-    {
-        //glCallList(glList);
-    }
-    else if(vectoriser)
+	if(vectoriser)
     {
         DoRender();
     }
@@ -131,11 +110,16 @@ const FTPoint& FTOutlineGlyphImpl::RenderImpl(const FTPoint& pen,
 
 void FTOutlineGlyphImpl::DoRender()
 {
+	GLfloat colors[4];
+	
     for(unsigned int c = 0; c < vectoriser->ContourCount(); ++c)
     {
         const FTContour* contour = vectoriser->Contour(c);
 		
+		glGetFloatv(GL_CURRENT_COLOR, colors);
+		glBindTexture(GL_TEXTURE_2D, 0);
         ftglBegin(GL_LINE_LOOP);
+		ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
 		for(unsigned int i = 0; i < contour->PointCount(); ++i)
 		{
 			FTPoint point = FTPoint(contour->Point(i).X() + contour->Outset(i).X() * outset,

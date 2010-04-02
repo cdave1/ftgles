@@ -115,12 +115,24 @@ const FTPoint& FTBitmapGlyphImpl::RenderImpl(const FTPoint& pen, int renderMode)
 
         dx = pen.Xf() + pos.Xf();
         dy = pen.Yf() - pos.Yf();
-/*
-        glBitmap(0, 0, 0.0f, 0.0f, dx, dy, (const GLubyte*)0);
-        glPixelStorei(GL_UNPACK_ROW_LENGTH, destPitch * 8);
-        glBitmap(destWidth, destHeight, 0.0f, 0.0, 0.0, 0.0,
-                 (const GLubyte*)data);
-        glBitmap(0, 0, 0.0f, 0.0f, -dx, -dy, (const GLubyte*)0); */
+
+        //glBitmap(0, 0, 0.0f, 0.0f, dx, dy, (const GLubyte*)0);
+        //glPixelStorei(GL_PACK_ALIGNMENT, destPitch * 8);
+        //glBitmap(destWidth, destHeight, 0.0f, 0.0, 0.0, 0.0,
+        //         (const GLubyte*)data);
+        //glBitmap(0, 0, 0.0f, 0.0f, -dx, -dy, (const GLubyte*)0);
+		
+		//glRasterPos
+		/*
+		glTexSubImage2D(GL_TEXTURE_2D,
+						0,
+						0.0f, 0.0f,
+						destWidth, destHeight,
+						GL_RGBA, GL_UNSIGNED_BYTE,
+						(const GLubyte*)data);
+		*/
+		
+		
     }
 
     return advance;

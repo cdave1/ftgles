@@ -28,13 +28,15 @@ bool initted = false;
 
 GLvoid ftglInitImmediateModeGL() 
 {
-	glVertexPointer(3, GL_FLOAT, sizeof(Vertex), immediate[0].xyz);
-	glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), immediate[0].st);
-	glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(Vertex), immediate[0].c);
-	
-	if (initted == false)
+}
+
+
+GLvoid ftglBegin(GLenum prim) 
+{
+	if (!initted)
 	{
-		for (int i = 0; i < MAX_VERTS * 3 / 2; i+=6) {
+		for (int i = 0; i < MAX_VERTS * 3 / 2; i += 6) 
+		{
 			int q = i / 6 * 4;
 			quad_indexes[i + 0] = q + 0;
 			quad_indexes[i + 1] = q + 1;
@@ -44,17 +46,8 @@ GLvoid ftglInitImmediateModeGL()
 			quad_indexes[i + 4] = q + 2;
 			quad_indexes[i + 5] = q + 3;
 		}
-		
-		glEnableClientState(GL_VERTEX_ARRAY);
-		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-		glEnableClientState(GL_COLOR_ARRAY);
 		initted = true;
 	}
-}
-
-
-GLvoid ftglBegin(GLenum prim) 
-{
 	curr_vertex = 0;
 	curr_prim = prim;
 }
@@ -109,6 +102,58 @@ GLvoid ftglTexCoord2f(GLfloat s, GLfloat t)
 
 GLvoid ftglEnd() 
 {
+	GLboolean vertexArrayEnabled;
+	GLboolean texCoordArrayEnabled;
+	GLboolean colorArrayEnabled;
+	
+	GLvoid * vertexArrayPointer;
+	GLvoid * texCoordArrayPointer;
+	GLvoid * colorArrayPointer;
+	
+	GLint vertexArrayType, texCoordArrayType, colorArrayType;
+	GLint vertexArraySize, texCoordArraySize, colorArraySize;
+	GLsizei vertexArrayStride, texCoordArrayStride, colorArrayStride;
+	
+	bool resetPointers = false;
+	
+	glGetPointerv(GL_VERTEX_ARRAY_POINTER, &vertexArrayPointer);
+	glGetPointerv(GL_TEXTURE_COORD_ARRAY_POINTER, &texCoordArrayPointer);
+	glGetPointerv(GL_COLOR_ARRAY_POINTER, &colorArrayPointer);
+
+	glGetBooleanv(GL_VERTEX_ARRAY, &vertexArrayEnabled);
+	glGetBooleanv(GL_TEXTURE_COORD_ARRAY, &texCoordArrayEnabled);
+	glGetBooleanv(GL_COLOR_ARRAY, &colorArrayEnabled);
+
+	if (vertexArrayPointer != &immediate[0].xyz)
+	{
+		glVertexPointer(3, GL_FLOAT, sizeof(Vertex), immediate[0].xyz);
+		glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), immediate[0].st);
+		glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(Vertex), immediate[0].c);
+		
+		resetPointers = true;
+		
+		glGetIntegerv(GL_VERTEX_ARRAY_TYPE, &vertexArrayType);
+		glGetIntegerv(GL_VERTEX_ARRAY_SIZE, &vertexArraySize);
+		glGetIntegerv(GL_VERTEX_ARRAY_STRIDE, &vertexArrayStride);
+		
+		glGetIntegerv(GL_TEXTURE_COORD_ARRAY_TYPE, &texCoordArrayType);
+		glGetIntegerv(GL_TEXTURE_COORD_ARRAY_SIZE, &texCoordArraySize);
+		glGetIntegerv(GL_TEXTURE_COORD_ARRAY_STRIDE, &texCoordArrayStride);
+		
+		glGetIntegerv(GL_COLOR_ARRAY_TYPE, &colorArrayType);
+		glGetIntegerv(GL_COLOR_ARRAY_SIZE, &colorArraySize);
+		glGetIntegerv(GL_COLOR_ARRAY_STRIDE, &colorArrayStride);
+	}
+	
+	if (!vertexArrayEnabled)
+		glEnableClientState(GL_VERTEX_ARRAY);
+	
+	if (!texCoordArrayEnabled)
+		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	
+	if (!colorArrayEnabled)
+		glEnableClientState(GL_COLOR_ARRAY);
+
 	if (curr_vertex == 0) 
 	{
 		curr_prim = 0;
@@ -125,6 +170,16 @@ GLvoid ftglEnd()
 	}
 	curr_vertex = 0;
 	curr_prim = 0;
+	
+	if (resetPointers)
+	{
+		glVertexPointer(vertexArraySize, vertexArrayType, 
+						vertexArrayStride, vertexArrayPointer);
+		glTexCoordPointer(texCoordArraySize, texCoordArrayType, 
+						  texCoordArrayStride, texCoordArrayPointer);
+		glColorPointer(colorArraySize, colorArrayType, 
+					   colorArrayStride, colorArrayPointer);
+	}
 }
 
 
