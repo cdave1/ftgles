@@ -44,7 +44,7 @@
 /* Begin PBXFileReference section */
 		1B26781D0DA2F9B000B24DA5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* BasicDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* UnicodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnicodeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -84,7 +84,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* BasicDemo.app */,
+				1D6058910D05DD3D006BFB54 /* UnicodeDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,9 +167,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* BasicDemo */ = {
+		1D6058900D05DD3D006BFB54 /* UnicodeDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "BasicDemo" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "UnicodeDemo" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -180,9 +180,9 @@
 			dependencies = (
 				E431F7F0112E8F0B00E393A2 /* PBXTargetDependency */,
 			);
-			name = BasicDemo;
+			name = UnicodeDemo;
 			productName = foo;
-			productReference = 1D6058910D05DD3D006BFB54 /* BasicDemo.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* UnicodeDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -203,7 +203,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* BasicDemo */,
+				1D6058900D05DD3D006BFB54 /* UnicodeDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -291,7 +291,7 @@
 				OTHER_LDFLAGS = "";
 				PREBINDING = YES;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				PRODUCT_NAME = BasicDemo;
+				PRODUCT_NAME = UnicodeDemo;
 				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				USER_HEADER_SEARCH_PATHS = "../../../freetype-2.3.9/include/**";
@@ -320,7 +320,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				PREBINDING = NO;
-				PRODUCT_NAME = BasicDemo;
+				PRODUCT_NAME = UnicodeDemo;
 				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				USER_HEADER_SEARCH_PATHS = "../../../freetype-2.3.9/include/**";
@@ -356,7 +356,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "BasicDemo" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "UnicodeDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,

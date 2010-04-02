@@ -579,6 +579,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -594,7 +595,8 @@
 				GCC_VERSION = 4.2;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = "../../freetype-2.3.9/include/freetype/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 2.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
@@ -608,6 +610,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = NO;
@@ -621,22 +624,15 @@
 				);
 				GCC_THUMB_SUPPORT = YES;
 				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					../ftgles/src,
-					"../freetype-2.3.9/include",
-				);
-				IPHONEOS_DEPLOYMENT_TARGET = 2.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../ftgles/src/iGLU-1.0.0\"",
-				);
-				ONLY_ACTIVE_ARCH = YES;
+				HEADER_SEARCH_PATHS = "../../freetype-2.3.9/include/freetype/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = FTGLES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				USER_HEADER_SEARCH_PATHS = "../freetype-2.3.9/include ../freetype-2.3.9/src";
+				USER_HEADER_SEARCH_PATHS = "../../ftgles/src ../../freetype-2.3.9/include";
 				ZERO_LINK = NO;
 			};
 			name = Release;

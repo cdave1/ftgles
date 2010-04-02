@@ -1,7 +1,7 @@
 // !$*UTF8*$!
 {
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
-		activeBuildConfigurationName = Debug;
+		activeBuildConfigurationName = Release;
 		activeSDKPreference = iphoneos3.1.3;
 		activeTarget = 6382B1B00FB0FC5100ECAC02 /* Freetype2 */;
 		addToTargets = (
@@ -79,12 +79,12 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 291632446;
-			PBXWorkspaceStateSaveDate = 291632446;
+			PBXPerProjectTemplateStateSaveDate = 291897225;
+			PBXWorkspaceStateSaveDate = 291897225;
 		};
 		perUserProjectItems = {
-			E431F82E112E91A500E393A2 /* PBXTextBookmark */ = E431F82E112E91A500E393A2 /* PBXTextBookmark */;
-			E479B8A11161F5480088CFA0 /* PBXTextBookmark */ = E479B8A11161F5480088CFA0 /* PBXTextBookmark */;
+			E48DCCD31165FEBA0002AB11 /* PBXTextBookmark */ = E48DCCD31165FEBA0002AB11 /* PBXTextBookmark */;
+			E48DCCEF1165FF990002AB11 /* PBXTextBookmark */ = E48DCCEF1165FF990002AB11 /* PBXTextBookmark */;
 			E4D14640112E718000CAD4E4 /* PBXTextBookmark */ = E4D14640112E718000CAD4E4 /* PBXTextBookmark */;
 			E4D1468C112E74A200CAD4E4 /* PBXTextBookmark */ = E4D1468C112E74A200CAD4E4 /* PBXTextBookmark */;
 			E4D14759112E84A400CAD4E4 /* PBXTextBookmark */ = E4D14759112E84A400CAD4E4 /* PBXTextBookmark */;
@@ -114,34 +114,34 @@
 			sepNavVisRange = "{6292, 2336}";
 		};
 	};
-	E431F82E112E91A500E393A2 /* PBXTextBookmark */ = {
+	E48DCCD31165FEBA0002AB11 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = E431F82F112E91A500E393A2 /* config.h */;
-		name = "config.h: 1";
+		fRef = E48DCCD41165FEBA0002AB11 /* config.h */;
+		name = "config.h: 4";
 		rLen = 0;
-		rLoc = 0;
+		rLoc = 167;
 		rType = 0;
-		vrLen = 1497;
+		vrLen = 1410;
 		vrLoc = 0;
 	};
-	E431F82F112E91A500E393A2 /* config.h */ = {
+	E48DCCD41165FEBA0002AB11 /* config.h */ = {
 		isa = PBXFileReference;
 		lastKnownFileType = sourcecode.c.h;
 		name = config.h;
 		path = /Users/davidpetrie/Desktop/FTGLES/ftgles/config.h;
 		sourceTree = "<absolute>";
 	};
-	E479B8A11161F5480088CFA0 /* PBXTextBookmark */ = {
+	E48DCCEF1165FF990002AB11 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = E479B8A21161F5480088CFA0 /* config.h */;
-		name = "config.h: 1";
+		fRef = E48DCCF01165FF990002AB11 /* config.h */;
+		name = "config.h: 4";
 		rLen = 0;
-		rLoc = 0;
+		rLoc = 167;
 		rType = 0;
-		vrLen = 1488;
+		vrLen = 1410;
 		vrLoc = 0;
 	};
-	E479B8A21161F5480088CFA0 /* config.h */ = {
+	E48DCCF01165FF990002AB11 /* config.h */ = {
 		isa = PBXFileReference;
 		name = config.h;
 		path = /Users/davidpetrie/Desktop/FTGLES/ftgles/config.h;
@@ -277,7 +277,7 @@
 		ignoreCount = 0;
 		lineNumber = 251;
 		location = iPhonefonts;
-		modificationTime = 291630261.571651;
+		modificationTime = 291897154.080516;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};

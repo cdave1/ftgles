@@ -104,10 +104,10 @@ void demoGlEnd()
 }
 
 
-const char *polygonFontText = "FTGL ES on an iPhone!";
+const char *polygonFontText = "This is a polygon font";
 const char *textureFontText = "Lorem ipsum dolor sit amet.";
 const char *outlineFontText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, \
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+sed do eiusmod tempor incididunt";
 
 
 ViewController::ViewController(const char* path)
@@ -147,7 +147,7 @@ ViewController::ViewController(const char* path)
 	layouts[1].SetAlignment(FTGL::ALIGN_CENTER);
 	
 	snprintf(fontname, 256, "%s/BorisBlackBloxx.ttf", path);
-	fonts[2] = new FTOutlineFont(fontname);
+	fonts[2] = new FTTextureFont(fontname);
 	if (fonts[2]->Error())
 	{
         printf("Could not load font `%s'\n", fontname);	
