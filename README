@@ -27,14 +27,18 @@ not supported.
 ===========
 USAGE:
 
-Creating a font from a truetype file:
+Include the library in your code:
+	
+	#include "FTGL/ftgles.h"
+
+Create a font from a truetype file or opentype font:
 	
 	FTFont *font = new FTTextureFont("myfont.ttf");
+	FTFont *font2 = new FTTextureFont("myotherfont.otf");
 	font->FaceSize(72);
 	
-Rendering the font:
+Render text with the font:
 
-	ftglInitImmediateModeGL();
-	font->render("Lorem ipsum dolor sit amet");
+	font->Render("Lorem ipsum dolor sit amet");
 
 See XCode/demo for an in-depth example that can run on an iPhone.
