@@ -141,12 +141,6 @@ GLvoid ftglEnd()
 
 	if (vertexArrayPointer != &immediate[0].xyz)
 	{
-		glVertexPointer(3, GL_FLOAT, sizeof(Vertex), immediate[0].xyz);
-		glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), immediate[0].st);
-		glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(Vertex), immediate[0].c);
-		
-		resetPointers = true;
-		
 		glGetIntegerv(GL_VERTEX_ARRAY_TYPE, &vertexArrayType);
 		glGetIntegerv(GL_VERTEX_ARRAY_SIZE, &vertexArraySize);
 		glGetIntegerv(GL_VERTEX_ARRAY_STRIDE, &vertexArrayStride);
@@ -158,6 +152,12 @@ GLvoid ftglEnd()
 		glGetIntegerv(GL_COLOR_ARRAY_TYPE, &colorArrayType);
 		glGetIntegerv(GL_COLOR_ARRAY_SIZE, &colorArraySize);
 		glGetIntegerv(GL_COLOR_ARRAY_STRIDE, &colorArrayStride);
+		
+		glVertexPointer(3, GL_FLOAT, sizeof(Vertex), immediate[0].xyz);
+		glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), immediate[0].st);
+		glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(Vertex), immediate[0].c);
+		
+		resetPointers = true;
 	}
 	
 	if (!vertexArrayEnabled)
