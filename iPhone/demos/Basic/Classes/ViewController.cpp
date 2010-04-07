@@ -21,7 +21,7 @@
  THE SOFTWARE.
  
  */
- 
+
 /**
  * Demo iPhone app showing ftgles in action.
  */
@@ -107,7 +107,8 @@ void demoGlEnd()
 const char *polygonFontText = "This is a polygon font";
 const char *textureFontText = "Lorem ipsum dolor sit amet.";
 const char *outlineFontText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, \
-sed do eiusmod tempor incididunt";
+sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit.\
+sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit.";
 
 
 ViewController::ViewController(const char* path)
@@ -125,12 +126,12 @@ ViewController::ViewController(const char* path)
         printf("Could not load font `%s'\n", fontname);
     }
 	fonts[0]->FaceSize(40);
-	fonts[0]->CharMap(ft_encoding_unicode);
+	fonts[0]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
 	layouts[0].SetLineLength(320.0f);
 	layouts[0].SetLineSpacing(0.75f);
     layouts[0].SetFont(fonts[0]);
-	layouts[0].SetAlignment(FTGL::ALIGN_CENTER);
+	layouts[0].SetAlignment(FTGL::ALIGN_LEFT);
 	
 	snprintf(fontname, 256, "%s/RosewoodStd-Regular.otf", path);
 	fonts[1] = new FTTextureFont(fontname);
@@ -139,7 +140,7 @@ ViewController::ViewController(const char* path)
         printf("Could not load font `%s'\n", fontname);	
 	}
 	fonts[1]->FaceSize(48);
-	fonts[1]->CharMap(ft_encoding_unicode);
+	fonts[1]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
 	layouts[1].SetLineLength(320.0f);
 	layouts[1].SetLineSpacing(0.75f);
@@ -152,13 +153,13 @@ ViewController::ViewController(const char* path)
 	{
         printf("Could not load font `%s'\n", fontname);	
 	}
-	fonts[2]->FaceSize(20);
-	fonts[2]->CharMap(ft_encoding_unicode);
+	fonts[2]->FaceSize(16);
+	fonts[2]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
-	layouts[2].SetLineLength(320.0f);
+	layouts[2].SetLineLength(300.0f);
 	layouts[2].SetLineSpacing(0.75f);
     layouts[2].SetFont(fonts[2]);
-	layouts[2].SetAlignment(FTGL::ALIGN_CENTER);
+	layouts[2].SetAlignment(FTGL::ALIGN_RIGHT);
 	
 	LoadTexture("mousePoint.png", &aTexture);
 	
@@ -201,6 +202,7 @@ void ViewController::DrawTexturedQuad()
 
 
 static float angle = 0.0f;
+static float faceSize = 40.0f;
 void ViewController::Draw()
 {
 	glClearColor(0.0f, 0.0f, 0.25f, 1.0f);
@@ -219,8 +221,8 @@ void ViewController::Draw()
 	
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
-	DrawTexturedQuad();
-
+	
+	
 	glPushMatrix();	
 	glRotatef(angle, 1.0f, 1.0f, 1.0f);
 	glTranslatef(-160.0f, -240.0f, 0.0f);
@@ -244,6 +246,9 @@ void ViewController::Draw()
 	glPopMatrix();
 	
 	glPopMatrix();
+	
+	DrawTexturedQuad();
+	
 	glPopMatrix();
 	
 	glDisable(GL_BLEND);
@@ -254,5 +259,9 @@ void ViewController::Draw()
 	
 	angle += 0.5f;
 	if (angle >= 360.0f) angle = 0.0f;
+	
+	//fonts[1]->FaceSize(faceSize);
+	//faceSize -= 1.0f;
+	//if (faceSize < 10) faceSize = 120;
 }
 

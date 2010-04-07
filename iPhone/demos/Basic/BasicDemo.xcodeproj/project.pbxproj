@@ -27,6 +27,9 @@
 		E4451147112E95AC00AF94E6 /* Charybdis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4451141112E95AC00AF94E6 /* Charybdis.ttf */; };
 		E4451148112E95AC00AF94E6 /* RosewoodStd-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E4451142112E95AC00AF94E6 /* RosewoodStd-Regular.otf */; };
 		E4451149112E95AC00AF94E6 /* TOONISH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4451143112E95AC00AF94E6 /* TOONISH.ttf */; };
+		E4663CB31166E85100F7A166 /* GLES1Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4663CB21166E85100F7A166 /* GLES1Surface.mm */; };
+		E4663CB71166EAB600F7A166 /* GLESSurface.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4663CB61166EAB600F7A166 /* GLESSurface.mm */; };
+		E4663D921167063200F7A166 /* GLES2Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4663D911167063200F7A166 /* GLES2Surface.mm */; };
 		E479B6F11161C4460088CFA0 /* TextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = E479B6F01161C4460088CFA0 /* TextureLoader.mm */; };
 		E479B7C81161D9660088CFA0 /* mousePoint.png in Resources */ = {isa = PBXBuildFile; fileRef = E479B7C71161D9660088CFA0 /* mousePoint.png */; };
 /* End PBXBuildFile section */
@@ -74,6 +77,12 @@
 		E4451141112E95AC00AF94E6 /* Charybdis.ttf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Charybdis.ttf; path = Fonts/Charybdis.ttf; sourceTree = "<group>"; };
 		E4451142112E95AC00AF94E6 /* RosewoodStd-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RosewoodStd-Regular.otf"; path = "Fonts/RosewoodStd-Regular.otf"; sourceTree = "<group>"; };
 		E4451143112E95AC00AF94E6 /* TOONISH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = TOONISH.ttf; path = Fonts/TOONISH.ttf; sourceTree = "<group>"; };
+		E4663CB11166E85100F7A166 /* GLES1Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLES1Surface.h; path = Classes/GLES1Surface.h; sourceTree = "<group>"; };
+		E4663CB21166E85100F7A166 /* GLES1Surface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLES1Surface.mm; path = Classes/GLES1Surface.mm; sourceTree = "<group>"; };
+		E4663CB51166E9C900F7A166 /* GLESSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLESSurface.h; path = Classes/GLESSurface.h; sourceTree = "<group>"; };
+		E4663CB61166EAB600F7A166 /* GLESSurface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLESSurface.mm; path = Classes/GLESSurface.mm; sourceTree = "<group>"; };
+		E4663D901167063200F7A166 /* GLES2Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLES2Surface.h; path = Classes/GLES2Surface.h; sourceTree = "<group>"; };
+		E4663D911167063200F7A166 /* GLES2Surface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLES2Surface.mm; path = Classes/GLES2Surface.mm; sourceTree = "<group>"; };
 		E479B6EF1161C4460088CFA0 /* TextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureLoader.h; path = Classes/TextureLoader.h; sourceTree = "<group>"; };
 		E479B6F01161C4460088CFA0 /* TextureLoader.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = TextureLoader.mm; path = Classes/TextureLoader.mm; sourceTree = "<group>"; };
 		E479B7C71161D9660088CFA0 /* mousePoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mousePoint.png; path = Resources/mousePoint.png; sourceTree = "<group>"; };
@@ -151,6 +160,7 @@
 		63AF0F950F5F2F6800BF520B /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				E4663CB41166E8BA00F7A166 /* Surface */,
 				63B7C93D10A218E500E709A5 /* main.m */,
 				63AF0C180F5F2D2500BF520B /* EAGLView.mm */,
 				63AF0C170F5F2D2500BF520B /* EAGLView.h */,
@@ -185,6 +195,19 @@
 				E431F7E5112E8EED00E393A2 /* libFTGLES.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E4663CB41166E8BA00F7A166 /* Surface */ = {
+			isa = PBXGroup;
+			children = (
+				E4663CB51166E9C900F7A166 /* GLESSurface.h */,
+				E4663CB61166EAB600F7A166 /* GLESSurface.mm */,
+				E4663CB11166E85100F7A166 /* GLES1Surface.h */,
+				E4663CB21166E85100F7A166 /* GLES1Surface.mm */,
+				E4663D901167063200F7A166 /* GLES2Surface.h */,
+				E4663D911167063200F7A166 /* GLES2Surface.mm */,
+			);
+			name = Surface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +295,9 @@
 				63AF0FA20F5F2FA300BF520B /* ViewController.cpp in Sources */,
 				63B7C93E10A218E500E709A5 /* main.m in Sources */,
 				E479B6F11161C4460088CFA0 /* TextureLoader.mm in Sources */,
+				E4663CB31166E85100F7A166 /* GLES1Surface.mm in Sources */,
+				E4663CB71166EAB600F7A166 /* GLESSurface.mm in Sources */,
+				E4663D921167063200F7A166 /* GLES2Surface.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

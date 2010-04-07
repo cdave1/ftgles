@@ -68,7 +68,7 @@ class FTBufferFontImpl : public FTFontImpl
         /* Pixel buffer */
         FTBuffer *buffer;
 
-        static const int BUFFER_CACHE_SIZE = 16;
+        static const int BUFFER_CACHE_SIZE = 64;
         /* Texture IDs */
         GLuint idCache[BUFFER_CACHE_SIZE];
         void *stringCache[BUFFER_CACHE_SIZE];

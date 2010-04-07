@@ -90,8 +90,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 291894508;
-			PBXWorkspaceStateSaveDate = 291894508;
+			PBXPerProjectTemplateStateSaveDate = 291947139;
+			PBXWorkspaceStateSaveDate = 291947139;
 		};
 		perUserProjectItems = {
 			E4404063113134250028DF09 /* PBXBookmark */ = E4404063113134250028DF09 /* PBXBookmark */;
@@ -99,6 +99,7 @@
 			E441416D1164666900C502EB /* PBXTextBookmark */ = E441416D1164666900C502EB /* PBXTextBookmark */;
 			E441416F1164666900C502EB /* PBXTextBookmark */ = E441416F1164666900C502EB /* PBXTextBookmark */;
 			E44141741164666900C502EB /* PBXTextBookmark */ = E44141741164666900C502EB /* PBXTextBookmark */;
+			E4663BBA1166C28A00F7A166 /* PBXTextBookmark */ = E4663BBA1166C28A00F7A166 /* PBXTextBookmark */;
 			E479B7901161D4210088CFA0 /* PBXTextBookmark */ = E479B7901161D4210088CFA0 /* PBXTextBookmark */;
 			E479B8961161F3450088CFA0 /* PBXTextBookmark */ = E479B8961161F3450088CFA0 /* PBXTextBookmark */;
 			E479B8B01161FE750088CFA0 /* PBXTextBookmark */ = E479B8B01161FE750088CFA0 /* PBXTextBookmark */;
@@ -106,7 +107,6 @@
 			E48DC9331164B0350002AB11 /* PBXTextBookmark */ = E48DC9331164B0350002AB11 /* PBXTextBookmark */;
 			E48DC9341164B0350002AB11 /* PBXTextBookmark */ = E48DC9341164B0350002AB11 /* PBXTextBookmark */;
 			E48DC94B116586500002AB11 /* PBXTextBookmark */ = E48DC94B116586500002AB11 /* PBXTextBookmark */;
-			E48DC94C116586500002AB11 /* PBXTextBookmark */ = E48DC94C116586500002AB11 /* PBXTextBookmark */;
 			E48DCC301165F9070002AB11 /* PBXTextBookmark */ = E48DCC301165F9070002AB11 /* PBXTextBookmark */;
 			E4D14640112E718000CAD4E4 /* PBXTextBookmark */ = E4D14640112E718000CAD4E4 /* PBXTextBookmark */;
 			E4D1468C112E74A200CAD4E4 /* PBXTextBookmark */ = E4D1468C112E74A200CAD4E4 /* PBXTextBookmark */;
@@ -147,7 +147,7 @@
 	};
 	63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1032, 1324}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 1389}}";
 			sepNavSelRange = "{1771, 0}";
 			sepNavVisRange = "{1396, 931}";
 			sepNavWindowFrame = "{{15, 495}, {750, 558}}";
@@ -240,6 +240,16 @@
 		path = /Users/davidpetrie/Documents/Projects/ftgles/ftgles/src/FTSize.cpp;
 		sourceTree = "<absolute>";
 	};
+	E4663BBA1166C28A00F7A166 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
+		name = "ViewController.cpp: 50";
+		rLen = 0;
+		rLoc = 1771;
+		rType = 0;
+		vrLen = 931;
+		vrLoc = 1396;
+	};
 	E479B6FC1161D08A0088CFA0 /* NSObjCRuntime.h */ = {
 		isa = PBXFileReference;
 		lastKnownFileType = sourcecode.c.h;
@@ -323,16 +333,6 @@
 		rType = 0;
 		vrLen = 1468;
 		vrLoc = 0;
-	};
-	E48DC94C116586500002AB11 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 63AF0F9C0F5F2FA300BF520B /* ViewController.cpp */;
-		name = "ViewController.cpp: 74";
-		rLen = 0;
-		rLoc = 2137;
-		rType = 0;
-		vrLen = 730;
-		vrLoc = 2088;
 	};
 	E48DCC301165F9070002AB11 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;

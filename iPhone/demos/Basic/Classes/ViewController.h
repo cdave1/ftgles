@@ -34,8 +34,6 @@
 #include "FTGL/ftgles.h"
 
 
-
-
 class ViewController
 {		
 public:
