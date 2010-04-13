@@ -57,4 +57,6 @@ void demoGlTexCoord2f(float s, float t);
 
 void demoGlEnd();
 
+void demoGlError(const char *source);
+
 #endif

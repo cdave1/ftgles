@@ -54,7 +54,7 @@ extern "C" {
 	
 	extern GLvoid ftglEnd();
 	
-	extern GLvoid ftglError(const char* source);
+	extern GLvoid ftglError(const char *source);
 	
 #ifdef __cplusplus
 }

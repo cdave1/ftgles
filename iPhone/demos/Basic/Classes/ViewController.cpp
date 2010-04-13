@@ -104,6 +104,11 @@ void demoGlEnd()
 }
 
 
+void demoGlError(const char *source)
+{
+}
+
+
 const char *polygonFontText = "This is a polygon font";
 const char *textureFontText = "Lorem ipsum dolor sit amet.";
 const char *outlineFontText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, \
@@ -147,7 +152,7 @@ ViewController::ViewController(const char* path)
     layouts[1].SetFont(fonts[1]);
 	layouts[1].SetAlignment(FTGL::ALIGN_CENTER);
 	
-	snprintf(fontname, 256, "%s/BorisBlackBloxx.ttf", path);
+	snprintf(fontname, 256, "%s/Cardo98s.ttf", path);
 	fonts[2] = new FTTextureFont(fontname);
 	if (fonts[2]->Error())
 	{
@@ -205,7 +210,7 @@ static float angle = 0.0f;
 static float faceSize = 40.0f;
 void ViewController::Draw()
 {
-	glClearColor(0.0f, 0.0f, 0.25f, 1.0f);
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	glMatrixMode(GL_PROJECTION);
@@ -229,25 +234,25 @@ void ViewController::Draw()
 	
 	glPushMatrix();
 	glTranslatef(0.0f, 420.0f, 0.0f);
-	glColor4f(1.0f, 0.6f, 0.3f, 1.0f);
+	glColor4f(6.0f, 0.6f, 0.3f, 1.0f);
 	layouts[0].Render(polygonFontText, -1, FTPoint(), renderMode);
 	glPopMatrix();
 	
 	glPushMatrix();
 	glTranslatef(10.0f, 280.0f, 0.0f);
-	glColor4f(0.4f, 0.8f, 0.0f, 1.0f);
+	glColor4f(0.4f, 0.4f, 0.0f, 1.0f);
 	layouts[1].Render(textureFontText, -1, FTPoint(), renderMode);
 	glPopMatrix();
 	
 	glPushMatrix();
 	glTranslatef(10.0f, 140.0f, 0.0f);
-	glColor4f(1.0f, 1.0f, 0.75f, 1.0f);
+	glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
 	layouts[2].Render(outlineFontText, -1, FTPoint(), renderMode);
 	glPopMatrix();
 	
 	glPopMatrix();
 	
-	DrawTexturedQuad();
+	//DrawTexturedQuad();
 	
 	glPopMatrix();
 	

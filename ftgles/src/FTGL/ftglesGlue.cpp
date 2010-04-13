@@ -139,20 +139,28 @@ GLvoid ftglEnd()
 	glGetBooleanv(GL_TEXTURE_COORD_ARRAY, &texCoordArrayEnabled);
 	glGetBooleanv(GL_COLOR_ARRAY, &colorArrayEnabled);
 
+	if (!vertexArrayEnabled)
+	{
+		glEnableClientState(GL_VERTEX_ARRAY);
+	}
+	
 	if (vertexArrayPointer != &immediate[0].xyz)
 	{
 		glGetIntegerv(GL_VERTEX_ARRAY_TYPE, &vertexArrayType);
 		glGetIntegerv(GL_VERTEX_ARRAY_SIZE, &vertexArraySize);
 		glGetIntegerv(GL_VERTEX_ARRAY_STRIDE, &vertexArrayStride);
-		
-		glGetIntegerv(GL_TEXTURE_COORD_ARRAY_TYPE, &texCoordArrayType);
-		glGetIntegerv(GL_TEXTURE_COORD_ARRAY_SIZE, &texCoordArraySize);
-		glGetIntegerv(GL_TEXTURE_COORD_ARRAY_STRIDE, &texCoordArrayStride);
-		
-		glGetIntegerv(GL_COLOR_ARRAY_TYPE, &colorArrayType);
-		glGetIntegerv(GL_COLOR_ARRAY_SIZE, &colorArraySize);
-		glGetIntegerv(GL_COLOR_ARRAY_STRIDE, &colorArrayStride);
-		
+		if (texCoordArrayEnabled)
+		{
+			glGetIntegerv(GL_TEXTURE_COORD_ARRAY_TYPE, &texCoordArrayType);
+			glGetIntegerv(GL_TEXTURE_COORD_ARRAY_SIZE, &texCoordArraySize);
+			glGetIntegerv(GL_TEXTURE_COORD_ARRAY_STRIDE, &texCoordArrayStride);
+		}	
+		if (colorArrayEnabled)
+		{
+			glGetIntegerv(GL_COLOR_ARRAY_TYPE, &colorArrayType);
+			glGetIntegerv(GL_COLOR_ARRAY_SIZE, &colorArraySize);
+			glGetIntegerv(GL_COLOR_ARRAY_STRIDE, &colorArrayStride);
+		}	
 		glVertexPointer(3, GL_FLOAT, sizeof(Vertex), immediate[0].xyz);
 		glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), immediate[0].st);
 		glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(Vertex), immediate[0].c);
@@ -160,15 +168,12 @@ GLvoid ftglEnd()
 		resetPointers = true;
 	}
 	
-	if (!vertexArrayEnabled)
-		glEnableClientState(GL_VERTEX_ARRAY);
-	
 	if (!texCoordArrayEnabled)
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	
 	if (!colorArrayEnabled)
 		glEnableClientState(GL_COLOR_ARRAY);
-
+	
 	if (curr_vertex == 0) 
 	{
 		curr_prim = 0;
@@ -188,12 +193,21 @@ GLvoid ftglEnd()
 	
 	if (resetPointers)
 	{
-		glVertexPointer(vertexArraySize, vertexArrayType, 
-						vertexArrayStride, vertexArrayPointer);
-		glTexCoordPointer(texCoordArraySize, texCoordArrayType, 
-						  texCoordArrayStride, texCoordArrayPointer);
-		glColorPointer(colorArraySize, colorArrayType, 
-					   colorArrayStride, colorArrayPointer);
+		if (vertexArrayEnabled)
+		{
+			glVertexPointer(vertexArraySize, vertexArrayType, 
+							vertexArrayStride, vertexArrayPointer);	
+		}
+		if (texCoordArrayEnabled)
+		{
+			glTexCoordPointer(texCoordArraySize, texCoordArrayType, 
+							  texCoordArrayStride, texCoordArrayPointer);
+		}
+		if (colorArrayEnabled)
+		{
+			glColorPointer(colorArraySize, colorArrayType, 
+						   colorArrayStride, colorArrayPointer);
+		}
 	}
 	
 	if (!vertexArrayEnabled)
@@ -207,7 +221,7 @@ GLvoid ftglEnd()
 }
 
 
-GLvoid ftglError(const char* source)
+GLvoid ftglError(const char *source)
 {
 	GLenum error = glGetError();
 	 
@@ -215,24 +229,25 @@ GLvoid ftglError(const char* source)
 		case GL_NO_ERROR:
 			break;
 		case GL_INVALID_ENUM:
-			printf("GL Error (%d): GL_INVALID_ENUM. %s\n\n", error, source);
+			printf("GL Error (%x): GL_INVALID_ENUM. %s\n\n", error, source);
 			break;
 		case GL_INVALID_VALUE:
-			printf("GL Error (%d): GL_INVALID_VALUE. %s\n\n", error, source);
+			printf("GL Error (%x): GL_INVALID_VALUE. %s\n\n", error, source);
 			break;
 		case GL_INVALID_OPERATION:
-			printf("GL Error (%d): GL_INVALID_OPERATION. %s\n\n", error, source);
+			printf("GL Error (%x): GL_INVALID_OPERATION. %s\n\n", error, source);
 			break;
 		case GL_STACK_OVERFLOW:
-			printf("GL Error (%d): GL_STACK_OVERFLOW. %s\n\n", error, source);
+			printf("GL Error (%x): GL_STACK_OVERFLOW. %s\n\n", error, source);
 			break;
 		case GL_STACK_UNDERFLOW:
-			printf("GL Error (%d): GL_STACK_UNDERFLOW. %s\n\n", error, source);
+			printf("GL Error (%x): GL_STACK_UNDERFLOW. %s\n\n", error, source);
 			break;
 		case GL_OUT_OF_MEMORY:
-			printf("GL Error (%d): GL_OUT_OF_MEMORY. %s\n\n", error, source);
+			printf("GL Error (%x): GL_OUT_OF_MEMORY. %s\n\n", error, source);
 			break;
 		default:
+			printf("GL Error (%x): %s\n\n", error, source);
 			break;
 	}
 }

@@ -32,7 +32,6 @@
  * FTGL Includes
  */ 
 #include "FTGL/ftgles.h"
-#include "FTGL/ftglesGlue.h"
 
 
 
