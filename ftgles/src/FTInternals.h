@@ -69,7 +69,7 @@
 //#include <OpenGLES/ES1/glext.h>
 
 
-#include "ftglesGlue.h"
+#include "FTGL/ftglesGlue.h"
 
 /*
     // Non windows platforms - don't require nonsense as seen above :-)

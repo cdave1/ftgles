@@ -2,7 +2,7 @@ dnl Minimum version of autoconf required.  Should coincide with the
 dnl setting in the autogen.sh script.
 AC_PREREQ(2.58)
 
-AC_INIT(FTGL, 2.1.3~rc5, [sam@zoy.org], ftgl)
+AC_INIT(FTGLES, 0.1, [david@davidpetrie.com], ftgles)
 AC_CONFIG_SRCDIR(src/FTPoint.cpp)
 AC_CONFIG_AUX_DIR(.auto)
 AM_INIT_AUTOMAKE([1.6 no-define dist-zip dist-bzip2])
@@ -10,9 +10,9 @@ AM_CONFIG_HEADER(config.h)
 
 AC_PROG_CXX
 
-LT_MAJOR="2"
+LT_MAJOR="0"
 LT_MINOR="1"
-LT_MICRO="3"
+LT_MICRO="2"
 AC_SUBST(LT_MAJOR)
 AC_SUBST(LT_MINOR)
 AC_SUBST(LT_MICRO)
@@ -57,7 +57,7 @@ AM_CONDITIONAL(HAVE_CPPUNIT, test "x$CPPUNIT" != "xno")
 dnl search the include directory (required for non-srcdir builds).
 dnl should come after the system services checks otherwise headers
 dnl may conflict.
-CPPFLAGS="$CPPFLAGS -I\${top_srcdir}/src"
+CPPFLAGS="$CPPFLAGS -I\${top_srcdir}/src -I\${top_srcdir}/src/iGLU-1.0.0/include"
 
 # Warning flags
 CPPFLAGS="${CPPFLAGS} -Wall -Wpointer-arith -Wcast-align -Wcast-qual -Wshadow -Wsign-compare"
@@ -94,7 +94,7 @@ fi
 AM_CONDITIONAL(HAVE_LATEX, test "x${LATEX}" != "xno")
 
 AC_CONFIG_FILES([
-  ftgl.pc
+  ftgles.pc
 ])
 AC_CONFIG_FILES([
   Makefile

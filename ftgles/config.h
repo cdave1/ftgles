@@ -8,7 +8,7 @@
 #define HAVE_DLFCN_H 1
 
 /* Define to 1 if you have the <GLUT/glut.h> header file. */
-#define HAVE_GLUT_GLUT_H 1
+/* #undef HAVE_GLUT_GLUT_H */
 
 /* Define to 1 if you have the <GL/glut.h> header file. */
 /* #undef HAVE_GL_GLUT_H */
@@ -54,22 +54,22 @@
 /* #undef NO_MINUS_C_MINUS_O */
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "sam@zoy.org"
+#define PACKAGE_BUGREPORT "david@davidpetrie.com"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "FTGL"
+#define PACKAGE_NAME "FTGLES"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "FTGL 2.1.3~rc5"
+#define PACKAGE_STRING "FTGLES 0.1"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "ftgl"
+#define PACKAGE_TARNAME "ftgles"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "2.1.3~rc5"
+#define PACKAGE_VERSION "0.1"
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1

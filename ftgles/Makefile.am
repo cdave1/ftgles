@@ -5,9 +5,9 @@ SUBDIRS = src
 DIST_SUBDIRS = $(SUBDIRS) msvc
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = ftgl.pc
+pkgconfig_DATA = ftgles.pc
 
-DISTCLEANFILES = ftgl.pc
+DISTCLEANFILES = ftgles.pc
 
 EXTRA_DIST = \
 	AUTHORS \
@@ -20,7 +20,7 @@ EXTRA_DIST = \
 	TODO \
 	autogen.sh \
 	configure.ac \
-	ftgl.pc.in \
+	ftgles.pc.in \
 	m4 \
 	$(NULL)
 
