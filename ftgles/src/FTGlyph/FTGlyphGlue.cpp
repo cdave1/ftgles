@@ -69,11 +69,11 @@ C_TOR(ftglCreateExtrudeGlyph, (FT_GlyphSlot glyph, float depth,
 C_TOR(ftglCreateOutlineGlyph, (FT_GlyphSlot glyph, float outset,
                                int useDisplayList),
       FTOutlineGlyph, (glyph, outset, (useDisplayList != 0)), GLYPH_OUTLINE);
-
+*/
 // FTPixmapGlyph::FTPixmapGlyph();
 C_TOR(ftglCreatePixmapGlyph, (FT_GlyphSlot glyph),
       FTPixmapGlyph, (glyph), GLYPH_PIXMAP);
-*/
+
 // FTPolygonGlyph::FTPolygonGlyph();
 C_TOR(ftglCreatePolygonGlyph, (FT_GlyphSlot glyph, float outset,
                                int useDisplayList),

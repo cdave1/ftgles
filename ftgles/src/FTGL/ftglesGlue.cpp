@@ -43,6 +43,7 @@ bool initted = false;
 
 GLvoid ftglInitImmediateModeGL() 
 {
+	// deprecated.
 }
 
 

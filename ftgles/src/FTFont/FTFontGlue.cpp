@@ -64,11 +64,11 @@ C_TOR(ftglCreateExtrudeFont, (const char *fontname),
 // FTOutlineFont::FTOutlineFont();
 C_TOR(ftglCreateOutlineFont, (const char *fontname),
       FTOutlineFont, (fontname), FONT_OUTLINE);
-
+*/
 // FTPixmapFont::FTPixmapFont();
 C_TOR(ftglCreatePixmapFont, (const char *fontname),
       FTPixmapFont, (fontname), FONT_PIXMAP);
-*/
+
 // FTPolygonFont::FTPolygonFont();
 C_TOR(ftglCreatePolygonFont, (const char *fontname),
       FTPolygonFont, (fontname), FONT_POLYGON);

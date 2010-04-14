@@ -79,7 +79,7 @@ class FTGL_EXPORT FTFont
         friend class FTBufferFont;
       //  friend class FTExtrudeFont;
         friend class FTOutlineFont;
-      //  friend class FTPixmapFont;
+        friend class FTPixmapFont;
         friend class FTPolygonFont;
         friend class FTTextureFont;
 

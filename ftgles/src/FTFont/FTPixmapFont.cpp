@@ -86,6 +86,7 @@ inline FTPoint FTPixmapFontImpl::RenderI(const T* string, const int len,
 {
     // Protect GL_TEXTURE_2D and GL_BLEND, glPixelTransferf(), and blending
     // functions.
+	/*
     glPushAttrib(GL_ENABLE_BIT | GL_PIXEL_MODE_BIT | GL_COLOR_BUFFER_BIT);
 
     // Protect glPixelStorei() calls (made by FTPixmapGlyphImpl::RenderImpl).
@@ -103,13 +104,14 @@ inline FTPoint FTPixmapFontImpl::RenderI(const T* string, const int len,
     glPixelTransferf(GL_GREEN_SCALE, ftglColour[1]);
     glPixelTransferf(GL_BLUE_SCALE, ftglColour[2]);
     glPixelTransferf(GL_ALPHA_SCALE, ftglColour[3]);
-
+*/
     FTPoint tmp = FTFontImpl::Render(string, len,
                                      position, spacing, renderMode);
 
+	/*
     glPopClientAttrib();
     glPopAttrib();
-
+*/
     return tmp;
 }
 

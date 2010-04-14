@@ -27,7 +27,7 @@
 
 #ifndef __ftgl__
 #   warning This header is deprecated. Please use <FTGL/ftgl.h> from now.
-#   include <FTGL/ftgl.h>
+#   include <FTGL/ftgles.h>
 #endif
 
 #ifndef __FTPixmapFont__

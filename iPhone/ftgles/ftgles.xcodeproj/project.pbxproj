@@ -66,6 +66,11 @@
 		E4D14634112E710100CAD4E4 /* registry.c in Sources */ = {isa = PBXBuildFile; fileRef = E4D1462F112E710100CAD4E4 /* registry.c */; };
 		E4D1484A112E8AAB00CAD4E4 /* glu.h in Headers */ = {isa = PBXBuildFile; fileRef = E4D14848112E8AAB00CAD4E4 /* glu.h */; };
 		E4D1484B112E8AAB00CAD4E4 /* gluos.h in Headers */ = {isa = PBXBuildFile; fileRef = E4D14849112E8AAB00CAD4E4 /* gluos.h */; };
+		E4FC75DF117599BA001ED907 /* FTPixmapGlyph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4FC75DD117599BA001ED907 /* FTPixmapGlyph.cpp */; };
+		E4FC75E0117599BA001ED907 /* FTPixmapGlyphImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = E4FC75DE117599BA001ED907 /* FTPixmapGlyphImpl.h */; };
+		E4FC75E3117599C6001ED907 /* FTPixmapFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4FC75E1117599C6001ED907 /* FTPixmapFont.cpp */; };
+		E4FC75E4117599C6001ED907 /* FTPixmapFontImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = E4FC75E2117599C6001ED907 /* FTPixmapFontImpl.h */; };
+		E4FC75E6117599D0001ED907 /* FTPixmapGlyph.h in Headers */ = {isa = PBXBuildFile; fileRef = E4FC75E5117599D0001ED907 /* FTPixmapGlyph.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +198,11 @@
 		E4D1462F112E710100CAD4E4 /* registry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = registry.c; sourceTree = "<group>"; };
 		E4D14848112E8AAB00CAD4E4 /* glu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glu.h; sourceTree = "<group>"; };
 		E4D14849112E8AAB00CAD4E4 /* gluos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gluos.h; sourceTree = "<group>"; };
+		E4FC75DD117599BA001ED907 /* FTPixmapGlyph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTPixmapGlyph.cpp; sourceTree = "<group>"; };
+		E4FC75DE117599BA001ED907 /* FTPixmapGlyphImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPixmapGlyphImpl.h; sourceTree = "<group>"; };
+		E4FC75E1117599C6001ED907 /* FTPixmapFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTPixmapFont.cpp; sourceTree = "<group>"; };
+		E4FC75E2117599C6001ED907 /* FTPixmapFontImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPixmapFontImpl.h; sourceTree = "<group>"; };
+		E4FC75E5117599D0001ED907 /* FTPixmapGlyph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPixmapGlyph.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +251,8 @@
 		6382AACA0FB0F16400ECAC02 /* FTFont */ = {
 			isa = PBXGroup;
 			children = (
+				E4FC75E1117599C6001ED907 /* FTPixmapFont.cpp */,
+				E4FC75E2117599C6001ED907 /* FTPixmapFontImpl.h */,
 				E4D14582112E5EBB00CAD4E4 /* FTPolygonFont.cpp */,
 				E4D14583112E5EBB00CAD4E4 /* FTPolygonFontImpl.h */,
 				63A6FA1A0FB1D96E00C38E72 /* FTOutlineFontImpl.h */,
@@ -261,6 +273,8 @@
 		6382AAF10FB0F19400ECAC02 /* FTGlyph */ = {
 			isa = PBXGroup;
 			children = (
+				E4FC75DD117599BA001ED907 /* FTPixmapGlyph.cpp */,
+				E4FC75DE117599BA001ED907 /* FTPixmapGlyphImpl.h */,
 				E4D1457E112E5EAA00CAD4E4 /* FTPolygonGlyph.cpp */,
 				E4D1457F112E5EAA00CAD4E4 /* FTPolygonGlyphImpl.h */,
 				63A6FA170FB1D96100C38E72 /* FTOutlineGlyphImpl.h */,
@@ -326,6 +340,7 @@
 		63AD934A0FAA1AE100A79D15 /* FTGL */ = {
 			isa = PBXGroup;
 			children = (
+				E4FC75E5117599D0001ED907 /* FTPixmapGlyph.h */,
 				6382AB4A0FB0F2AD00ECAC02 /* FTTextureGlyph.h */,
 				6382AB300FB0F1C000ECAC02 /* FTBufferFont.h */,
 				6382AB330FB0F1C000ECAC02 /* FTGLOutlineFont.h */,
@@ -458,6 +473,9 @@
 				E4D14632112E710100CAD4E4 /* gluint.h in Headers */,
 				E4D1484A112E8AAB00CAD4E4 /* glu.h in Headers */,
 				E4D1484B112E8AAB00CAD4E4 /* gluos.h in Headers */,
+				E4FC75E0117599BA001ED907 /* FTPixmapGlyphImpl.h in Headers */,
+				E4FC75E4117599C6001ED907 /* FTPixmapFontImpl.h in Headers */,
+				E4FC75E6117599D0001ED907 /* FTPixmapGlyph.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +579,8 @@
 				E4D14631112E710100CAD4E4 /* glue.c in Sources */,
 				E4D14633112E710100CAD4E4 /* project.c in Sources */,
 				E4D14634112E710100CAD4E4 /* registry.c in Sources */,
+				E4FC75DF117599BA001ED907 /* FTPixmapGlyph.cpp in Sources */,
+				E4FC75E3117599C6001ED907 /* FTPixmapFont.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

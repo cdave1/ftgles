@@ -118,7 +118,7 @@ namespace FTGL
 #include "FTBufferGlyph.h"
 //#include "FTExtrdGlyph.h"
 #include "FTOutlineGlyph.h"
-//#include "FTPixmapGlyph.h"
+#include "FTPixmapGlyph.h"
 #include "FTPolyGlyph.h"
 #include "FTTextureGlyph.h"
 
@@ -127,7 +127,7 @@ namespace FTGL
 #include "FTBufferFont.h"
 //#include "FTGLExtrdFont.h"
 #include "FTGLOutlineFont.h"
-//#include "FTGLPixmapFont.h"
+#include "FTGLPixmapFont.h"
 #include "FTGLPolygonFont.h"
 #include "FTGLTextureFont.h"
 

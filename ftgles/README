@@ -1,6 +1,8 @@
 Note: This is a special version FTGL which was ported to OpenGLES by David Petrie and
 bugfixed and put together with the original autoconf build system by James Long.
 
+Further bug fixes by David Petrie.
+
 ===========
 
 FTGL 2.1

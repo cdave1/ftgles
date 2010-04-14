@@ -70,7 +70,7 @@ class FTGL_EXPORT FTGlyph
         friend class FTBufferGlyph;
         //friend class FTExtrudeGlyph;
         friend class FTOutlineGlyph;
-        //friend class FTPixmapGlyph;
+        friend class FTPixmapGlyph;
         friend class FTPolygonGlyph;
         friend class FTTextureGlyph;
 
