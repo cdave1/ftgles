@@ -122,22 +122,20 @@ const FTPoint& FTTextureGlyphImpl::RenderImpl(const FTPoint& pen,
                                               int renderMode)
 {
     float dx, dy;
-	GLfloat colors[4];
+	
+	
+	glGetIntegerv(GL_TEXTURE_BINDING_2D, &activeTextureID);
 	
     if(activeTextureID != glTextureID)
     {
 		glBindTexture(GL_TEXTURE_2D, (GLuint)glTextureID);
-        activeTextureID = glTextureID;
+        //activeTextureID = glTextureID;
     }
 	
     dx = floor(pen.Xf() + corner.Xf());
     dy = floor(pen.Yf() + corner.Yf());
 	
-	glGetFloatv(GL_CURRENT_COLOR, colors);
-	
-    ftglBegin(GL_QUADS);
-	
-	ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
+
 	
 	ftglTexCoord2f(uv[0].Xf(), uv[0].Yf());
 	ftglVertex2f(dx, dy);
@@ -150,8 +148,6 @@ const FTPoint& FTTextureGlyphImpl::RenderImpl(const FTPoint& pen,
 	
 	ftglTexCoord2f(uv[1].Xf(), uv[0].Yf());
 	ftglVertex2f(dx + destWidth, dy);
-	
-    ftglEnd();
 	
     return advance;
 }

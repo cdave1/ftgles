@@ -35,7 +35,7 @@ static FTSimpleLayout layouts[3];
 
 static GLuint aTexture;
 
-static int renderMode = FTGL::RENDER_FRONT | FTGL::RENDER_BACK;
+static int renderMode = FTGL::RENDER_FRONT; // | FTGL::RENDER_BACK;
 
 #define MAX_VERTEX_COUNT 16
 
@@ -110,10 +110,8 @@ void demoGlError(const char *source)
 
 
 const char *polygonFontText = "This is a polygon font";
-const char *textureFontText = "Lorem ipsum dolor sit amet.";
-const char *outlineFontText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, \
-sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit.\
-sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit.";
+const char *textureFontText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit";
+const char *outlineFontText = "Lorem  ipsum  dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 
 ViewController::ViewController(const char* path)
@@ -158,7 +156,7 @@ ViewController::ViewController(const char* path)
 	{
         printf("Could not load font `%s'\n", fontname);	
 	}
-	fonts[2]->FaceSize(16);
+	fonts[2]->FaceSize(14);
 	fonts[2]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
 	layouts[2].SetLineLength(300.0f);
@@ -210,7 +208,7 @@ static float angle = 0.0f;
 static float faceSize = 40.0f;
 void ViewController::Draw()
 {
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	glMatrixMode(GL_PROJECTION);
@@ -241,18 +239,18 @@ void ViewController::Draw()
 	glPushMatrix();
 	glTranslatef(10.0f, 280.0f, 0.0f);
 	glColor4f(0.4f, 0.4f, 0.0f, 1.0f);
-	layouts[1].Render(textureFontText, -1, FTPoint(), renderMode);
+	layouts[1].Render(textureFontText, -1, FTPoint(), renderMode); //
 	glPopMatrix();
 	
 	glPushMatrix();
 	glTranslatef(10.0f, 140.0f, 0.0f);
-	glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	layouts[2].Render(outlineFontText, -1, FTPoint(), renderMode);
 	glPopMatrix();
 	
 	glPopMatrix();
 	
-	//DrawTexturedQuad();
+	DrawTexturedQuad();
 	
 	glPopMatrix();
 	

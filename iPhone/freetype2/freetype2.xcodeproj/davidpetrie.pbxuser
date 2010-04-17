@@ -79,12 +79,16 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 291897225;
-			PBXWorkspaceStateSaveDate = 291897225;
+			PBXPerProjectTemplateStateSaveDate = 293162528;
+			PBXWorkspaceStateSaveDate = 293162528;
 		};
 		perUserProjectItems = {
-			E48DCCD31165FEBA0002AB11 /* PBXTextBookmark */ = E48DCCD31165FEBA0002AB11 /* PBXTextBookmark */;
-			E48DCCEF1165FF990002AB11 /* PBXTextBookmark */ = E48DCCEF1165FF990002AB11 /* PBXTextBookmark */;
+			E478752511795D5B009841FD /* PBXTextBookmark */ = E478752511795D5B009841FD /* PBXTextBookmark */;
+			E478752611795D5B009841FD /* PBXTextBookmark */ = E478752611795D5B009841FD /* PBXTextBookmark */;
+			E478752711795D5B009841FD /* PBXTextBookmark */ = E478752711795D5B009841FD /* PBXTextBookmark */;
+			E478752811795D5B009841FD /* PBXTextBookmark */ = E478752811795D5B009841FD /* PBXTextBookmark */;
+			E478752911795D5B009841FD /* PBXBookmark */ = E478752911795D5B009841FD /* PBXBookmark */;
+			E478752A11795D5B009841FD /* PBXTextBookmark */ = E478752A11795D5B009841FD /* PBXTextBookmark */;
 			E4D14640112E718000CAD4E4 /* PBXTextBookmark */ = E4D14640112E718000CAD4E4 /* PBXTextBookmark */;
 			E4D1468C112E74A200CAD4E4 /* PBXTextBookmark */ = E4D1468C112E74A200CAD4E4 /* PBXTextBookmark */;
 			E4D14759112E84A400CAD4E4 /* PBXTextBookmark */ = E4D14759112E84A400CAD4E4 /* PBXTextBookmark */;
@@ -109,19 +113,84 @@
 	};
 	6382B1B80FB0FC8200ECAC02 /* ftconfig.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1032, 5720}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{6292, 2336}";
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 6500}}";
+			sepNavSelRange = "{15778, 28}";
+			sepNavVisRange = "{15444, 683}";
 		};
 	};
-	E48DCCD31165FEBA0002AB11 /* PBXTextBookmark */ = {
+	6382BA2C0FB132DB00ECAC02 /* ftgloadr.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 4849}}";
+			sepNavSelRange = "{4640, 11}";
+			sepNavVisRange = "{7937, 1311}";
+		};
+	};
+	6382BEC50FB1392300ECAC02 /* pcfutil.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 1248}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{1287, 893}";
+		};
+	};
+	6382BEC70FB1392300ECAC02 /* README */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 1560}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1462}";
+		};
+	};
+	E478752511795D5B009841FD /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = E48DCCD41165FEBA0002AB11 /* config.h */;
 		name = "config.h: 4";
 		rLen = 0;
 		rLoc = 167;
 		rType = 0;
-		vrLen = 1410;
+		vrLen = 1409;
+		vrLoc = 0;
+	};
+	E478752611795D5B009841FD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6382B1B80FB0FC8200ECAC02 /* ftconfig.h */;
+		name = "ftconfig.h: 418";
+		rLen = 28;
+		rLoc = 15778;
+		rType = 0;
+		vrLen = 683;
+		vrLoc = 15444;
+	};
+	E478752711795D5B009841FD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6382BA2C0FB132DB00ECAC02 /* ftgloadr.c */;
+		name = "ftgloadr.c: 86";
+		rLen = 11;
+		rLoc = 4640;
+		rType = 0;
+		vrLen = 1311;
+		vrLoc = 7937;
+	};
+	E478752811795D5B009841FD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6382BEC50FB1392300ECAC02 /* pcfutil.c */;
+		name = "pcfutil.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 893;
+		vrLoc = 1287;
+	};
+	E478752911795D5B009841FD /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 6382BEC70FB1392300ECAC02 /* README */;
+	};
+	E478752A11795D5B009841FD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6382BEC70FB1392300ECAC02 /* README */;
+		name = "README: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1462;
 		vrLoc = 0;
 	};
 	E48DCCD41165FEBA0002AB11 /* config.h */ = {
@@ -130,22 +199,11 @@
 		name = config.h;
 		path = /Users/davidpetrie/Desktop/FTGLES/ftgles/config.h;
 		sourceTree = "<absolute>";
-	};
-	E48DCCEF1165FF990002AB11 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = E48DCCF01165FF990002AB11 /* config.h */;
-		name = "config.h: 4";
-		rLen = 0;
-		rLoc = 167;
-		rType = 0;
-		vrLen = 1410;
-		vrLoc = 0;
-	};
-	E48DCCF01165FF990002AB11 /* config.h */ = {
-		isa = PBXFileReference;
-		name = config.h;
-		path = /Users/davidpetrie/Desktop/FTGLES/ftgles/config.h;
-		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 1040}}";
+			sepNavSelRange = "{167, 0}";
+			sepNavVisRange = "{0, 1409}";
+		};
 	};
 	E493D69F10D122E20020CDF5 /* Source Control */ = {
 		isa = PBXSourceControlManager;
@@ -277,7 +335,7 @@
 		ignoreCount = 0;
 		lineNumber = 251;
 		location = iPhonefonts;
-		modificationTime = 291897154.080516;
+		modificationTime = 293163196.603616;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};

@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -273,8 +275,9 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>9</integer>
-									<integer>8</integer>
+									<integer>2</integer>
+									<integer>1</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -308,14 +311,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>config.h</string>
+								<string>README</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +324,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>config.h</string>
+										<string>README</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>E48DCCEF1165FF990002AB11</string>
+										<string>E478752A11795D5B009841FD</string>
 										<key>history</key>
 										<array>
 											<string>E4D14640112E718000CAD4E4</string>
@@ -336,7 +337,11 @@
 											<string>E4D1475B112E84A400CAD4E4</string>
 											<string>E4D1475D112E84A400CAD4E4</string>
 											<string>E4D1475F112E84A400CAD4E4</string>
-											<string>E48DCCD31165FEBA0002AB11</string>
+											<string>E478752511795D5B009841FD</string>
+											<string>E478752611795D5B009841FD</string>
+											<string>E478752711795D5B009841FD</string>
+											<string>E478752811795D5B009841FD</string>
+											<string>E478752911795D5B009841FD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -348,14 +353,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1093, 649}}</string>
+								<string>{{0, 0}, {1093, 643}}</string>
 								<key>RubberWindowFrame</key>
 								<string>308 90 1536 927 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>649pt</string>
+							<string>643pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -368,14 +373,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 654}, {1093, 232}}</string>
+								<string>{{0, 648}, {1093, 238}}</string>
 								<key>RubberWindowFrame</key>
 								<string>308 90 1536 927 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>232pt</string>
+							<string>238pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -394,9 +399,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>E48DCCF11165FF990002AB11</string>
+				<string>E478752B11795D5B009841FD</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>E48DCCF21165FF990002AB11</string>
+				<string>E478752C11795D5B009841FD</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -535,7 +540,7 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>E45B368F112B7CC700E5B2E6</string>
-		<string>/Users/davidpetrie/Documents/Projects/ftgles/iPhone/freetype2/freetype2.xcodeproj</string>
+		<string>/Users/davidpetrie/Documents/Projects/Open Source/ftgles/iPhone/freetype2/freetype2.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>308 90 1536 927 0 0 1920 1058 </string>
@@ -615,7 +620,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>E45B368F112B7CC700E5B2E6</string>
-				<string>E48DCCF31165FF990002AB11</string>
+				<string>E478752D11795D5B009841FD</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

@@ -116,6 +116,17 @@ GLvoid ftglTexCoord2f(GLfloat s, GLfloat t)
 }
 
 
+GLvoid bindArrayBuffers()
+{
+}
+
+
+GLvoid ftglBindTexture()
+{
+	
+}
+
+
 GLvoid ftglEnd() 
 {
 	GLboolean vertexArrayEnabled;
