@@ -2,7 +2,7 @@ FTGLES 0.1
 ===========
 
 FTGLES is a C++ library for rendering fonts on mobile operating systems with 
-OpenGL ES 1.1. It is a port of FTGL. It currently targets the iPhone and iPad,
+OpenGL ES 1.1.  It is a port of FTGL.  It currently targets the iPhone and iPad,
 with plans to port to Android in the very near future.
 
 From the FTGL notes:
@@ -22,7 +22,7 @@ FTGLES 0.1 supports the following font types from the original FTGL library:
 	* FTGLTextureFont
 
 Extrusion and pixmap rendering from the original FTGL library are currently 
-not supported. Bitmap font support is currently in progress.
+not supported.  Bitmap font support is currently in progress.
 
 Open GL ES 2 support coming soon.
 
@@ -36,11 +36,11 @@ go.
 
 Automake:
 
-The ftgles folder contains a full automake system if you want to go that way.
+The ftgles folder contains a full automake system if you want to go that way.  
 The conf files do NOT include the iPhone libraries, and thus you will get build
-errors if you just "./configure; make; make install". Instead, use the very
+errors if you just "./configure; make; make install".  Instead, use the very
 useful iphone-configure tool to include your preferred iPhone SDK files and set
-the target device. iphone-configure is currently available here:
+the target device.  iphone-configure is currently available here:
 
 http://github.com/jlongster/configure-iphone
 
