@@ -28,13 +28,10 @@
  */
 
 #include "ViewController.h"
-#include "TextureLoader.h"
 
 static FTFont *fonts[3];
 
 static FTSimpleLayout layouts[3];
-
-static GLuint aTexture;
 
 static int renderMode = FTGL::RENDER_FRONT | FTGL::RENDER_BACK;
 
@@ -47,7 +44,7 @@ ViewController::ViewController(const char* path)
 	glClearDepthf(1.0);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	
-	snprintf(fontname, 256, "%s/Diavlo_BLACK_II_37.otf", path);
+	snprintf(fontname, 256, "%s/BorisBlackBloxx.ttf", path);
 	fonts[0] = new FTPolygonFont(fontname);
 	if(fonts[0]->Error())
     {
@@ -61,7 +58,7 @@ ViewController::ViewController(const char* path)
     layouts[0].SetFont(fonts[0]);
 	layouts[0].SetAlignment(FTGL::ALIGN_CENTER);
 	
-	snprintf(fontname, 256, "%s/RosewoodStd-Regular.otf", path);
+	snprintf(fontname, 256, "%s/BorisBlackBloxx.ttf", path);
 	fonts[1] = new FTTextureFont(fontname);
 	if (fonts[1]->Error())
 	{
@@ -88,10 +85,6 @@ ViewController::ViewController(const char* path)
 	layouts[2].SetLineSpacing(0.75f);
     layouts[2].SetFont(fonts[2]);
 	layouts[2].SetAlignment(FTGL::ALIGN_CENTER);
-	
-	LoadTexture("mousePoint.png", &aTexture);
-	
-	printf("Loaded texture: %d\n", aTexture);
 }
 
 
@@ -142,8 +135,6 @@ void ViewController::Draw()
 	glColor4f(1.0f, 0.6f, 0.3f, 1.0f);
 	layouts[0].Render("FTGL ES on an iPhone!", -1, FTPoint(), renderMode);
 	glPopMatrix();
-	
-	glBindTexture(GL_TEXTURE_2D, aTexture);
 	
 	
 	glPushMatrix();

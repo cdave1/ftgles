@@ -66,8 +66,17 @@ static CFTimeInterval	LastFPSUpdate;
 	
 	const char *bundleResourcePath = 
 		[[[NSBundle mainBundle] resourcePath] cStringUsingEncoding:NSASCIIStringEncoding];
+
+	float scale = 1.0f;
 	
-	viewController = new ViewController(bundleResourcePath);
+#ifdef __IPHONE_4_0
+	if([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) 
+	{
+		scale = [[UIScreen mainScreen] scale];
+	}
+#endif
+	
+	viewController = new ViewController(bundleResourcePath, rect.size.width, rect.size.height, scale);
 	CurrentTime = CACurrentMediaTime();
 	LastFPSUpdate = CurrentTime;
 	[NSTimer scheduledTimerWithTimeInterval:(1.0 / 60.0) 

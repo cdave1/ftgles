@@ -128,7 +128,6 @@
 		6382BD1D0FB132DD00ECAC02 /* gxverror.h in Headers */ = {isa = PBXBuildFile; fileRef = 6382BA8F0FB132DB00ECAC02 /* gxverror.h */; };
 		6382BD1E0FB132DD00ECAC02 /* gxvfeat.c in Sources */ = {isa = PBXBuildFile; fileRef = 6382BA900FB132DB00ECAC02 /* gxvfeat.c */; };
 		6382BD1F0FB132DD00ECAC02 /* gxvfeat.h in Headers */ = {isa = PBXBuildFile; fileRef = 6382BA910FB132DB00ECAC02 /* gxvfeat.h */; };
-		6382BD200FB132DD00ECAC02 /* gxvfgen.c in Sources */ = {isa = PBXBuildFile; fileRef = 6382BA920FB132DB00ECAC02 /* gxvfgen.c */; };
 		6382BD210FB132DD00ECAC02 /* gxvjust.c in Sources */ = {isa = PBXBuildFile; fileRef = 6382BA930FB132DB00ECAC02 /* gxvjust.c */; };
 		6382BD220FB132DD00ECAC02 /* gxvkern.c in Sources */ = {isa = PBXBuildFile; fileRef = 6382BA940FB132DB00ECAC02 /* gxvkern.c */; };
 		6382BD230FB132DD00ECAC02 /* gxvlcar.c in Sources */ = {isa = PBXBuildFile; fileRef = 6382BA950FB132DB00ECAC02 /* gxvlcar.c */; };
@@ -299,12 +298,10 @@
 		6382BEAF0FB138F300ECAC02 /* inftrees.h in Headers */ = {isa = PBXBuildFile; fileRef = 6382BE990FB138F300ECAC02 /* inftrees.h */; };
 		6382BEB00FB138F300ECAC02 /* infutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6382BE9A0FB138F300ECAC02 /* infutil.c */; };
 		6382BEB10FB138F300ECAC02 /* infutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6382BE9B0FB138F300ECAC02 /* infutil.h */; };
-		6382BEB20FB138F300ECAC02 /* Jamfile in Sources */ = {isa = PBXBuildFile; fileRef = 6382BE9C0FB138F300ECAC02 /* Jamfile */; };
 		6382BEB30FB138F300ECAC02 /* zconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 6382BE9E0FB138F300ECAC02 /* zconf.h */; };
 		6382BEB40FB138F300ECAC02 /* zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 6382BE9F0FB138F300ECAC02 /* zlib.h */; };
 		6382BEB50FB138F300ECAC02 /* zutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6382BEA00FB138F300ECAC02 /* zutil.c */; };
 		6382BEB60FB138F300ECAC02 /* zutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6382BEA10FB138F300ECAC02 /* zutil.h */; };
-		6382BEC90FB1392300ECAC02 /* Jamfile in Sources */ = {isa = PBXBuildFile; fileRef = 6382BEBC0FB1392300ECAC02 /* Jamfile */; };
 		6382BECA0FB1392300ECAC02 /* pcf.c in Sources */ = {isa = PBXBuildFile; fileRef = 6382BEBE0FB1392300ECAC02 /* pcf.c */; };
 		6382BECB0FB1392300ECAC02 /* pcf.h in Headers */ = {isa = PBXBuildFile; fileRef = 6382BEBF0FB1392300ECAC02 /* pcf.h */; };
 		6382BECC0FB1392300ECAC02 /* pcfdrivr.c in Sources */ = {isa = PBXBuildFile; fileRef = 6382BEC00FB1392300ECAC02 /* pcfdrivr.c */; };
@@ -539,7 +536,6 @@
 		6382BA8F0FB132DB00ECAC02 /* gxverror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gxverror.h; sourceTree = "<group>"; };
 		6382BA900FB132DB00ECAC02 /* gxvfeat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gxvfeat.c; sourceTree = "<group>"; };
 		6382BA910FB132DB00ECAC02 /* gxvfeat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gxvfeat.h; sourceTree = "<group>"; };
-		6382BA920FB132DB00ECAC02 /* gxvfgen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gxvfgen.c; sourceTree = "<group>"; };
 		6382BA930FB132DB00ECAC02 /* gxvjust.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gxvjust.c; sourceTree = "<group>"; };
 		6382BA940FB132DB00ECAC02 /* gxvkern.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gxvkern.c; sourceTree = "<group>"; };
 		6382BA950FB132DB00ECAC02 /* gxvlcar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gxvlcar.c; sourceTree = "<group>"; };
@@ -751,13 +747,11 @@
 		6382BE990FB138F300ECAC02 /* inftrees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inftrees.h; sourceTree = "<group>"; };
 		6382BE9A0FB138F300ECAC02 /* infutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = infutil.c; sourceTree = "<group>"; };
 		6382BE9B0FB138F300ECAC02 /* infutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infutil.h; sourceTree = "<group>"; };
-		6382BE9C0FB138F300ECAC02 /* Jamfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.jam; path = Jamfile; sourceTree = "<group>"; };
 		6382BE9D0FB138F300ECAC02 /* rules.mk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rules.mk; sourceTree = "<group>"; };
 		6382BE9E0FB138F300ECAC02 /* zconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zconf.h; sourceTree = "<group>"; };
 		6382BE9F0FB138F300ECAC02 /* zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zlib.h; sourceTree = "<group>"; };
 		6382BEA00FB138F300ECAC02 /* zutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zutil.c; sourceTree = "<group>"; };
 		6382BEA10FB138F300ECAC02 /* zutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zutil.h; sourceTree = "<group>"; };
-		6382BEBC0FB1392300ECAC02 /* Jamfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.jam; path = Jamfile; sourceTree = "<group>"; };
 		6382BEBD0FB1392300ECAC02 /* module.mk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = module.mk; sourceTree = "<group>"; };
 		6382BEBE0FB1392300ECAC02 /* pcf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pcf.c; sourceTree = "<group>"; };
 		6382BEBF0FB1392300ECAC02 /* pcf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcf.h; sourceTree = "<group>"; };
@@ -1143,7 +1137,6 @@
 				6382BA8F0FB132DB00ECAC02 /* gxverror.h */,
 				6382BA900FB132DB00ECAC02 /* gxvfeat.c */,
 				6382BA910FB132DB00ECAC02 /* gxvfeat.h */,
-				6382BA920FB132DB00ECAC02 /* gxvfgen.c */,
 				6382BA930FB132DB00ECAC02 /* gxvjust.c */,
 				6382BA940FB132DB00ECAC02 /* gxvkern.c */,
 				6382BA950FB132DB00ECAC02 /* gxvlcar.c */,
@@ -1453,7 +1446,6 @@
 				6382BE990FB138F300ECAC02 /* inftrees.h */,
 				6382BE9A0FB138F300ECAC02 /* infutil.c */,
 				6382BE9B0FB138F300ECAC02 /* infutil.h */,
-				6382BE9C0FB138F300ECAC02 /* Jamfile */,
 				6382BE9D0FB138F300ECAC02 /* rules.mk */,
 				6382BE9E0FB138F300ECAC02 /* zconf.h */,
 				6382BE9F0FB138F300ECAC02 /* zlib.h */,
@@ -1466,7 +1458,6 @@
 		6382BEBB0FB1392300ECAC02 /* pcf */ = {
 			isa = PBXGroup;
 			children = (
-				6382BEBC0FB1392300ECAC02 /* Jamfile */,
 				6382BEBD0FB1392300ECAC02 /* module.mk */,
 				6382BEBE0FB1392300ECAC02 /* pcf.c */,
 				6382BEBF0FB1392300ECAC02 /* pcf.h */,
@@ -1749,7 +1740,6 @@
 				6382BD1A0FB132DD00ECAC02 /* gxvbsln.c in Sources */,
 				6382BD1B0FB132DD00ECAC02 /* gxvcommn.c in Sources */,
 				6382BD1E0FB132DD00ECAC02 /* gxvfeat.c in Sources */,
-				6382BD200FB132DD00ECAC02 /* gxvfgen.c in Sources */,
 				6382BD210FB132DD00ECAC02 /* gxvjust.c in Sources */,
 				6382BD220FB132DD00ECAC02 /* gxvkern.c in Sources */,
 				6382BD230FB132DD00ECAC02 /* gxvlcar.c in Sources */,
@@ -1844,9 +1834,7 @@
 				6382BEAD0FB138F300ECAC02 /* inflate.c in Sources */,
 				6382BEAE0FB138F300ECAC02 /* inftrees.c in Sources */,
 				6382BEB00FB138F300ECAC02 /* infutil.c in Sources */,
-				6382BEB20FB138F300ECAC02 /* Jamfile in Sources */,
 				6382BEB50FB138F300ECAC02 /* zutil.c in Sources */,
-				6382BEC90FB1392300ECAC02 /* Jamfile in Sources */,
 				6382BECA0FB1392300ECAC02 /* pcf.c in Sources */,
 				6382BECC0FB1392300ECAC02 /* pcfdrivr.c in Sources */,
 				6382BECF0FB1392300ECAC02 /* pcfread.c in Sources */,
@@ -1861,7 +1849,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
@@ -1890,7 +1878,7 @@
 				PRODUCT_NAME = Freetype2;
 				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = iphoneos3.1.3;
+				SDKROOT = iphoneos4.0;
 				USER_HEADER_SEARCH_PATHS = "../freetype-2.3.9/include ../freetype-2.3.9/src";
 			};
 			name = Debug;
@@ -1899,7 +1887,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = NO;
@@ -1924,7 +1912,7 @@
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = Freetype2;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
-				SDKROOT = iphoneos3.1.3;
+				SDKROOT = iphoneos4.0;
 				USER_HEADER_SEARCH_PATHS = "";
 				ZERO_LINK = NO;
 			};
@@ -1940,7 +1928,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 2.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "2F9B69AF-CD22-482D-8459-3C8DA79AF8C5";
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos4.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -1951,7 +1939,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				HEADER_SEARCH_PATHS = "";
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};

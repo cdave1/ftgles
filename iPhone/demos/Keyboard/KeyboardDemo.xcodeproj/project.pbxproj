@@ -19,7 +19,6 @@
 		63B7CA6810A2386200E709A5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B7CA6710A2386200E709A5 /* Default.png */; };
 		7914067C0DBAD8D100C9A379 /* Delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */; };
 		E431F7EE112E8F0000E393A2 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E431F7E5112E8EED00E393A2 /* libFTGLES.a */; };
-		E479B7C81161D9660088CFA0 /* mousePoint.png in Resources */ = {isa = PBXBuildFile; fileRef = E479B7C71161D9660088CFA0 /* mousePoint.png */; };
 		E4E7CFE811646AAC008FAD8A /* BorisBlackBloxx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4E7CFE711646AAC008FAD8A /* BorisBlackBloxx.ttf */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +57,6 @@
 		7914067B0DBAD8D100C9A379 /* Delegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Delegate.mm; path = Classes/Delegate.mm; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ftgles.xcodeproj; path = ../../ftgles/ftgles.xcodeproj; sourceTree = SOURCE_ROOT; };
-		E479B7C71161D9660088CFA0 /* mousePoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mousePoint.png; path = Resources/mousePoint.png; sourceTree = "<group>"; };
 		E4E7CFE711646AAC008FAD8A /* BorisBlackBloxx.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BorisBlackBloxx.ttf; path = Fonts/BorisBlackBloxx.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,7 +102,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E479B7C71161D9660088CFA0 /* mousePoint.png */,
 				1B26781D0DA2F9B000B24DA5 /* icon.png */,
 				63B7CA6710A2386200E709A5 /* Default.png */,
 			);
@@ -222,7 +219,6 @@
 			files = (
 				1B26781E0DA2F9B000B24DA5 /* icon.png in Resources */,
 				63B7CA6810A2386200E709A5 /* Default.png in Resources */,
-				E479B7C81161D9660088CFA0 /* mousePoint.png in Resources */,
 				E4E7CFE811646AAC008FAD8A /* BorisBlackBloxx.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

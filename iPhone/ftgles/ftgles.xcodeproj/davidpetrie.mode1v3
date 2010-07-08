@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -290,7 +288,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 573}, {421, 940}}</string>
+							<string>{{0, 0}, {421, 940}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -320,6 +318,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -337,7 +337,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>E46A108A1179CAD4004CB3E8</string>
+										<string>E47E783E117AD44500267FA4</string>
 										<key>history</key>
 										<array>
 											<string>E4D1468C112E74A200CAD4E4</string>
@@ -421,7 +421,7 @@
 											<string>E46A106B1179906F004CB3E8</string>
 											<string>E46A106C1179906F004CB3E8</string>
 											<string>E46A10881179CAD4004CB3E8</string>
-											<string>E46A10891179CAD4004CB3E8</string>
+											<string>E47E783D117AD44500267FA4</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -433,14 +433,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1381, 893}}</string>
+								<string>{{0, 0}, {1381, 892}}</string>
 								<key>RubberWindowFrame</key>
 								<string>96 59 1824 999 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>893pt</string>
+							<string>892pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -453,14 +453,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 898}, {1381, 60}}</string>
+								<string>{{0, 897}, {1381, 61}}</string>
 								<key>RubberWindowFrame</key>
 								<string>96 59 1824 999 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>60pt</string>
+							<string>61pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -479,9 +479,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>E46A0FFB11798CDE004CB3E8</string>
+				<string>E47E783F117AD44500267FA4</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>E46A0FFC11798CDE004CB3E8</string>
+				<string>E47E7840117AD44500267FA4</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -619,7 +619,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>E45B368F112B7CC700E5B2E6</string>
 		<string>/Users/davidpetrie/Documents/Projects/Open Source/ftgles/iPhone/ftgles/ftgles.xcodeproj</string>
 	</array>
@@ -701,7 +700,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>E45B368F112B7CC700E5B2E6</string>
-				<string>E46A0FFD11798CDE004CB3E8</string>
+				<string>E47E7841117AD44500267FA4</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

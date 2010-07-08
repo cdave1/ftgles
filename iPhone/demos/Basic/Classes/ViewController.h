@@ -37,7 +37,7 @@
 class ViewController
 {		
 public:
-	ViewController(const char* path);
+	ViewController(const char* path, float screenWidth, float screenHeight, float contentScaleFactor);
 	
 	~ViewController();
 	

@@ -27,7 +27,7 @@
 #include "ViewController.h"
 #include <sys/time.h> 
 #include "QuartzCore/QuartzCore.h"
-#include "TextureLoader.h"
+
 static ViewController *viewController = NULL;
 
 static int frames;

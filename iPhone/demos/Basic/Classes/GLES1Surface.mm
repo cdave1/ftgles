@@ -98,8 +98,21 @@
 	eaglLayer = [_delegate getLayer];
 	
 	newSize = [eaglLayer bounds].size;
+#ifdef __IPHONE_4_0
+	if([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) 
+	{
+		newSize.width = roundf(newSize.width * MAX(1.0f, [[UIScreen mainScreen] scale]));
+		newSize.height = roundf(newSize.height * MAX(1.0f, [[UIScreen mainScreen] scale]));
+	} 
+	else 
+	{
+		newSize.width = roundf(newSize.width);
+		newSize.height = roundf(newSize.height);
+	}
+#else 
 	newSize.width = roundf(newSize.width);
 	newSize.height = roundf(newSize.height);
+#endif
 	
 	glGetIntegerv(GL_RENDERBUFFER_BINDING_OES, (GLint *) &oldRenderbuffer);
 	glGetIntegerv(GL_FRAMEBUFFER_BINDING_OES, (GLint *) &oldFramebuffer);

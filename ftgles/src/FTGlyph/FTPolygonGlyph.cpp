@@ -99,7 +99,8 @@ FTPolygonGlyphImpl::FTPolygonGlyphImpl(FT_GlyphSlot glyph, float _outset,
 	 * 
 	 * vectoriser->MakeMesh was being called every DoRender() in the
 	 * original FTGL code. I've shifted it here so it is only called once,
-	 * thus saving a ton of precious processing time.
+	 * as the iPhone is not efficient enough to handle a tesselation
+	 * on each frame.
 	 */
 	if (vectoriser)
 		vectoriser->MakeMesh(1.0, 1, outset);

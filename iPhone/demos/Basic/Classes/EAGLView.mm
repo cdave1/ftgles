@@ -64,6 +64,15 @@
 		}
 		
 		_surface.delegate = self;
+		
+#ifdef __IPHONE_4_0
+		if([[UIScreen mainScreen] respondsToSelector:@selector(scale)] &&
+		   [self respondsToSelector:@selector(contentScaleFactor)]) 
+		{
+			self.contentScaleFactor = MAX(1.0f, [[UIScreen mainScreen] scale]);
+		}
+#endif
+		
 		if (![_surface createSurface])
 		{
 			[self release];
