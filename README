@@ -5,6 +5,9 @@ FTGLES is a C++ library for rendering fonts on mobile operating systems with
 OpenGL ES 1.1.  It is a port of FTGL.  It currently targets the iPhone and iPad,
 with plans to port to Android in the very near future.
 
+iOS 4 is currently supported.
+
+
 From the FTGL notes:
 
 "Unlike other OpenGL font libraries FTGL uses standard font file formats
@@ -62,5 +65,5 @@ Render text within your render loop:
 
 	font->Render("Lorem ipsum dolor sit amet");
 
-See iPhone/demo for an in-depth example that can run on an iPhone, including
+See iPhone folder for an in-depth example that can run on an iPhone, including
 an example of using layouts to easily align and position your text.
