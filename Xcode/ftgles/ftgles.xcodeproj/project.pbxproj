@@ -624,6 +624,7 @@
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos4.0;
 				USER_HEADER_SEARCH_PATHS = "../../freetype-2.3.9/include ../../ftgles/src";
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug;
 		};
@@ -655,6 +656,7 @@
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos4.0;
 				USER_HEADER_SEARCH_PATHS = "../../ftgles/src ../../freetype-2.3.9/include";
+				WARNING_CFLAGS = "-Wall";
 				ZERO_LINK = NO;
 			};
 			name = Release;

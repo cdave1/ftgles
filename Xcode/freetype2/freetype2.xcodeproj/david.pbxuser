@@ -148,13 +148,14 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 300237800;
-			PBXWorkspaceStateSaveDate = 300237800;
+			PBXPerProjectTemplateStateSaveDate = 300279506;
+			PBXWorkspaceStateSaveDate = 300279506;
 		};
 		perUserProjectItems = {
+			637421D711E5E73E00DFBB47 /* PBXTextBookmark */ = 637421D711E5E73E00DFBB47 /* PBXTextBookmark */;
+			637421D811E5E73E00DFBB47 /* XCBuildMessageTextBookmark */ = 637421D811E5E73E00DFBB47 /* XCBuildMessageTextBookmark */;
+			637421D911E5E73E00DFBB47 /* PBXTextBookmark */ = 637421D911E5E73E00DFBB47 /* PBXTextBookmark */;
 			63A5CDFB11E54536000CDD63 /* PBXTextBookmark */ = 63A5CDFB11E54536000CDD63 /* PBXTextBookmark */;
-			63A5CDFC11E54536000CDD63 /* PBXTextBookmark */ = 63A5CDFC11E54536000CDD63 /* PBXTextBookmark */;
-			63A5CDFD11E54536000CDD63 /* PBXTextBookmark */ = 63A5CDFD11E54536000CDD63 /* PBXTextBookmark */;
 			63B7C9C710A219F200E709A5 /* PBXTextBookmark */ = 63B7C9C710A219F200E709A5 /* PBXTextBookmark */;
 			63B7CA6D10A2391400E709A5 /* PlistBookmark */ = 63B7CA6D10A2391400E709A5 /* PlistBookmark */;
 			63B7CA9E10A23D7300E709A5 /* PBXBookmark */ = 63B7CA9E10A23D7300E709A5 /* PBXBookmark */;
@@ -171,6 +172,35 @@
 		sourceControlManager = 63AC85280F448BCA00AB632B /* Source Control */;
 		userBuildSettings = {
 		};
+	};
+	637421D711E5E73E00DFBB47 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6382BE9D0FB138F300ECAC02 /* rules.mk */;
+		name = "rules.mk: 18";
+		rLen = 0;
+		rLoc = 485;
+		rType = 0;
+		vrLen = 861;
+		vrLoc = 0;
+	};
+	637421D811E5E73E00DFBB47 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Unused variable 'n_edges'";
+		fRef = 6382BA110FB132DB00ECAC02 /* aflatin2.c */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 1741;
+		rType = 1;
+	};
+	637421D911E5E73E00DFBB47 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6382BA110FB132DB00ECAC02 /* aflatin2.c */;
+		name = "aflatin2.c: 1745";
+		rLen = 0;
+		rLoc = 51484;
+		rType = 0;
+		vrLen = 1394;
+		vrLoc = 50707;
 	};
 	6382B1B00FB0FC5100ECAC02 /* Freetype2 */ = {
 		activeExec = 0;
@@ -268,9 +298,9 @@
 	};
 	6382BA110FB132DB00ECAC02 /* aflatin2.c */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1260, 31430}}";
-			sepNavSelRange = "{67614, 22}";
-			sepNavVisRange = "{67282, 675}";
+			sepNavIntBoundsRect = "{{0, 0}, {1088, 31311}}";
+			sepNavSelRange = "{51484, 0}";
+			sepNavVisRange = "{50707, 1394}";
 		};
 	};
 	6382BA1B0FB132DB00ECAC02 /* Jamfile */ = {
@@ -285,6 +315,13 @@
 			sepNavIntBoundsRect = "{{0, 0}, {1084, 2072}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 1997}";
+		};
+	};
+	6382BA220FB132DB00ECAC02 /* ftbase.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1260, 813}}";
+			sepNavSelRange = "{1837, 0}";
+			sepNavVisRange = "{1365, 983}";
 		};
 	};
 	6382BA2F0FB132DB00ECAC02 /* ftinit.c */ = {
@@ -364,6 +401,13 @@
 			sepNavVisRange = "{0, 696}";
 		};
 	};
+	6382BE930FB138F300ECAC02 /* infblock.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1260, 518}}";
+			sepNavSelRange = "{487, 0}";
+			sepNavVisRange = "{0, 797}";
+		};
+	};
 	6382BE970FB138F300ECAC02 /* inflate.c */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1088, 3598}}";
@@ -388,7 +432,7 @@
 	6382BE9D0FB138F300ECAC02 /* rules.mk */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1088, 1092}}";
-			sepNavSelRange = "{0, 0}";
+			sepNavSelRange = "{485, 0}";
 			sepNavVisRange = "{0, 861}";
 		};
 	};
@@ -401,26 +445,6 @@
 		rType = 0;
 		vrLen = 889;
 		vrLoc = 831;
-	};
-	63A5CDFC11E54536000CDD63 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6382BE9D0FB138F300ECAC02 /* rules.mk */;
-		name = "rules.mk: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 861;
-		vrLoc = 0;
-	};
-	63A5CDFD11E54536000CDD63 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6382BE9D0FB138F300ECAC02 /* rules.mk */;
-		name = "rules.mk: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 861;
-		vrLoc = 0;
 	};
 	63AC85170F448BB400AB632B /* iPhoneFTGL */ = {
 		isa = PBXExecutable;

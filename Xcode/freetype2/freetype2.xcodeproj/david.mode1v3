@@ -248,8 +248,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -295,10 +293,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
-									<integer>2</integer>
-									<integer>1</integer>
-									<integer>0</integer>
+									<integer>43</integer>
+									<integer>42</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -332,12 +328,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>rules.mk</string>
+								<string>aflatin2.c</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -345,11 +343,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>rules.mk</string>
+										<string>aflatin2.c</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>63A5CDFD11E54536000CDD63</string>
+										<string>637421D911E5E73E00DFBB47</string>
 										<key>history</key>
 										<array>
 											<string>63B7C9C710A219F200E709A5</string>
@@ -365,7 +363,8 @@
 											<string>63B7CAF210A240C400E709A5</string>
 											<string>63B7CAF310A240C400E709A5</string>
 											<string>63A5CDFB11E54536000CDD63</string>
-											<string>63A5CDFC11E54536000CDD63</string>
+											<string>637421D711E5E73E00DFBB47</string>
+											<string>637421D811E5E73E00DFBB47</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -377,14 +376,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1149, 602}}</string>
+								<string>{{0, 0}, {1149, 597}}</string>
 								<key>RubberWindowFrame</key>
 								<string>900 575 1435 843 0 0 2560 1418 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>602pt</string>
+							<string>597pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -397,14 +396,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 607}, {1149, 195}}</string>
+								<string>{{0, 602}, {1149, 200}}</string>
 								<key>RubberWindowFrame</key>
 								<string>900 575 1435 843 0 0 2560 1418 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>195pt</string>
+							<string>200pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -423,9 +422,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>63A5CDFE11E54536000CDD63</string>
+				<string>637421DA11E5E73E00DFBB47</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>63A5CDFF11E54536000CDD63</string>
+				<string>637421DB11E5E73E00DFBB47</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -546,7 +545,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>300238134.98954999</real>
+	<real>300279614.105398</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>1</integer>
 	<key>ToolbarIsVisible</key>
@@ -561,10 +560,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>63AC851F0F448BCA00AB632B</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>/Users/david/Projects/Open Source/ftgles/iPhone/freetype2/freetype2.xcodeproj</string>
+		<string>/Users/david/Projects/Open Source/ftgles/Xcode/freetype2/freetype2.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>900 575 1435 843 0 0 2560 1418 </string>
@@ -588,7 +586,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>aflatin2.c</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -646,7 +644,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>63AC851F0F448BCA00AB632B</string>
-				<string>63A5CDD711E5449C000CDD63</string>
+				<string>637421C811E5E6FA00DFBB47</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -766,13 +764,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>63A5CDD811E5449C000CDD63</string>
+				<string>637421C911E5E6FA00DFBB47</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>63A5CDD911E5449C000CDD63</string>
-				<string>63A5CDDA11E5449C000CDD63</string>
-				<string>63A5CDDB11E5449C000CDD63</string>
-				<string>63A5CDDC11E5449C000CDD63</string>
-				<string>63A5CDDD11E5449C000CDD63</string>
+				<string>637421CA11E5E6FA00DFBB47</string>
+				<string>637421CB11E5E6FA00DFBB47</string>
+				<string>637421CC11E5E6FA00DFBB47</string>
+				<string>637421CD11E5E6FA00DFBB47</string>
+				<string>637421CE11E5E6FA00DFBB47</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>

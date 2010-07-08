@@ -1880,6 +1880,10 @@
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos4.0;
 				USER_HEADER_SEARCH_PATHS = "../freetype-2.3.9/include ../freetype-2.3.9/src";
+				WARNING_CFLAGS = (
+					"-Wextra",
+					"-Wall",
+				);
 			};
 			name = Debug;
 		};
@@ -1914,6 +1918,10 @@
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos4.0;
 				USER_HEADER_SEARCH_PATHS = "";
+				WARNING_CFLAGS = (
+					"-Wextra",
+					"-Wall",
+				);
 				ZERO_LINK = NO;
 			};
 			name = Release;
