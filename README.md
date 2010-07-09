@@ -17,7 +17,7 @@ The [iPhone](http://github.com/cdave1/ftgles/tree/master/iPhone/) folder contain
 
 #### Automake
 
-The [ftgles](http://github.com/cdave1/ftgles/tree/master/ftgles/) folder contains a full automake system if you want to go that way.  The conf files do NOT include the iPhone libraries, and thus you will get build errors if you just "./configure; make; make install".  Instead, use the very useful iphone-configure tool to include your preferred iPhone SDK files and set the target device.  iphone-configure is (currently available here)[http://github.com/jlongster/configure-iphone].
+The [ftgles](http://github.com/cdave1/ftgles/tree/master/ftgles/) folder contains a full automake system if you want to go that way.  The conf files do NOT include the iPhone libraries, and thus you will get build errors if you just "./configure; make; make install".  Instead, use the very useful iphone-configure tool to include your preferred iPhone SDK files and set the target device.  iphone-configure is [currently available here](http://github.com/jlongster/configure-iphone).
 
 
 ## USAGE
