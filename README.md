@@ -1,23 +1,23 @@
 # FTGLES 0.1
 
-FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of (FTGL)[http://homepages.paradise.net.nz/henryj/code/#FTGL].  It currently targets the iPhone and iPad, with plans to port to Android in the very near future.  iOS 4 is currently supported.
+FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of [FTGL](http://homepages.paradise.net.nz/henryj/code/#FTGL).  It currently targets the iPhone and iPad, with plans to port to Android in the very near future.  iOS 4 is currently supported.
 
 From the FTGL notes:
 
 "Unlike other OpenGL font libraries FTGL uses standard font file formats so doesn't need a preprocessing step to convert the high quality font data into a lesser quality, proprietary format."
 
-"FTGL uses the [Freetype](www.freetype.org) font library to open and 'decode' the fonts. It then takes that output and stores it in a format most efficient for OpenGL rendering."
+"FTGL uses the [Freetype](http://www.freetype.org) font library to open and 'decode' the fonts. It then takes that output and stores it in a format most efficient for OpenGL rendering."
 
 
 ## INSTALL
 
 #### XCode
 
-The "iPhone" folder contains several demo xcode projects set up and ready to go.
+The [iPhone](http://github.com/cdave1/ftgles/tree/master/iPhone/) folder contains several demo xcode projects set up and ready to go.
 
 #### Automake
 
-The ftgles folder contains a full automake system if you want to go that way.  The conf files do NOT include the iPhone libraries, and thus you will get build errors if you just "./configure; make; make install".  Instead, use the very useful iphone-configure tool to include your preferred iPhone SDK files and set the target device.  iphone-configure is (currently available here)[http://github.com/jlongster/configure-iphone].
+The [ftgles](http://github.com/cdave1/ftgles/tree/master/ftgles/) folder contains a full automake system if you want to go that way.  The conf files do NOT include the iPhone libraries, and thus you will get build errors if you just "./configure; make; make install".  Instead, use the very useful iphone-configure tool to include your preferred iPhone SDK files and set the target device.  iphone-configure is (currently available here)[http://github.com/jlongster/configure-iphone].
 
 
 ## USAGE
