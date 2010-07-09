@@ -36,16 +36,16 @@ Render text within your render loop:
 
 	font->Render("Lorem ipsum dolor sit amet");
 
-See iPhone folder for an in-depth example that can run on an iPhone, including an example of using layouts to easily align and position your text.
+See the [iPhone](http://github.com/cdave1/ftgles/tree/master/iPhone/) folder for several comprehensive sample iPhone apps, including a demonstration of how to use layouts to easily align and position your text.
 
 
 ## Differences between FTGL and FTGLES
 
 FTGLES 0.1 supports the following font types from the original FTGL library:
-	* FTBufferFont
-	* FTGLOutlineFont
-	* FTGLPolygonFont
-	* FTGLTextureFont
+* FTBufferFont
+* FTGLOutlineFont
+* FTGLPolygonFont
+* FTGLTextureFont
 
 Extrusion and pixmap rendering from the original FTGL library are currently not supported.  Bitmap font support is currently in progress.
 
