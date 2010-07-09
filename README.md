@@ -42,10 +42,11 @@ See the [iPhone](http://github.com/cdave1/ftgles/tree/master/iPhone/) folder for
 ## Differences between FTGL and FTGLES
 
 FTGLES 0.1 supports the following font types from the original FTGL library:
-- FTBufferFont
-- FTGLOutlineFont
-- FTGLPolygonFont
-- FTGLTextureFont
+
+ - FTBufferFont
+ - FTGLOutlineFont
+ - FTGLPolygonFont
+ - FTGLTextureFont
 
 Extrusion and pixmap rendering from the original FTGL library are currently not supported.  Bitmap font support is currently in progress.
 
