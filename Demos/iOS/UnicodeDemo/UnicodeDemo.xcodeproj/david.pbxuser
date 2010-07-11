@@ -155,21 +155,19 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 300279050;
-			PBXWorkspaceStateSaveDate = 300279050;
+			PBXPerProjectTemplateStateSaveDate = 300574287;
+			PBXWorkspaceStateSaveDate = 300574287;
 		};
 		perUserProjectItems = {
 			63741FDC11E5D6B100DFBB47 /* PBXTextBookmark */ = 63741FDC11E5D6B100DFBB47 /* PBXTextBookmark */;
 			63741FEA11E5D6EE00DFBB47 /* PBXTextBookmark */ = 63741FEA11E5D6EE00DFBB47 /* PBXTextBookmark */;
 			63741FEB11E5D6EE00DFBB47 /* PBXTextBookmark */ = 63741FEB11E5D6EE00DFBB47 /* PBXTextBookmark */;
-			63741FED11E5D77700DFBB47 /* PBXTextBookmark */ = 63741FED11E5D77700DFBB47 /* PBXTextBookmark */;
-			6374211B11E5E51A00DFBB47 /* PBXTextBookmark */ = 6374211B11E5E51A00DFBB47 /* PBXTextBookmark */;
 			63B7C9C710A219F200E709A5 /* PBXTextBookmark */ = 63B7C9C710A219F200E709A5 /* PBXTextBookmark */;
 			63B7CA6D10A2391400E709A5 /* PlistBookmark */ = 63B7CA6D10A2391400E709A5 /* PlistBookmark */;
-			63B7CA9E10A23D7300E709A5 /* PBXBookmark */ = 63B7CA9E10A23D7300E709A5 /* PBXBookmark */;
-			63B7CA9F10A23D7300E709A5 /* PBXBookmark */ = 63B7CA9F10A23D7300E709A5 /* PBXBookmark */;
 			63B7CAEE10A240C400E709A5 /* PBXTextBookmark */ = 63B7CAEE10A240C400E709A5 /* PBXTextBookmark */;
 			63B7CAEF10A240C400E709A5 /* PBXTextBookmark */ = 63B7CAEF10A240C400E709A5 /* PBXTextBookmark */;
+			63D4061A11EA66CA0051D8F3 /* PBXTextBookmark */ = 63D4061A11EA66CA0051D8F3 /* PBXTextBookmark */;
+			63D4061B11EA66CA0051D8F3 /* PlistBookmark */ = 63D4061B11EA66CA0051D8F3 /* PlistBookmark */;
 		};
 		sourceControlManager = 63AC85280F448BCA00AB632B /* Source Control */;
 		userBuildSettings = {
@@ -211,26 +209,6 @@
 		rType = 0;
 		vrLen = 1238;
 		vrLoc = 0;
-	};
-	63741FED11E5D77700DFBB47 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */;
-		name = "Delegate.mm: 95";
-		rLen = 0;
-		rLoc = 2911;
-		rType = 0;
-		vrLen = 1115;
-		vrLoc = 2115;
-	};
-	6374211B11E5E51A00DFBB47 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */;
-		name = "Delegate.mm: 95";
-		rLen = 0;
-		rLoc = 2911;
-		rType = 0;
-		vrLen = 1115;
-		vrLoc = 2115;
 	};
 	63AC85170F448BB400AB632B /* iPhoneFTGL */ = {
 		isa = PBXExecutable;
@@ -305,7 +283,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 315;
-		modificationTime = 300275398.769168;
+		modificationTime = 300574372.105564;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
@@ -322,7 +300,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 412;
-		modificationTime = 300275398.769084;
+		modificationTime = 300574372.105682;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
@@ -354,14 +332,6 @@
 		rLen = 0;
 		rLoc = 2147483647;
 	};
-	63B7CA9E10A23D7300E709A5 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 63B7CA6710A2386200E709A5 /* Default.png */;
-	};
-	63B7CA9F10A23D7300E709A5 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 1B26781D0DA2F9B000B24DA5 /* icon.png */;
-	};
 	63B7CAEE10A240C400E709A5 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		name = "AUTHORS: 36";
@@ -380,6 +350,27 @@
 		vrLen = 1257;
 		vrLoc = 1125;
 	};
+	63D4061A11EA66CA0051D8F3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */;
+		name = "Delegate.mm: 95";
+		rLen = 0;
+		rLoc = 2911;
+		rType = 0;
+		vrLen = 1114;
+		vrLoc = 2115;
+	};
+	63D4061B11EA66CA0051D8F3 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/david/Projects/Open Source/ftgles/Demos/iOS/UnicodeDemo/Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
 	7914067A0DBAD8D100C9A379 /* Delegate.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1088, 570}}";
@@ -391,7 +382,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1088, 1659}}";
 			sepNavSelRange = "{2911, 0}";
-			sepNavVisRange = "{2115, 1115}";
+			sepNavVisRange = "{2115, 1114}";
 		};
 	};
 	79EA048C0DAFCC980038ED3D /* Model3DS.cpp */ = {
