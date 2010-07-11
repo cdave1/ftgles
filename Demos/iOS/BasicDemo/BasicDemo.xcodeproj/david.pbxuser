@@ -158,8 +158,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 300574135;
-			PBXWorkspaceStateSaveDate = 300574135;
+			PBXPerProjectTemplateStateSaveDate = 300574695;
+			PBXWorkspaceStateSaveDate = 300574695;
 		};
 		perUserProjectItems = {
 			63741FA511E5D51F00DFBB47 /* PBXTextBookmark */ = 63741FA511E5D51F00DFBB47 /* PBXTextBookmark */;
@@ -169,10 +169,8 @@
 			63B7CAEE10A240C400E709A5 /* PBXTextBookmark */ = 63B7CAEE10A240C400E709A5 /* PBXTextBookmark */;
 			63B7CAEF10A240C400E709A5 /* PBXTextBookmark */ = 63B7CAEF10A240C400E709A5 /* PBXTextBookmark */;
 			63D4048E11EA5D990051D8F3 /* PBXTextBookmark */ = 63D4048E11EA5D990051D8F3 /* PBXTextBookmark */;
-			63D4050411EA64360051D8F3 /* PBXBookmark */ = 63D4050411EA64360051D8F3 /* PBXBookmark */;
-			63D4057D11EA65810051D8F3 /* PBXBookmark */ = 63D4057D11EA65810051D8F3 /* PBXBookmark */;
-			63D4058011EA65990051D8F3 /* PlistBookmark */ = 63D4058011EA65990051D8F3 /* PlistBookmark */;
 			63D405AA11EA65FF0051D8F3 /* PlistBookmark */ = 63D405AA11EA65FF0051D8F3 /* PlistBookmark */;
+			63D4066711EA680F0051D8F3 /* PlistBookmark */ = 63D4066711EA680F0051D8F3 /* PlistBookmark */;
 			63EEA45911A291D70047F51E /* PBXTextBookmark */ = 63EEA45911A291D70047F51E /* PBXTextBookmark */;
 			63EEA45B11A291D70047F51E /* PBXTextBookmark */ = 63EEA45B11A291D70047F51E /* PBXTextBookmark */;
 			63EEA45D11A291D70047F51E /* PBXTextBookmark */ = 63EEA45D11A291D70047F51E /* PBXTextBookmark */;
@@ -415,13 +413,6 @@
 			sepNavVisRange = "{0, 1293}";
 		};
 	};
-	63B7CA6710A2386200E709A5 /* Default.png */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = image.png;
-		name = Default.png;
-		path = "/Users/david/Projects/Open Source/ftgles/Demos/iOS/BasicDemo/Resources/Default.png";
-		sourceTree = "<absolute>";
-	};
 	63B7CAEE10A240C400E709A5 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		name = "AUTHORS: 36";
@@ -449,10 +440,6 @@
 		rType = 0;
 		vrLen = 1681;
 		vrLoc = 1452;
-	};
-	63D4050411EA64360051D8F3 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = E479B7C71161D9660088CFA0 /* mousePoint.png */;
 	};
 	63D4054E11EA64D50051D8F3 /* BasicDemo iPad */ = {
 		activeExec = 0;
@@ -488,11 +475,7 @@
 		sourceDirectories = (
 		);
 	};
-	63D4057D11EA65810051D8F3 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 63B7CA6710A2386200E709A5 /* Default.png */;
-	};
-	63D4058011EA65990051D8F3 /* PlistBookmark */ = {
+	63D405AA11EA65FF0051D8F3 /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
 		fallbackIsa = PBXBookmark;
@@ -503,7 +486,7 @@
 		rLen = 0;
 		rLoc = 9223372036854775808;
 	};
-	63D405AA11EA65FF0051D8F3 /* PlistBookmark */ = {
+	63D4066711EA680F0051D8F3 /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
 		fallbackIsa = PBXBookmark;
@@ -976,13 +959,6 @@
 		lastKnownFileType = sourcecode.cpp.cpp;
 		name = Model3DS.cpp;
 		path = /Users/david/Documents/Renderer/Geometry/Model3DS.cpp;
-		sourceTree = "<absolute>";
-	};
-	E479B7C71161D9660088CFA0 /* mousePoint.png */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = image.png;
-		name = mousePoint.png;
-		path = "/Users/david/Projects/Open Source/ftgles/Demos/iOS/BasicDemo/Resources/mousePoint.png";
 		sourceTree = "<absolute>";
 	};
 }

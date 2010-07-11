@@ -521,7 +521,7 @@
 				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "../../../freetype-2.3.9/include/**";
-				WARNING_CFLAGS = "";
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug;
 		};
