@@ -1,6 +1,6 @@
 # Installation Instructions
 
-#### Xcode
+### Xcode
 
 The FTGLES Xcode project is compiled as a static library, and the easiest way to add it to your project is to use Xcode's "dependent project" facilities.  Here is how:
 
@@ -22,7 +22,7 @@ The FTGLES Xcode project is compiled as a static library, and the easiest way to
 6. You're ready to go.  Just #include "FTGL/ftgles.h" anywhere you want to use FTGLES classes in your project.  See the BasicDemo for an example of how to set up and draw FTGLES fonts in OpenGL ES 1.1.
 
 
-#### Automake
+### Automake
 
 The [ftgles](http://github.com/cdave1/ftgles/tree/master/ftgles/) folder contains a full automake system if you want to go that way.  The conf files do NOT include the iPhone libraries, and thus you will get build errors if you just "./configure; make; make install".  Instead, use the very useful iphone-configure tool to include your preferred iPhone SDK files and set the target device.  iphone-configure is [currently available here](http://github.com/jlongster/configure-iphone).
 
