@@ -427,7 +427,10 @@
 				GCC_THUMB_SUPPORT = YES;
 				GCC_VERSION = 4.2;
 				GENERATE_MASTER_OBJECT_FILE = NO;
-				HEADER_SEARCH_PATHS = ../../../ftgles/src;
+				HEADER_SEARCH_PATHS = (
+					"../../../freetype-2.3.9/include/**",
+					../../../ftgles/src,
+				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				KEEP_PRIVATE_EXTERNS = NO;
@@ -439,9 +442,9 @@
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = BasicDemo;
 				PROVISIONING_PROFILE = "";
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "../../../freetype-2.3.9/include/**";
+				USER_HEADER_SEARCH_PATHS = "";
 				WARNING_CFLAGS = "";
 			};
 			name = Debug;
@@ -462,7 +465,10 @@
 				GCC_PREFIX_HEADER = Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_OS_IPHONE=1";
 				GCC_THUMB_SUPPORT = YES;
-				HEADER_SEARCH_PATHS = ../../../ftgles/src;
+				HEADER_SEARCH_PATHS = (
+					"../../../freetype-2.3.9/include/**",
+					../../../ftgles/src,
+				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				LIBRARY_SEARCH_PATHS = "";
@@ -471,9 +477,9 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = BasicDemo;
 				PROVISIONING_PROFILE = "";
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "../../../freetype-2.3.9/include/**";
+				USER_HEADER_SEARCH_PATHS = "";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;
@@ -505,7 +511,10 @@
 				GCC_THUMB_SUPPORT = YES;
 				GCC_VERSION = 4.2;
 				GENERATE_MASTER_OBJECT_FILE = NO;
-				HEADER_SEARCH_PATHS = ../../../ftgles/src;
+				HEADER_SEARCH_PATHS = (
+					"../../../freetype-2.3.9/include/**",
+					../../../ftgles/src,
+				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				KEEP_PRIVATE_EXTERNS = NO;
@@ -517,10 +526,10 @@
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = BasicDemo;
 				PROVISIONING_PROFILE = "";
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = 2;
-				USER_HEADER_SEARCH_PATHS = "../../../freetype-2.3.9/include/**";
+				USER_HEADER_SEARCH_PATHS = "";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug;
@@ -541,19 +550,23 @@
 				GCC_PREFIX_HEADER = Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_OS_IPHONE=1";
 				GCC_THUMB_SUPPORT = YES;
-				HEADER_SEARCH_PATHS = ../../../ftgles/src;
+				HEADER_SEARCH_PATHS = (
+					"../../../freetype-2.3.9/include/**",
+					../../../ftgles/src,
+				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = BasicDemo;
 				PROVISIONING_PROFILE = "";
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = 2;
-				USER_HEADER_SEARCH_PATHS = "../../../freetype-2.3.9/include/**";
+				USER_HEADER_SEARCH_PATHS = "";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;

@@ -13,7 +13,7 @@ From the FTGL notes:
 
 #### XCode
 
-The [iPhone](http://github.com/cdave1/ftgles/tree/master/iPhone/) folder contains several demo xcode projects set up and ready to go.
+The [/Demos/iOS](http://github.com/cdave1/ftgles/tree/master/Demos/iOS/) folder contains several demo Xcode projects set up and ready to go for iPhone and iPad.
 
 #### Automake
 
@@ -36,7 +36,7 @@ Render text within your render loop:
 
 	font->Render("Lorem ipsum dolor sit amet");
 
-See the [iPhone](http://github.com/cdave1/ftgles/tree/master/iPhone/) folder for several comprehensive sample iPhone apps, including a demonstration of how to use layouts to easily align and position your text.
+See the [Demos](http://github.com/cdave1/ftgles/tree/master/iPhone/) folder for several comprehensive sample iPhone apps, including a demonstration of how to use layouts to easily align and position your text.
 
 
 ## Differences between FTGL and FTGLES
