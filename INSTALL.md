@@ -17,7 +17,7 @@ The FTGLES Xcode project is compiled as a static library, and the easiest way to
    - UIKit.framework
 
 5. Finally, we need to tell your project where to find the FTGLES headers.  Open your "Project Settings" and go to the "Build" tab. Look for "Header Search Paths" and double-click it.  Add the relative path from your project's directory to the "src" directory in the FTGLES install directory. Also, add a recursive entry to the following entry:
-   - YOUR_FTGLES_INSTALL_DIRECTOR/freetype-2.3.9/include
+   - YOUR_FTGLES_INSTALL_DIRECTORY/freetype-2.3.9/include
 
 6. You're ready to go.  Just #include "FTGL/ftgles.h" anywhere you want to use FTGLES classes in your project.  See the BasicDemo for an example of how to set up and draw FTGLES fonts in OpenGL ES 1.1.
 
