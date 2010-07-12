@@ -11,7 +11,7 @@ From the FTGL notes:
 
 ## INSTALL
 
-See [INSTALL](http://github.com/cdave1/ftgles/blob/master/INSTALL.md).
+See [INSTALL NOTES](http://github.com/cdave1/ftgles/blob/master/INSTALL.md) for instructions on how to add FTGLES to your Xcode project or build using automake.
 
 
 ## USAGE
