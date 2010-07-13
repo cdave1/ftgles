@@ -56,7 +56,7 @@ static CFTimeInterval LastFPSUpdate;
 {
 	CGRect	rect = [[UIScreen mainScreen] bounds];
 	window = [[UIWindow alloc] initWithFrame:rect];
-	glView = [[EAGLView alloc] initWithFrame:rect];
+	glView = [[GLESView alloc] initWithFrame:rect];
 	
 	[window addSubview:glView];
 	[window makeKeyAndVisible];

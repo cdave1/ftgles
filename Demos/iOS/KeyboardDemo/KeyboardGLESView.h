@@ -6,10 +6,10 @@
 //  Copyright 2010 n/a. All rights reserved.
 //
 
-#import "EAGLView.h"
+#import "GLESView.h"
 
 
-@interface KeyboardEAGLView : EAGLView 
+@interface KeyboardGLESView : GLESView 
 {
 
 }

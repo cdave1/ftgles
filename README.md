@@ -22,12 +22,13 @@ Include the library in your code:
 
 Create a font from a truetype file or opentype font:
 	
-	FTFont *font = new FTTextureFont("myfont.ttf");
-	FTFont *font2 = new FTTextureFont("myotherfont.otf");
+	FTFont *font = new FTTextureFont("/path/to/myfont.ttf");
+	FTFont *font2 = new FTTextureFont("/path/to/myotherfont.otf");
 	font->FaceSize(72);
 	
-Render text within your render loop:
+To render the text within your render loop (fonts are rendered at the origin along the positive x-axis):
 
+	glColor4f(0.0f, 0.0f, 0.0f, 1.0f); // Black text
 	font->Render("Lorem ipsum dolor sit amet");
 
 See the [Demos](http://github.com/cdave1/ftgles/tree/master/iPhone/) folder for several comprehensive sample iPhone apps, including a demonstration of how to use layouts to easily align and position your text.

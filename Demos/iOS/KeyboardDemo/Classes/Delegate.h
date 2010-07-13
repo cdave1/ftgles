@@ -24,12 +24,12 @@
 
 #include <stdio.h>
 #include <assert.h> 
-#import "EAGLView.h"
+#import "GLESView.h"
 
 @interface AppController : NSObject
 {
 	UIWindow* window;
-	EAGLView* glView;
+	GLESView* glView;
 }
 
 @end

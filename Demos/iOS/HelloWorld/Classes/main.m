@@ -22,17 +22,13 @@
  
  */
 
-#include <stdio.h>
-#include <assert.h> 
-#import "GLESView.h"
+#import <UIKit/UIKit.h>
 
-@interface AppController : NSObject
+int main(int argc, char *argv[])
 {
-	UIWindow * window;
-	GLESView * glView;
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	UIApplicationMain(argc, argv, nil, @"AppController");
+	[pool drain];
+	
+	return 0;
 }
-
-@end
-
-
-

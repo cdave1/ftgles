@@ -19,25 +19,45 @@
  */
 
 
-#import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
+#include "HelloWorldDemo.h"
 
-#import "GLESSurface.h"
+#define HELLO_WORLD_FONT_NAME "Diavlo_BLACK_II_37.otf"
 
-@class EAGLView;
-
-@interface EAGLView : UIView <GLESSurfaceDelegate>
+HelloWorldDemo::HelloWorldDemo(const char * path, float width, float height)
 {
-@private
-	BOOL _autoresize;
-	CGSize _size;
-	GLESSurface<GLESAbstractSurface> *_surface;
+	screenWidth = width;
+	screenHeight = height;
+	
+	char fontname[256];
+	snprintf(fontname, 256, "%s/%s", path, HELLO_WORLD_FONT_NAME);
+	font = new FTTextureFont(fontname);
+	if (font->Error())
+	{
+        printf("Could not load font `%s'\n", fontname);	
+	}
+	font->FaceSize(48);
+	
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
-@property BOOL autoresizesSurface;
-@property(readonly, nonatomic) CGSize surfaceSize;
 
-- (id) initWithFrame:(CGRect)frame;
-- (void) swapBuffers;
+HelloWorldDemo::~HelloWorldDemo() 
+{
+	delete font;
+}
 
-@end
+
+void HelloWorldDemo::Draw()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+	glOrthof(0.0f, screenWidth, 0.0f, screenHeight, 10.0f, -10.0f);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	
+	glTranslatef(0.0f, screenHeight * 0.5f, 0.0f);
+	glColor4f(1.0f, 0.6f, 0.3f, 1.0f);
+	font->Render("Hello world!");
+}
+

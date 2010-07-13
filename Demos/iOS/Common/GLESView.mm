@@ -19,11 +19,11 @@
  */
 
 
-#import "EAGLView.h"
+#import "GLESView.h"
 #import "GLES1Surface.h"
 #import "GLES2Surface.h"
 
-@implementation EAGLView
+@implementation GLESView
 
 @synthesize autoresizesSurface = _autoresize,
 					surfaceSize=_size;

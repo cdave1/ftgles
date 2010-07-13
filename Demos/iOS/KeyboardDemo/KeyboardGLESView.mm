@@ -6,9 +6,9 @@
 //  Copyright 2010 n/a. All rights reserved.
 //
 
-#import "KeyboardEAGLView.h"
+#import "KeyboardGLESView.h"
 
 
-@implementation KeyboardEAGLView
+@implementation KeyboardGLESView
 
 @end

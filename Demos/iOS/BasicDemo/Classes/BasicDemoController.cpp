@@ -265,7 +265,7 @@ void BasicDemoController::Draw()
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
 	
-	angle += 0.1f;
+	angle += 0.5f;
 	if (angle >= 360.0f) angle = 0.0f;
 	
 	//fonts[1]->FaceSize(faceSize);

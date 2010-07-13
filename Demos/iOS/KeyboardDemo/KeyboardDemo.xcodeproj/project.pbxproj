@@ -11,21 +11,21 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
 		2D500B9A0D5A79CF00DBA0E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
-		6374202111E5D7A800DFBB47 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6374201811E5D7A800DFBB47 /* EAGLView.mm */; };
 		6374202211E5D7A800DFBB47 /* GLES1Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6374201A11E5D7A800DFBB47 /* GLES1Surface.mm */; };
 		6374202311E5D7A800DFBB47 /* GLES2Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6374201C11E5D7A800DFBB47 /* GLES2Surface.mm */; };
 		6374202411E5D7A800DFBB47 /* GLESSurface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6374201E11E5D7A800DFBB47 /* GLESSurface.mm */; };
 		6374202511E5D7A800DFBB47 /* TextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6374202011E5D7A800DFBB47 /* TextureLoader.mm */; };
 		6374202911E5D7D600DFBB47 /* KeyboardDemoController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6374202711E5D7D600DFBB47 /* KeyboardDemoController.cpp */; };
-		6374202C11E5D82600DFBB47 /* KeyboardEAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6374202B11E5D82600DFBB47 /* KeyboardEAGLView.mm */; };
+		6374202C11E5D82600DFBB47 /* KeyboardGLESView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6374202B11E5D82600DFBB47 /* KeyboardGLESView.mm */; };
 		63AD97DD0FAA2A9F00A79D15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */; };
 		63B7C93E10A218E500E709A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B7C93D10A218E500E709A5 /* main.m */; };
 		63D405CB11EA662D0051D8F3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D405C611EA662D0051D8F3 /* Default.png */; };
 		63D405CC11EA662D0051D8F3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D405C711EA662D0051D8F3 /* Icon.png */; };
 		63D405CD11EA662D0051D8F3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D405C811EA662D0051D8F3 /* Icon@2x.png */; };
-		63D405CE11EA662D0051D8F3 /* Icon72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D405C911EA662D0051D8F3 /* Icon72x72.png */; };
 		63D405CF11EA662D0051D8F3 /* mousePoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D405CA11EA662D0051D8F3 /* mousePoint.png */; };
 		63D4063B11EA66E60051D8F3 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D405C411EA66190051D8F3 /* libFTGLES.a */; };
+		63D407FF11EB21B50051D8F3 /* GLESView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63D407FE11EB21B50051D8F3 /* GLESView.mm */; };
+		63D4080B11EB224E0051D8F3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4080A11EB224E0051D8F3 /* Icon-72.png */; };
 		7914067C0DBAD8D100C9A379 /* Delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */; };
 		E4E7CFE811646AAC008FAD8A /* BorisBlackBloxx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4E7CFE711646AAC008FAD8A /* BorisBlackBloxx.ttf */; };
 /* End PBXBuildFile section */
@@ -46,8 +46,6 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		6374201711E5D7A800DFBB47 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
-		6374201811E5D7A800DFBB47 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		6374201911E5D7A800DFBB47 /* GLES1Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Surface.h; sourceTree = "<group>"; };
 		6374201A11E5D7A800DFBB47 /* GLES1Surface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLES1Surface.mm; sourceTree = "<group>"; };
 		6374201B11E5D7A800DFBB47 /* GLES2Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES2Surface.h; sourceTree = "<group>"; };
@@ -58,15 +56,17 @@
 		6374202011E5D7A800DFBB47 /* TextureLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextureLoader.mm; sourceTree = "<group>"; };
 		6374202711E5D7D600DFBB47 /* KeyboardDemoController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KeyboardDemoController.cpp; path = Classes/KeyboardDemoController.cpp; sourceTree = "<group>"; };
 		6374202811E5D7D600DFBB47 /* KeyboardDemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyboardDemoController.h; path = Classes/KeyboardDemoController.h; sourceTree = "<group>"; };
-		6374202A11E5D82600DFBB47 /* KeyboardEAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardEAGLView.h; sourceTree = "<group>"; };
-		6374202B11E5D82600DFBB47 /* KeyboardEAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KeyboardEAGLView.mm; sourceTree = "<group>"; };
+		6374202A11E5D82600DFBB47 /* KeyboardGLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardGLESView.h; sourceTree = "<group>"; };
+		6374202B11E5D82600DFBB47 /* KeyboardGLESView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KeyboardGLESView.mm; sourceTree = "<group>"; };
 		63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		63B7C93D10A218E500E709A5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
 		63D405C611EA662D0051D8F3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Common/Resources/Default.png; sourceTree = SOURCE_ROOT; };
 		63D405C711EA662D0051D8F3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Common/Resources/Icon.png; sourceTree = SOURCE_ROOT; };
 		63D405C811EA662D0051D8F3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Common/Resources/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
-		63D405C911EA662D0051D8F3 /* Icon72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon72x72.png; path = ../Common/Resources/Icon72x72.png; sourceTree = SOURCE_ROOT; };
 		63D405CA11EA662D0051D8F3 /* mousePoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mousePoint.png; path = ../Common/Resources/mousePoint.png; sourceTree = SOURCE_ROOT; };
+		63D407FD11EB21B50051D8F3 /* GLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESView.h; sourceTree = "<group>"; };
+		63D407FE11EB21B50051D8F3 /* GLESView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESView.mm; sourceTree = "<group>"; };
+		63D4080A11EB224E0051D8F3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Common/Resources/Icon-72.png"; sourceTree = SOURCE_ROOT; };
 		7914067A0DBAD8D100C9A379 /* Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Delegate.h; path = Classes/Delegate.h; sourceTree = "<group>"; };
 		7914067B0DBAD8D100C9A379 /* Delegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Delegate.mm; path = Classes/Delegate.mm; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,10 +116,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				63D4080A11EB224E0051D8F3 /* Icon-72.png */,
 				63D405C611EA662D0051D8F3 /* Default.png */,
 				63D405C711EA662D0051D8F3 /* Icon.png */,
 				63D405C811EA662D0051D8F3 /* Icon@2x.png */,
-				63D405C911EA662D0051D8F3 /* Icon72x72.png */,
 				63D405CA11EA662D0051D8F3 /* mousePoint.png */,
 			);
 			name = Resources;
@@ -140,8 +140,8 @@
 		6374201611E5D7A800DFBB47 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				6374201711E5D7A800DFBB47 /* EAGLView.h */,
-				6374201811E5D7A800DFBB47 /* EAGLView.mm */,
+				63D407FD11EB21B50051D8F3 /* GLESView.h */,
+				63D407FE11EB21B50051D8F3 /* GLESView.mm */,
 				6374201911E5D7A800DFBB47 /* GLES1Surface.h */,
 				6374201A11E5D7A800DFBB47 /* GLES1Surface.mm */,
 				6374201B11E5D7A800DFBB47 /* GLES2Surface.h */,
@@ -172,8 +172,8 @@
 				6374202811E5D7D600DFBB47 /* KeyboardDemoController.h */,
 				7914067A0DBAD8D100C9A379 /* Delegate.h */,
 				7914067B0DBAD8D100C9A379 /* Delegate.mm */,
-				6374202A11E5D82600DFBB47 /* KeyboardEAGLView.h */,
-				6374202B11E5D82600DFBB47 /* KeyboardEAGLView.mm */,
+				6374202A11E5D82600DFBB47 /* KeyboardGLESView.h */,
+				6374202B11E5D82600DFBB47 /* KeyboardGLESView.mm */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -256,8 +256,8 @@
 				63D405CB11EA662D0051D8F3 /* Default.png in Resources */,
 				63D405CC11EA662D0051D8F3 /* Icon.png in Resources */,
 				63D405CD11EA662D0051D8F3 /* Icon@2x.png in Resources */,
-				63D405CE11EA662D0051D8F3 /* Icon72x72.png in Resources */,
 				63D405CF11EA662D0051D8F3 /* mousePoint.png in Resources */,
+				63D4080B11EB224E0051D8F3 /* Icon-72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,13 +270,13 @@
 			files = (
 				7914067C0DBAD8D100C9A379 /* Delegate.mm in Sources */,
 				63B7C93E10A218E500E709A5 /* main.m in Sources */,
-				6374202111E5D7A800DFBB47 /* EAGLView.mm in Sources */,
 				6374202211E5D7A800DFBB47 /* GLES1Surface.mm in Sources */,
 				6374202311E5D7A800DFBB47 /* GLES2Surface.mm in Sources */,
 				6374202411E5D7A800DFBB47 /* GLESSurface.mm in Sources */,
 				6374202511E5D7A800DFBB47 /* TextureLoader.mm in Sources */,
 				6374202911E5D7D600DFBB47 /* KeyboardDemoController.cpp in Sources */,
-				6374202C11E5D82600DFBB47 /* KeyboardEAGLView.mm in Sources */,
+				6374202C11E5D82600DFBB47 /* KeyboardGLESView.mm in Sources */,
+				63D407FF11EB21B50051D8F3 /* GLESView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

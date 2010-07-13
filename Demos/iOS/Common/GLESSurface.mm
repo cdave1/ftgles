@@ -32,6 +32,7 @@
 	return [CAEAGLLayer class];
 }
 
+
 - (id) init
 {
 	if ((self = [super init]))
@@ -41,6 +42,7 @@
 	return nil;
 }
 
+
 - (void) setCurrentContext
 {
 	if(![EAGLContext setCurrentContext:_context]) {
@@ -48,10 +50,12 @@
 	}
 }
 
+
 - (BOOL) isCurrentContext
 {
 	return ([EAGLContext currentContext] == _context ? YES : NO);
 }
+
 
 - (void) clearCurrentContext
 {

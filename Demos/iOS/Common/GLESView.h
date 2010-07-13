@@ -18,17 +18,26 @@
  
  */
 
-#include <stdio.h>
-#include <assert.h> 
-#import "GLESView.h"
 
-@interface AppController : NSObject
+#import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
+#import "GLESSurface.h"
+
+@class GLESView;
+
+@interface GLESView : UIView <GLESSurfaceDelegate>
 {
-	UIWindow * window;
-	GLESView * glView;
+@private
+	BOOL _autoresize;
+	CGSize _size;
+	GLESSurface<GLESAbstractSurface> *_surface;
 }
 
+@property BOOL autoresizesSurface;
+@property(readonly, nonatomic) CGSize surfaceSize;
+
+- (id) initWithFrame:(CGRect)frame;
+- (void) swapBuffers;
+
 @end
-
-
-

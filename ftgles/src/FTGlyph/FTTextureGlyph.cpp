@@ -85,15 +85,11 @@ FTTextureGlyphImpl::FTTextureGlyphImpl(FT_GlyphSlot glyph, int id, int xOffset,
     destWidth  = bitmap.width;
     destHeight = bitmap.rows;
 
-    if(destWidth && destHeight)
+    if (destWidth && destHeight)
     {
-       // glPushClientAttrib(GL_CLIENT_PIXEL_STORE_BIT);
-		
-        glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-        glBindTexture(GL_TEXTURE_2D, glTextureID);
+		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+		glBindTexture(GL_TEXTURE_2D, glTextureID);
         glTexSubImage2D(GL_TEXTURE_2D, 0, xOffset, yOffset, destWidth, destHeight, GL_ALPHA, GL_UNSIGNED_BYTE, bitmap.buffer);
-
-       // glPopClientAttrib();
     }
 
 
@@ -123,7 +119,6 @@ const FTPoint& FTTextureGlyphImpl::RenderImpl(const FTPoint& pen,
 {
     float dx, dy;
 	
-	
 	glGetIntegerv(GL_TEXTURE_BINDING_2D, &activeTextureID);
 	
     if(activeTextureID != glTextureID)
@@ -134,8 +129,6 @@ const FTPoint& FTTextureGlyphImpl::RenderImpl(const FTPoint& pen,
 	
     dx = floor(pen.Xf() + corner.Xf());
     dy = floor(pen.Yf() + corner.Yf());
-	
-
 	
 	ftglTexCoord2f(uv[0].Xf(), uv[0].Yf());
 	ftglVertex2f(dx, dy);

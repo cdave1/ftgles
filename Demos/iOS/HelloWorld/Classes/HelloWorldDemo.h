@@ -18,17 +18,26 @@
  
  */
 
-#include <stdio.h>
-#include <assert.h> 
-#import "GLESView.h"
+#ifndef BASIC_DEMO_CONTROLLER_H
+#define BASIC_DEMO_CONTROLLER_H
 
-@interface AppController : NSObject
-{
-	UIWindow * window;
-	GLESView * glView;
-}
-
-@end
+#include <OpenGLES/ES1/gl.h>
+#include <OpenGLES/ES1/glext.h>
+#include "FTGL/ftgles.h"
 
 
+class HelloWorldDemo
+{		
+public:
+	HelloWorldDemo(const char* path, float width, float height);
+	
+	~HelloWorldDemo();
+	
+	void Draw();
+	
+	float screenWidth, screenHeight;
+	
+	FTFont *font;
+};
 
+#endif

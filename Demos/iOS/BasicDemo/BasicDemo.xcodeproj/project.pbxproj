@@ -11,7 +11,6 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
 		2D500B9A0D5A79CF00DBA0E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
-		63741F6211E5D24A00DFBB47 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5911E5D24A00DFBB47 /* EAGLView.mm */; };
 		63741F6311E5D24A00DFBB47 /* GLES1Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5B11E5D24A00DFBB47 /* GLES1Surface.mm */; };
 		63741F6411E5D24A00DFBB47 /* GLES2Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5D11E5D24A00DFBB47 /* GLES2Surface.mm */; };
 		63741F6511E5D24A00DFBB47 /* GLESSurface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5F11E5D24A00DFBB47 /* GLESSurface.mm */; };
@@ -34,7 +33,6 @@
 		63D4055E11EA64D50051D8F3 /* Delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */; };
 		63D4055F11EA64D50051D8F3 /* BasicDemoController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63AF0F9C0F5F2FA300BF520B /* BasicDemoController.cpp */; };
 		63D4056011EA64D50051D8F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B7C93D10A218E500E709A5 /* main.m */; };
-		63D4056111EA64D50051D8F3 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5911E5D24A00DFBB47 /* EAGLView.mm */; };
 		63D4056211EA64D50051D8F3 /* GLES1Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5B11E5D24A00DFBB47 /* GLES1Surface.mm */; };
 		63D4056311EA64D50051D8F3 /* GLES2Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5D11E5D24A00DFBB47 /* GLES2Surface.mm */; };
 		63D4056411EA64D50051D8F3 /* GLESSurface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5F11E5D24A00DFBB47 /* GLESSurface.mm */; };
@@ -55,6 +53,8 @@
 		63D405A711EA65F60051D8F3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059D11EA65F60051D8F3 /* Icon@2x.png */; };
 		63D405A811EA65F60051D8F3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059E11EA65F60051D8F3 /* Icon-72.png */; };
 		63D405A911EA65F60051D8F3 /* mousePoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059F11EA65F60051D8F3 /* mousePoint.png */; };
+		63D4070611EB1B5B0051D8F3 /* GLESView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63D4070511EB1B5B0051D8F3 /* GLESView.mm */; };
+		63D4070711EB1B5B0051D8F3 /* GLESView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63D4070511EB1B5B0051D8F3 /* GLESView.mm */; };
 		7914067C0DBAD8D100C9A379 /* Delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */; };
 		E4451145112E95AC00AF94E6 /* BorisBlackBloxx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E445113F112E95AC00AF94E6 /* BorisBlackBloxx.ttf */; };
 		E4451146112E95AC00AF94E6 /* Cardo98s.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4451140112E95AC00AF94E6 /* Cardo98s.ttf */; };
@@ -79,8 +79,6 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		63741F5811E5D24A00DFBB47 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
-		63741F5911E5D24A00DFBB47 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		63741F5A11E5D24A00DFBB47 /* GLES1Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Surface.h; sourceTree = "<group>"; };
 		63741F5B11E5D24A00DFBB47 /* GLES1Surface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLES1Surface.mm; sourceTree = "<group>"; };
 		63741F5C11E5D24A00DFBB47 /* GLES2Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES2Surface.h; sourceTree = "<group>"; };
@@ -102,6 +100,8 @@
 		63D4059D11EA65F60051D8F3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Common/Resources/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		63D4059E11EA65F60051D8F3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Common/Resources/Icon-72.png"; sourceTree = SOURCE_ROOT; };
 		63D4059F11EA65F60051D8F3 /* mousePoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mousePoint.png; path = ../Common/Resources/mousePoint.png; sourceTree = SOURCE_ROOT; };
+		63D4070411EB1B5B0051D8F3 /* GLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESView.h; sourceTree = "<group>"; };
+		63D4070511EB1B5B0051D8F3 /* GLESView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESView.mm; sourceTree = "<group>"; };
 		7914067A0DBAD8D100C9A379 /* Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Delegate.h; path = Classes/Delegate.h; sourceTree = "<group>"; };
 		7914067B0DBAD8D100C9A379 /* Delegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Delegate.mm; path = Classes/Delegate.mm; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -193,8 +193,8 @@
 		63741F5711E5D24A00DFBB47 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				63741F5811E5D24A00DFBB47 /* EAGLView.h */,
-				63741F5911E5D24A00DFBB47 /* EAGLView.mm */,
+				63D4070411EB1B5B0051D8F3 /* GLESView.h */,
+				63D4070511EB1B5B0051D8F3 /* GLESView.mm */,
 				63741F5A11E5D24A00DFBB47 /* GLES1Surface.h */,
 				63741F5B11E5D24A00DFBB47 /* GLES1Surface.mm */,
 				63741F5C11E5D24A00DFBB47 /* GLES2Surface.h */,
@@ -374,11 +374,11 @@
 				7914067C0DBAD8D100C9A379 /* Delegate.mm in Sources */,
 				63AF0FA20F5F2FA300BF520B /* BasicDemoController.cpp in Sources */,
 				63B7C93E10A218E500E709A5 /* main.m in Sources */,
-				63741F6211E5D24A00DFBB47 /* EAGLView.mm in Sources */,
 				63741F6311E5D24A00DFBB47 /* GLES1Surface.mm in Sources */,
 				63741F6411E5D24A00DFBB47 /* GLES2Surface.mm in Sources */,
 				63741F6511E5D24A00DFBB47 /* GLESSurface.mm in Sources */,
 				63741F6611E5D24A00DFBB47 /* TextureLoader.mm in Sources */,
+				63D4070611EB1B5B0051D8F3 /* GLESView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,11 +389,11 @@
 				63D4055E11EA64D50051D8F3 /* Delegate.mm in Sources */,
 				63D4055F11EA64D50051D8F3 /* BasicDemoController.cpp in Sources */,
 				63D4056011EA64D50051D8F3 /* main.m in Sources */,
-				63D4056111EA64D50051D8F3 /* EAGLView.mm in Sources */,
 				63D4056211EA64D50051D8F3 /* GLES1Surface.mm in Sources */,
 				63D4056311EA64D50051D8F3 /* GLES2Surface.mm in Sources */,
 				63D4056411EA64D50051D8F3 /* GLESSurface.mm in Sources */,
 				63D4056511EA64D50051D8F3 /* TextureLoader.mm in Sources */,
+				63D4070711EB1B5B0051D8F3 /* GLESView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
