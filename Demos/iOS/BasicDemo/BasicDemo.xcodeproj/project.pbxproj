@@ -71,6 +71,20 @@
 			remoteGlobalIDString = 63A6FE900FB1F7AF00C38E72;
 			remoteInfo = FTGLES;
 		};
+		63D40E7A11EE67CA0051D8F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 63A6FD500FB1F7AF00C38E72 /* FTGLES */;
+			remoteInfo = FTGLES;
+		};
+		63D40E7C11EE67D00051D8F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 63A6FD500FB1F7AF00C38E72 /* FTGLES */;
+			remoteInfo = FTGLES;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -266,6 +280,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				63D40E7B11EE67CA0051D8F3 /* PBXTargetDependency */,
 			);
 			name = BasicDemo;
 			productName = foo;
@@ -283,6 +298,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				63D40E7D11EE67D00051D8F3 /* PBXTargetDependency */,
 			);
 			name = "BasicDemo iPad";
 			productName = foo;
@@ -398,6 +414,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		63D40E7B11EE67CA0051D8F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FTGLES;
+			targetProxy = 63D40E7A11EE67CA0051D8F3 /* PBXContainerItemProxy */;
+		};
+		63D40E7D11EE67D00051D8F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FTGLES;
+			targetProxy = 63D40E7C11EE67D00051D8F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
