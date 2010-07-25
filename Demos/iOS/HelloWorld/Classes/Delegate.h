@@ -19,13 +19,19 @@
  */
 
 #include <stdio.h>
-#include <assert.h> 
+#include "FTGL/ftgles.h"
 #import "GLESView.h"
 
 @interface AppController : NSObject
 {
+@private
 	UIWindow * window;
 	GLESView * glView;
+	int frames;
+	CGSize screenSize;
+	CFTimeInterval CurrentTime;
+	CFTimeInterval LastFPSUpdate;
+	FTFont *font;
 }
 
 @end

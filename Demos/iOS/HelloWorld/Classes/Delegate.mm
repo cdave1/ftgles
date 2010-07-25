@@ -20,25 +20,57 @@
 
 
 #import "Delegate.h"
-#include "HelloWorldDemo.h"
 #include <sys/time.h> 
+#include <OpenGLES/ES1/gl.h>
+#include <OpenGLES/ES1/glext.h>
 #include "QuartzCore/QuartzCore.h"
 
-static HelloWorldDemo * helloWorldDemo = NULL;
 
-static int frames;
-static CFTimeInterval CurrentTime;
-static CFTimeInterval LastFPSUpdate;
+@interface AppController ()
+- (void) SetupFonts;
+- (void) Render;
+- (void) ShowFPS;
+@end
+
+
 
 @implementation AppController
 
-- (void) update
+- (void) SetupFonts
 {
-	if(helloWorldDemo)
-		helloWorldDemo->Draw();
+	NSString *fontpath = [NSString stringWithFormat:@"%@/Diavlo_BLACK_II_37.otf", 
+						  [[NSBundle mainBundle] resourcePath]];
+	
+	font = new FTTextureFont([fontpath UTF8String]);
+	if (font->Error())
+	{
+        NSLog(@"Could not load font `%@'\n", fontpath);	
+	}
+	font->FaceSize(48);
+}
+
+
+- (void) Render
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+	glOrthof(0.0f, screenSize.width, 0.0f, screenSize.height, 10.0f, -10.0f);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	
+	glTranslatef(0.0f, screenSize.height * 0.5f, 0.0f);
+	glColor4f(1.0f, 0.6f, 0.3f, 1.0f);
+	if (font)
+		font->Render("Hello world!");
 	
 	[glView swapBuffers];
-	
+	[self ShowFPS];
+}
+
+
+- (void) ShowFPS
+{
 	++frames;
 	CurrentTime = CACurrentMediaTime();
 	
@@ -56,13 +88,11 @@ static CFTimeInterval LastFPSUpdate;
 	CGRect	rect = [[UIScreen mainScreen] bounds];
 	window = [[UIWindow alloc] initWithFrame:rect];
 	glView = [[GLESView alloc] initWithFrame:rect];
+	screenSize = rect.size;
 	
 	[window addSubview:glView];
 	[window makeKeyAndVisible];
 	
-	const char *bundleResourcePath = 
-		[[[NSBundle mainBundle] resourcePath] cStringUsingEncoding:NSASCIIStringEncoding];
-
 	float scale = 1.0f;
 	
 #ifdef __IPHONE_4_0
@@ -72,7 +102,11 @@ static CFTimeInterval LastFPSUpdate;
 	}
 #endif
 	
-	helloWorldDemo = new HelloWorldDemo(bundleResourcePath, rect.size.width, rect.size.height);
+	screenSize.width *= scale;
+	screenSize.height *= scale;
+	
+	[self SetupFonts];
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	
 	NSString *reqSysVer = @"3.1";
 	NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
@@ -82,7 +116,7 @@ static CFTimeInterval LastFPSUpdate;
 	
 	if (displayLinkSupported)
 	{
-		id displayLink = [NSClassFromString(@"CADisplayLink") displayLinkWithTarget:self selector:@selector(update)];
+		id displayLink = [NSClassFromString(@"CADisplayLink") displayLinkWithTarget:self selector:@selector(Render)];
 		[displayLink setFrameInterval:1];
 		[displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 	}
@@ -92,7 +126,7 @@ static CFTimeInterval LastFPSUpdate;
 		LastFPSUpdate = CurrentTime;
 		[NSTimer scheduledTimerWithTimeInterval:(1.0 / 60.0) 
 										 target:self 
-									   selector:@selector(update) 
+									   selector:@selector(Render) 
 									   userInfo:nil 
 										repeats:YES];
 	}
@@ -101,7 +135,7 @@ static CFTimeInterval LastFPSUpdate;
 
 - (void) dealloc
 {
-	delete helloWorldDemo;
+	delete font;
 	[glView release];
 	[window release];
 	[super dealloc];
