@@ -31,7 +31,7 @@ To render the text within your render loop (fonts are rendered at the origin alo
 	glColor4f(0.0f, 0.0f, 0.0f, 1.0f); // Black text
 	font->Render("Lorem ipsum dolor sit amet");
 
-The [Hello World Demo](http://github.com/cdave1/ftgles/blob/master/Demos/iOS/HelloWorld/Classes/HelloWorldDemo.cpp) example class shows a minimal implementation of a render loop.
+The [Hello World Demo](http://github.com/cdave1/ftgles/blob/master/Demos/iOS/HelloWorld/Classes/Delegate.mm) example class shows a minimal implementation of a render loop.
 
 See the [Demos](http://github.com/cdave1/ftgles/tree/master/iPhone/) folder for several comprehensive sample iPhone apps.  The demo apps include a unicode demo, as well as a demonstration of how to use layouts to easily align and position your text.
 
