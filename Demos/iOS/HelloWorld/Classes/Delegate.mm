@@ -46,7 +46,7 @@
 	{
         NSLog(@"Could not load font `%@'\n", fontpath);	
 	}
-	font->FaceSize(48);
+	font->FaceSize(screenSize.width * 0.16f);
 }
 
 
@@ -55,7 +55,7 @@
 	glClear(GL_COLOR_BUFFER_BIT);
 	glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-	glOrthof(0.0f, screenSize.width, 0.0f, screenSize.height, 10.0f, -10.0f);
+	glOrthof(0.0f, screenSize.width, 0.0f, screenSize.height, -10000.0f, 10000.0f);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	

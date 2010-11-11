@@ -507,7 +507,14 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ftgles" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectReferences = (
@@ -622,7 +629,7 @@
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = FTGLES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 				USER_HEADER_SEARCH_PATHS = "../../freetype-2.3.9/include ../../ftgles/src";
 				WARNING_CFLAGS = "-Wall";
 			};
@@ -654,7 +661,7 @@
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = FTGLES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 				USER_HEADER_SEARCH_PATHS = "../../ftgles/src ../../freetype-2.3.9/include";
 				WARNING_CFLAGS = "-Wall";
 				ZERO_LINK = NO;
@@ -671,7 +678,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 2.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "2F9B69AF-CD22-482D-8459-3C8DA79AF8C5";
-				SDKROOT = iphonesimulator4.0;
+				SDKROOT = iphonesimulator4.1;
 				STRIP_INSTALLED_PRODUCT = NO;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -682,7 +689,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				HEADER_SEARCH_PATHS = "";
-				SDKROOT = iphonesimulator4.0;
+				SDKROOT = iphonesimulator4.1;
 			};
 			name = Release;
 		};

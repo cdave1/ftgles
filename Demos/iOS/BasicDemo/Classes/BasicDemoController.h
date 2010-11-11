@@ -37,22 +37,7 @@ public:
 	
 	~BasicDemoController();
 	
-	void DrawTexturedQuad();
-	
 	void Draw();
 };
-
-
-void demoGlBegin(GLenum prim);
-
-void demoGlVertex3f(float x, float y, float z);
-
-void demoGlColor4f(float r, float g, float b, float a);
-
-void demoGlTexCoord2f(float s, float t);
-
-void demoGlEnd();
-
-void demoGlError(const char *source);
 
 #endif

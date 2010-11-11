@@ -33,78 +33,7 @@ static GLuint aTexture;
 
 static int renderMode = FTGL::RENDER_FRONT; // | FTGL::RENDER_BACK;
 
-#define MAX_VERTEX_COUNT 16
-
-typedef struct DemoVertex 
-{
-	float xyz[3];
-	float st[2];
-	float rgba[4];
-} DemoVertex;
-
-static DemoVertex vertices[MAX_VERTEX_COUNT];
-static DemoVertex vertex;
-static GLenum currentPrimitive = GL_TRIANGLES;
-static int vertexCount = 0;
 static float screenWidth, screenHeight, contentScaleFactor;
-
-
-void demoGlBegin(GLenum prim)
-{
-	currentPrimitive = prim;
-	vertexCount = 0;
-	glVertexPointer(3, GL_FLOAT, sizeof(DemoVertex), vertices[0].xyz);
-	glTexCoordPointer(2, GL_FLOAT, sizeof(DemoVertex), vertices[0].st);
-	glColorPointer(4, GL_FLOAT, sizeof(DemoVertex), vertices[0].rgba);
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	glEnableClientState(GL_COLOR_ARRAY);
-}
-
-
-void demoGlVertex3f(float x, float y, float z)
-{
-	if (vertexCount > MAX_VERTEX_COUNT) return;
-	vertex.xyz[0] = x;
-	vertex.xyz[1] = y;
-	vertex.xyz[2] = z;
-	vertices[vertexCount] = vertex;
-	vertexCount++;
-}
-
-
-void demoGlColor4f(float r, float g, float b, float a)
-{
-	vertex.rgba[0] = r;
-	vertex.rgba[1] = g;
-	vertex.rgba[2] = b;
-	vertex.rgba[3] = a;
-}
-
-
-void demoGlTexCoord2f(float s, float t)
-{
-	vertex.st[0] = s;
-	vertex.st[1] = t;
-}
-
-
-void demoGlEnd()
-{
-	if (vertexCount == 0) 
-	{
-		currentPrimitive = 0;
-		return;
-	}
-	glDrawArrays(currentPrimitive, 0, vertexCount);
-	vertexCount = 0;
-	currentPrimitive = 0;
-}
-
-
-void demoGlError(const char *source)
-{
-}
 
 
 const char *polygonFontText = "This is a polygon font";
@@ -165,8 +94,6 @@ BasicDemoController::BasicDemoController(const char* path, float width, float he
     layouts[2].SetFont(fonts[2]);
 	layouts[2].SetAlignment(FTGL::ALIGN_RIGHT);
 	
-	LoadTexture("mousePoint.png", &aTexture);
-	
 	printf("Loaded texture: %d\n", aTexture);
 }
 
@@ -176,32 +103,6 @@ BasicDemoController::~BasicDemoController()
 	delete fonts[0];
 	delete fonts[1];
 	delete fonts[2];
-}
-
-
-void BasicDemoController::DrawTexturedQuad()
-{
-	demoGlBegin(GL_TRIANGLE_STRIP);
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, aTexture);
-	
-	demoGlVertex3f(-40.0f, -40.0f, 0.0f);
-	demoGlColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	demoGlTexCoord2f(0, 1);
-	
-	demoGlVertex3f(-40.0f, 40.0f, 0.0f);
-	demoGlColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	demoGlTexCoord2f(1, 0);
-	
-	demoGlVertex3f(40.0f, -40.0f, 0.0f);
-	demoGlColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	demoGlTexCoord2f(0, 0);
-	
-	demoGlVertex3f(40.0f, 40.0f, 0.0f);
-	demoGlColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	demoGlTexCoord2f(1, 1);
-	
-	demoGlEnd();
 }
 
 
@@ -228,7 +129,6 @@ void BasicDemoController::Draw()
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	
-	
 	glPushMatrix();	
 	glRotatef(angle, 1.0f, 1.0f, 1.0f);
 	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
@@ -252,10 +152,6 @@ void BasicDemoController::Draw()
 	glPopMatrix();
 	
 	glPopMatrix();
-
-#if 0
-	DrawTexturedQuad();
-#endif
 	
 	glPopMatrix();
 	
@@ -267,9 +163,5 @@ void BasicDemoController::Draw()
 	
 	angle += 0.5f;
 	if (angle >= 360.0f) angle = 0.0f;
-	
-	//fonts[1]->FaceSize(faceSize);
-	//faceSize -= 1.0f;
-	//if (faceSize < 10) faceSize = 120;
 }
 
