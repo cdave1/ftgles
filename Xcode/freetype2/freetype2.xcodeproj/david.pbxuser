@@ -3,7 +3,7 @@
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 63AC85170F448BB400AB632B /* iPhoneFTGL */;
-		activeSDKPreference = iphoneos4.0;
+		activeSDKPreference = iphonesimulator4.2;
 		activeTarget = 6382B1B00FB0FC5100ECAC02 /* Freetype2 */;
 		addToTargets = (
 		);
@@ -148,14 +148,13 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 300279506;
-			PBXWorkspaceStateSaveDate = 300279506;
+			PBXPerProjectTemplateStateSaveDate = 311916682;
+			PBXWorkspaceStateSaveDate = 311916682;
 		};
 		perUserProjectItems = {
 			637421D711E5E73E00DFBB47 /* PBXTextBookmark */ = 637421D711E5E73E00DFBB47 /* PBXTextBookmark */;
-			637421D811E5E73E00DFBB47 /* XCBuildMessageTextBookmark */ = 637421D811E5E73E00DFBB47 /* XCBuildMessageTextBookmark */;
-			637421D911E5E73E00DFBB47 /* PBXTextBookmark */ = 637421D911E5E73E00DFBB47 /* PBXTextBookmark */;
 			63A5CDFB11E54536000CDD63 /* PBXTextBookmark */ = 63A5CDFB11E54536000CDD63 /* PBXTextBookmark */;
+			63A9AE6B129778CB00150BF0 /* PBXTextBookmark */ = 63A9AE6B129778CB00150BF0 /* PBXTextBookmark */;
 			63B7C9C710A219F200E709A5 /* PBXTextBookmark */ = 63B7C9C710A219F200E709A5 /* PBXTextBookmark */;
 			63B7CA6D10A2391400E709A5 /* PlistBookmark */ = 63B7CA6D10A2391400E709A5 /* PlistBookmark */;
 			63B7CA9E10A23D7300E709A5 /* PBXBookmark */ = 63B7CA9E10A23D7300E709A5 /* PBXBookmark */;
@@ -168,6 +167,7 @@
 			63B7CAF110A240C400E709A5 /* PBXTextBookmark */ = 63B7CAF110A240C400E709A5 /* PBXTextBookmark */;
 			63B7CAF210A240C400E709A5 /* PBXTextBookmark */ = 63B7CAF210A240C400E709A5 /* PBXTextBookmark */;
 			63B7CAF310A240C400E709A5 /* PBXTextBookmark */ = 63B7CAF310A240C400E709A5 /* PBXTextBookmark */;
+			63D7D4C812968EC700E01DE7 /* PBXTextBookmark */ = 63D7D4C812968EC700E01DE7 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 63AC85280F448BCA00AB632B /* Source Control */;
 		userBuildSettings = {
@@ -182,25 +182,6 @@
 		rType = 0;
 		vrLen = 861;
 		vrLoc = 0;
-	};
-	637421D811E5E73E00DFBB47 /* XCBuildMessageTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "Unused variable 'n_edges'";
-		fRef = 6382BA110FB132DB00ECAC02 /* aflatin2.c */;
-		fallbackIsa = XCBuildMessageTextBookmark;
-		rLen = 1;
-		rLoc = 1741;
-		rType = 1;
-	};
-	637421D911E5E73E00DFBB47 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6382BA110FB132DB00ECAC02 /* aflatin2.c */;
-		name = "aflatin2.c: 1745";
-		rLen = 0;
-		rLoc = 51484;
-		rType = 0;
-		vrLen = 1394;
-		vrLoc = 50707;
 	};
 	6382B1B00FB0FC5100ECAC02 /* Freetype2 */ = {
 		activeExec = 0;
@@ -298,9 +279,9 @@
 	};
 	6382BA110FB132DB00ECAC02 /* aflatin2.c */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1088, 31311}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1088, 31699}}";
 			sepNavSelRange = "{51484, 0}";
-			sepNavVisRange = "{50707, 1394}";
+			sepNavVisRange = "{50785, 1316}";
 		};
 	};
 	6382BA1B0FB132DB00ECAC02 /* Jamfile */ = {
@@ -446,6 +427,16 @@
 		vrLen = 889;
 		vrLoc = 831;
 	};
+	63A9AE6B129778CB00150BF0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6382BA110FB132DB00ECAC02 /* aflatin2.c */;
+		name = "aflatin2.c: 1745";
+		rLen = 0;
+		rLoc = 51484;
+		rType = 0;
+		vrLen = 1316;
+		vrLoc = 50785;
+	};
 	63AC85170F448BB400AB632B /* iPhoneFTGL */ = {
 		isa = PBXExecutable;
 		activeArgIndices = (
@@ -505,8 +496,8 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 315;
-		modificationTime = 279068592.870863;
-		originalNumberOfMultipleMatches = 0;
+		modificationTime = 311916420.235;
+		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
 	63B6B4570F5D9B07001F52EF /* Model3DS.cpp:412 */ = {
@@ -522,8 +513,8 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 412;
-		modificationTime = 279068592.871;
-		originalNumberOfMultipleMatches = 0;
+		modificationTime = 311916420.235029;
+		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
 	63B7C9C710A219F200E709A5 /* PBXTextBookmark */ = {
@@ -622,6 +613,16 @@
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 3809;
+	};
+	63D7D4C812968EC700E01DE7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6382BA110FB132DB00ECAC02 /* aflatin2.c */;
+		name = "aflatin2.c: 1745";
+		rLen = 0;
+		rLoc = 51484;
+		rType = 0;
+		vrLen = 1316;
+		vrLoc = 50785;
 	};
 	79EA048C0DAFCC980038ED3D /* Model3DS.cpp */ = {
 		isa = PBXFileReference;

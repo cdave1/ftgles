@@ -120,7 +120,7 @@ void BasicDemoController::Draw()
 	glPushMatrix();
 	glOrthof(0.0f, screenWidth, 
 			 0.0f, screenHeight, 
-			 1000.0f, -1000.0f);
+			 -1000.0f, 1000.0f);
 	
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
@@ -136,13 +136,15 @@ void BasicDemoController::Draw()
 	glPushMatrix();
 	glTranslatef(0.0f, contentScaleFactor * 420.0f, 0.0f);
 	glColor4f(6.0f, 0.6f, 0.3f, 1.0f);
-	layouts[0].Render(polygonFontText, -1, FTPoint(), renderMode);
+	//layouts[0].Render(polygonFontText, -1, FTPoint(), renderMode);
+layouts[2].Render(outlineFontText, -1, FTPoint(), renderMode);
 	glPopMatrix();
 	
 	glPushMatrix();
 	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 280.0f, 0.0f);
 	glColor4f(0.4f, 0.4f, 0.0f, 1.0f);
-	layouts[1].Render(textureFontText, -1, FTPoint(), renderMode); //
+//	layouts[1].Render(textureFontText, -1, FTPoint(), renderMode); //
+	layouts[2].Render(outlineFontText, -1, FTPoint(), renderMode);
 	glPopMatrix();
 	
 	glPushMatrix();
@@ -161,7 +163,7 @@ void BasicDemoController::Draw()
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
 	
-	angle += 0.5f;
-	if (angle >= 360.0f) angle = 0.0f;
+	//angle += 0.5f;
+	//if (angle >= 360.0f) angle = 0.0f;
 }
 
