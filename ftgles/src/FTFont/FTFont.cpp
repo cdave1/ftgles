@@ -175,6 +175,14 @@ FTPoint FTFont::Render(const wchar_t * string, const int len,
 }
 
 
+
+void FTFont::PreRender() { impl->PreRender(); }
+
+
+void FTFont::PostRender() { impl->PostRender(); }
+
+
+
 float FTFont::Advance(const char * string, const int len, FTPoint spacing)
 {
     return impl->Advance(string, len, spacing);

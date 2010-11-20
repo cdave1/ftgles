@@ -32,6 +32,17 @@
 
 class FTFont;
 
+
+typedef struct
+{
+	void *buf;
+	int charCount;
+	FTPoint position;
+	FTPoint penDiff;
+	float remainingWidth;
+} layoutGlyphCacheItem_t;
+
+
 class FTSimpleLayoutImpl : public FTLayoutImpl
 {
     friend class FTSimpleLayout;
@@ -193,6 +204,13 @@ class FTSimpleLayoutImpl : public FTLayoutImpl
          * a percentage of the font's line height.
          */
         float lineSpacing;
+	
+	
+	layoutGlyphCacheItem_t layoutGlyphCache[4096];
+	
+	unsigned int layoutGlyphCacheCount;
+	
+	bool layoutCacheNeedsRefresh;
 
         /* Internal generic BBox() implementation */
         template <typename T>

@@ -351,7 +351,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>631ED6AE129786C000129BE1</string>
+										<string>631ED8D11298051C00129BE1</string>
 										<key>history</key>
 										<array>
 											<string>63B7CAEE10A240C400E709A5</string>
@@ -403,7 +403,7 @@
 											<string>63A9AE771297797100150BF0</string>
 											<string>631ED6A9129786C000129BE1</string>
 											<string>631ED6AB129786C000129BE1</string>
-											<string>631ED6AD129786C000129BE1</string>
+											<string>631ED6AE129786C000129BE1</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -415,14 +415,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1262, 789}}</string>
+								<string>{{0, 0}, {1262, 782}}</string>
 								<key>RubberWindowFrame</key>
 								<string>955 161 1548 1191 0 0 2560 1418 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>789pt</string>
+							<string>782pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -435,14 +435,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 794}, {1262, 356}}</string>
+								<string>{{0, 787}, {1262, 363}}</string>
 								<key>RubberWindowFrame</key>
 								<string>955 161 1548 1191 0 0 2560 1418 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>356pt</string>
+							<string>363pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -461,9 +461,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>631ED6AF129786C000129BE1</string>
+				<string>631ED8D21298051C00129BE1</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>631ED6B0129786C000129BE1</string>
+				<string>631ED8D31298051C00129BE1</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -584,7 +584,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>311920320.62841398</real>
+	<real>311952668.741395</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>1</integer>
 	<key>ToolbarIsVisible</key>
@@ -599,11 +599,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>631ED6B1129786C000129BE1</string>
-		<string>631ED6B2129786C000129BE1</string>
+		<string>631ED8D41298051C00129BE1</string>
+		<string>631ED8D51298051C00129BE1</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>63AC851F0F448BCA00AB632B</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/david/Projects/Open Source/ftgles/Demos/iOS/BasicDemo/BasicDemo.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -686,7 +686,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>63AC851F0F448BCA00AB632B</string>
-				<string>631ED67612977D0C00129BE1</string>
+				<string>631ED8C31298049500129BE1</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -806,13 +806,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>631ED69E1297841D00129BE1</string>
+				<string>631ED8C8129804B600129BE1</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>631ED69F1297841D00129BE1</string>
-				<string>631ED6A01297841D00129BE1</string>
-				<string>631ED6A11297841D00129BE1</string>
-				<string>631ED6A21297841D00129BE1</string>
-				<string>631ED6A31297841D00129BE1</string>
+				<string>631ED8C9129804B600129BE1</string>
+				<string>631ED8CA129804B600129BE1</string>
+				<string>631ED8CB129804B600129BE1</string>
+				<string>631ED8CC129804B600129BE1</string>
+				<string>631ED8CD129804B600129BE1</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -968,7 +968,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>631ED6A41297841D00129BE1</string>
+				<string>631ED8CE129804B600129BE1</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -978,7 +978,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

@@ -18,10 +18,6 @@
  
  */
 
-/**
- * Demo iPhone app showing ftgles in action.
- */
-
 #include "PerformanceController.h"
 #include "TextureLoader.h"
 
@@ -44,7 +40,9 @@ const char *txtB = "Ut enim ad minim veniam, quis nostrud exercitation ullamco l
 const char *txtC = "in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, ";
 const char *txtD = "sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-
+#define MIN(a,b) (a < b ? a : b)
+#define MAX(a,b) (a > b ? a : b)
+#define CLAMP(a,min,max) MIN(max, MAX(min,a))
 
 PerformanceController::PerformanceController(const char* path, float width, float height, float scale)
 {
@@ -78,7 +76,7 @@ PerformanceController::PerformanceController(const char* path, float width, floa
 	{
         printf("Could not load font `%s'\n", fontname);	
 	}
-	fonts[1]->FaceSize(contentScaleFactor * 14);
+	fonts[1]->FaceSize(contentScaleFactor * 60);
 	fonts[1]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
 	layouts[1].SetLineLength(screenWidth);
@@ -92,13 +90,13 @@ PerformanceController::PerformanceController(const char* path, float width, floa
 	{
         printf("Could not load font `%s'\n", fontname);	
 	}
-	fonts[2]->FaceSize(contentScaleFactor * 14);
+	fonts[2]->FaceSize(contentScaleFactor * 10);
 	fonts[2]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
 	layouts[2].SetLineLength(screenWidth - 20.0f);
 	layouts[2].SetLineSpacing(0.75f);
     layouts[2].SetFont(fonts[2]);
-	layouts[2].SetAlignment(FTGL::ALIGN_RIGHT);
+	layouts[2].SetAlignment(FTGL::ALIGN_LEFT);
 	
 	printf("Loaded texture: %d\n", aTexture);
 }
@@ -114,10 +112,10 @@ PerformanceController::~PerformanceController()
 
 void PerformanceController::DrawNonLayoutText(const float shade, const float yLoc)
 {
-	glColor4f(shade, shade, shade, 1.0f);
+	glColor4f(CLAMP(shade, 0.0f, 1.0f), CLAMP(shade, 0.0f, 1.0f), CLAMP(shade, 0.0f, 1.0f), 1.0f);
 	glPushMatrix();
 	glTranslatef(0.0f, yLoc, 0.0f);
-	fonts[1]->Render(txtA);
+	fonts[2]->Render(txtA);
 	glPopMatrix();
 	
 	glPushMatrix();
@@ -127,7 +125,7 @@ void PerformanceController::DrawNonLayoutText(const float shade, const float yLo
 	
 	glPushMatrix();
 	glTranslatef(0.0f, yLoc-40.0f, 0.0f);
-	fonts[1]->Render(txtC);
+	fonts[2]->Render(txtC);
 	glPopMatrix();
 	
 	glPushMatrix();
@@ -138,7 +136,19 @@ void PerformanceController::DrawNonLayoutText(const float shade, const float yLo
 
 
 
+void PerformanceController::DrawLayoutText(const float shade, const float yLoc)
+{
+	glColor4f(CLAMP(shade, 0.0f, 1.0f), CLAMP(shade, 0.0f, 1.0f), CLAMP(shade, 0.0f, 1.0f), 1.0f);
+	glPushMatrix();
+	glTranslatef(0.0f, yLoc, 0.0f);
+	layouts[2].Render(outlineFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
+	glPopMatrix();
+}
+
+
 static float angle = 0.0f;
+static float inShade = 0.0f;
+static short shadeDir = 0;
 void PerformanceController::Draw()
 {
 	float halfScreenWidth = screenWidth * 0.5f;
@@ -162,39 +172,51 @@ void PerformanceController::Draw()
 	glEnable(GL_BLEND);
 	
 	glPushMatrix();	
-	//glRotatef(angle, 1.0f, 1.0f, 1.0f);
+	glRotatef(angle, 1.0f, 1.0f, 1.0f);
 	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
 
-#if 1	
+#if 0	
 	
-	DrawNonLayoutText((angle / 360.0f) + 0.0f, contentScaleFactor * 940.0f);
-	DrawNonLayoutText((angle / 360.0f) + 0.1f, contentScaleFactor * 840.0f);
-	DrawNonLayoutText((angle / 360.0f) + 0.2f, contentScaleFactor * 740.0f);
-	DrawNonLayoutText((angle / 360.0f) + 0.3f, contentScaleFactor * 640.0f);
-	DrawNonLayoutText((angle / 360.0f) + 0.4f, contentScaleFactor * 540.0f);
-	DrawNonLayoutText((angle / 360.0f) + 0.5f, contentScaleFactor * 440.0f);
-	DrawNonLayoutText((angle / 360.0f) + 0.6f, contentScaleFactor * 340.0f);
-	DrawNonLayoutText((angle / 360.0f) + 0.7f, contentScaleFactor * 240.0f);
-	DrawNonLayoutText((angle / 360.0f) + 0.8f, contentScaleFactor * 140.0f);
+	DrawNonLayoutText(inShade + 0.0f, contentScaleFactor * 940.0f);
+	DrawNonLayoutText(inShade + 0.1f, contentScaleFactor * 890.0f);
+	DrawNonLayoutText(inShade + 0.2f, contentScaleFactor * 840.0f);
+	DrawNonLayoutText(inShade + 0.3f, contentScaleFactor * 790.0f);
+	DrawNonLayoutText(inShade + 0.4f, contentScaleFactor * 740.0f);
+	DrawNonLayoutText(inShade + 0.5f, contentScaleFactor * 690.0f);
+	DrawNonLayoutText(inShade + 0.6f, contentScaleFactor * 640.0f);
+	DrawNonLayoutText(inShade + 0.7f, contentScaleFactor * 590.0f);
+	DrawNonLayoutText(inShade + 0.8f, contentScaleFactor * 540.0f);
+	DrawNonLayoutText(inShade + 0.0f, contentScaleFactor * 490.0f);
+	DrawNonLayoutText(inShade + 0.1f, contentScaleFactor * 440.0f);
+	DrawNonLayoutText(inShade + 0.2f, contentScaleFactor * 390.0f);
+	DrawNonLayoutText(inShade + 0.3f, contentScaleFactor * 340.0f);
+	DrawNonLayoutText(inShade + 0.4f, contentScaleFactor * 290.0f);
+	DrawNonLayoutText(inShade + 0.5f, contentScaleFactor * 240.0f);
+	DrawNonLayoutText(inShade + 0.6f, contentScaleFactor * 190.0f);
+	DrawNonLayoutText(inShade + 0.7f, contentScaleFactor * 140.0f);
+	DrawNonLayoutText(inShade + 0.8f, contentScaleFactor * 90.0f);
 	
-#else 
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 420.0f, 0.0f);
-	glColor4f(6.0f, 0.6f, 0.3f, 1.0f);
-	layouts[2].Render(outlineFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
-	glPopMatrix();
+#else
 	
-	glPushMatrix();
-	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 280.0f, 0.0f);
-	glColor4f(0.4f, 0.4f, 0.0f, 1.0f);
-	layouts[2].Render(outlineFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
-	glPopMatrix();
+	DrawLayoutText(inShade + 0.0f, contentScaleFactor * 940.0f);
+	DrawLayoutText(inShade + 0.1f, contentScaleFactor * 890.0f);
+	DrawLayoutText(inShade + 0.2f, contentScaleFactor * 840.0f);
+	DrawLayoutText(inShade + 0.3f, contentScaleFactor * 790.0f);
+	DrawLayoutText(inShade + 0.4f, contentScaleFactor * 740.0f);
+	DrawLayoutText(inShade + 0.5f, contentScaleFactor * 690.0f);
+	DrawLayoutText(inShade + 0.6f, contentScaleFactor * 640.0f);
+	DrawLayoutText(inShade + 0.7f, contentScaleFactor * 590.0f);
+	DrawLayoutText(inShade + 0.8f, contentScaleFactor * 540.0f);
+	DrawLayoutText(inShade + 0.0f, contentScaleFactor * 490.0f);
+	DrawLayoutText(inShade + 0.1f, contentScaleFactor * 440.0f);
+	DrawLayoutText(inShade + 0.2f, contentScaleFactor * 390.0f);
+	DrawLayoutText(inShade + 0.3f, contentScaleFactor * 340.0f);
+	DrawLayoutText(inShade + 0.4f, contentScaleFactor * 290.0f);
+	DrawLayoutText(inShade + 0.5f, contentScaleFactor * 240.0f);
+	DrawLayoutText(inShade + 0.6f, contentScaleFactor * 190.0f);
+	DrawLayoutText(inShade + 0.7f, contentScaleFactor * 140.0f);
+	DrawLayoutText(inShade + 0.8f, contentScaleFactor * 90.0f);
 	
-	glPushMatrix();
-	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 140.0f, 0.0f);
-	glColor4f(0.25f, 0.25f, 0.25f, 1.0f);
-	layouts[2].Render(outlineFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
-	glPopMatrix();
 #endif
 	
 	
@@ -208,7 +230,14 @@ void PerformanceController::Draw()
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
 	
-	angle += 0.5f;
+	if (shadeDir == 0)
+		inShade += 0.01f;
+	else 
+		inShade -= 0.01f;
+	if (inShade >= 1.0f) shadeDir = 1;
+	else if (inShade <= 0.0f) shadeDir = 0;
+	
+	angle += 0.05f;
 	if (angle >= 360.0f) angle = 0.0f;
 }
 

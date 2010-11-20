@@ -40,6 +40,8 @@ public:
 	void Draw();
 	
 	void DrawNonLayoutText(const float shade, const float yLoc);
+	
+	void DrawLayoutText(const float shade, const float yLoc);
 };
 
 #endif

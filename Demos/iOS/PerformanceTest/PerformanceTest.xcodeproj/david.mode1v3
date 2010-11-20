@@ -351,7 +351,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>631ED74112978ED100129BE1</string>
+										<string>631ED8DA1298052900129BE1</string>
 										<key>history</key>
 										<array>
 											<string>63B7CAEE10A240C400E709A5</string>
@@ -391,20 +391,15 @@
 											<string>63D7D4D812968F0500E01DE7</string>
 											<string>63A9AE311297773300150BF0</string>
 											<string>63A9AE761297797100150BF0</string>
-											<string>63A9AE771297797100150BF0</string>
 											<string>631ED6A9129786C000129BE1</string>
-											<string>631ED6AB129786C000129BE1</string>
 											<string>631ED6EA129788F500129BE1</string>
-											<string>631ED73712978ED100129BE1</string>
-											<string>631ED73812978ED100129BE1</string>
-											<string>631ED73912978ED100129BE1</string>
-											<string>631ED73A12978ED100129BE1</string>
-											<string>631ED73B12978ED100129BE1</string>
 											<string>631ED73C12978ED100129BE1</string>
-											<string>631ED73D12978ED100129BE1</string>
-											<string>631ED73E12978ED100129BE1</string>
-											<string>631ED73F12978ED100129BE1</string>
-											<string>631ED74012978ED100129BE1</string>
+											<string>631ED74812978F6300129BE1</string>
+											<string>631ED80E1297EAB100129BE1</string>
+											<string>631ED8D61298052900129BE1</string>
+											<string>631ED8D71298052900129BE1</string>
+											<string>631ED8D81298052900129BE1</string>
+											<string>631ED8D91298052900129BE1</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -585,7 +580,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>311922385.52982301</real>
+	<real>311952681.63501698</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>1</integer>
 	<key>ToolbarIsVisible</key>
@@ -604,8 +599,8 @@
 		<string>631ED6EF129788F500129BE1</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>63AC851F0F448BCA00AB632B</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/david/Projects/Open Source/ftgles/Demos/iOS/PerformanceTest/PerformanceTest.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>955 161 1548 1191 0 0 2560 1418 </string>
@@ -629,7 +624,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Delegate.mm</string>
+								<string>FTSimpleLayout.cpp</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>

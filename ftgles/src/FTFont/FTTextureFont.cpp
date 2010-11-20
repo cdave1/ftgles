@@ -101,6 +101,7 @@ FTTextureFontImpl::FTTextureFontImpl(FTFont *ftFont, const char* fontFilePath)
 {
     load_flags = FT_LOAD_NO_HINTING | FT_LOAD_NO_BITMAP;
     remGlyphs = numGlyphs = face.GlyphCount();
+	preRendered = false;
 }
 
 
@@ -233,12 +234,75 @@ inline FTPoint FTTextureFontImpl::RenderI(const T* string, const int len,
                                           FTPoint position, FTPoint spacing,
                                           int renderMode)
 {
-    bool disableTexture2D = false;
-	bool disableBlend = false;
-	GLint originalBlendSfactor;
-	GLint originalBlendDfactor;
-GLfloat colors[4];
+	disableTexture2D = false;
+	disableBlend = false;
+	GLfloat colors[4];
+	FTPoint tmp;
 	
+	if (preRendered)
+	{
+		tmp = FTFontImpl::Render(string, len,
+										 position, spacing, renderMode);
+	}
+	else 
+	{
+		
+		
+		if (!glIsEnabled(GL_BLEND))
+		{
+			glEnable(GL_BLEND);
+			disableBlend = true;
+		}
+		else 
+		{
+			glGetIntegerv(GL_BLEND_SRC, &originalBlendSfactor);
+			glGetIntegerv(GL_BLEND_DST, &originalBlendDfactor);
+		}
+		
+		
+		if (!glIsEnabled(GL_TEXTURE_2D))
+		{
+			glEnable(GL_TEXTURE_2D);
+			disableTexture2D = true;
+		}
+		
+		// FTTextureGlyphImpl::ResetActiveTexture();
+		
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		
+		glGetFloatv(GL_CURRENT_COLOR, colors);
+		
+		ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
+		ftglBegin(GL_QUADS);
+		tmp = FTFontImpl::Render(string, len,
+										 position, spacing, renderMode);
+		ftglEnd();
+		
+		if (disableBlend)
+		{
+			glDisable(GL_BLEND);
+		}
+		else
+		{
+			glBlendFunc(originalBlendSfactor, originalBlendDfactor);
+		}
+		
+		if (disableTexture2D)
+			glDisable(GL_TEXTURE_2D);
+		
+		ftglError("RenderSpaceI");
+	}
+    return tmp;
+}
+
+
+void FTTextureFontImpl::PreRender() 
+{
+	disableTexture2D = false;
+	disableBlend = false;
+	GLfloat colors[4];
+	
+	preRendered = true;
 	if (!glIsEnabled(GL_BLEND))
 	{
 		glEnable(GL_BLEND);
@@ -249,24 +313,28 @@ GLfloat colors[4];
 		glGetIntegerv(GL_BLEND_SRC, &originalBlendSfactor);
 		glGetIntegerv(GL_BLEND_DST, &originalBlendDfactor);
 	}
-
+	
 	
 	if (!glIsEnabled(GL_TEXTURE_2D))
 	{
 		glEnable(GL_TEXTURE_2D);
 		disableTexture2D = true;
 	}
-
-   // FTTextureGlyphImpl::ResetActiveTexture();
-
+	
+	// FTTextureGlyphImpl::ResetActiveTexture();
+	
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	
 	glGetFloatv(GL_CURRENT_COLOR, colors);
 	
 	ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
 	ftglBegin(GL_QUADS);
-    FTPoint tmp = FTFontImpl::Render(string, len,
-                                     position, spacing, renderMode);
+}
+
+
+void FTTextureFontImpl::PostRender() 
+{
+	preRendered = false;
 	ftglEnd();
 	
 	if (disableBlend)
@@ -280,8 +348,8 @@ GLfloat colors[4];
 	
 	if (disableTexture2D)
 		glDisable(GL_TEXTURE_2D);
-
-    return tmp;
+	
+	ftglError("RenderSpaceI");
 }
 
 

@@ -139,85 +139,16 @@ void BasicDemoController::Draw()
 	glRotatef(angle, 1.0f, 1.0f, 1.0f);
 	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
 
-#if 1	
-	glColor4f(6.0f, 0.6f, 0.3f, 1.0f);
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 420.0f, 0.0f);
-	fonts[2]->Render(txtA);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 400.0f, 0.0f);
-	fonts[2]->Render(txtB);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 380.0f, 0.0f);
-	fonts[2]->Render(txtC);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 360.0f, 0.0f);
-	fonts[2]->Render(txtD);
-	glPopMatrix();
-	
-	
-	glColor4f(0.4f, 0.4f, 0.0f, 1.0f);
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 280.0f, 0.0f);
-	fonts[2]->Render(txtA);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 260.0f, 0.0f);
-	fonts[2]->Render(txtB);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 240.0f, 0.0f);
-	fonts[2]->Render(txtC);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 220.0f, 0.0f);
-	fonts[2]->Render(txtD);
-	glPopMatrix();
-	
-	
-	glColor4f(0.25f, 0.25f, 0.25f, 1.0f);
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 140.0f, 0.0f);
-	fonts[2]->Render(txtA);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 120.0f, 0.0f);
-	fonts[2]->Render(txtB);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 100.0f, 0.0f);
-	fonts[2]->Render(txtC);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 80.0f, 0.0f);
-	fonts[2]->Render(txtD);
-	glPopMatrix();	
-	
-#else 
 	glPushMatrix();
 	glTranslatef(0.0f, contentScaleFactor * 420.0f, 0.0f);
 	glColor4f(6.0f, 0.6f, 0.3f, 1.0f);
-	//layouts[0].Render(polygonFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
-//layouts[2].Render(outlineFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
+	layouts[0].Render(polygonFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
 	
 	glPushMatrix();
 	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 280.0f, 0.0f);
 	glColor4f(0.4f, 0.4f, 0.0f, 1.0f);
-//	layouts[1].Render(textureFontText, -1, FTPoint(), FTGL::RENDER_FRONT); //
-	//layouts[2].Render(outlineFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
+	layouts[1].Render(textureFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
 	
 	glPushMatrix();
@@ -225,7 +156,6 @@ void BasicDemoController::Draw()
 	glColor4f(0.25f, 0.25f, 0.25f, 1.0f);
 	layouts[2].Render(outlineFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
-#endif
 	
 	
 	glPopMatrix();
@@ -238,7 +168,7 @@ void BasicDemoController::Draw()
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
 	
-	//angle += 0.5f;
-	//if (angle >= 360.0f) angle = 0.0f;
+	angle += 1.0f;
+	if (angle >= 360.0f) angle = 0.0f;
 }
 
