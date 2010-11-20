@@ -212,7 +212,7 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
     // If we have bounds mark them invalid
     if(bounds)
     {
-        bounds->Invalidate();
+       bounds->Invalidate();
     }
 
     // Scan the input for all characters that need output

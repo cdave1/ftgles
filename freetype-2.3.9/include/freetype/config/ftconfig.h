@@ -39,6 +39,10 @@
 #ifndef __FTCONFIG_H__
 #define __FTCONFIG_H__
 
+//#if defined __APPLE_CC__
+
+//#endif
+
 #include "ft2build.h"
 #include FT_CONFIG_OPTIONS_H
 #include FT_CONFIG_STANDARD_LIBRARY_H
