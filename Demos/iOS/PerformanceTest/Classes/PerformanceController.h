@@ -37,11 +37,13 @@ public:
 	
 	~PerformanceController();
 	
+	void SetFPS(const unsigned int fps);
+	
 	void Draw();
 	
 	void DrawNonLayoutText(const float shade, const float yLoc);
 	
-	void DrawLayoutText(const float shade, const float yLoc);
+	void DrawLayoutText(FTSimpleLayout *layout, const float shade, const float yLoc);
 };
 
 #endif

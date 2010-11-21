@@ -8,10 +8,10 @@
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeArchitecturePreference = armv7;
-		activeBuildConfigurationName = Debug;
-		activeExecutable = 63D4057111EA64D50051D8F3 /* BasicDemo iPad */;
+		activeBuildConfigurationName = Release;
+		activeExecutable = 63AC85170F448BB400AB632B /* iPhoneFTGL */;
 		activeSDKPreference = iphoneos4.2;
-		activeTarget = 63D4054E11EA64D50051D8F3 /* BasicDemo iPad */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* BasicDemo */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* BasicDemo */,
 			63D4054E11EA64D50051D8F3 /* BasicDemo iPad */,
@@ -158,17 +158,17 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 311952490;
-			PBXWorkspaceStateSaveDate = 311952490;
+			PBXPerProjectTemplateStateSaveDate = 312010678;
+			PBXWorkspaceStateSaveDate = 312010678;
 		};
 		perUserProjectItems = {
 			631ED6A9129786C000129BE1 /* PBXTextBookmark */ = 631ED6A9129786C000129BE1 /* PBXTextBookmark */;
 			631ED6AB129786C000129BE1 /* PBXTextBookmark */ = 631ED6AB129786C000129BE1 /* PBXTextBookmark */;
-			631ED6AE129786C000129BE1 /* PBXTextBookmark */ = 631ED6AE129786C000129BE1 /* PBXTextBookmark */;
-			631ED8D11298051C00129BE1 /* PBXTextBookmark */ = 631ED8D11298051C00129BE1 /* PBXTextBookmark */;
-			6349BFFB128B9D8000890DF2 /* PBXTextBookmark */ = 6349BFFB128B9D8000890DF2 /* PBXTextBookmark */;
 			6349BFFD128B9D8000890DF2 /* PBXTextBookmark */ = 6349BFFD128B9D8000890DF2 /* PBXTextBookmark */;
-			6349BFFE128B9D8000890DF2 /* PBXTextBookmark */ = 6349BFFE128B9D8000890DF2 /* PBXTextBookmark */;
+			635759251298E84F00E5CA45 /* XCBuildMessageTextBookmark */ = 635759251298E84F00E5CA45 /* XCBuildMessageTextBookmark */;
+			6357593E1298E86C00E5CA45 /* PBXTextBookmark */ = 6357593E1298E86C00E5CA45 /* PBXTextBookmark */;
+			6357593F1298E86C00E5CA45 /* PBXTextBookmark */ = 6357593F1298E86C00E5CA45 /* PBXTextBookmark */;
+			635759631298E9F200E5CA45 /* PBXTextBookmark */ = 635759631298E9F200E5CA45 /* PBXTextBookmark */;
 			63A9AE311297773300150BF0 /* PBXTextBookmark */ = 63A9AE311297773300150BF0 /* PBXTextBookmark */;
 			63A9AE761297797100150BF0 /* PBXTextBookmark */ = 63A9AE761297797100150BF0 /* PBXTextBookmark */;
 			63A9AE771297797100150BF0 /* PBXTextBookmark */ = 63A9AE771297797100150BF0 /* PBXTextBookmark */;
@@ -252,36 +252,6 @@
 		path = "/Users/david/Projects/Open Source/ftgles/ftgles/src/FTGL/ftgles.h";
 		sourceTree = "<absolute>";
 	};
-	631ED6AE129786C000129BE1 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 63AF0F9C0F5F2FA300BF520B /* BasicDemoController.cpp */;
-		name = "BasicDemoController.cpp: 220";
-		rLen = 0;
-		rLoc = 5187;
-		rType = 0;
-		vrLen = 1398;
-		vrLoc = 5909;
-	};
-	631ED8D11298051C00129BE1 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 63AF0F9C0F5F2FA300BF520B /* BasicDemoController.cpp */;
-		name = "BasicDemoController.cpp: 139";
-		rLen = 35;
-		rLoc = 4691;
-		rType = 0;
-		vrLen = 1347;
-		vrLoc = 4274;
-	};
-	6349BFFB128B9D8000890DF2 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 63AF0F9D0F5F2FA300BF520B /* BasicDemoController.h */;
-		name = "BasicDemoController.h: 38";
-		rLen = 0;
-		rLoc = 1216;
-		rType = 0;
-		vrLen = 1243;
-		vrLoc = 0;
-	};
 	6349BFFD128B9D8000890DF2 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 7914067A0DBAD8D100C9A379 /* Delegate.h */;
@@ -292,15 +262,44 @@
 		vrLen = 1044;
 		vrLoc = 0;
 	};
-	6349BFFE128B9D8000890DF2 /* PBXTextBookmark */ = {
+	635759251298E84F00E5CA45 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'controller' was not declared in this scope";
+		fRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 47;
+		rType = 1;
+	};
+	6357593E1298E86C00E5CA45 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63AF0F9D0F5F2FA300BF520B /* BasicDemoController.h */;
+		name = "BasicDemoController.h: 40";
+		rLen = 0;
+		rLoc = 1256;
+		rType = 0;
+		vrLen = 1283;
+		vrLoc = 0;
+	};
+	6357593F1298E86C00E5CA45 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63AF0F9C0F5F2FA300BF520B /* BasicDemoController.cpp */;
+		name = "BasicDemoController.cpp: 29";
+		rLen = 0;
+		rLoc = 1049;
+		rType = 0;
+		vrLen = 2472;
+		vrLoc = 0;
+	};
+	635759631298E9F200E5CA45 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */;
-		name = "Delegate.mm: 47";
+		name = "Delegate.mm: 45";
 		rLen = 0;
-		rLoc = 1412;
+		rLoc = 1365;
 		rType = 0;
-		vrLen = 1568;
-		vrLoc = 0;
+		vrLen = 1158;
+		vrLoc = 886;
 	};
 	63741F5A11E5D24A00DFBB47 /* GLES1Surface.h */ = {
 		uiCtxt = {
@@ -457,16 +456,16 @@
 	};
 	63AF0F9C0F5F2FA300BF520B /* BasicDemoController.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {3379, 2606}}";
-			sepNavSelRange = "{4691, 35}";
-			sepNavVisRange = "{4274, 1347}";
+			sepNavIntBoundsRect = "{{0, 0}, {3379, 2431}}";
+			sepNavSelRange = "{1049, 0}";
+			sepNavVisRange = "{0, 2472}";
 		};
 	};
 	63AF0F9D0F5F2FA300BF520B /* BasicDemoController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1201, 781}}";
-			sepNavSelRange = "{1216, 0}";
-			sepNavVisRange = "{0, 1243}";
+			sepNavIntBoundsRect = "{{0, 0}, {1201, 743}}";
+			sepNavSelRange = "{1256, 0}";
+			sepNavVisRange = "{0, 1283}";
 		};
 	};
 	63B6B44D0F5D9AF0001F52EF /* Model3DS.cpp:315 */ = {
@@ -482,7 +481,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 315;
-		modificationTime = 311952647.454111;
+		modificationTime = 312011240.962174;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
@@ -499,7 +498,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 412;
-		modificationTime = 311952647.454131;
+		modificationTime = 312011240.960583;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
@@ -1156,9 +1155,9 @@
 	};
 	7914067B0DBAD8D100C9A379 /* Delegate.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1201, 1560}}";
-			sepNavSelRange = "{1412, 0}";
-			sepNavVisRange = "{0, 1568}";
+			sepNavIntBoundsRect = "{{0, 0}, {1201, 1604}}";
+			sepNavSelRange = "{1365, 0}";
+			sepNavVisRange = "{886, 1158}";
 		};
 	};
 	79EA048C0DAFCC980038ED3D /* Model3DS.cpp */ = {

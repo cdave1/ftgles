@@ -46,7 +46,8 @@ static CFTimeInterval LastFPSUpdate;
 	
 	if ((CurrentTime - LastFPSUpdate) > 1.0f)
 	{ 
-		printf("fps: %d\n", frames);		
+		controller->SetFPS(frames);
+		printf("fps: %d\n", frames);	
 		frames = 0;
 		LastFPSUpdate = CurrentTime;
 	} 

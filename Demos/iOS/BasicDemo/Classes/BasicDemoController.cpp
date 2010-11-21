@@ -25,6 +25,8 @@
 #include "BasicDemoController.h"
 #include "TextureLoader.h"
 
+static FTFont *fpsFont;
+char fpsText[32];
 static FTFont *fonts[3];
 
 static FTSimpleLayout layouts[3];
@@ -57,6 +59,12 @@ BasicDemoController::BasicDemoController(const char* path, float width, float he
 	glDepthFunc(GL_LEQUAL);
 	glClearDepthf(1.0);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	
+	snprintf(fontname, 256, "%s/TOONISH.ttf", path);
+	fpsFont = new FTTextureFont(fontname);
+	fpsFont->FaceSize(contentScaleFactor * 15);
+	fpsFont->CharMap(FT_ENCODING_ADOBE_LATIN_1);
+	snprintf(fpsText, 32, "FPS: 0");
 	
 	snprintf(fontname, 256, "%s/Diavlo_BLACK_II_37.otf", path);
 	fonts[0] = new FTPolygonFont(fontname);
@@ -112,6 +120,12 @@ BasicDemoController::~BasicDemoController()
 }
 
 
+void BasicDemoController::SetFPS(const unsigned int fps)
+{
+	snprintf(fpsText, 32, "FPS: %d", fps);
+}
+
+
 static float angle = 0.0f;
 void BasicDemoController::Draw()
 {
@@ -159,6 +173,15 @@ void BasicDemoController::Draw()
 	
 	
 	glPopMatrix();
+	
+	
+	// Show the fps
+	glPushMatrix();
+	glColor4f(1.0f, 0.8f, 0.0f, 1.0f);
+	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
+	fpsFont->Render(fpsText);
+	glPopMatrix();
+	
 	
 	glPopMatrix();
 	

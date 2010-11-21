@@ -137,8 +137,8 @@ FTSimpleLayoutImpl::FTSimpleLayoutImpl()
     lineLength = 100.0f;
     alignment = FTGL::ALIGN_LEFT;
     lineSpacing = 1.0f;
-	layoutCacheNeedsRefresh = true;
 	layoutGlyphCacheCount = 0;
+	stringCacheCount = 0;
 }
 
 
@@ -224,6 +224,7 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
     int breakCharCount = 0;    // number of characters before the breakItr
     float glyphWidth, advance;
     FTBBox glyphBounds;
+	bool layoutCacheNeedsRefresh = false;
 	
     // Reset the pen position
     pen.Y(0);
@@ -234,14 +235,30 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
 		bounds->Invalidate();
     }
 	
+	// Check if the incoming string is different to the previously
+	// cached string.
+	unsigned int i = 0;
+	for (FTUnicodeStringItr<T> itr(buf); *itr; itr++)
+	{
+		if (i >= stringCacheCount ||
+			stringCache[i++] != (unsigned int)*itr)
+		{
+			layoutCacheNeedsRefresh = true;
+			break;
+		}
+	}
+	
 	if (layoutCacheNeedsRefresh)
 	{
-		layoutCacheNeedsRefresh = false;
+		stringCacheCount = 0;
+		layoutGlyphCacheCount = 0;
 		
 		// Scan the input for all characters that need output
 		FTUnicodeStringItr<T> prevItr(buf);
 		for (FTUnicodeStringItr<T> itr(buf); *itr; prevItr = itr++, charCount++)
 		{
+			stringCache[stringCacheCount++] = (unsigned int)*itr;
+			
 			// Find the width of the current glyph
 			glyphBounds = currentFont->BBox(itr.getBufferFromHere(), 1);
 			glyphWidth = glyphBounds.Upper().Xf() - glyphBounds.Lower().Xf();
@@ -351,6 +368,7 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
 		}
 	}
 	
+	// Draw each of the glyphs in the cache.
 	currentFont->PreRender();
 	for (unsigned i = 0; i < layoutGlyphCacheCount; ++i)
 	{

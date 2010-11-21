@@ -37,6 +37,8 @@ public:
 	
 	~BasicDemoController();
 	
+	void SetFPS(const unsigned int fps);
+	
 	void Draw();
 };
 
