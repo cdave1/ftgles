@@ -29,7 +29,7 @@ typedef struct
 } coloredLayout_t;
 
 
-const unsigned int kLayoutCount = 18;
+const unsigned int kLayoutCount = 12;
 
 static FTFont *fpsFont;
 char fpsText[32];
