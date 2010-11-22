@@ -61,6 +61,6 @@ There is a [Performance test application](https://github.com/cdave1/ftgles/tree/
 
 ## Licenses
 
- - FTGLES License: (http://github.com/cdave1/ftgles/blob/master/LICENSE.md)
- - Original FTGL License: (https://github.com/cdave1/ftgles/blob/master/ftgles/COPYING)
- - Freetype 2 License: (https://github.com/cdave1/ftgles/blob/master/freetype-2.3.9/docs/LICENSE.TXT)
+ - FTGLES License [here](http://github.com/cdave1/ftgles/blob/master/LICENSE.md)
+ - Original FTGL License [here](https://github.com/cdave1/ftgles/blob/master/ftgles/COPYING)
+ - Freetype 2 License [here](https://github.com/cdave1/ftgles/blob/master/freetype-2.3.9/docs/LICENSE.TXT)
