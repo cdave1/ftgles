@@ -1,4 +1,4 @@
-# FTGLES 0.2
+# FTGLES 0.2.1
 
 FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of [FTGL](http://homepages.paradise.net.nz/henryj/code/#FTGL).  It currently targets the iPhone and iPad, with plans to port to Android in the very near future.  iOS 4 is currently supported.
 
@@ -48,3 +48,19 @@ FTGLES 0.1 supports the following font types from the original FTGL library:
 Extrusion and pixmap rendering from the original FTGL library are currently not supported.  Bitmap font support is currently in progress.
 
 Open GL ES 2 support is coming soon.
+
+
+## Performance
+
+It is recommended that you avoid excessive use of Polygon fonts in iOS applications until render speeds have been improved.
+
+Performance of the SimpleLayout class was previously very slow, but was recently improved in a recent build.  
+
+There is a [Performance test application](https://github.com/cdave1/ftgles/tree/master/Demos/iOS/PerformanceTest/) that will show the framerate of a screen full of text rendered using the SimpleLayout class, along with several font faces.
+
+
+## Licenses
+
+FTGLES License: http://github.com/cdave1/ftgles/blob/master/LICENSE.md
+Original FTGL License: https://github.com/cdave1/ftgles/blob/master/ftgles/COPYING 
+Freetype 2 License: https://github.com/cdave1/ftgles/blob/master/freetype-2.3.9/docs/LICENSE.TXT
