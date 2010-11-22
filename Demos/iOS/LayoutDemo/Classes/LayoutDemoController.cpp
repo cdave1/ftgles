@@ -22,7 +22,7 @@
  * Demo iPhone app showing ftgles in action.
  */
 
-#include "BasicDemoController.h"
+#include "LayoutDemoController.h"
 #include "TextureLoader.h"
 
 static FTFont *fpsFont;
@@ -36,19 +36,12 @@ static GLuint aTexture;
 static float screenWidth, screenHeight, contentScaleFactor;
 
 
-const char *polygonFontText = "This is a polygon font";
-const char *textureFontText = "Lorem ipsum dolor sit amet.";
-const char *outlineFontText = "Lorem  ipsum  dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+const char *polygonFontText = "(Left aligned) polygon font.";
+const char *textureFontText = "(Center aligned) Lorem ipsum dolor sit amet.";
+const char *outlineFontText = "(Right aligned) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 
-const char *txtA = "Lorem  ipsum  dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ";
-const char *txtB = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.";
-const char *txtC = "in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, ";
-const char *txtD = "sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
-
-
-BasicDemoController::BasicDemoController(const char* path, float width, float height, float scale)
+LayoutDemoController::LayoutDemoController(const char* path, float width, float height, float scale)
 {
 	contentScaleFactor = scale;
 	screenWidth = contentScaleFactor * width;
@@ -112,7 +105,7 @@ BasicDemoController::BasicDemoController(const char* path, float width, float he
 }
 
 
-BasicDemoController::~BasicDemoController() 
+LayoutDemoController::~LayoutDemoController() 
 {
 	delete fonts[0];
 	delete fonts[1];
@@ -120,14 +113,15 @@ BasicDemoController::~BasicDemoController()
 }
 
 
-void BasicDemoController::SetFPS(const unsigned int fps)
+void LayoutDemoController::SetFPS(const unsigned int fps)
 {
 	snprintf(fpsText, 32, "FPS: %d", fps);
 }
 
 
 static float angle = 0.0f;
-void BasicDemoController::Draw()
+static float color = 0.0f;
+void LayoutDemoController::Draw()
 {
 	float halfScreenWidth = screenWidth * 0.5f;
 	float halfScreenHeight = screenHeight * 0.5f;
@@ -150,12 +144,12 @@ void BasicDemoController::Draw()
 	glEnable(GL_BLEND);
 	
 	glPushMatrix();	
-	glRotatef(angle, 1.0f, 1.0f, 1.0f);
+	glRotatef(angle, 0.0f, 0.0f, 1.0f);
 	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
 
 	glPushMatrix();
 	glTranslatef(0.0f, contentScaleFactor * 420.0f, 0.0f);
-	glColor4f(6.0f, 0.6f, 0.3f, 1.0f);
+	glColor4f(color, 0.6f, 0.3f, 1.0f);
 	layouts[0].Render(polygonFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
 	
@@ -191,7 +185,10 @@ void BasicDemoController::Draw()
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
 	
-	angle += 1.0f;
+	angle += 0.1f;
 	if (angle >= 360.0f) angle = 0.0f;
+	
+	color += 0.01f;
+	if (color > 1.0f) color = 0.0f;
 }
 

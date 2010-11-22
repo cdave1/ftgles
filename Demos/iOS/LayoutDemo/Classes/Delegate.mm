@@ -20,12 +20,12 @@
 
 
 #import "Delegate.h"
-#include "BasicDemoController.h"
+#include "LayoutDemoController.h"
 #include <sys/time.h> 
 #include "QuartzCore/QuartzCore.h"
 #include "TextureLoader.h"
 
-static BasicDemoController * basicDemoController = NULL;
+static LayoutDemoController * layoutDemoController = NULL;
 
 static int frames;
 static CFTimeInterval CurrentTime;
@@ -35,8 +35,8 @@ static CFTimeInterval LastFPSUpdate;
 
 - (void) update
 {
-	if(basicDemoController)
-		basicDemoController->Draw();
+	if(layoutDemoController)
+		layoutDemoController->Draw();
 	
 	[glView swapBuffers];
 	
@@ -45,7 +45,7 @@ static CFTimeInterval LastFPSUpdate;
 	
 	if ((CurrentTime - LastFPSUpdate) > 1.0f)
 	{ 
-		basicDemoController->SetFPS(frames);
+		layoutDemoController->SetFPS(frames);
 		printf("fps: %d\n", frames);		
 		frames = 0;
 		LastFPSUpdate = CurrentTime;
@@ -74,7 +74,7 @@ static CFTimeInterval LastFPSUpdate;
 	}
 #endif
 	
-	basicDemoController = new BasicDemoController(bundleResourcePath, rect.size.width, rect.size.height, scale);
+	layoutDemoController = new LayoutDemoController(bundleResourcePath, rect.size.width, rect.size.height, scale);
 	
 	NSString *reqSysVer = @"3.1";
 	NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
@@ -103,7 +103,7 @@ static CFTimeInterval LastFPSUpdate;
 
 - (void) dealloc
 {
-	delete basicDemoController;
+	delete layoutDemoController;
 	[glView release];
 	[window release];
 	[super dealloc];

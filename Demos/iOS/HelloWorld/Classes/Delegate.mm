@@ -45,6 +45,9 @@
 	if (font->Error())
 	{
         NSLog(@"Could not load font `%@'\n", fontpath);	
+		delete font;
+		font = NULL;
+		return;
 	}
 	font->FaceSize(screenSize.width * 0.16f);
 }
