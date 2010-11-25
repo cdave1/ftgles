@@ -191,13 +191,8 @@ void FTSimpleLayoutImpl::Render(const wchar_t* string, const int len,
 }
 
 /**
- * DAVID PETRIE NOTE: This function slows layout rendering by an enormous
- * amount on the iPhone/iPad.  24 fps was all I could get for only three
- * layout instances, each rendering 256 characters of Lorem Ipsum, all with
- * an identical font face.
- *
- * The primary problem is that SimpleLayout was calling Render too often.  Two changes
- * were made to fix this:
+ * DAVID PETRIE NOTE: This function has been altered to ensure efficient rendering
+ * speeds on iOS devices.  The changes are the following:
  * - A cache is populated with linebreak and spacing info; it must be invalidated and 
  *   refreshed when text changes.
  * - PreRender() and PostRender() have been added to the FTFont and FTFontImpl classes.  

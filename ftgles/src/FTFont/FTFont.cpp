@@ -498,6 +498,7 @@ inline FTPoint FTFontImpl::RenderI(const T* string, const int len,
 
         if(CheckGlyph(thisChar))
         {
+			
             position += glyphList->Render(thisChar, nextChar,
                                           position, renderMode);
         }
@@ -541,7 +542,7 @@ bool FTFontImpl::CheckGlyph(const unsigned int characterCode)
         err = face.Error();
         return false;
     }
-
+	
     FTGlyph* tempGlyph = intf->MakeGlyph(ftSlot);
     if(!tempGlyph)
     {

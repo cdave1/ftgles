@@ -23,7 +23,7 @@
  */
 
 #include "ftglesGlue.h"
-#define FTGLES_GLUE_MAX_VERTICES 16384
+#define FTGLES_GLUE_MAX_VERTICES 32768
 
 typedef struct 
 {
@@ -41,6 +41,7 @@ typedef struct
 	unsigned int currIndex;
 } ftglesGlueArrays_t;
 
+GLuint vertexArray;
 
 ftglesGlueArrays_t ftglesGlueArrays;
 
@@ -49,6 +50,8 @@ bool ftglesQuadIndicesInitted = false;
 
 GLvoid ftglBegin(GLenum prim) 
 {
+	glGenVertexArraysOES(1, &vertexArray);
+	
 	if (!ftglesQuadIndicesInitted)
 	{
 		for (int i = 0; i < FTGLES_GLUE_MAX_VERTICES * 3 / 2; i += 6) 
@@ -71,7 +74,11 @@ GLvoid ftglBegin(GLenum prim)
 
 GLvoid ftglVertex3f(float x, float y, float z) 
 {
-	assert(ftglesGlueArrays.currIndex < FTGLES_GLUE_MAX_VERTICES);
+	if (ftglesGlueArrays.currIndex >= FTGLES_GLUE_MAX_VERTICES)
+	{
+		return;
+	}
+	
 	ftglesGlueArrays.currVertex.xyz[0] = x;
 	ftglesGlueArrays.currVertex.xyz[1] = y;
 	ftglesGlueArrays.currVertex.xyz[2] = z;
@@ -82,7 +89,11 @@ GLvoid ftglVertex3f(float x, float y, float z)
 
 GLvoid ftglVertex2f(float x, float y) 
 {
-	assert(ftglesGlueArrays.currIndex < FTGLES_GLUE_MAX_VERTICES);
+	if (ftglesGlueArrays.currIndex >= FTGLES_GLUE_MAX_VERTICES)
+	{
+		return;
+	}
+	
 	ftglesGlueArrays.currVertex.xyz[0] = x;
 	ftglesGlueArrays.currVertex.xyz[1] = y;
 	ftglesGlueArrays.currVertex.xyz[2] = 0.0f;
@@ -263,3 +274,4 @@ GLvoid ftglError(const char *source)
 			break;
 	}
 }
+

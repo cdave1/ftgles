@@ -140,7 +140,7 @@ FTGlyph* FTTextureFontImpl::MakeGlyphImpl(FT_GlyphSlot ftGlyph)
 
     if(glyphHeight < 1) glyphHeight = 1;
     if(glyphWidth < 1) glyphWidth = 1;
-
+	
     if(textureIDList.empty())
     {
         textureIDList.push_back(CreateTexture());
@@ -162,8 +162,8 @@ FTGlyph* FTTextureFontImpl::MakeGlyphImpl(FT_GlyphSlot ftGlyph)
     FTTextureGlyph* tempGlyph = new FTTextureGlyph(ftGlyph, textureIDList[textureIDList.size() - 1],
                                                     xOffset, yOffset, textureWidth, textureHeight);
     xOffset += static_cast<int>(tempGlyph->BBox().Upper().X() - tempGlyph->BBox().Lower().X() + padding + 0.5);
-
-    --remGlyphs;
+	
+	--remGlyphs;
 
     return tempGlyph;
 }
@@ -195,21 +195,20 @@ GLuint FTTextureFontImpl::CreateTexture()
     int totalMemory = textureWidth * textureHeight;
     unsigned char* textureMemory = new unsigned char[totalMemory];
     memset(textureMemory, 0, totalMemory);
-
+	
     GLuint textID;
     glGenTextures(1, (GLuint*)&textID);
 
     glBindTexture(GL_TEXTURE_2D, textID);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); //GL_CLAMP);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); //GL_CLAMP);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // GL_LINEAR
-
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, textureWidth, textureHeight,
                  0, GL_ALPHA, GL_UNSIGNED_BYTE, textureMemory);
 	
 	printf("texture dimensions: %d %d\n", textureWidth, textureHeight);
-
+	
     delete [] textureMemory;
 
     return textID;
@@ -236,61 +235,17 @@ inline FTPoint FTTextureFontImpl::RenderI(const T* string, const int len,
 {
 	disableTexture2D = false;
 	disableBlend = false;
-	GLfloat colors[4];
 	FTPoint tmp;
 	
 	if (preRendered)
 	{
-		tmp = FTFontImpl::Render(string, len,
-										 position, spacing, renderMode);
+		tmp = FTFontImpl::Render(string, len, position, spacing, renderMode);
 	}
 	else 
 	{
-		
-		
-		if (!glIsEnabled(GL_BLEND))
-		{
-			glEnable(GL_BLEND);
-			disableBlend = true;
-		}
-		else 
-		{
-			glGetIntegerv(GL_BLEND_SRC, &originalBlendSfactor);
-			glGetIntegerv(GL_BLEND_DST, &originalBlendDfactor);
-		}
-		
-		
-		if (!glIsEnabled(GL_TEXTURE_2D))
-		{
-			glEnable(GL_TEXTURE_2D);
-			disableTexture2D = true;
-		}
-		
-		// FTTextureGlyphImpl::ResetActiveTexture();
-		
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		
-		glGetFloatv(GL_CURRENT_COLOR, colors);
-		
-		ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
-		ftglBegin(GL_QUADS);
-		tmp = FTFontImpl::Render(string, len,
-										 position, spacing, renderMode);
-		ftglEnd();
-		
-		if (disableBlend)
-		{
-			glDisable(GL_BLEND);
-		}
-		else
-		{
-			glBlendFunc(originalBlendSfactor, originalBlendDfactor);
-		}
-		
-		if (disableTexture2D)
-			glDisable(GL_TEXTURE_2D);
-		
-		ftglError("RenderSpaceI");
+		PreRender();
+		tmp = FTFontImpl::Render(string, len, position, spacing, renderMode);
+		PostRender();
 	}
     return tmp;
 }
@@ -301,7 +256,6 @@ void FTTextureFontImpl::PreRender()
 	disableTexture2D = false;
 	disableBlend = false;
 	GLfloat colors[4];
-	
 	preRendered = true;
 	if (!glIsEnabled(GL_BLEND))
 	{
@@ -348,8 +302,6 @@ void FTTextureFontImpl::PostRender()
 	
 	if (disableTexture2D)
 		glDisable(GL_TEXTURE_2D);
-	
-	ftglError("RenderSpaceI");
 }
 
 
