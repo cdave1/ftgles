@@ -36,6 +36,7 @@ static CFTimeInterval LastFPSUpdate;
 
 - (void) update
 {
+	//[glView bindAndClearFrameBuffer];
 	if(controller)
 		controller->Draw();
 	

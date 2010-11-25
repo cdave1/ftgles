@@ -29,7 +29,7 @@
 
 - (id) init
 {
-	return [self initWithPixelFormat:GL_RGB565_OES 
+	return [self initWithPixelFormat:GL_RGBA8_OES 
 						 depthFormat:GL_DEPTH_COMPONENT16_OES 
 				  preserveBackbuffer:NO];
 }

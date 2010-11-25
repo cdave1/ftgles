@@ -20,6 +20,7 @@
 
 #include "PerformanceController.h"
 #include "TextureLoader.h"
+#include <assert.h>
 
 typedef struct
 {
@@ -56,6 +57,38 @@ const char *txtD = "sunt in culpa qui officia deserunt mollit anim id est laboru
 #define MAX(a,b) (a > b ? a : b)
 #define CLAMP(a,min,max) MIN(max, MAX(min,a))
 
+/**
+ * POLYGON FONTS
+ *
+ * Performance notes:
+ * Still very slow for large numbers of glyphs.  Not sure how to get around this -- could
+ * possibly group mesh polygons by type and render them all at the same time
+ * (goal is to minimise calls to ftglEnd()).  Ultimately rendering speeds are slowed
+ * by glyphs with a large number of vertices.
+ */
+//#define PERF_TESTING_CLASS FTPolygonFont
+
+
+/**
+ * TEXTURE FONTS
+ *
+ * Performance notes:
+ * - Very good performance; could still be improved with a render-to-texture step.
+ * - Approx 40 frames per second with 5000+ quads on screen on iPad.
+ */
+#define PERF_TESTING_CLASS FTTextureFont
+
+
+/**
+ * OUTLINE FONTS
+ *
+ * Performance notes:
+ * - Still poor performance -- the problems here are no different to those with polygon fonts.
+ * - Some glyphs have hundreds of vertices.
+ * - Solution: render the outline to texture w/ CopyPixels.
+ */
+//#define PERF_TESTING_CLASS FTOutlineFont
+
 PerformanceController::PerformanceController(const char* path, float width, float height, float scale)
 {
 	contentScaleFactor = scale;
@@ -75,36 +108,24 @@ PerformanceController::PerformanceController(const char* path, float width, floa
 	snprintf(fpsText, 32, "FPS: 0");
 	
 	snprintf(fontname, 256, "%s/Diavlo_BLACK_II_37.otf", path);
-#if 0
-	// Still very slow: polygon fonts.  Not sure how to get around this -- could
-	// possibly group mesh polygons by type and render them all at the same time
-	// (goal is to minimise calls to ftglEnd()).
-	fonts[0] = new FTPolygonFont(fontname);
-#else
-	fonts[0] = new FTTextureFont(fontname);
-#endif
-	if(fonts[0]->Error())
-    {
-        printf("Could not load font `%s'\n", fontname);
-    }
+	fonts[0] = new PERF_TESTING_CLASS(fontname);
+	
+	snprintf(fontname, 256, "%s/TOONISH.ttf", path);
+	fonts[1] = new PERF_TESTING_CLASS(fontname);
+	
+	snprintf(fontname, 256, "%s/Cardo98s.ttf", path);
+	fonts[2] = new PERF_TESTING_CLASS(fontname);
+	
+	assert(!fonts[0]->Error());
+	assert(!fonts[1]->Error());
+	assert(!fonts[2]->Error());
+	
 	fonts[0]->FaceSize(contentScaleFactor * 15);
 	fonts[0]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
-	snprintf(fontname, 256, "%s/TOONISH.ttf", path);
-	fonts[1] = new FTTextureFont(fontname);
-	if (fonts[1]->Error())
-	{
-        printf("Could not load font `%s'\n", fontname);	
-	}
 	fonts[1]->FaceSize(contentScaleFactor * 15);
 	fonts[1]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
-	snprintf(fontname, 256, "%s/Cardo98s.ttf", path);
-	fonts[2] = new FTTextureFont(fontname);
-	if (fonts[2]->Error())
-	{
-        printf("Could not load font `%s'\n", fontname);	
-	}
 	fonts[2]->FaceSize(contentScaleFactor * 15);
 	fonts[2]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
@@ -114,11 +135,21 @@ PerformanceController::PerformanceController(const char* path, float width, floa
 		layouts[i].shadeDir = layouts[i].shade > 0.5f;
 		layouts[i].layout.SetLineLength(screenWidth);
 		layouts[i].layout.SetLineSpacing(0.75f);
-		layouts[i].layout.SetFont(fonts[rand() % 3]);
-		layouts[i].layout.SetAlignment(FTGL::ALIGN_JUSTIFY);
+		layouts[i].layout.SetFont(fonts[i % 3]);
+		
+		if (i % 3 == 0)
+			layouts[i].layout.SetAlignment(FTGL::ALIGN_JUSTIFY);
+		else if (i % 3 == 1)
+			layouts[i].layout.SetAlignment(FTGL::ALIGN_LEFT);
+		else
+			layouts[i].layout.SetAlignment(FTGL::ALIGN_RIGHT);
+
 	}
 	
 	printf("Loaded texture: %d\n", aTexture);
+	
+	GLenum error = glGetError();
+	if (error != GL_NO_ERROR) printf("GL ERROR %x\n", error);
 }
 
 
@@ -179,12 +210,14 @@ void PerformanceController::SetFPS(const unsigned int fps)
 static float angle = 0.0f;
 void PerformanceController::Draw()
 {
+
 	float halfScreenWidth = screenWidth * 0.5f;
 	float halfScreenHeight = screenHeight * 0.5f;
 	
 	glClearColor(0.25f, 0.25f, 0.25f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
+
+
 	glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 	glPushMatrix();
@@ -201,8 +234,7 @@ void PerformanceController::Draw()
 	
 	glPushMatrix();
 	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
-
-#if 0	
+#if 0
 	
 	DrawNonLayoutText(0.0f, contentScaleFactor * 940.0f);
 	DrawNonLayoutText(0.1f, contentScaleFactor * 890.0f);
@@ -240,15 +272,15 @@ void PerformanceController::Draw()
 	}
 	
 #endif
-	
-
-	
 	glPopMatrix();
 	
 	// Show the fps
 	glPushMatrix();
 	glColor4f(1.0f, 0.8f, 0.0f, 1.0f);
 	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
+	GLenum error = glGetError();
+	if (error!=GL_NO_ERROR)
+		printf("ERROR!\n");
 	fpsFont->Render(fpsText);
 	glPopMatrix();
 	
