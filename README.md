@@ -1,6 +1,6 @@
 # FTGLES 0.2.1
 
-FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of [FTGL](http://homepages.paradise.net.nz/henryj/code/#FTGL).  It currently targets the iPhone and iPad, with plans to port to Android in the very near future.  iOS 4 is currently supported.
+FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of [FTGL](http://homepages.paradise.net.nz/henryj/code/#FTGL).  It currently targets the iPhone and iPad, with plans to port to Android in the very near future.  iOS 4.2 is currently supported.
 
 From the FTGL notes:
 
@@ -52,7 +52,11 @@ Open GL ES 2 support is coming soon.
 
 ## Performance Notes
 
-It is recommended that you avoid excessive use of Polygon and Outline fonts in iOS applications until render speeds have been improved.  Texture fonts are preferable, and also look much better.
+If you need to render large amounts of text, Texture fonts are preferable, and also currently look much better than other font types.  Texture fonts allow you to render a full screen of text without any appreciable drop in frame rate.
+
+For Polygon and Outline fonts, rendering speeds depend very much on the type face being rendered.  More complex glyphs will almost always contain more vertices, and thus FTGLES will need to draw more polygons or lines.  
+
+While you may get acceptable results by switching to a simple typeface, it is generally recommended that you avoid excessive use of Polygon and Outline fonts in iOS applications.  Expect to see large drops in frame rate when drawing any more than 100-200 Polygon or Outline glyphs on screen.   
 
 Performance of the SimpleLayout class was previously very slow, but was recently improved in a recent build.  
 

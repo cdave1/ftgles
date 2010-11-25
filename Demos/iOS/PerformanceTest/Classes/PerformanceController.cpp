@@ -30,7 +30,7 @@ typedef struct
 } coloredLayout_t;
 
 
-const unsigned int kLayoutCount = 12;
+const unsigned int kLayoutCount = 1;
 
 static FTFont *fpsFont;
 char fpsText[32];
@@ -76,7 +76,7 @@ const char *txtD = "sunt in culpa qui officia deserunt mollit anim id est laboru
  * - Very good performance; could still be improved with a render-to-texture step.
  * - Approx 40 frames per second with 5000+ quads on screen on iPad.
  */
-#define PERF_TESTING_CLASS FTTextureFont
+//#define PERF_TESTING_CLASS FTTextureFont
 
 
 /**
@@ -87,7 +87,7 @@ const char *txtD = "sunt in culpa qui officia deserunt mollit anim id est laboru
  * - Some glyphs have hundreds of vertices.
  * - Solution: render the outline to texture w/ CopyPixels.
  */
-//#define PERF_TESTING_CLASS FTOutlineFont
+#define PERF_TESTING_CLASS FTOutlineFont
 
 PerformanceController::PerformanceController(const char* path, float width, float height, float scale)
 {
