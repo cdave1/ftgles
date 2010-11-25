@@ -50,9 +50,9 @@ Extrusion and pixmap rendering from the original FTGL library are currently not 
 Open GL ES 2 support is coming soon.
 
 
-## Performance
+## Performance Notes
 
-It is recommended that you avoid excessive use of Polygon fonts in iOS applications until render speeds have been improved.
+It is recommended that you avoid excessive use of Polygon and Outline fonts in iOS applications until render speeds have been improved.  Texture fonts are preferable, and also look much better.
 
 Performance of the SimpleLayout class was previously very slow, but was recently improved in a recent build.  
 
