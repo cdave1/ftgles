@@ -41,8 +41,6 @@ typedef struct
 	unsigned int currIndex;
 } ftglesGlueArrays_t;
 
-GLuint vertexArray;
-
 ftglesGlueArrays_t ftglesGlueArrays;
 
 GLenum ftglesCurrentPrimitive = GL_TRIANGLES;
@@ -50,8 +48,6 @@ bool ftglesQuadIndicesInitted = false;
 
 GLvoid ftglBegin(GLenum prim) 
 {
-	glGenVertexArraysOES(1, &vertexArray);
-	
 	if (!ftglesQuadIndicesInitted)
 	{
 		for (int i = 0; i < FTGLES_GLUE_MAX_VERTICES * 3 / 2; i += 6) 
