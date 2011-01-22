@@ -137,7 +137,6 @@ FTSimpleLayoutImpl::FTSimpleLayoutImpl()
     lineLength = 100.0f;
     alignment = FTGL::ALIGN_LEFT;
     lineSpacing = 1.0f;
-	layoutGlyphCacheCount = 0;
 	stringCacheCount = 0;
 }
 
@@ -219,7 +218,7 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
     int breakCharCount = 0;    // number of characters before the breakItr
     float glyphWidth, advance;
     FTBBox glyphBounds;
-	bool layoutCacheNeedsRefresh = false;
+	bool refresh = false;
 	
     // Reset the pen position
     pen.Y(0);
@@ -238,15 +237,15 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
 		if (i >= stringCacheCount ||
 			stringCache[i++] != (unsigned int)*itr)
 		{
-			layoutCacheNeedsRefresh = true;
+			refresh = true;
 			break;
 		}
 	}
 	
-	if (layoutCacheNeedsRefresh)
+	if (refresh)
 	{
 		stringCacheCount = 0;
-		layoutGlyphCacheCount = 0;
+        layoutGlyphCache.clear();
 		
 		// Scan the input for all characters that need output
 		FTUnicodeStringItr<T> prevItr(buf);
@@ -296,14 +295,13 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
 					++breakChar; --charCount;
 				}
 				
-				layoutGlyphCacheItem_t *cacheItem = &layoutGlyphCache[layoutGlyphCacheCount];
-				
-				cacheItem->buf = (T*)lineStart.getBufferFromHere();
-				cacheItem->charCount = breakCharCount;
-				cacheItem->position = FTPoint(position.X(), position.Y(), position.Z());
-				cacheItem->remainingWidth = remainingWidth;
-				cacheItem->penDiff = FTPoint(0, currentFont->LineHeight() * lineSpacing);
-				layoutGlyphCacheCount++;
+				layoutGlyphCacheItem_t cacheItem;
+				cacheItem.buf = (T*)lineStart.getBufferFromHere();
+				cacheItem.charCount = breakCharCount;
+				cacheItem.position = FTPoint(position.X(), position.Y(), position.Z());
+				cacheItem.remainingWidth = remainingWidth;
+				cacheItem.penDiff = FTPoint(0, currentFont->LineHeight() * lineSpacing);
+				layoutGlyphCache.push_back(cacheItem);
 				
 				lineStart = breakChar;
 				// The current width is the width since the last break
@@ -340,42 +338,41 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
 		if(alignment == FTGL::ALIGN_JUSTIFY)
 		{
 			alignment = FTGL::ALIGN_LEFT;
-			layoutGlyphCacheItem_t *cacheItem = &layoutGlyphCache[layoutGlyphCacheCount];
-			cacheItem->buf = (T *)lineStart.getBufferFromHere();
-			cacheItem->charCount = -1;
-			cacheItem->position = FTPoint(position.X(), position.Y(), position.Z());
-			cacheItem->penDiff = FTPoint(0,0,0);
-			cacheItem->remainingWidth = remainingWidth;
-			
-			layoutGlyphCacheCount++;
+			layoutGlyphCacheItem_t cacheItem;
+			cacheItem.buf = (T *)lineStart.getBufferFromHere();
+			cacheItem.charCount = -1;
+			cacheItem.position = FTPoint(position.X(), position.Y(), position.Z());
+			cacheItem.penDiff = FTPoint(0,0,0);
+			cacheItem.remainingWidth = remainingWidth;
+			layoutGlyphCache.push_back(cacheItem);
 			alignment = FTGL::ALIGN_JUSTIFY;
 		}
 		else
 		{
-			layoutGlyphCacheItem_t *cacheItem = &layoutGlyphCache[layoutGlyphCacheCount];
-			cacheItem->buf = (T *)lineStart.getBufferFromHere();
-			cacheItem->charCount = -1;
-			cacheItem->position = FTPoint(position.X(), position.Y(), position.Z());
-			cacheItem->penDiff = FTPoint(0,0,0);
-			cacheItem->remainingWidth = remainingWidth;
-			
-			layoutGlyphCacheCount++;
+			layoutGlyphCacheItem_t cacheItem;
+			cacheItem.buf = (T *)lineStart.getBufferFromHere();
+			cacheItem.charCount = -1;
+			cacheItem.position = FTPoint(position.X(), position.Y(), position.Z());
+			cacheItem.penDiff = FTPoint(0,0,0);
+			cacheItem.remainingWidth = remainingWidth;
+			layoutGlyphCache.push_back(cacheItem);
 		}
 	}
 	
 	// Draw each of the glyphs in the cache.
 	currentFont->PreRender();
-	for (unsigned i = 0; i < layoutGlyphCacheCount; ++i)
+    std::list<layoutGlyphCacheItem_t>::iterator it;
+	for (it = layoutGlyphCache.begin(); it != layoutGlyphCache.end(); it++)
 	{
-		layoutGlyphCacheItem_t *cacheItem = &layoutGlyphCache[i];
+		layoutGlyphCacheItem_t cacheItem = (*it);
 		
-		OutputWrapped((T*)cacheItem->buf, 
-					  cacheItem->charCount,
-					  cacheItem->position,
+		OutputWrapped((T*)cacheItem.buf, 
+					  cacheItem.charCount,
+					  cacheItem.position,
 					  renderMode,
-					  cacheItem->remainingWidth,
+					  cacheItem.remainingWidth,
 					  bounds);
-		pen -= cacheItem->penDiff;
+		pen -= cacheItem.penDiff;
 	}
 	currentFont->PostRender();
 }

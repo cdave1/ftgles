@@ -28,7 +28,7 @@
 #define __FTSimpleLayoutImpl__
 
 #include "FTLayoutImpl.h"
-
+#include <list>
 
 class FTFont;
 
@@ -208,13 +208,8 @@ private:
 	
 	/**
 	 * Layout glyph and string caches.
-	 *
-	 * HACK HACK HACK: Fixed size arrays are prone to overflows.
-	 * Replace with list? It's c++ after all :)
 	 */
-	layoutGlyphCacheItem_t layoutGlyphCache[4096];
-	
-	unsigned int layoutGlyphCacheCount;
+    std::list<layoutGlyphCacheItem_t> layoutGlyphCache;
 	
 	unsigned int stringCache[4096];
 	
