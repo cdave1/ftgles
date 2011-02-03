@@ -264,8 +264,13 @@ void FTTextureFontImpl::PreRender()
 	}
 	else 
 	{
-		glGetIntegerv(GL_BLEND_SRC, &originalBlendSfactor);
+#ifdef FTGLES2
+        originalBlendSfactor = 1.0f;
+        originalBlendDfactor = 1.0f;
+#else
+        glGetIntegerv(GL_BLEND_SRC, &originalBlendSfactor);
 		glGetIntegerv(GL_BLEND_DST, &originalBlendDfactor);
+#endif
 	}
 	
 	
@@ -278,8 +283,11 @@ void FTTextureFontImpl::PreRender()
 	// FTTextureGlyphImpl::ResetActiveTexture();
 	
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	
+#ifdef FTGLES2
+        colors[0] = 1.0f; colors[1] = 1.0f; colors[2] = 1.0f; colors[3] = 1.0f;
+#else
 	glGetFloatv(GL_CURRENT_COLOR, colors);
+#endif
 	
 	ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
 	ftglBegin(GL_QUADS);

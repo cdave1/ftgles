@@ -47,11 +47,11 @@
 										kEAGLColorFormatRGBA8, 
 										kEAGLDrawablePropertyColorFormat, 
 										nil];
-		
-		_surface = [[GLES1Surface alloc] init];
+        
+		_surface = [[GLES2Surface alloc] init];
 		if(!_surface) 
 		{
-			_surface = [[GLES2Surface alloc] init];
+            _surface = [[GLES1Surface alloc] init];			
 			if (!_surface)
 			{
 				[self release];

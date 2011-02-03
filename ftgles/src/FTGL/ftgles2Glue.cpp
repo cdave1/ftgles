@@ -23,10 +23,46 @@
  */
 
 #include "ftglesGlue.h"
+#include "strings.h"
+
 #define FTGLES_GLUE_MAX_VERTICES 32768
 
-#include <OpenGLES/ES1/gl.h>
-#include <OpenGLES/ES1/glext.h>
+const GLchar * vertexftglesShaderProgram = "\
+attribute vec4 position;\
+attribute vec4 color;\
+varying vec4 colorVarying;\
+\
+uniform mat4 camera;\
+void main()\
+{\
+    colorVarying = color;\
+    gl_Position = (camera * position);\
+}\n\
+";
+
+
+const GLchar * fragmentftglesShaderProgram = "\
+varying lowp vec4 colorVarying;\
+void main()\
+{\
+    gl_FragColor = colorVarying;\
+}\n\
+";
+
+static float ftglCameraMat[16];
+
+
+
+
+GLuint ftglCameraUniform;
+
+
+enum {
+    ATTRIB_VERTEX,
+    ATTRIB_COLOR,
+    NUM_ATTRIBUTES
+};
+
 
 typedef struct 
 {
@@ -48,6 +84,42 @@ ftglesGlueArrays_t ftglesGlueArrays;
 
 GLenum ftglesCurrentPrimitive = GL_TRIANGLES;
 bool ftglesQuadIndicesInitted = false;
+bool ftglesShadersInitted = false;
+GLuint ftglesShaderProgram = 0;
+
+
+GLuint ftglCompileShader(const GLchar * source, const GLenum type)
+{
+    assert(ftglesShaderProgram);
+    assert(strlen(source) > 0);
+    
+    printf("%s\n", source);
+    
+    GLuint shader;
+    GLint status;
+    
+    shader = glCreateShader(type);
+    glShaderSource(shader, 1, &source, NULL);
+    glCompileShader(shader);
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
+    
+    GLint logLength;
+    glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &logLength);
+    if (logLength > 0)
+    {
+        GLchar *log = (GLchar *)malloc(logLength);
+        glGetShaderInfoLog(shader, logLength, &logLength, log);
+        printf("Shader compile log:\n%s\n", log);
+        free(log);
+    }
+    
+    assert(status != 0);
+    
+    glAttachShader(ftglesShaderProgram, shader);
+    
+    return shader;
+}
+
 
 GLvoid ftglBegin(GLenum prim) 
 {
@@ -66,8 +138,49 @@ GLvoid ftglBegin(GLenum prim)
 		}
 		ftglesQuadIndicesInitted = true;
 	}
+    
+    if (!ftglesShadersInitted)
+    {
+        ftglSetCamera(-320.0f, 320.0f, -480.0f, 480.0f, -10000.0f, 10000.0f);
+        
+        // Compile vertex shaders...
+        ftglesShaderProgram = glCreateProgram();
+        
+        GLuint vertexShader = ftglCompileShader(vertexftglesShaderProgram, GL_VERTEX_SHADER);
+        GLuint fragmentShader = ftglCompileShader(fragmentftglesShaderProgram, GL_FRAGMENT_SHADER);
+        assert(vertexShader && fragmentShader);
+        
+        glBindAttribLocation(ftglesShaderProgram, ATTRIB_VERTEX, "position");
+        glBindAttribLocation(ftglesShaderProgram, ATTRIB_COLOR, "color");
+        
+        glLinkProgram(ftglesShaderProgram);
+        
+        // Get uniform locations
+        //uniformIndices[ROT_MATRIX] = glGetUniformLocation(ftglesShaderProgram, "rotation");
+        //uniformIndices[CAMERA_MATRIX] = glGetUniformLocation(ftglesShaderProgram, "camera");
+        //uniformIndices[TRANSLATION_UNIFORM] = glGetUniformLocation(ftglesShaderProgram, "translation");
+        
+        ftglCameraUniform = glGetUniformLocation(ftglesShaderProgram, "camera");
+        
+        // Release vertex and fragment shaders
+        glDeleteShader(vertexShader);
+        glDeleteShader(fragmentShader);
+        
+        ftglesShadersInitted = true;
+    }
+    
+    assert(ftglesQuadIndicesInitted && ftglesShadersInitted);
+    
 	ftglesGlueArrays.currIndex = 0;
 	ftglesCurrentPrimitive = prim;
+	glEnableVertexAttribArray(ATTRIB_VERTEX);
+	glEnableVertexAttribArray(ATTRIB_COLOR);
+}
+
+
+GLvoid ftglTranslatef(float x, float y, float z)
+{
+    //glTranslatef(x, y, z);
 }
 
 
@@ -126,6 +239,46 @@ GLvoid ftglTexCoord2f(GLfloat s, GLfloat t)
 }
 
 
+
+void ftglSetCamera(float left, float right, float bottom, float top, float zNear, float zFar)
+{
+    //memcpy(ftglCameraMat, camera, sizeof(float) * 16);
+
+    
+    
+    
+    if (right != left)
+    {
+        ftglCameraMat[ 0] = 2 / (right - left);
+        ftglCameraMat[ 1] = 0;
+        ftglCameraMat[ 2] = 0;
+        ftglCameraMat[ 3] = - ((right + left) / (right - left));
+    }
+    
+    if (top != bottom)
+    {
+        ftglCameraMat[ 4] = 0;
+        ftglCameraMat[ 5] = 2 / (top - bottom);
+        ftglCameraMat[ 6] = 0;
+        ftglCameraMat[ 7] = - ((top + bottom) / (top - bottom));
+    }
+	
+    if (zFar != zNear)
+    {
+        ftglCameraMat[ 8] = 0;
+        ftglCameraMat[ 9] = 0;
+        ftglCameraMat[10] = -2 / (zFar - zNear);
+        ftglCameraMat[11] = - ((zFar + zNear) / (zFar - zNear));
+    }
+	
+	ftglCameraMat[12] = 0;
+	ftglCameraMat[13] = 0;
+	ftglCameraMat[14] = 0;
+	ftglCameraMat[15] = 1;
+}
+
+
+
 GLvoid bindArrayBuffers()
 {
 }
@@ -139,6 +292,7 @@ GLvoid ftglBindTexture()
 
 GLvoid ftglEnd() 
 {
+    /*
 	GLboolean vertexArrayEnabled;
 	GLboolean texCoordArrayEnabled;
 	GLboolean colorArrayEnabled;
@@ -182,10 +336,13 @@ GLvoid ftglEnd()
 			glGetIntegerv(GL_COLOR_ARRAY_TYPE, &colorArrayType);
 			glGetIntegerv(GL_COLOR_ARRAY_SIZE, &colorArraySize);
 			glGetIntegerv(GL_COLOR_ARRAY_STRIDE, &colorArrayStride);
-		}	
-		glVertexPointer(3, GL_FLOAT, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].xyz);
-		glTexCoordPointer(2, GL_FLOAT, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].st);
-		glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].rgba);
+		}
+        
+
+        
+		//glVertexPointer(3, GL_FLOAT, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].xyz);
+		//glTexCoordPointer(2, GL_FLOAT, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].st);
+		//glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].rgba);
 		
 		resetPointers = true;
 	}
@@ -195,12 +352,22 @@ GLvoid ftglEnd()
 	
 	if (!colorArrayEnabled)
 		glEnableClientState(GL_COLOR_ARRAY);
-	
+	*/
+    
+    glUseProgram(ftglesShaderProgram);
+    
+    
+    
+    glUniformMatrix4fv(ftglCameraUniform, 1, GL_FALSE, ftglCameraMat);
+    
 	if (ftglesGlueArrays.currIndex == 0) 
 	{
 		ftglesCurrentPrimitive = 0;
 		return;
 	}
+    ftglError("a");
+    glVertexAttribPointer(ATTRIB_VERTEX, 3, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].xyz);
+    glVertexAttribPointer(ATTRIB_COLOR, 4, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].rgba);
 	
 	if (ftglesCurrentPrimitive == GL_QUADS) 
 	{
@@ -212,7 +379,10 @@ GLvoid ftglEnd()
 	}
 	ftglesGlueArrays.currIndex = 0;
 	ftglesCurrentPrimitive = 0;
+    
+    
 	
+    /*
 	if (resetPointers)
 	{
 		if (vertexArrayEnabled)
@@ -240,6 +410,8 @@ GLvoid ftglEnd()
 	
 	if (!colorArrayEnabled)
 		glDisableClientState(GL_COLOR_ARRAY);
+     */
+    ftglError("z");
 }
 
 
@@ -258,12 +430,6 @@ GLvoid ftglError(const char *source)
 			break;
 		case GL_INVALID_OPERATION:
 			printf("GL Error (%x): GL_INVALID_OPERATION. %s\n\n", error, source);
-			break;
-		case GL_STACK_OVERFLOW:
-			printf("GL Error (%x): GL_STACK_OVERFLOW. %s\n\n", error, source);
-			break;
-		case GL_STACK_UNDERFLOW:
-			printf("GL Error (%x): GL_STACK_UNDERFLOW. %s\n\n", error, source);
 			break;
 		case GL_OUT_OF_MEMORY:
 			printf("GL Error (%x): GL_OUT_OF_MEMORY. %s\n\n", error, source);

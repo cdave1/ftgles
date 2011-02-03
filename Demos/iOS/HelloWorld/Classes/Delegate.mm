@@ -33,7 +33,6 @@
 @end
 
 
-
 @implementation AppController
 
 - (void) SetupFonts

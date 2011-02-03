@@ -118,18 +118,19 @@ FTPolygonGlyphImpl::~FTPolygonGlyphImpl()
 const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
                                               int renderMode)
 {
-    glTranslatef(pen.Xf(), pen.Yf(), pen.Zf());
+    ftglTranslatef(pen.Xf(), pen.Yf(), pen.Zf());
 	if (vectoriser)
 	{
 		DoRender();
 	}
-    glTranslatef(-pen.Xf(), -pen.Yf(), -pen.Zf());
+    ftglTranslatef(-pen.Xf(), -pen.Yf(), -pen.Zf());
     return advance;
 }
 
 
 void FTPolygonGlyphImpl::DoRender()
 {
+    
 	GLfloat colors[4];
 	
     const FTMesh *mesh = vectoriser->GetMesh();
@@ -143,7 +144,7 @@ void FTPolygonGlyphImpl::DoRender()
 		glBindTexture(GL_TEXTURE_2D, 0);
 		
         ftglBegin(polygonType);
-		ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
+		ftglColor4f(1.0f, 1.0f, 1.0f, 1.0f);  //colors[0], colors[1], colors[2], colors[3]);
 		for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
 		{
 			FTPoint point = subMesh->Point(i);
@@ -152,5 +153,16 @@ void FTPolygonGlyphImpl::DoRender()
 		}
         ftglEnd();
     }
+    /*
+    ftglBegin(GL_TRIANGLE_STRIP);
+	ftglVertex3f(-50.0f, -50.0f, 0.0f);
+	ftglColor4f(1.0f, 1.0f, 0.0f, 1.0f);
+	ftglVertex3f(50.0f, -50.0f, 0.0f);
+	ftglColor4f(1.0f, 0.0f, 1.0f, 1.0f);
+	ftglVertex3f(-50.0f, 50.0f, 0.0f);
+	ftglColor4f(0.0f, 1.0f, 1.0f, 1.0f);
+	ftglVertex3f(50.0f, 50.0f, 0.0f);
+	ftglColor4f(1.0f, 1.0f, 0.0f, 1.0f);
+	ftglEnd();*/
 }
 

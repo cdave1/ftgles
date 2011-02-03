@@ -22,57 +22,13 @@
  
  */
 
-#ifndef FTGL_ES_GLUE_H
-#define FTGL_ES_GLUE_H
+#import <UIKit/UIKit.h>
 
-#include <stdio.h>
-#include <assert.h>
-
-#ifndef GL_QUADS
-#define GL_QUADS 888
-#endif
-
-#ifdef FTGLES2
-#include <OpenGLES/ES2/gl.h>
-#include <OpenGLES/ES2/glext.h>
-#else
-#include <OpenGLES/ES1/gl.h>
-#include <OpenGLES/ES1/glext.h>
-#endif
-
-
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+int main(int argc, char *argv[])
+{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	UIApplicationMain(argc, argv, nil, @"AppController");
+	[pool drain];
 	
-	extern void ftglBegin(unsigned int prim);
-    
-    extern void ftglTranslatef(float x, float y, float z);
-	
-	extern void ftglVertex3f(float x, float y, float z);
-	
-	extern void ftglVertex2f(float x, float y);
-	
-	extern void ftglColor4f(float r, float g, float b, float a );
-		
-	extern void ftglTexCoord2f(float s, float t );
-	
-	extern void ftglEnd();
-	
-	extern void ftglError(const char *source);
-
-#ifdef FTGLES2
-    
-    extern void ftglSetCamera(float left, float right, float bottom, float top, float zNear, float zFar);
-    
-#endif
-    
-	
-#ifdef __cplusplus
+	return 0;
 }
-#endif
-
-
-
-#endif
