@@ -8,6 +8,8 @@ From the FTGL notes:
 
 "FTGL uses the [Freetype](http://www.freetype.org) font library to open and 'decode' the fonts. It then takes that output and stores it in a format most efficient for OpenGL rendering."
 
+OpenGL ES 2.0 support has not yet been added to the main branch.  Please see the [gles2 branch](https://github.com/cdave1/ftgles/tree/gles2) for an experimental version of FTGLES that supports OpenGL ES 2.0.
+
 
 ## INSTALL
 
@@ -46,8 +48,6 @@ FTGLES 0.1 supports the following font types from the original FTGL library:
  - FTGLTextureFont
 
 Extrusion and pixmap rendering from the original FTGL library are currently not supported.  Bitmap font support is currently in progress.
-
-Open GL ES 2 support is coming soon.
 
 
 ## Performance Notes
