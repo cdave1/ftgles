@@ -38,6 +38,7 @@
 @property(readonly, nonatomic) CGSize surfaceSize;
 
 - (id) initWithFrame:(CGRect)frame;
+- (id) initWithFrame:(CGRect)frame renderingAPI:(EAGLRenderingAPI)api;
 - (void) swapBuffers;
 
 @end

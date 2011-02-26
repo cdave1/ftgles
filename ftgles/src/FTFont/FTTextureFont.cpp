@@ -199,7 +199,7 @@ GLuint FTTextureFontImpl::CreateTexture()
     GLuint textID;
     glGenTextures(1, (GLuint*)&textID);
 
-    glBindTexture(GL_TEXTURE_2D, textID);
+    ftglBindTexture(textID);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -279,8 +279,6 @@ void FTTextureFontImpl::PreRender()
 		glEnable(GL_TEXTURE_2D);
 		disableTexture2D = true;
 	}
-	
-	// FTTextureGlyphImpl::ResetActiveTexture();
 	
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 #ifdef FTGLES2

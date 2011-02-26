@@ -82,6 +82,58 @@
 }
 
 
+- (id) initWithFrame:(CGRect)frame renderingAPI:(EAGLRenderingAPI)api
+{
+ 	if((self = [super initWithFrame:frame])) 
+	{
+		CAEAGLLayer* eaglLayer = (CAEAGLLayer*)self.layer;
+		
+		eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
+										[NSNumber numberWithBool:YES], 
+										kEAGLDrawablePropertyRetainedBacking, 
+										kEAGLColorFormatRGBA8, 
+										kEAGLDrawablePropertyColorFormat, 
+										nil];
+        
+        _surface = nil;
+        if (api == kEAGLRenderingAPIOpenGLES1)
+        {
+            _surface = [[GLES1Surface alloc] init];
+        }
+        else if (api == kEAGLRenderingAPIOpenGLES2)
+        {
+            _surface = [[GLES2Surface alloc] init];
+        }
+        
+        if (!_surface)
+        {
+            [self release];
+            return nil;
+        }
+		
+		_surface.delegate = self;
+		
+#ifdef __IPHONE_4_0
+		if([[UIScreen mainScreen] respondsToSelector:@selector(scale)] &&
+		   [self respondsToSelector:@selector(contentScaleFactor)]) 
+		{
+			self.contentScaleFactor = MAX(1.0f, [[UIScreen mainScreen] scale]);
+		}
+#endif
+		
+		if (![_surface createSurface])
+		{
+			[self release];
+			return nil;
+		}
+		
+		_size = frame.size;
+	}
+    
+	return self;   
+}
+
+
 - (void) dealloc
 {
 	[_surface release];

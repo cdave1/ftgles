@@ -58,15 +58,12 @@ extern "C" {
 		
 	extern void ftglTexCoord2f(float s, float t );
 	
+    extern void ftglBindTexture(unsigned int textureId);
+    
 	extern void ftglEnd();
 	
 	extern void ftglError(const char *source);
-
-#ifdef FTGLES2
     
-    extern void ftglSetCamera(float left, float right, float bottom, float top, float zNear, float zFar);
-    
-#endif
     
 	
 #ifdef __cplusplus

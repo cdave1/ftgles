@@ -24,6 +24,7 @@
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
 #include "QuartzCore/QuartzCore.h"
+#include "RenderController.h"
 
 
 @interface AppController ()
@@ -49,15 +50,13 @@ static float cameraMatrix[16];
 	NSString *fontpath = [NSString stringWithFormat:@"%@/Diavlo_BLACK_II_37.otf", 
 						  [[NSBundle mainBundle] resourcePath]];
 	
-	font = new FTPolygonFont([fontpath UTF8String]); //FTTextureFont([fontpath UTF8String]);
-	if (font->Error())
-	{
-        NSLog(@"Could not load font `%@'\n", fontpath);	
-		delete font;
-		font = NULL;
-		return;
-	}
-	font->FaceSize(screenSize.width * 0.16f);
+	polygonFont = new FTPolygonFont([fontpath UTF8String]);
+    assert (!polygonFont->Error());
+	polygonFont->FaceSize(screenSize.width * 0.16f);
+    
+    textureFont = new FTTextureFont([fontpath UTF8String]);
+	assert (!textureFont->Error());
+	textureFont->FaceSize(screenSize.width * 0.24f);
 }
 
 
@@ -86,68 +85,25 @@ static float cameraMatrix[16];
 }
 
 
-void CameraOrtho(float *mOut, float left, float right, float bottom, float top, float zNear, float zFar)
-{
-    bzero(mOut, sizeof(float) * 16);
-    
-    if (right != left)
-    {
-        mOut[ 0] = 2 / (right - left);
-        mOut[ 1] = 0;
-        mOut[ 2] = 0;
-        mOut[ 3] = - ((right + left) / (right - left));
-    }
-    
-    if (top != bottom)
-    {
-        mOut[ 4] = 0;
-        mOut[ 5] = 2 / (top - bottom);
-        mOut[ 6] = 0;
-        mOut[ 7] = - ((top + bottom) / (top - bottom));
-    }
-	
-    if (zFar != zNear)
-    {
-        mOut[ 8] = 0;
-        mOut[ 9] = 0;
-        mOut[10] = -2 / (zFar - zNear);
-        mOut[11] = - ((zFar + zNear) / (zFar - zNear));
-    }
-	
-	mOut[12] = 0;
-	mOut[13] = 0;
-	mOut[14] = 0;
-	mOut[15] = 1;
-}
-
-
 - (void)SetupGL
 {
     shaderProgram = glCreateProgram();
     
-    GLuint vertexShader = [self compileShader:[[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"] withType:GL_VERTEX_SHADER];
-    GLuint fragmentShader = [self compileShader:[[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"fsh"] withType:GL_FRAGMENT_SHADER];
+    GLuint vertexShader = [self compileShader:[[NSBundle mainBundle] pathForResource:@"vertex" ofType:@"vsh"] withType:GL_VERTEX_SHADER];
+    GLuint fragmentShader = [self compileShader:[[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"fsh"] withType:GL_FRAGMENT_SHADER];
     assert(vertexShader && fragmentShader);
+    
+    glBindAttribLocation(shaderProgram, RENDER_ATTRIB_VERTEX, "position");
+    glBindAttribLocation(shaderProgram, RENDER_ATTRIB_COLOR, "color");
     
     glLinkProgram(shaderProgram);
     
-    // Get uniform locations
-    //uniformIndices[ROT_MATRIX] = glGetUniformLocation(shaderProgram, "rotation");
-    //uniformIndices[CAMERA_MATRIX] = glGetUniformLocation(shaderProgram, "camera");
-    //uniformIndices[TRANSLATION_UNIFORM] = glGetUniformLocation(shaderProgram, "translation");
-    
     cameraUniform = glGetUniformLocation(shaderProgram, "camera");
     
-    
-    // Release vertex and fragment shaders
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
     
-    CameraOrtho(cameraMatrix, -screenSize.width, screenSize.width, -screenSize.height, screenSize.height, -10000.0f, 10000.0f);
-    
-   // ftglSetCamera();
-    
-    printf("\n");
+    aglOrtho(cameraMatrix, -screenSize.width, screenSize.width, -screenSize.height, screenSize.height, -10000.0f, 10000.0f);
 }
 
 
@@ -178,20 +134,13 @@ void CameraOrtho(float *mOut, float left, float right, float bottom, float top, 
 	}
     glUseProgram(shaderProgram);
     
-   // glUniformMatrix4fv(cameraUniform, 1, GL_FALSE, cameraMatrix);
+    glUniformMatrix4fv(cameraUniform, 1, GL_FALSE, cameraMatrix);
     
-    
-
-	//glMatrixMode(GL_PROJECTION);
-    //glLoadIdentity();
-	//glOrthof(0.0f, screenSize.width, 0.0f, screenSize.height, -10000.0f, 10000.0f);
-	//glMatrixMode(GL_MODELVIEW);
-	//glLoadIdentity();
-	
-	//glTranslatef(0.0f, screenSize.height * 0.5f, 0.0f);
-	//glColor4f(1.0f, 0.6f, 0.3f, 1.0f);
-	if (font)
-		font->Render("Hello world!");
+	//if (polygonFont)
+	//	polygonFont->Render("Hello world!");
+  
+    if (textureFont)
+		textureFont->Render("Hello world!");
 	
 	[glView swapBuffers];
 	[self ShowFPS];
@@ -216,7 +165,7 @@ void CameraOrtho(float *mOut, float left, float right, float bottom, float top, 
 {
 	CGRect	rect = [[UIScreen mainScreen] bounds];
 	window = [[UIWindow alloc] initWithFrame:rect];
-	glView = [[GLESView alloc] initWithFrame:rect];
+	glView = [[GLESView alloc] initWithFrame:rect renderingAPI:kEAGLRenderingAPIOpenGLES2];
 	screenSize = rect.size;
 	
 	[window addSubview:glView];
@@ -265,7 +214,8 @@ void CameraOrtho(float *mOut, float left, float right, float bottom, float top, 
 
 - (void) dealloc
 {
-	delete font;
+	delete textureFont;
+    delete polygonFont;
 	[glView release];
 	[window release];
 	[super dealloc];

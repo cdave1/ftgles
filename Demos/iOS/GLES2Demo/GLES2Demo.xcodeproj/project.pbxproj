@@ -11,9 +11,10 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
 		2D500B9A0D5A79CF00DBA0E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
-		631AB76A12FA9B1300243329 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631AB71712FA906200243329 /* libFTGLES.a */; };
-		631AB81A12FAAD5800243329 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 631AB80512FAA6B200243329 /* Shader.fsh */; };
-		631AB81B12FAAD5800243329 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 631AB80612FAA6B200243329 /* Shader.vsh */; };
+		631AB76A12FA9B1300243329 /* libFTGLES2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631AB71712FA906200243329 /* libFTGLES2.a */; };
+		631AB81A12FAAD5800243329 /* fragment.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 631AB80512FAA6B200243329 /* fragment.fsh */; };
+		631AB81B12FAAD5800243329 /* vertex.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 631AB80612FAA6B200243329 /* vertex.vsh */; };
+		631ABAA012FB99CE00243329 /* RenderController.c in Sources */ = {isa = PBXBuildFile; fileRef = 631ABA9E12FB99CE00243329 /* RenderController.c */; };
 		63741F6211E5D24A00DFBB47 /* GLESView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5911E5D24A00DFBB47 /* GLESView.mm */; };
 		63741F6311E5D24A00DFBB47 /* GLES1Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5B11E5D24A00DFBB47 /* GLES1Surface.mm */; };
 		63741F6411E5D24A00DFBB47 /* GLES2Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5D11E5D24A00DFBB47 /* GLES2Surface.mm */; };
@@ -34,14 +35,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 631AB71412FA906200243329 /* libFTGLES.a */;
+			remoteGlobalIDString = 631AB71412FA906200243329;
 			remoteInfo = "FTGLES copy";
 		};
 		631AB76812FA9B0700243329 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 631AB6C712FA906200243329 /* FTGLES2 */;
+			remoteGlobalIDString = 631AB6C712FA906200243329;
 			remoteInfo = FTGLES2;
 		};
 		63D4046811EA5CE70051D8F3 /* PBXContainerItemProxy */ = {
@@ -59,8 +60,10 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		631AB80512FAA6B200243329 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
-		631AB80612FAA6B200243329 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		631AB80512FAA6B200243329 /* fragment.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fragment.fsh; sourceTree = "<group>"; };
+		631AB80612FAA6B200243329 /* vertex.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = vertex.vsh; sourceTree = "<group>"; };
+		631ABA9E12FB99CE00243329 /* RenderController.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RenderController.c; path = Classes/RenderController.c; sourceTree = "<group>"; };
+		631ABA9F12FB99CE00243329 /* RenderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderController.h; path = Classes/RenderController.h; sourceTree = "<group>"; };
 		63741F5811E5D24A00DFBB47 /* GLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESView.h; sourceTree = "<group>"; };
 		63741F5911E5D24A00DFBB47 /* GLESView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESView.mm; sourceTree = "<group>"; };
 		63741F5A11E5D24A00DFBB47 /* GLES1Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Surface.h; sourceTree = "<group>"; };
@@ -88,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				631AB76A12FA9B1300243329 /* libFTGLES.a in Frameworks */,
+				631AB76A12FA9B1300243329 /* libFTGLES2.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */,
@@ -150,8 +153,8 @@
 		631AB80412FAA6B200243329 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				631AB80512FAA6B200243329 /* Shader.fsh */,
-				631AB80612FAA6B200243329 /* Shader.vsh */,
+				631AB80512FAA6B200243329 /* fragment.fsh */,
+				631AB80612FAA6B200243329 /* vertex.vsh */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -187,6 +190,8 @@
 				63B7C93D10A218E500E709A5 /* main.m */,
 				7914067A0DBAD8D100C9A379 /* Delegate.h */,
 				7914067B0DBAD8D100C9A379 /* Delegate.mm */,
+				631ABA9E12FB99CE00243329 /* RenderController.c */,
+				631ABA9F12FB99CE00243329 /* RenderController.h */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -203,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				63D4046911EA5CE70051D8F3 /* libFTGLES.a */,
-				631AB71712FA906200243329 /* libFTGLES.a */,
+				631AB71712FA906200243329 /* libFTGLES2.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,10 +265,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		631AB71712FA906200243329 /* libFTGLES.a */ = {
+		631AB71712FA906200243329 /* libFTGLES2.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libFTGLES.a;
+			path = libFTGLES2.a;
 			remoteRef = 631AB71612FA906200243329 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -281,8 +286,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				631AB81A12FAAD5800243329 /* Shader.fsh in Resources */,
-				631AB81B12FAAD5800243329 /* Shader.vsh in Resources */,
+				631AB81A12FAAD5800243329 /* fragment.fsh in Resources */,
+				631AB81B12FAAD5800243329 /* vertex.vsh in Resources */,
 				63B7CA9710A23BB800E709A5 /* Diavlo_BLACK_II_37.otf in Resources */,
 				63D405A011EA65F60051D8F3 /* Default.png in Resources */,
 				63D405A111EA65F60051D8F3 /* Icon.png in Resources */,
@@ -305,6 +310,7 @@
 				63741F6311E5D24A00DFBB47 /* GLES1Surface.mm in Sources */,
 				63741F6411E5D24A00DFBB47 /* GLES2Surface.mm in Sources */,
 				63741F6511E5D24A00DFBB47 /* GLESSurface.mm in Sources */,
+				631ABAA012FB99CE00243329 /* RenderController.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

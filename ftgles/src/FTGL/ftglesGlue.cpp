@@ -243,6 +243,17 @@ GLvoid ftglEnd()
 }
 
 
+GLvoid ftglBindTexture(unsigned int textureId)
+{
+    GLint activeTextureID;
+    glGetIntegerv(GL_TEXTURE_BINDING_2D, &activeTextureID);
+    if((unsigned int)activeTextureID != textureId)
+    {
+        glBindTexture(GL_TEXTURE_2D, textureId);
+    }
+}
+
+
 GLvoid ftglError(const char *source)
 {
 	GLenum error = glGetError();

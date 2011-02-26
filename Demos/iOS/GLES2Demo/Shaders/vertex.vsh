@@ -8,16 +8,13 @@
 
 attribute vec4 position;
 attribute vec4 color;
-
-
-varying vec4 colorVarying;
+attribute vec2 texCoord;
+varying vec2 texture_coordinate;
 
 uniform mat4 camera;
-uniform mat4 rotation;
-uniform vec4 translation;
 
 void main()
 {
-	colorVarying = color;
 	gl_Position = (camera * position);
+    texture_coordinate = texCoord;
 }

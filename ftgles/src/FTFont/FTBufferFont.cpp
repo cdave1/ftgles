@@ -81,7 +81,7 @@ FTBufferFontImpl::FTBufferFontImpl(FTFont *ftFont, const char* fontFilePath) :
     for(int i = 0; i < BUFFER_CACHE_SIZE; i++)
     {
         stringCache[i] = NULL;
-        glBindTexture(GL_TEXTURE_2D, idCache[i]);
+        ftglBindTexture(idCache[i]);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); //GL_CLAMP);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); //GL_CLAMP);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -105,7 +105,7 @@ FTBufferFontImpl::FTBufferFontImpl(FTFont *ftFont,
     for(int i = 0; i < BUFFER_CACHE_SIZE; i++)
     {
         stringCache[i] = NULL;
-        glBindTexture(GL_TEXTURE_2D, idCache[i]);
+        ftglBindTexture(idCache[i]);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);  //GL_CLAMP);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); //GL_CLAMP);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -281,7 +281,7 @@ inline FTPoint FTBufferFontImpl::RenderI(const T* string, const int len,
     texWidth = NextPowerOf2(width);
     texHeight = NextPowerOf2(height);
 
-    glBindTexture(GL_TEXTURE_2D, idCache[cacheIndex]);
+    ftglBindTexture(idCache[cacheIndex]);
 
     // If the string was not found, we need to render the text in a new
     // texture buffer, then upload it to the OpenGL layer.
@@ -293,7 +293,7 @@ inline FTPoint FTBufferFontImpl::RenderI(const T* string, const int len,
         advanceCache[cacheIndex] =
               FTFontImpl::Render(string, len, FTPoint(), spacing, renderMode);
 
-        glBindTexture(GL_TEXTURE_2D, idCache[cacheIndex]);
+        ftglBindTexture(idCache[cacheIndex]);
 
         //glPixelStorei(GL_UNPACK_LSB_FIRST, GL_FALSE);
         //glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);

@@ -28,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6355A7B71319C1A70035DC10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 631AB71412FA906200243329 /* libFTGLES2.a */;
+			remoteInfo = FTGLES2;
+		};
 		63D4046811EA5CE70051D8F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
@@ -182,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				63D4046911EA5CE70051D8F3 /* libFTGLES.a */,
+				6355A7B81319C1A70035DC10 /* libFTGLES2.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,6 +246,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		6355A7B81319C1A70035DC10 /* libFTGLES2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFTGLES2.a;
+			remoteRef = 6355A7B71319C1A70035DC10 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		63D4046911EA5CE70051D8F3 /* libFTGLES.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;

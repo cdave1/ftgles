@@ -27,35 +27,6 @@
 
 #define FTGLES_GLUE_MAX_VERTICES 32768
 
-const GLchar * vertexftglesShaderProgram = "\
-attribute vec4 position;\
-attribute vec4 color;\
-varying vec4 colorVarying;\
-\
-uniform mat4 camera;\
-void main()\
-{\
-    colorVarying = color;\
-    gl_Position = (camera * position);\
-}\n\
-";
-
-
-const GLchar * fragmentftglesShaderProgram = "\
-varying lowp vec4 colorVarying;\
-void main()\
-{\
-    gl_FragColor = colorVarying;\
-}\n\
-";
-
-static float ftglCameraMat[16];
-
-
-
-
-GLuint ftglCameraUniform;
-
 
 enum {
     ATTRIB_VERTEX,
@@ -84,41 +55,7 @@ ftglesGlueArrays_t ftglesGlueArrays;
 
 GLenum ftglesCurrentPrimitive = GL_TRIANGLES;
 bool ftglesQuadIndicesInitted = false;
-bool ftglesShadersInitted = false;
-GLuint ftglesShaderProgram = 0;
 
-
-GLuint ftglCompileShader(const GLchar * source, const GLenum type)
-{
-    assert(ftglesShaderProgram);
-    assert(strlen(source) > 0);
-    
-    printf("%s\n", source);
-    
-    GLuint shader;
-    GLint status;
-    
-    shader = glCreateShader(type);
-    glShaderSource(shader, 1, &source, NULL);
-    glCompileShader(shader);
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
-    
-    GLint logLength;
-    glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &logLength);
-    if (logLength > 0)
-    {
-        GLchar *log = (GLchar *)malloc(logLength);
-        glGetShaderInfoLog(shader, logLength, &logLength, log);
-        printf("Shader compile log:\n%s\n", log);
-        free(log);
-    }
-    
-    assert(status != 0);
-    
-    glAttachShader(ftglesShaderProgram, shader);
-    
-    return shader;
-}
 
 
 GLvoid ftglBegin(GLenum prim) 
@@ -138,38 +75,6 @@ GLvoid ftglBegin(GLenum prim)
 		}
 		ftglesQuadIndicesInitted = true;
 	}
-    
-    if (!ftglesShadersInitted)
-    {
-        ftglSetCamera(-320.0f, 320.0f, -480.0f, 480.0f, -10000.0f, 10000.0f);
-        
-        // Compile vertex shaders...
-        ftglesShaderProgram = glCreateProgram();
-        
-        GLuint vertexShader = ftglCompileShader(vertexftglesShaderProgram, GL_VERTEX_SHADER);
-        GLuint fragmentShader = ftglCompileShader(fragmentftglesShaderProgram, GL_FRAGMENT_SHADER);
-        assert(vertexShader && fragmentShader);
-        
-        glBindAttribLocation(ftglesShaderProgram, ATTRIB_VERTEX, "position");
-        glBindAttribLocation(ftglesShaderProgram, ATTRIB_COLOR, "color");
-        
-        glLinkProgram(ftglesShaderProgram);
-        
-        // Get uniform locations
-        //uniformIndices[ROT_MATRIX] = glGetUniformLocation(ftglesShaderProgram, "rotation");
-        //uniformIndices[CAMERA_MATRIX] = glGetUniformLocation(ftglesShaderProgram, "camera");
-        //uniformIndices[TRANSLATION_UNIFORM] = glGetUniformLocation(ftglesShaderProgram, "translation");
-        
-        ftglCameraUniform = glGetUniformLocation(ftglesShaderProgram, "camera");
-        
-        // Release vertex and fragment shaders
-        glDeleteShader(vertexShader);
-        glDeleteShader(fragmentShader);
-        
-        ftglesShadersInitted = true;
-    }
-    
-    assert(ftglesQuadIndicesInitted && ftglesShadersInitted);
     
 	ftglesGlueArrays.currIndex = 0;
 	ftglesCurrentPrimitive = prim;
@@ -240,53 +145,20 @@ GLvoid ftglTexCoord2f(GLfloat s, GLfloat t)
 
 
 
-void ftglSetCamera(float left, float right, float bottom, float top, float zNear, float zFar)
-{
-    //memcpy(ftglCameraMat, camera, sizeof(float) * 16);
-
-    
-    
-    
-    if (right != left)
-    {
-        ftglCameraMat[ 0] = 2 / (right - left);
-        ftglCameraMat[ 1] = 0;
-        ftglCameraMat[ 2] = 0;
-        ftglCameraMat[ 3] = - ((right + left) / (right - left));
-    }
-    
-    if (top != bottom)
-    {
-        ftglCameraMat[ 4] = 0;
-        ftglCameraMat[ 5] = 2 / (top - bottom);
-        ftglCameraMat[ 6] = 0;
-        ftglCameraMat[ 7] = - ((top + bottom) / (top - bottom));
-    }
-	
-    if (zFar != zNear)
-    {
-        ftglCameraMat[ 8] = 0;
-        ftglCameraMat[ 9] = 0;
-        ftglCameraMat[10] = -2 / (zFar - zNear);
-        ftglCameraMat[11] = - ((zFar + zNear) / (zFar - zNear));
-    }
-	
-	ftglCameraMat[12] = 0;
-	ftglCameraMat[13] = 0;
-	ftglCameraMat[14] = 0;
-	ftglCameraMat[15] = 1;
-}
-
-
-
 GLvoid bindArrayBuffers()
 {
 }
 
 
-GLvoid ftglBindTexture()
+GLvoid ftglBindTexture(unsigned int textureId)
 {
-	
+    GLint activeTextureID;
+    glGetIntegerv(GL_TEXTURE_BINDING_2D, &activeTextureID);
+    if((unsigned int)activeTextureID != textureId)
+    {
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, textureId);
+    }
 }
 
 
@@ -354,21 +226,29 @@ GLvoid ftglEnd()
 		glEnableClientState(GL_COLOR_ARRAY);
 	*/
     
-    glUseProgram(ftglesShaderProgram);
+    int currentProgram;
     
+    glGetIntegerv(GL_CURRENT_PROGRAM, &currentProgram);
     
+    if (currentProgram == 0)
+    {
+        return;
+    }
     
-    glUniformMatrix4fv(ftglCameraUniform, 1, GL_FALSE, ftglCameraMat);
+    GLint texCoordLocation = glGetAttribLocation(currentProgram, "texCoord");
     
 	if (ftglesGlueArrays.currIndex == 0) 
 	{
 		ftglesCurrentPrimitive = 0;
 		return;
 	}
-    ftglError("a");
+    
     glVertexAttribPointer(ATTRIB_VERTEX, 3, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].xyz);
-    glVertexAttribPointer(ATTRIB_COLOR, 4, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].rgba);
+    glVertexAttribPointer(ATTRIB_COLOR, 4, GL_UNSIGNED_BYTE, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].rgba);
 	
+    glVertexAttribPointer(texCoordLocation, 2, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].st); 
+    glEnableVertexAttribArray(texCoordLocation);
+    
 	if (ftglesCurrentPrimitive == GL_QUADS) 
 	{
 		glDrawElements(GL_TRIANGLES, ftglesGlueArrays.currIndex / 4 * 6, GL_UNSIGNED_SHORT, ftglesGlueArrays.quadIndices);

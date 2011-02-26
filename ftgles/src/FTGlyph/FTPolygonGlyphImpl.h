@@ -47,7 +47,7 @@ class FTPolygonGlyphImpl : public FTGlyphImpl
         /**
          * Private rendering method.
          */
-        void DoRender();
+        void DoRender(const FTPoint& pen);
 
         /**
          * Private rendering variables.

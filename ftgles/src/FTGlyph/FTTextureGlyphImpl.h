@@ -44,11 +44,9 @@ class FTTextureGlyphImpl : public FTGlyphImpl
 
     private:
         /**
-         * Reset the currently active texture to zero to get into a known
-         * state before drawing a string. This is to get round possible
-         * threading issues.
+         * Kept for backwards compatability with FTGL.
          */
-        static void ResetActiveTexture() { activeTextureID = 0; }
+        static void ResetActiveTexture() {}
 
         /**
          * The width of the glyph 'image'
@@ -74,14 +72,6 @@ class FTTextureGlyphImpl : public FTGlyphImpl
          * The texture index that this glyph is contained in.
          */
         int glTextureID;
-
-        /**
-         * The texture index of the currently active texture
-         *
-         * We keep track of the currently active texture to try to reduce the
-         * number of texture bind operations.
-         */
-        static GLint activeTextureID;
 };
 
 #endif  //  __FTTextureGlyphImpl__
