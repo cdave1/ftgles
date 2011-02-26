@@ -1,6 +1,13 @@
+# IMPORTANT NOTE
+
+This is an experimental version of the FTGLES library for OpenGL ES 2.0.  Use at your own risk, as the library is subject to change.
+
+The only demo project that currently supports OpenGL ES 2.0 is [GLES2Demo](https://github.com/cdave1/ftgles/tree/gles2/Demos/iOS/GLES2Demo).  All other demos in this branch default back to OpenGL ES 1.1.
+
+
 # FTGLES 0.2.1
 
-FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of [FTGL](http://homepages.paradise.net.nz/henryj/code/#FTGL).  It currently targets the iPhone and iPad, with plans to port to Android in the very near future.  iOS 4.2 is currently supported.
+FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES.  It is a port of [FTGL](http://homepages.paradise.net.nz/henryj/code/#FTGL).  It currently targets the iPhone and iPad, with an Android port in development.  iOS 4.2 is currently supported.
 
 From the FTGL notes:
 
@@ -38,7 +45,7 @@ See the [Demos](http://github.com/cdave1/ftgles/tree/master/iPhone/) folder for 
 
 ## Differences between FTGL and FTGLES
 
-FTGLES 0.1 supports the following font types from the original FTGL library:
+FTGLES 0.2.1 supports the following font types from the original FTGL library:
 
  - FTBufferFont
  - FTGLOutlineFont
@@ -46,8 +53,6 @@ FTGLES 0.1 supports the following font types from the original FTGL library:
  - FTGLTextureFont
 
 Extrusion and pixmap rendering from the original FTGL library are currently not supported.  Bitmap font support is currently in progress.
-
-Open GL ES 2 support is coming soon.
 
 
 ## Performance Notes
