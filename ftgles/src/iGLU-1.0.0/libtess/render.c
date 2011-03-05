@@ -121,6 +121,10 @@ static void RenderMaximumFaceGroup( GLUtesselator *tess, GLUface *fOrig )
   max.eStart = e;
   max.render = &RenderTriangle;
 
+    /*
+     David Petrie note: comment this out to speed up polygon font rendering to minimise
+     repeated calls to glDrawArrays()
+      */
   if( ! tess->flagBoundary ) {
     newFace = MaximumFan( e ); if( newFace.size > max.size ) { max = newFace; }
     newFace = MaximumFan( e->Lnext ); if( newFace.size > max.size ) { max = newFace; }
@@ -129,8 +133,10 @@ static void RenderMaximumFaceGroup( GLUtesselator *tess, GLUface *fOrig )
     newFace = MaximumStrip( e ); if( newFace.size > max.size ) { max = newFace; }
     newFace = MaximumStrip( e->Lnext ); if( newFace.size > max.size ) { max = newFace; }
     newFace = MaximumStrip( e->Lprev ); if( newFace.size > max.size ) { max = newFace; }
-  }
+  }  
+   
   (*(max.render))( tess, max.eStart, max.size );
+ 
 }
 
 
@@ -284,19 +290,20 @@ static void RenderFan( GLUtesselator *tess, GLUhalfEdge *e, long size )
    * edge "e".  The fan *should* contain exactly "size" triangles
    * (otherwise we've goofed up somewhere).
    */
-  CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLE_FAN ); 
-  CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
-  CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
+//  CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLE_FAN ); 
+  //CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
+ // CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
 
   while( ! Marked( e->Lface )) {
+      RenderTriangle(tess,e,1);
     e->Lface->marked = TRUE;
     --size;
     e = e->Onext;
-    CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
+   // CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
   }
 
   assert( size == 0 );
-  CALL_END_OR_END_DATA();
+  //CALL_END_OR_END_DATA();
 }
 
 
@@ -306,25 +313,26 @@ static void RenderStrip( GLUtesselator *tess, GLUhalfEdge *e, long size )
    * edge "e".  The strip *should* contain exactly "size" triangles
    * (otherwise we've goofed up somewhere).
    */
-  CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLE_STRIP );
-  CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
-  CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
+  //CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLE_STRIP );
+  //CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
+  //CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
 
   while( ! Marked( e->Lface )) {
+      RenderTriangle(tess,e,1);
     e->Lface->marked = TRUE;
     --size;
     e = e->Dprev;
-    CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
+    //CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
     if( Marked( e->Lface )) break;
-
+RenderTriangle(tess,e,1);
     e->Lface->marked = TRUE;
     --size;
     e = e->Onext;
-    CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
+    //CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
   }
 
   assert( size == 0 );
-  CALL_END_OR_END_DATA();
+  //CALL_END_OR_END_DATA();
 }
 
 

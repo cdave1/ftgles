@@ -27,9 +27,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-	
+    
 extern void LoadTexture(const char *filename, GLuint *handle);
-	
+    
 #ifdef __cplusplus
 }
 #endif

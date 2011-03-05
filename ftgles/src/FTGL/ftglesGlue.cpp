@@ -23,7 +23,7 @@
  */
 
 #include "ftglesGlue.h"
-#define FTGLES_GLUE_MAX_VERTICES 32768
+#define FTGLES_GLUE_MAX_VERTICES 131072
 
 typedef struct 
 {
@@ -205,7 +205,7 @@ GLvoid ftglEnd()
 	} 
 	else 
 	{
-		glDrawArrays(ftglesCurrentPrimitive, 0, ftglesGlueArrays.currIndex);
+        glDrawArrays(ftglesCurrentPrimitive, 0, ftglesGlueArrays.currIndex);
 	}
 	ftglesGlueArrays.currIndex = 0;
 	ftglesCurrentPrimitive = 0;

@@ -23,34 +23,34 @@
 
 extern void LoadTexture(const char *filename, GLuint *handle)
 {
-	CGImageRef spriteImage;
-	size_t	width, height;
-	CGContextRef spriteContext;
-	GLubyte *spriteData;
-	
-	NSString *fileName = 
-		[[NSString alloc] 
-		 initWithCString:filename 
-		 encoding:NSASCIIStringEncoding];
+    CGImageRef spriteImage;
+    size_t    width, height;
+    CGContextRef spriteContext;
+    GLubyte *spriteData;
+    
+    NSString *fileName = 
+        [[NSString alloc] 
+         initWithCString:filename 
+         encoding:NSASCIIStringEncoding];
 
-	spriteImage = [UIImage imageNamed:fileName].CGImage;
-	[fileName release];
-	
-	width = CGImageGetWidth(spriteImage);
-	height = CGImageGetHeight(spriteImage);
-	
-	if(spriteImage) 
-	{
-		spriteData = (GLubyte *)calloc(1, width * height * 4);
-		spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width * 4, 
-											  CGImageGetColorSpace(spriteImage), 
-											  kCGImageAlphaPremultipliedLast);
-		CGContextDrawImage(spriteContext, CGRectMake(0.0, 0.0, (CGFloat)width, (CGFloat)height), spriteImage);
-		CGContextRelease(spriteContext);
-		glGenTextures(1, handle);
-		glBindTexture(GL_TEXTURE_2D, *handle);		
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
-		glGenerateMipmapOES(GL_TEXTURE_2D);
-		free(spriteData);		
-	}
+    spriteImage = [UIImage imageNamed:fileName].CGImage;
+    [fileName release];
+    
+    width = CGImageGetWidth(spriteImage);
+    height = CGImageGetHeight(spriteImage);
+    
+    if(spriteImage) 
+    {
+        spriteData = (GLubyte *)calloc(1, width * height * 4);
+        spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width * 4, 
+                                              CGImageGetColorSpace(spriteImage), 
+                                              kCGImageAlphaPremultipliedLast);
+        CGContextDrawImage(spriteContext, CGRectMake(0.0, 0.0, (CGFloat)width, (CGFloat)height), spriteImage);
+        CGContextRelease(spriteContext);
+        glGenTextures(1, handle);
+        glBindTexture(GL_TEXTURE_2D, *handle);        
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+        glGenerateMipmapOES(GL_TEXTURE_2D);
+        free(spriteData);        
+    }
 }

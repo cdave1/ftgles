@@ -24,43 +24,43 @@
 @implementation GLESSurface
 
 @synthesize delegate=_delegate,
-	context = _context;
+    context = _context;
 
 
 + (Class) layerClass
 {
-	return [CAEAGLLayer class];
+    return [CAEAGLLayer class];
 }
 
 
 - (id) init
 {
-	if ((self = [super init]))
-	{
-		return self;
-	}
-	return nil;
+    if ((self = [super init]))
+    {
+        return self;
+    }
+    return nil;
 }
 
 
 - (void) setCurrentContext
 {
-	if(![EAGLContext setCurrentContext:_context]) {
-		printf("Failed to set current context %p in %s\n", _context, __FUNCTION__);
-	}
+    if(![EAGLContext setCurrentContext:_context]) {
+        printf("Failed to set current context %p in %s\n", _context, __FUNCTION__);
+    }
 }
 
 
 - (BOOL) isCurrentContext
 {
-	return ([EAGLContext currentContext] == _context ? YES : NO);
+    return ([EAGLContext currentContext] == _context ? YES : NO);
 }
 
 
 - (void) clearCurrentContext
 {
-	if(![EAGLContext setCurrentContext:nil])
-		printf("Failed to clear current context in %s\n", __FUNCTION__);
+    if(![EAGLContext setCurrentContext:nil])
+        printf("Failed to clear current context in %s\n", __FUNCTION__);
 }
 
 

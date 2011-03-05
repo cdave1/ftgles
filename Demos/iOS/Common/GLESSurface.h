@@ -44,9 +44,9 @@
 @interface GLESSurface : NSObject
 {
 @protected
-	EAGLContext *_context;
-	BOOL _hasBeenCurrent;
-	id<GLESSurfaceDelegate> _delegate;
+    EAGLContext *_context;
+    BOOL _hasBeenCurrent;
+    id<GLESSurfaceDelegate> _delegate;
 }
 
 - (void) setCurrentContext;

@@ -24,9 +24,9 @@
 
 typedef struct
 {
-	FTSimpleLayout layout;
-	float shade;
-	short shadeDir;
+    FTSimpleLayout layout;
+    float shade;
+    short shadeDir;
 } coloredLayout_t;
 
 
@@ -66,7 +66,7 @@ const char *txtD = "sunt in culpa qui officia deserunt mollit anim id est laboru
  * (goal is to minimise calls to ftglEnd()).  Ultimately rendering speeds are slowed
  * by glyphs with a large number of vertices.
  */
-//#define PERF_TESTING_CLASS FTPolygonFont
+#define PERF_TESTING_CLASS FTPolygonFont
 
 
 /**
@@ -76,7 +76,7 @@ const char *txtD = "sunt in culpa qui officia deserunt mollit anim id est laboru
  * - Very good performance; could still be improved with a render-to-texture step.
  * - Approx 40 frames per second with 5000+ quads on screen on iPad.
  */
-#define PERF_TESTING_CLASS FTTextureFont
+//#define PERF_TESTING_CLASS FTTextureFont
 
 
 /**
@@ -91,119 +91,119 @@ const char *txtD = "sunt in culpa qui officia deserunt mollit anim id est laboru
 
 PerformanceController::PerformanceController(const char* path, float width, float height, float scale)
 {
-	contentScaleFactor = scale;
-	screenWidth = contentScaleFactor * width;
-	screenHeight = contentScaleFactor * height;
-	
-	char fontname[256];
-	
-	glDepthFunc(GL_LEQUAL);
-	glClearDepthf(1.0);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	
-	snprintf(fontname, 256, "%s/TOONISH.ttf", path);
-	fpsFont = new FTTextureFont(fontname);
-	fpsFont->FaceSize(contentScaleFactor * 15);
-	fpsFont->CharMap(FT_ENCODING_ADOBE_LATIN_1);
-	snprintf(fpsText, 32, "FPS: 0");
-	
-	snprintf(fontname, 256, "%s/Diavlo_BLACK_II_37.otf", path);
-	fonts[0] = new PERF_TESTING_CLASS(fontname);
-	
-	snprintf(fontname, 256, "%s/TOONISH.ttf", path);
-	fonts[1] = new PERF_TESTING_CLASS(fontname);
-	
-	snprintf(fontname, 256, "%s/Cardo98s.ttf", path);
-	fonts[2] = new PERF_TESTING_CLASS(fontname);
-	
-	assert(!fonts[0]->Error());
-	assert(!fonts[1]->Error());
-	assert(!fonts[2]->Error());
-	
-	fonts[0]->FaceSize(contentScaleFactor * 15);
-	fonts[0]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
-	
-	fonts[1]->FaceSize(contentScaleFactor * 15);
-	fonts[1]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
-	
-	fonts[2]->FaceSize(contentScaleFactor * 15);
-	fonts[2]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
-	
-	for (unsigned i = 0; i < kLayoutCount; ++i)
-	{
-		layouts[i].shade = (float)i/kLayoutCount;
-		layouts[i].shadeDir = layouts[i].shade > 0.5f;
-		layouts[i].layout.SetLineLength(screenWidth);
-		layouts[i].layout.SetLineSpacing(0.75f);
-		layouts[i].layout.SetFont(fonts[i % 3]);
-		
-		if (i % 3 == 0)
-			layouts[i].layout.SetAlignment(FTGL::ALIGN_JUSTIFY);
-		else if (i % 3 == 1)
-			layouts[i].layout.SetAlignment(FTGL::ALIGN_LEFT);
-		else
-			layouts[i].layout.SetAlignment(FTGL::ALIGN_RIGHT);
+    contentScaleFactor = scale;
+    screenWidth = contentScaleFactor * width;
+    screenHeight = contentScaleFactor * height;
+    
+    char fontname[256];
+    
+    glDepthFunc(GL_LEQUAL);
+    glClearDepthf(1.0);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
+    snprintf(fontname, 256, "%s/TOONISH.ttf", path);
+    fpsFont = new FTTextureFont(fontname);
+    fpsFont->FaceSize(contentScaleFactor * 15);
+    fpsFont->CharMap(FT_ENCODING_ADOBE_LATIN_1);
+    snprintf(fpsText, 32, "FPS: 0");
+    
+    snprintf(fontname, 256, "%s/Diavlo_BLACK_II_37.otf", path);
+    fonts[0] = new PERF_TESTING_CLASS(fontname);
+    
+    snprintf(fontname, 256, "%s/TOONISH.ttf", path);
+    fonts[1] = new PERF_TESTING_CLASS(fontname);
+    
+    snprintf(fontname, 256, "%s/Cardo98s.ttf", path);
+    fonts[2] = new PERF_TESTING_CLASS(fontname);
+    
+    assert(!fonts[0]->Error());
+    assert(!fonts[1]->Error());
+    assert(!fonts[2]->Error());
+    
+    fonts[0]->FaceSize(contentScaleFactor * 15);
+    fonts[0]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
+    
+    fonts[1]->FaceSize(contentScaleFactor * 15);
+    fonts[1]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
+    
+    fonts[2]->FaceSize(contentScaleFactor * 15);
+    fonts[2]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
+    
+    for (unsigned i = 0; i < kLayoutCount; ++i)
+    {
+        layouts[i].shade = (float)i/kLayoutCount;
+        layouts[i].shadeDir = layouts[i].shade > 0.5f;
+        layouts[i].layout.SetLineLength(screenWidth);
+        layouts[i].layout.SetLineSpacing(0.75f);
+        layouts[i].layout.SetFont(fonts[i % 3]);
+        
+        if (i % 3 == 0)
+            layouts[i].layout.SetAlignment(FTGL::ALIGN_JUSTIFY);
+        else if (i % 3 == 1)
+            layouts[i].layout.SetAlignment(FTGL::ALIGN_LEFT);
+        else
+            layouts[i].layout.SetAlignment(FTGL::ALIGN_RIGHT);
 
-	}
-	
-	printf("Loaded texture: %d\n", aTexture);
-	
-	GLenum error = glGetError();
-	if (error != GL_NO_ERROR) printf("GL ERROR %x\n", error);
+    }
+    
+    printf("Loaded texture: %d\n", aTexture);
+    
+    GLenum error = glGetError();
+    if (error != GL_NO_ERROR) printf("GL ERROR %x\n", error);
 }
 
 
 PerformanceController::~PerformanceController() 
 {
-	delete fonts[0];
-	delete fonts[1];
-	delete fonts[2];
+    delete fonts[0];
+    delete fonts[1];
+    delete fonts[2];
 }
 
 
 void PerformanceController::DrawNonLayoutText(const float shade, const float yLoc)
 {
-	unsigned fontIdx = rand() % 3; // Jitter fonts :)
-	glColor4f(CLAMP(shade, 0.0f, 1.0f), CLAMP(shade, 0.0f, 1.0f), CLAMP(shade, 0.0f, 1.0f), 1.0f);
-	glPushMatrix();
-	glTranslatef(0.0f, yLoc, 0.0f);
-	fonts[fontIdx]->Render(txtA);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f,yLoc-20.0f, 0.0f);
-	fonts[fontIdx]->Render(txtB);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f, yLoc-40.0f, 0.0f);
-	fonts[fontIdx]->Render(txtC);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(0.0f, yLoc - 60.0f, 0.0f);
-	fonts[fontIdx]->Render(txtD);
-	glPopMatrix();
+    unsigned fontIdx = rand() % 3; // Jitter fonts :)
+    glColor4f(CLAMP(shade, 0.0f, 1.0f), CLAMP(shade, 0.0f, 1.0f), CLAMP(shade, 0.0f, 1.0f), 1.0f);
+    glPushMatrix();
+    glTranslatef(0.0f, yLoc, 0.0f);
+    fonts[fontIdx]->Render(txtA);
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(0.0f,yLoc-20.0f, 0.0f);
+    fonts[fontIdx]->Render(txtB);
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(0.0f, yLoc-40.0f, 0.0f);
+    fonts[fontIdx]->Render(txtC);
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(0.0f, yLoc - 60.0f, 0.0f);
+    fonts[fontIdx]->Render(txtD);
+    glPopMatrix();
 }
 
 
 
 void PerformanceController::DrawLayoutText(FTSimpleLayout *layout, const float shade, const float yLoc)
 {
-	glColor4f(1.0f, 1.0f, 1.0f, CLAMP(shade, 0.1f, 1.0f));
-	glPushMatrix();
-	glTranslatef(0.0f, yLoc, 0.0f);
-	if (shade < 0.5f)
-		layout->Render(longText1, -1, FTPoint(), FTGL::RENDER_FRONT);
-	else 
-		layout->Render(longText2, -1, FTPoint(), FTGL::RENDER_FRONT);
-	glPopMatrix();
+    glColor4f(1.0f, 1.0f, 1.0f, CLAMP(shade, 0.1f, 1.0f));
+    glPushMatrix();
+    glTranslatef(0.0f, yLoc, 0.0f);
+    if (shade < 0.5f)
+        layout->Render(longText1, -1, FTPoint(), FTGL::RENDER_FRONT);
+    else 
+        layout->Render(longText2, -1, FTPoint(), FTGL::RENDER_FRONT);
+    glPopMatrix();
 }
 
 
 void PerformanceController::SetFPS(const unsigned int fps)
 {
-	snprintf(fpsText, 32, "FPS: %d", fps);
+    snprintf(fpsText, 32, "FPS: %d", fps);
 }
 
 
@@ -211,85 +211,85 @@ static float angle = 0.0f;
 void PerformanceController::Draw()
 {
 
-	float halfScreenWidth = screenWidth * 0.5f;
-	float halfScreenHeight = screenHeight * 0.5f;
-	
-	glClearColor(0.25f, 0.25f, 0.25f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    float halfScreenWidth = screenWidth * 0.5f;
+    float halfScreenHeight = screenHeight * 0.5f;
+    
+    glClearColor(0.25f, 0.25f, 0.25f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
-	glMatrixMode(GL_PROJECTION);
+    glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-	glPushMatrix();
-	glOrthof(0.0f, screenWidth, 
-			 0.0f, screenHeight, 
-			 -1000000.0f, 1000000.0f);
-	
-	glMatrixMode(GL_MODELVIEW);
-	glPushMatrix();
-	glTranslatef(halfScreenWidth, halfScreenHeight, 0.0f);
-	
-	glDisable(GL_DEPTH_TEST);
-	glEnable(GL_BLEND);
-	
-	glPushMatrix();
-	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
+    glPushMatrix();
+    glOrthof(0.0f, screenWidth, 
+             0.0f, screenHeight, 
+             -1000000.0f, 1000000.0f);
+    
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    glTranslatef(halfScreenWidth, halfScreenHeight, 0.0f);
+    
+    glDisable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    
+    glPushMatrix();
+    glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
 #if 0
-	
-	DrawNonLayoutText(0.0f, contentScaleFactor * 940.0f);
-	DrawNonLayoutText(0.1f, contentScaleFactor * 890.0f);
-	DrawNonLayoutText(0.2f, contentScaleFactor * 840.0f);
-	DrawNonLayoutText(0.3f, contentScaleFactor * 790.0f);
-	DrawNonLayoutText(0.4f, contentScaleFactor * 740.0f);
-	DrawNonLayoutText(0.5f, contentScaleFactor * 690.0f);
-	DrawNonLayoutText(0.6f, contentScaleFactor * 640.0f);
-	DrawNonLayoutText(0.7f, contentScaleFactor * 590.0f);
-	DrawNonLayoutText(0.8f, contentScaleFactor * 540.0f);
-	DrawNonLayoutText(0.0f, contentScaleFactor * 490.0f);
-	DrawNonLayoutText(0.1f, contentScaleFactor * 440.0f);
-	DrawNonLayoutText(0.2f, contentScaleFactor * 390.0f);
-	DrawNonLayoutText(0.3f, contentScaleFactor * 340.0f);
-	DrawNonLayoutText(0.4f, contentScaleFactor * 290.0f);
-	DrawNonLayoutText(0.5f, contentScaleFactor * 240.0f);
-	DrawNonLayoutText(0.6f, contentScaleFactor * 190.0f);
-	DrawNonLayoutText(0.7f, contentScaleFactor * 140.0f);
-	DrawNonLayoutText(0.8f, contentScaleFactor * 90.0f);
-	
+    
+    DrawNonLayoutText(0.0f, contentScaleFactor * 940.0f);
+    DrawNonLayoutText(0.1f, contentScaleFactor * 890.0f);
+    DrawNonLayoutText(0.2f, contentScaleFactor * 840.0f);
+    DrawNonLayoutText(0.3f, contentScaleFactor * 790.0f);
+    DrawNonLayoutText(0.4f, contentScaleFactor * 740.0f);
+    DrawNonLayoutText(0.5f, contentScaleFactor * 690.0f);
+    DrawNonLayoutText(0.6f, contentScaleFactor * 640.0f);
+    DrawNonLayoutText(0.7f, contentScaleFactor * 590.0f);
+    DrawNonLayoutText(0.8f, contentScaleFactor * 540.0f);
+    DrawNonLayoutText(0.0f, contentScaleFactor * 490.0f);
+    DrawNonLayoutText(0.1f, contentScaleFactor * 440.0f);
+    DrawNonLayoutText(0.2f, contentScaleFactor * 390.0f);
+    DrawNonLayoutText(0.3f, contentScaleFactor * 340.0f);
+    DrawNonLayoutText(0.4f, contentScaleFactor * 290.0f);
+    DrawNonLayoutText(0.5f, contentScaleFactor * 240.0f);
+    DrawNonLayoutText(0.6f, contentScaleFactor * 190.0f);
+    DrawNonLayoutText(0.7f, contentScaleFactor * 140.0f);
+    DrawNonLayoutText(0.8f, contentScaleFactor * 90.0f);
+    
 #else
-	float yPos = screenHeight - 20.0f;
-	for (unsigned i = 0; i < kLayoutCount; ++i)
-	{	
-		DrawLayoutText(&layouts[i].layout, layouts[i].shade, contentScaleFactor * yPos);
-		
-		if (layouts[i].shadeDir == 0)
-			layouts[i].shade += 0.01f;
-		else 
-			layouts[i].shade -= 0.01f;
-		if (layouts[i].shade >= 1.0f) layouts[i].shadeDir = 1;
-		else if (layouts[i].shade <= 0.0f) layouts[i].shadeDir = 0;
-		
-		yPos -= (screenHeight / kLayoutCount);
-	}
-	
+    float yPos = screenHeight - 20.0f;
+    for (unsigned i = 0; i < kLayoutCount; ++i)
+    {    
+        DrawLayoutText(&layouts[i].layout, layouts[i].shade, contentScaleFactor * yPos);
+        
+        if (layouts[i].shadeDir == 0)
+            layouts[i].shade += 0.01f;
+        else 
+            layouts[i].shade -= 0.01f;
+        if (layouts[i].shade >= 1.0f) layouts[i].shadeDir = 1;
+        else if (layouts[i].shade <= 0.0f) layouts[i].shadeDir = 0;
+        
+        yPos -= (screenHeight / kLayoutCount);
+    }
+    
 #endif
-	glPopMatrix();
-	
-	// Show the fps
-	glPushMatrix();
-	glColor4f(1.0f, 0.8f, 0.0f, 1.0f);
-	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
-	GLenum error = glGetError();
-	if (error!=GL_NO_ERROR)
-		printf("ERROR!\n");
-	fpsFont->Render(fpsText);
-	glPopMatrix();
-	
-	glPopMatrix();
-	
-	glDisable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
-	
-	glMatrixMode(GL_PROJECTION);
-	glPopMatrix();
+    glPopMatrix();
+    
+    // Show the fps
+    glPushMatrix();
+    glColor4f(1.0f, 0.8f, 0.0f, 1.0f);
+    glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
+    GLenum error = glGetError();
+    if (error != GL_NO_ERROR)
+        printf("ERROR!\n");
+    fpsFont->Render(fpsText);
+    glPopMatrix();
+    
+    glPopMatrix();
+    
+    glDisable(GL_BLEND);
+    glEnable(GL_DEPTH_TEST);
+    
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
 }
 

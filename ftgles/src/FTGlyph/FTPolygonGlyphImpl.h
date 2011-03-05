@@ -31,6 +31,14 @@
 
 class FTVectoriser;
 
+typedef struct 
+{
+	float xyz[3];
+	float st[2];
+	GLubyte rgba[4];
+} polygonGlyphVertex_t;
+
+
 class FTPolygonGlyphImpl : public FTGlyphImpl
 {
     friend class FTPolygonGlyph;
@@ -47,7 +55,7 @@ class FTPolygonGlyphImpl : public FTGlyphImpl
         /**
          * Private rendering method.
          */
-        void DoRender();
+        void DoRender(const FTPoint& pen);
 
         /**
          * Private rendering variables.
@@ -55,11 +63,19 @@ class FTPolygonGlyphImpl : public FTGlyphImpl
         unsigned int hscale, vscale;
         FTVectoriser *vectoriser;
         float outset;
-
-        /**
-         * OpenGL display list
-         */
-        GLuint glList;
+    
+    GLuint bufferHnd;
+    
+    
+    GLvoid pgVertex3f(float x, float y, float z);
+    
+    
+    GLvoid pgTexCoord2f(GLfloat s, GLfloat t);
+    
+    
+    polygonGlyphVertex_t * pgVertices;
+	polygonGlyphVertex_t pgCurrVertex;
+	unsigned int pgCurrIndex;
 };
 
 #endif  //  __FTPolygonGlyphImpl__

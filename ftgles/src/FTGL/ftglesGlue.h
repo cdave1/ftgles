@@ -50,6 +50,10 @@ extern "C" {
 	extern GLvoid ftglEnd();
 	
 	extern GLvoid ftglError(const char *source);
+    
+    //extern int ftglGetCurrentSize();
+    
+   // extern GLuint ftglGetVertexSize();
 	
 #ifdef __cplusplus
 }

@@ -49,11 +49,33 @@ class FTPolygonFontImpl : public FTFontImpl
          */
         virtual void Outset(float o) { outset = o; }
 
+    virtual FTPoint Render(const char *s, const int len,
+                           FTPoint position, FTPoint spacing,
+                           int renderMode);
+    
+    virtual FTPoint Render(const wchar_t *s, const int len,
+                           FTPoint position, FTPoint spacing,
+                           int renderMode);
+    
+    
     private:
         /**
          * The outset distance (front and back) for the font.
          */
         float outset;
+    
+    
+    bool preRendered;
+    
+    /* Internal generic Render() implementation */
+    template <typename T>
+    inline FTPoint RenderI(const T *s, const int len,
+                           FTPoint position, FTPoint spacing, int mode);
+    
+    void PreRender();
+	
+	
+	void PostRender();
 };
 
 #endif  //  __FTPolygonFontImpl__

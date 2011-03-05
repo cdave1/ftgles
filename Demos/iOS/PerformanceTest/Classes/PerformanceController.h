@@ -29,21 +29,21 @@
 /**
  * Goal: full screen of 10pt characters at 30+ fps
  */
-
+    
 class PerformanceController
-{		
+{        
 public:
-	PerformanceController(const char* path, float width, float height, float scale);
-	
-	~PerformanceController();
-	
-	void SetFPS(const unsigned int fps);
-	
-	void Draw();
-	
-	void DrawNonLayoutText(const float shade, const float yLoc);
-	
-	void DrawLayoutText(FTSimpleLayout *layout, const float shade, const float yLoc);
+    PerformanceController(const char* path, float width, float height, float scale);
+    
+    ~PerformanceController();
+    
+    void SetFPS(const unsigned int fps);
+    
+    void Draw();
+    
+    void DrawNonLayoutText(const float shade, const float yLoc);
+    
+    void DrawLayoutText(FTSimpleLayout *layout, const float shade, const float yLoc);
 };
 
 #endif

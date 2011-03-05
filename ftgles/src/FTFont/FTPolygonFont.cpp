@@ -87,3 +87,54 @@ FTPolygonFontImpl::FTPolygonFontImpl(FTFont *ftFont,
     load_flags = FT_LOAD_NO_HINTING;
 }
 
+
+
+template <typename T>
+inline FTPoint FTPolygonFontImpl::RenderI(const T* string, const int len,
+                                          FTPoint position, FTPoint spacing,
+                                          int renderMode)
+{
+	FTPoint tmp;
+	if (preRendered)
+	{
+		tmp = FTFontImpl::Render(string, len,
+                                 position, spacing, renderMode);
+	}
+	else 
+	{
+		PreRender();
+		tmp = FTFontImpl::Render(string, len,
+                                 position, spacing, renderMode);
+		PostRender();
+	}
+    
+    return tmp;
+}
+
+
+void FTPolygonFontImpl::PreRender()
+{
+	preRendered = true;
+}
+
+
+void FTPolygonFontImpl::PostRender()
+{
+	preRendered = false;
+}
+
+
+FTPoint FTPolygonFontImpl::Render(const char * string, const int len,
+                                  FTPoint position, FTPoint spacing,
+                                  int renderMode)
+{
+    return RenderI(string, len, position, spacing, renderMode);
+}
+
+
+FTPoint FTPolygonFontImpl::Render(const wchar_t * string, const int len,
+                                  FTPoint position, FTPoint spacing,
+                                  int renderMode)
+{
+    return RenderI(string, len, position, spacing, renderMode);
+}

@@ -24,8 +24,8 @@
 
 @interface AppController : NSObject
 {
-	UIWindow * window;
-	GLESView * glView;
+    UIWindow * window;
+    GLESView * glView;
 }
 
 @end

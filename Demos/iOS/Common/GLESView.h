@@ -29,9 +29,9 @@
 @interface GLESView : UIView <GLESSurfaceDelegate>
 {
 @private
-	BOOL _autoresize;
-	CGSize _size;
-	GLESSurface<GLESAbstractSurface> *_surface;
+    BOOL _autoresize;
+    CGSize _size;
+    GLESSurface<GLESAbstractSurface> *_surface;
 }
 
 @property BOOL autoresizesSurface;
