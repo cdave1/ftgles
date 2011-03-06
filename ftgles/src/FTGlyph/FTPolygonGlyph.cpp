@@ -100,10 +100,6 @@ FTPolygonGlyphImpl::~FTPolygonGlyphImpl()
 }
 
 
-
-
-
-
 GLvoid FTPolygonGlyphImpl::pgVertex3f(float x, float y, float z) 
 {
     pgCurrVertex.xyz[0] = x;
@@ -147,8 +143,6 @@ const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
             glBindBuffer(GL_ARRAY_BUFFER, bufferHnd);
             glBufferData(GL_ARRAY_BUFFER, sizeof(polygonGlyphVertex_t) * pgCurrIndex, pgVertices, GL_STATIC_DRAW);
             glBindBuffer(GL_ARRAY_BUFFER, 0);
-            
-            printf("%d %d\n", vertexCount, bufferHnd);
             
             free(pgVertices);
         }
