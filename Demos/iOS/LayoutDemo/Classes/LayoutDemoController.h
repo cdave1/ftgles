@@ -31,15 +31,15 @@
 
 
 class LayoutDemoController
-{		
+{        
 public:
-	LayoutDemoController(const char* path, float width, float height, float scale);
-	
-	~LayoutDemoController();
-	
-	void SetFPS(const unsigned int fps);
-	
-	void Draw();
+    LayoutDemoController(const char* path, float width, float height, float scale);
+    
+    ~LayoutDemoController();
+    
+    void SetFPS(const unsigned int fps);
+    
+    void Draw();
 };
 
 #endif

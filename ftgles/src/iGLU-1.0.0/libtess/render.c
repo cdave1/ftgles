@@ -48,7 +48,7 @@
  David Petrie note: If this is defined, the tesselation process will return
  only triangles, rather than collection of triangle strips, triangle fans, and
  so called "lonely" triangles.  The point of this is to minimize calls to
- glDrawArrays and the likes.
+ glDrawArrays in iOS rendering code.
  */
 #define FTGLES_TESSELATION_TRIANGLES_ONLY
 
@@ -130,6 +130,9 @@ static void RenderMaximumFaceGroup( GLUtesselator *tess, GLUface *fOrig )
   max.eStart = e;
   max.render = &RenderTriangle;
 
+#ifdef FTGLES_TESSELATION_TRIANGLES_ONLY
+    (*(max.render))( tess, max.eStart, max.size );
+#else
   if( ! tess->flagBoundary ) {
     newFace = MaximumFan( e ); if( newFace.size > max.size ) { max = newFace; }
     newFace = MaximumFan( e->Lnext ); if( newFace.size > max.size ) { max = newFace; }
@@ -141,6 +144,7 @@ static void RenderMaximumFaceGroup( GLUtesselator *tess, GLUface *fOrig )
   }  
    
   (*(max.render))( tess, max.eStart, max.size );
+#endif
 }
 
 
@@ -288,55 +292,6 @@ static void RenderLonelyTriangles( GLUtesselator *tess, GLUface *f )
 }
 
 
-#ifdef FTGLES_TESSELATION_TRIANGLES_ONLY
-static void RenderFan( GLUtesselator *tess, GLUhalfEdge *e, long size )
-{
-    CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLES );
-    
-    while( ! Marked( e->Lface )) {
-        CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
-        CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data );
-        CALL_VERTEX_OR_VERTEX_DATA( e->Onext->Dst->data ); 
-        e->Lface->marked = TRUE;
-        --size;
-        e = e->Onext;
-    }
-    
-    assert( size == 0 );
-    CALL_END_OR_END_DATA();
-}
-
-
-static void RenderStrip( GLUtesselator *tess, GLUhalfEdge *e, long size )
-{
-    /* Render as many CCW triangles as possible in a strip starting from
-     * edge "e".  The strip *should* contain exactly "size" triangles
-     * (otherwise we've goofed up somewhere).
-     */
-    CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLES );
-    
-    while( ! Marked( e->Lface )) {
-        CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
-        CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data );
-        CALL_VERTEX_OR_VERTEX_DATA( e->Dprev->Org->data );
-        e->Lface->marked = TRUE;
-        --size;
-        e = e->Dprev;
-        
-        if( Marked( e->Lface )) break;
-        CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data );
-        CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
-        CALL_VERTEX_OR_VERTEX_DATA( e->Onext->Dst->data );
-        e->Lface->marked = TRUE;
-        --size;
-        e = e->Onext;
-    }
-    
-    assert( size == 0 );
-    CALL_END_OR_END_DATA();
-}
-
-#else
 static void RenderFan( GLUtesselator *tess, GLUhalfEdge *e, long size )
 {   
     /* Render as many CCW triangles as possible in a fan starting from
@@ -383,11 +338,6 @@ static void RenderStrip( GLUtesselator *tess, GLUhalfEdge *e, long size )
     assert( size == 0 );
     CALL_END_OR_END_DATA();
 }
-#endif
-
-
-
-
 
 
 /************************ Boundary contour decomposition ******************/

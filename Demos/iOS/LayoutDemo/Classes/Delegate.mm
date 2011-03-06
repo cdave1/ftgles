@@ -35,78 +35,78 @@ static CFTimeInterval LastFPSUpdate;
 
 - (void) update
 {
-	if(layoutDemoController)
-		layoutDemoController->Draw();
-	
-	[glView swapBuffers];
-	
-	++frames;
-	CurrentTime = CACurrentMediaTime();
-	
-	if ((CurrentTime - LastFPSUpdate) > 1.0f)
-	{ 
-		layoutDemoController->SetFPS(frames);
-		printf("fps: %d\n", frames);		
-		frames = 0;
-		LastFPSUpdate = CurrentTime;
-	} 
+    if(layoutDemoController)
+        layoutDemoController->Draw();
+    
+    [glView swapBuffers];
+    
+    ++frames;
+    CurrentTime = CACurrentMediaTime();
+    
+    if ((CurrentTime - LastFPSUpdate) > 1.0f)
+    { 
+        layoutDemoController->SetFPS(frames);
+        printf("fps: %d\n", frames);        
+        frames = 0;
+        LastFPSUpdate = CurrentTime;
+    } 
 }
 
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
-	CGRect	rect = [[UIScreen mainScreen] bounds];
-	window = [[UIWindow alloc] initWithFrame:rect];
-	glView = [[GLESView alloc] initWithFrame:rect];
-	
-	[window addSubview:glView];
-	[window makeKeyAndVisible];
-	
-	const char *bundleResourcePath = 
-		[[[NSBundle mainBundle] resourcePath] cStringUsingEncoding:NSASCIIStringEncoding];
+    CGRect    rect = [[UIScreen mainScreen] bounds];
+    window = [[UIWindow alloc] initWithFrame:rect];
+    glView = [[GLESView alloc] initWithFrame:rect];
+    
+    [window addSubview:glView];
+    [window makeKeyAndVisible];
+    
+    const char *bundleResourcePath = 
+        [[[NSBundle mainBundle] resourcePath] cStringUsingEncoding:NSASCIIStringEncoding];
 
-	float scale = 1.0f;
-	
+    float scale = 1.0f;
+    
 #ifdef __IPHONE_4_0
-	if([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) 
-	{
-		scale = [[UIScreen mainScreen] scale];
-	}
+    if([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) 
+    {
+        scale = [[UIScreen mainScreen] scale];
+    }
 #endif
-	
-	layoutDemoController = new LayoutDemoController(bundleResourcePath, rect.size.width, rect.size.height, scale);
-	
-	NSString *reqSysVer = @"3.1";
-	NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
-	BOOL displayLinkSupported = NO;
-	if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
-		displayLinkSupported = TRUE;
-	
-	if (displayLinkSupported)
-	{
-		id displayLink = [NSClassFromString(@"CADisplayLink") displayLinkWithTarget:self selector:@selector(update)];
-		[displayLink setFrameInterval:1];
-		[displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-	}
-	else
-	{
-		CurrentTime = CACurrentMediaTime();
-		LastFPSUpdate = CurrentTime;
-		[NSTimer scheduledTimerWithTimeInterval:(1.0 / 60.0) 
-										 target:self 
-									   selector:@selector(update) 
-									   userInfo:nil 
-										repeats:YES];
-	}
+    
+    layoutDemoController = new LayoutDemoController(bundleResourcePath, rect.size.width, rect.size.height, scale);
+    
+    NSString *reqSysVer = @"3.1";
+    NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+    BOOL displayLinkSupported = NO;
+    if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
+        displayLinkSupported = TRUE;
+    
+    if (displayLinkSupported)
+    {
+        id displayLink = [NSClassFromString(@"CADisplayLink") displayLinkWithTarget:self selector:@selector(update)];
+        [displayLink setFrameInterval:1];
+        [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    }
+    else
+    {
+        CurrentTime = CACurrentMediaTime();
+        LastFPSUpdate = CurrentTime;
+        [NSTimer scheduledTimerWithTimeInterval:(1.0 / 60.0) 
+                                         target:self 
+                                       selector:@selector(update) 
+                                       userInfo:nil 
+                                        repeats:YES];
+    }
 }
 
 
 - (void) dealloc
 {
-	delete layoutDemoController;
-	[glView release];
-	[window release];
-	[super dealloc];
+    delete layoutDemoController;
+    [glView release];
+    [window release];
+    [super dealloc];
 }
 
 

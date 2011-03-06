@@ -121,11 +121,10 @@ GLvoid FTPolygonGlyphImpl::pgTexCoord2f(GLfloat s, GLfloat t)
 }
 
 
-#if 1
 const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
                                               int renderMode)
 {
-    glTranslatef(pen.Xf(), pen.Yf(), pen.Zf());
+    
     if (pgCurrIndex == 0)
     {
         if (vectoriser)
@@ -155,8 +154,10 @@ const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
             free(pgVertices);
         }
     }
-    else 
+    
+    if (bufferHnd > 0)
     {
+        glTranslatef(pen.Xf(), pen.Yf(), pen.Zf());
         glBindTexture(GL_TEXTURE_2D, 0);
         glBindBuffer(GL_ARRAY_BUFFER, bufferHnd);
         glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -164,9 +165,9 @@ const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
         glVertexPointer(3, GL_FLOAT, sizeof(polygonGlyphVertex_t), 0);
         glTexCoordPointer(2, GL_FLOAT, sizeof(polygonGlyphVertex_t), ((char *)NULL + (12)));
         glDrawArrays(GL_TRIANGLES, 0, pgCurrIndex);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);    
+        glTranslatef(-pen.Xf(), -pen.Yf(), -pen.Zf());
     }
-    glBindBuffer(GL_ARRAY_BUFFER, 0);    
-    glTranslatef(-pen.Xf(), -pen.Yf(), -pen.Zf());
     
     return advance;
 }
@@ -187,49 +188,5 @@ void FTPolygonGlyphImpl::DoRender(const FTPoint& pen)
 			pgTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
 			pgVertex3f(point.Xf() / 64.0f, point.Yf() / 64.0f, 0.0f);
 		}
-    }}
-
-
-#else
-
-const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
-                                              int renderMode)
-{
-    glTranslatef(pen.Xf(), pen.Yf(), pen.Zf());
-    if (vectoriser)
-    {
-        DoRender(pen);
-    }
-    glTranslatef(-pen.Xf(), -pen.Yf(), -pen.Zf());
-    return advance;
-}
-
-
-void FTPolygonGlyphImpl::DoRender(const FTPoint& pen)
-{
-    GLfloat colors[4];
-    
-    const FTMesh *mesh = vectoriser->GetMesh();
-    
-    for(unsigned int t = 0; t < mesh->TesselationCount(); ++t)
-    {
-        const FTTesselation* subMesh = mesh->Tesselation(t);
-        unsigned int polygonType = subMesh->PolygonType();
-        
-        glGetFloatv(GL_CURRENT_COLOR, colors);
-        glBindTexture(GL_TEXTURE_2D, 0);
-        
-        ftglBegin(GL_TRIANGLES);
-        ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
-        for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
-        {
-            FTPoint point = subMesh->Point(i);
-            ftglTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
-            ftglVertex3f(point.Xf() / 64.0f, point.Yf() / 64.0f, 0.0f);
-        }
-        ftglEnd();
     }
 }
-
-#endif
-
