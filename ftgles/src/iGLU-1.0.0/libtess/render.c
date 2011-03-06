@@ -44,6 +44,15 @@
 #define TRUE 1
 #define FALSE 0
 
+/*
+ David Petrie note: If this is defined, the tesselation process will return
+ only triangles, rather than collection of triangle strips, triangle fans, and
+ so called "lonely" triangles.  The point of this is to minimize calls to
+ glDrawArrays and the likes.
+ */
+#define FTGLES_TESSELATION_TRIANGLES_ONLY
+
+
 /* This structure remembers the information we need about a primitive
  * to be able to render it later, once we have determined which
  * primitive is able to use the most triangles.
@@ -121,10 +130,6 @@ static void RenderMaximumFaceGroup( GLUtesselator *tess, GLUface *fOrig )
   max.eStart = e;
   max.render = &RenderTriangle;
 
-    /*
-     David Petrie note: comment this out to speed up polygon font rendering to minimise
-     repeated calls to glDrawArrays()
-      */
   if( ! tess->flagBoundary ) {
     newFace = MaximumFan( e ); if( newFace.size > max.size ) { max = newFace; }
     newFace = MaximumFan( e->Lnext ); if( newFace.size > max.size ) { max = newFace; }
@@ -136,7 +141,6 @@ static void RenderMaximumFaceGroup( GLUtesselator *tess, GLUface *fOrig )
   }  
    
   (*(max.render))( tess, max.eStart, max.size );
- 
 }
 
 
@@ -284,56 +288,106 @@ static void RenderLonelyTriangles( GLUtesselator *tess, GLUface *f )
 }
 
 
+#ifdef FTGLES_TESSELATION_TRIANGLES_ONLY
 static void RenderFan( GLUtesselator *tess, GLUhalfEdge *e, long size )
 {
-  /* Render as many CCW triangles as possible in a fan starting from
-   * edge "e".  The fan *should* contain exactly "size" triangles
-   * (otherwise we've goofed up somewhere).
-   */
-//  CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLE_FAN ); 
-  //CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
- // CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
-
-  while( ! Marked( e->Lface )) {
-      RenderTriangle(tess,e,1);
-    e->Lface->marked = TRUE;
-    --size;
-    e = e->Onext;
-   // CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
-  }
-
-  assert( size == 0 );
-  //CALL_END_OR_END_DATA();
+    CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLES );
+    
+    while( ! Marked( e->Lface )) {
+        CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
+        CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data );
+        CALL_VERTEX_OR_VERTEX_DATA( e->Onext->Dst->data ); 
+        e->Lface->marked = TRUE;
+        --size;
+        e = e->Onext;
+    }
+    
+    assert( size == 0 );
+    CALL_END_OR_END_DATA();
 }
 
 
 static void RenderStrip( GLUtesselator *tess, GLUhalfEdge *e, long size )
 {
-  /* Render as many CCW triangles as possible in a strip starting from
-   * edge "e".  The strip *should* contain exactly "size" triangles
-   * (otherwise we've goofed up somewhere).
-   */
-  //CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLE_STRIP );
-  //CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
-  //CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
-
-  while( ! Marked( e->Lface )) {
-      RenderTriangle(tess,e,1);
-    e->Lface->marked = TRUE;
-    --size;
-    e = e->Dprev;
-    //CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
-    if( Marked( e->Lface )) break;
-RenderTriangle(tess,e,1);
-    e->Lface->marked = TRUE;
-    --size;
-    e = e->Onext;
-    //CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
-  }
-
-  assert( size == 0 );
-  //CALL_END_OR_END_DATA();
+    /* Render as many CCW triangles as possible in a strip starting from
+     * edge "e".  The strip *should* contain exactly "size" triangles
+     * (otherwise we've goofed up somewhere).
+     */
+    CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLES );
+    
+    while( ! Marked( e->Lface )) {
+        CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
+        CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data );
+        CALL_VERTEX_OR_VERTEX_DATA( e->Dprev->Org->data );
+        e->Lface->marked = TRUE;
+        --size;
+        e = e->Dprev;
+        
+        if( Marked( e->Lface )) break;
+        CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data );
+        CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
+        CALL_VERTEX_OR_VERTEX_DATA( e->Onext->Dst->data );
+        e->Lface->marked = TRUE;
+        --size;
+        e = e->Onext;
+    }
+    
+    assert( size == 0 );
+    CALL_END_OR_END_DATA();
 }
+
+#else
+static void RenderFan( GLUtesselator *tess, GLUhalfEdge *e, long size )
+{   
+    /* Render as many CCW triangles as possible in a fan starting from
+     * edge "e".  The fan *should* contain exactly "size" triangles
+     * (otherwise we've goofed up somewhere).
+     */
+    CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLE_FAN ); 
+    CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
+    CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data );
+    while( ! Marked( e->Lface )) {
+        e->Lface->marked = TRUE;
+        --size;
+        e = e->Onext;
+        CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
+    }
+    
+    assert( size == 0 );
+    CALL_END_OR_END_DATA();
+}
+
+
+static void RenderStrip( GLUtesselator *tess, GLUhalfEdge *e, long size )
+{
+    /* Render as many CCW triangles as possible in a strip starting from
+     * edge "e".  The strip *should* contain exactly "size" triangles
+     * (otherwise we've goofed up somewhere).
+     */
+    CALL_BEGIN_OR_BEGIN_DATA( GL_TRIANGLE_STRIP );
+    CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
+    CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
+    
+    while( ! Marked( e->Lface )) {
+        e->Lface->marked = TRUE;
+        --size;
+        e = e->Dprev;
+        CALL_VERTEX_OR_VERTEX_DATA( e->Org->data ); 
+        if( Marked( e->Lface )) break;
+        e->Lface->marked = TRUE;
+        --size;
+        e = e->Onext;
+        CALL_VERTEX_OR_VERTEX_DATA( e->Dst->data ); 
+    }
+    
+    assert( size == 0 );
+    CALL_END_OR_END_DATA();
+}
+#endif
+
+
+
+
 
 
 /************************ Boundary contour decomposition ******************/
@@ -488,11 +542,33 @@ GLboolean __gl_renderCache( GLUtesselator *tess )
   case GLU_TESS_WINDING_ABS_GEQ_TWO:
     return TRUE;
   }
-
+    
+#ifdef FTGLES_TESSELATION_TRIANGLES_ONLY
+    CALL_BEGIN_OR_BEGIN_DATA( tess->boundaryOnly ? GL_LINE_LOOP : GL_TRIANGLES );
+    if( sign > 0 ) {
+        vc = v0+1;
+        while (vc < vn)
+        {
+            CALL_VERTEX_OR_VERTEX_DATA( v0->data );
+            CALL_VERTEX_OR_VERTEX_DATA( vc->data );
+            CALL_VERTEX_OR_VERTEX_DATA( (vc+1)->data );
+            ++vc;
+        }
+    } else {
+        vc = vn-1;
+        while (vc > v0)
+        {
+            CALL_VERTEX_OR_VERTEX_DATA( v0->data );
+            CALL_VERTEX_OR_VERTEX_DATA( vc->data );
+            CALL_VERTEX_OR_VERTEX_DATA( (vc-1)->data );
+            --vc;
+        }
+    }
+#else
   CALL_BEGIN_OR_BEGIN_DATA( tess->boundaryOnly ? GL_LINE_LOOP
 			  : (tess->cacheCount > 3) ? GL_TRIANGLE_FAN
 			  : GL_TRIANGLES );
-
+    
   CALL_VERTEX_OR_VERTEX_DATA( v0->data ); 
   if( sign > 0 ) {
     for( vc = v0+1; vc < vn; ++vc ) {
@@ -503,6 +579,8 @@ GLboolean __gl_renderCache( GLUtesselator *tess )
       CALL_VERTEX_OR_VERTEX_DATA( vc->data ); 
     }
   }
-  CALL_END_OR_END_DATA();
+  
+#endif
+    CALL_END_OR_END_DATA();
   return TRUE;
 }

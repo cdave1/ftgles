@@ -100,6 +100,28 @@ FTPolygonGlyphImpl::~FTPolygonGlyphImpl()
 }
 
 
+
+
+
+
+GLvoid FTPolygonGlyphImpl::pgVertex3f(float x, float y, float z) 
+{
+	pgCurrVertex.xyz[0] = x;
+	pgCurrVertex.xyz[1] = y;
+	pgCurrVertex.xyz[2] = z;
+	pgVertices[pgCurrIndex] = pgCurrVertex;
+	pgCurrIndex++;
+}
+
+
+GLvoid FTPolygonGlyphImpl::pgTexCoord2f(GLfloat s, GLfloat t) 
+{
+	pgCurrVertex.st[0] = s;
+	pgCurrVertex.st[1] = t;
+}
+
+
+#if 1
 const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
                                               int renderMode)
 {
@@ -150,23 +172,6 @@ const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
 }
 
 
-GLvoid FTPolygonGlyphImpl::pgVertex3f(float x, float y, float z) 
-{
-	pgCurrVertex.xyz[0] = x;
-	pgCurrVertex.xyz[1] = y;
-	pgCurrVertex.xyz[2] = z;
-	pgVertices[pgCurrIndex] = pgCurrVertex;
-	pgCurrIndex++;
-}
-
-
-GLvoid FTPolygonGlyphImpl::pgTexCoord2f(GLfloat s, GLfloat t) 
-{
-	pgCurrVertex.st[0] = s;
-	pgCurrVertex.st[1] = t;
-}
-
-
 void FTPolygonGlyphImpl::DoRender(const FTPoint& pen)
 {
     const FTMesh *mesh = vectoriser->GetMesh();
@@ -182,7 +187,49 @@ void FTPolygonGlyphImpl::DoRender(const FTPoint& pen)
 			pgTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
 			pgVertex3f(point.Xf() / 64.0f, point.Yf() / 64.0f, 0.0f);
 		}
+    }}
+
+
+#else
+
+const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
+                                              int renderMode)
+{
+    glTranslatef(pen.Xf(), pen.Yf(), pen.Zf());
+    if (vectoriser)
+    {
+        DoRender(pen);
     }
-    //pgEnd();
+    glTranslatef(-pen.Xf(), -pen.Yf(), -pen.Zf());
+    return advance;
 }
+
+
+void FTPolygonGlyphImpl::DoRender(const FTPoint& pen)
+{
+    GLfloat colors[4];
+    
+    const FTMesh *mesh = vectoriser->GetMesh();
+    
+    for(unsigned int t = 0; t < mesh->TesselationCount(); ++t)
+    {
+        const FTTesselation* subMesh = mesh->Tesselation(t);
+        unsigned int polygonType = subMesh->PolygonType();
+        
+        glGetFloatv(GL_CURRENT_COLOR, colors);
+        glBindTexture(GL_TEXTURE_2D, 0);
+        
+        ftglBegin(GL_TRIANGLES);
+        ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
+        for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
+        {
+            FTPoint point = subMesh->Point(i);
+            ftglTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
+            ftglVertex3f(point.Xf() / 64.0f, point.Yf() / 64.0f, 0.0f);
+        }
+        ftglEnd();
+    }
+}
+
+#endif
 
