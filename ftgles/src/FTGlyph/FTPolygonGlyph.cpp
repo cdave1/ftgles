@@ -70,8 +70,8 @@ FTPolygonGlyphImpl::FTPolygonGlyphImpl(FT_GlyphSlot glyph, float _outset,
         err = 0x14; // Invalid_Outline
         return;
     }
-    pgCurrIndex = 0;
-    pgVertices = NULL;
+    
+    vbo = 0;
     vectoriser = new FTVectoriser(glyph);
 
     if((vectoriser->ContourCount() < 1) || (vectoriser->PointCount() < 3))
@@ -96,68 +96,50 @@ FTPolygonGlyphImpl::~FTPolygonGlyphImpl()
     {
         delete vectoriser;
     }
-    glDeleteBuffers(1, &bufferHnd);
-}
-
-
-GLvoid FTPolygonGlyphImpl::pgVertex3f(float x, float y, float z) 
-{
-    pgCurrVertex.xyz[0] = x;
-    pgCurrVertex.xyz[1] = y;
-    pgCurrVertex.xyz[2] = z;
-    pgVertices[pgCurrIndex] = pgCurrVertex;
-    pgCurrIndex++;
-}
-
-
-GLvoid FTPolygonGlyphImpl::pgTexCoord2f(GLfloat s, GLfloat t) 
-{
-    pgCurrVertex.st[0] = s;
-    pgCurrVertex.st[1] = t;
+    glDeleteBuffers(1, &vbo);
 }
 
 
 const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
                                               int renderMode)
 {
-    if (pgCurrIndex == 0)
+    // If it does not already exist, create a vbo for this glyph
+    if (vbo == 0 && vectoriser)
     {
-        if (vectoriser)
+        vertexCount = 0;
+        for (unsigned int t = 0; t < vectoriser->GetMesh()->TesselationCount(); ++t)
         {
-            const FTMesh *mesh = vectoriser->GetMesh();
-            
-            int vertexCount = 1;
-            for(unsigned int t = 0; t < vectoriser->GetMesh()->TesselationCount(); ++t)
-            {
-                vertexCount += vectoriser->GetMesh()->Tesselation(t)->PointCount();
-            }
-            
-            if (!(pgVertices = (polygonGlyphVertex_t *)calloc(1, sizeof(polygonGlyphVertex_t) * vertexCount)))
-            {
-                return advance;
-            }
-            
-            DoRender(pen);
-            
-            glGenBuffers(1, &bufferHnd);
-            glBindBuffer(GL_ARRAY_BUFFER, bufferHnd);
-            glBufferData(GL_ARRAY_BUFFER, sizeof(polygonGlyphVertex_t) * pgCurrIndex, pgVertices, GL_STATIC_DRAW);
-            glBindBuffer(GL_ARRAY_BUFFER, 0);
-            
-            free(pgVertices);
+            vertexCount += vectoriser->GetMesh()->Tesselation(t)->PointCount();
         }
+        
+        polygonGlyphVertex_t * pgVertices = NULL;
+        if (!(pgVertices = (polygonGlyphVertex_t *)calloc(1, sizeof(polygonGlyphVertex_t) * vertexCount)))
+        {
+            return advance;
+        }
+        DoRender(pen, pgVertices);
+        
+        glGenBuffers(1, &vbo);
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(polygonGlyphVertex_t) * vertexCount, pgVertices, GL_STATIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        
+        // TODO: check for GL errors.
+        
+        free(pgVertices);
     }
     
-    if (bufferHnd > 0)
+    // If the vbo was successfully created and filled, bind and render it.
+    if (vbo > 0)
     {
         glTranslatef(pen.Xf(), pen.Yf(), pen.Zf());
         glBindTexture(GL_TEXTURE_2D, 0);
-        glBindBuffer(GL_ARRAY_BUFFER, bufferHnd);
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
         glEnableClientState(GL_TEXTURE_COORD_ARRAY);
         glEnableClientState(GL_VERTEX_ARRAY);
         glVertexPointer(3, GL_FLOAT, sizeof(polygonGlyphVertex_t), 0);
         glTexCoordPointer(2, GL_FLOAT, sizeof(polygonGlyphVertex_t), ((char *)NULL + (12)));
-        glDrawArrays(GL_TRIANGLES, 0, pgCurrIndex);
+        glDrawArrays(GL_TRIANGLES, 0, vertexCount);
         glBindBuffer(GL_ARRAY_BUFFER, 0);    
         glTranslatef(-pen.Xf(), -pen.Yf(), -pen.Zf());
     }
@@ -166,20 +148,24 @@ const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
 }
 
 
-void FTPolygonGlyphImpl::DoRender(const FTPoint& pen)
+void FTPolygonGlyphImpl::DoRender(const FTPoint& pen, polygonGlyphVertex_t * pgVertices)
 {
     const FTMesh *mesh = vectoriser->GetMesh();
-
-    pgCurrIndex = 0;
     for(unsigned int t = 0; t < mesh->TesselationCount(); ++t)
     {
         const FTTesselation* subMesh = mesh->Tesselation(t);
-        
         for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
         {
             FTPoint point = subMesh->Point(i);
-            pgTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
-            pgVertex3f(point.Xf() / 64.0f, point.Yf() / 64.0f, 0.0f);
+            
+            pgVertices->st[0] = point.Xf() / hscale;
+            pgVertices->st[1] = point.Yf() / vscale;
+            
+            pgVertices->xyz[0] = point.Xf() / 64.0f;
+            pgVertices->xyz[1] = point.Yf() / 64.0f;
+            pgVertices->xyz[2] = 0.0f;
+            
+            pgVertices++;
         }
     }
 }

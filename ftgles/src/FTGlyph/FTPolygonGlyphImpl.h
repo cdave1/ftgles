@@ -55,7 +55,7 @@ class FTPolygonGlyphImpl : public FTGlyphImpl
         /**
          * Private rendering method.
          */
-        void DoRender(const FTPoint& pen);
+        void DoRender(const FTPoint& pen, polygonGlyphVertex_t * pgVertices);
 
         /**
          * Private rendering variables.
@@ -64,18 +64,9 @@ class FTPolygonGlyphImpl : public FTGlyphImpl
         FTVectoriser *vectoriser;
         float outset;
     
-    GLuint bufferHnd;
+    GLuint vbo;
     
-    
-    GLvoid pgVertex3f(float x, float y, float z);
-    
-    
-    GLvoid pgTexCoord2f(GLfloat s, GLfloat t);
-    
-    
-    polygonGlyphVertex_t * pgVertices;
-	polygonGlyphVertex_t pgCurrVertex;
-	unsigned int pgCurrIndex;
+    unsigned int vertexCount;
 };
 
 #endif  //  __FTPolygonGlyphImpl__

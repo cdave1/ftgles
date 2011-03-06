@@ -65,7 +65,7 @@ LayoutDemoController::LayoutDemoController(const char* path, float width, float 
     {
         printf("Could not load font `%s'\n", fontname);
     }
-    fonts[0]->FaceSize(contentScaleFactor * 50);
+    fonts[0]->FaceSize(contentScaleFactor * 60);
     fonts[0]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
     
     layouts[0].SetLineLength(screenWidth);
