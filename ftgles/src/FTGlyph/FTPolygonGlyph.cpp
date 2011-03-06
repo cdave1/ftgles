@@ -80,19 +80,19 @@ FTPolygonGlyphImpl::FTPolygonGlyphImpl(FT_GlyphSlot glyph, float _outset,
         vectoriser = NULL;
         return;
     }
-	
+    
     hscale = glyph->face->size->metrics.x_ppem * 64;
     vscale = glyph->face->size->metrics.y_ppem * 64;
     outset = _outset;
-	
-	if (vectoriser)
-		vectoriser->MakeMesh(1.0, 1, outset);
+    
+    if (vectoriser)
+        vectoriser->MakeMesh(1.0, 1, outset);
 }
 
 
 FTPolygonGlyphImpl::~FTPolygonGlyphImpl()
 {
-	if (vectoriser)
+    if (vectoriser)
     {
         delete vectoriser;
     }
@@ -106,25 +106,24 @@ FTPolygonGlyphImpl::~FTPolygonGlyphImpl()
 
 GLvoid FTPolygonGlyphImpl::pgVertex3f(float x, float y, float z) 
 {
-	pgCurrVertex.xyz[0] = x;
-	pgCurrVertex.xyz[1] = y;
-	pgCurrVertex.xyz[2] = z;
-	pgVertices[pgCurrIndex] = pgCurrVertex;
-	pgCurrIndex++;
+    pgCurrVertex.xyz[0] = x;
+    pgCurrVertex.xyz[1] = y;
+    pgCurrVertex.xyz[2] = z;
+    pgVertices[pgCurrIndex] = pgCurrVertex;
+    pgCurrIndex++;
 }
 
 
 GLvoid FTPolygonGlyphImpl::pgTexCoord2f(GLfloat s, GLfloat t) 
 {
-	pgCurrVertex.st[0] = s;
-	pgCurrVertex.st[1] = t;
+    pgCurrVertex.st[0] = s;
+    pgCurrVertex.st[1] = t;
 }
 
 
 const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
                                               int renderMode)
 {
-    
     if (pgCurrIndex == 0)
     {
         if (vectoriser)
@@ -182,11 +181,11 @@ void FTPolygonGlyphImpl::DoRender(const FTPoint& pen)
     {
         const FTTesselation* subMesh = mesh->Tesselation(t);
         
-		for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
-		{
-			FTPoint point = subMesh->Point(i);
-			pgTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
-			pgVertex3f(point.Xf() / 64.0f, point.Yf() / 64.0f, 0.0f);
-		}
+        for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
+        {
+            FTPoint point = subMesh->Point(i);
+            pgTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
+            pgVertex3f(point.Xf() / 64.0f, point.Yf() / 64.0f, 0.0f);
+        }
     }
 }
