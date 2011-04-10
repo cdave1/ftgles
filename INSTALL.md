@@ -1,3 +1,19 @@
+# Quick Install
+
+Enter these commands at your terminal if you want to see the Demo projects in action:
+
+	git clone git@github.com:cdave1/ftgles.git
+	git clone git@github.com:cdave1/freetype2-ios.git
+	cd freetype2-ios/
+	bash install.sh
+	cd ../ftgles
+	ln -s ../freetype2-ios freetype2
+	cd Xcode
+	bash install.sh
+
+At this point, it should be possible to compile and run the Xcode projects in your ftgles/Demos/iOS folder.
+
+
 # Build the FTGLES Static Library
 
 These instructions allow you to build FTGLES into a static library that you can use in another Xcode project.
@@ -77,10 +93,10 @@ You can ignore this section, unless you want to make changes to the FTGLES withi
 3. Now you need to add libFTGLES as a dependency of your project, so Xcode compiles it whenever you compile your project.  Expand the "Targets" section of the sidebar and double-click your application's target.  Under the "General" tab you will see a "Direct Dependencies" section. Click the "+" button, select "libFTGLES", and click "Add Target".
 
 4. Now you need to add some iPhone SDK frameworks to your project.  Right click on the "Frameworks" group in your project (or equivalent) and select Add > Existing Frameworks.  Then locate following frameworks and add them to the project:
-   - CoreGraphics.framework
-   - QuartzCore.framework
-   - OpenGLES.framework
-   - UIKit.framework
+ - CoreGraphics.framework
+ - QuartzCore.framework
+ - OpenGLES.framework
+ - UIKit.framework
 
 5. Finally, we need to tell your project where to find the FTGLES headers.  Open your "Project Settings" and go to the "Build" tab. Look for "Header Search Paths" and double-click it.  Add the relative path from your project's directory to the "src" directory in the FTGLES install directory. Also, add a recursive entry to the following entry:
    - YOUR_FTGLES_INSTALL_DIRECTORY/freetype-2.3.9/include
