@@ -21,7 +21,7 @@ The ftgles Xcode project must link to the Freetype2 static library, so you will 
 
 Once you have created the static library, copy it to the "path/to/ftgles/Xcode/" folder.  This is where the current ftgles.xcodeproj file expects to see this static library, but you can put it anywhere that is appropriate for you.  Ensure that the libFreetype.a binary is linked in your project's target's settings.
 
-Finally, the ftgles project needs to know where the Freetype 2 header files are.  Add a relative path to the "include" folder of whatever Freetype 2 distribution you downloaded above.
+Finally, the ftgles project needs to know where the Freetype 2 header files are.  There is already a relative path to the "include" folder of the Freetype 2 library, but you should change this to the location of the Freetype 2 library above.
 
 
 ## 3. Tell your project where to find the FTGLES header files
