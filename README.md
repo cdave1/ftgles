@@ -11,6 +11,20 @@ From the FTGL notes:
 OpenGL ES 2.0 support has not yet been added to the main branch.  Please see the [gles2 branch](https://github.com/cdave1/ftgles/tree/gles2) for an experimental version of FTGLES that supports OpenGL ES 2.0.
 
 
+## QUICK INSTALL
+
+	git clone git@github.com:cdave1/ftgles.git
+	git clone git@github.com:cdave1/freetype2-ios.git
+	cd freetype2-ios/
+	bash install.sh
+	cd ../ftgles
+	ln -s ../freetype2-ios freetype2
+	cd Xcode
+	bash install.sh
+
+At this point, it should be possible to compile and run the Xcode projects in your ftgles/Demos/iOS folder.
+
+
 ## INSTALL
 
 See [INSTALL NOTES](http://github.com/cdave1/ftgles/blob/master/INSTALL.md) for instructions on how to add FTGLES to your Xcode project or build using automake.
@@ -67,4 +81,4 @@ There is a [Performance test application](https://github.com/cdave1/ftgles/tree/
 
  - FTGLES License [here](http://github.com/cdave1/ftgles/blob/master/LICENSE.md)
  - Original FTGL License [here](https://github.com/cdave1/ftgles/blob/master/ftgles/COPYING)
- - Freetype 2 License [here](https://github.com/cdave1/ftgles/blob/master/freetype-2.3.9/docs/LICENSE.TXT)
+ - Freetype 2 License [here](http://www.freetype.org/FTL.TXT)
