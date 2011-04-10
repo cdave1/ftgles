@@ -1,30 +1,40 @@
-# Installation Instructions
+# Build the FTGLES Static Library
 
 These instructions allow you to build FTGLES into a static library that you can use in another Xcode project.
 
 ## 1. Get Freetype2
 
 FTGLES depends on the Freetype2 library.  You can either
-  * Download the Freetype2 source [from here](http://www.freetype.org/download.html), preferably the latest version (2.4.4 was the latest at the time of writing).
-  * Or, you can download an Xcode project specifically setup for Freetype2 on iOS.  This project is [available here](https://github.com/cdave1/freetype2-ios).
+ - [Download the Freetype2 source from here](http://www.freetype.org/download.html), preferably the latest version (2.4.4 was the latest at the time of writing).
+ - Or, you can download an Xcode project specifically setup for Freetype2 on iOS.  [This project is available here](https://github.com/cdave1/freetype2-ios).
+
+It's recommended that you put your Freetype2 files in a folder called "freetype2" in the root folder of this FTGLES repository.
 
 
-## 2. Create your FTGLES library
-
-### Use the prebuilt static library
-
-The prebuilt static library, "libFTGLES.a" is in the "./Xcode" folder.  This is a universal fat binary for the i386, armv6, and armv7 architectures.  You can simply drag this static library to the open Xcode project you want to use the FTGLES library in.
-
-### Alternatively, compile the FTGLES static library yourself
+## 2. Make a Freetype2 static library
 
 The ftgles Xcode project must link to the Freetype2 static library, so you will need to compile freetype 2 into a static library for iOS.  The way of creating your Freetype2 static library depends on how you downloaded Freetype 2.  If you downloaded the source code from Freetype 2 home page, you can use cmake to generate your static file.  The [freetype-ios](https://github.com/cdave1/freetype2-ios) project mentioned above includes a script to generate a universal fat binary for the i386, armv6, and armv7 architectures.
 
+
+## 3. Link your Freetype2 static library to the FTGLES Xcode Project
+
 Once you have created the static library, copy it to the "path/to/ftgles/Xcode/" folder.  This is where the current ftgles.xcodeproj file expects to see this static library, but you can put it anywhere that is appropriate for you.  Ensure that the libFreetype.a binary is linked in your project's target's settings.
 
-Finally, the ftgles project needs to know where the Freetype 2 header files are.  There is already a relative path to the "include" folder of the Freetype 2 library, but you should change this to the location of the Freetype 2 library above.
+If you installed your Freetype2 library in a location other than that recommended in Step 1 above, then you'll need to change the current FTGLES project's "Header Search Paths" to point to the "include/" folder of your Freetype 2 library.
+
+## 4. Build
+
+You can build directly from Xcode to create the static library.  Alternatively, there is a script in the Xcode folder of this project, "install.sh", that you can use to generate a universal fat binary for the i386, armv6, and armv7 architectures.
 
 
-## 3. Tell your project where to find the FTGLES header files
+# Using the FTGLES static library in Other Xcode Projects
+
+## 1. Link the FTGLES static library
+
+Drag the libFTGLES.a to your open Xcode project.
+
+
+## 2. Tell your project where to find the FTGLES header files
 
 From there, you will need to tell you target project where the both the FTGLES and Freetype 2 headers are located.  For this, you will need to add a recursive link to:
   * The "include/" path of the Freetype source code distribution you downloaded above.
@@ -35,7 +45,7 @@ Add these paths to the "Header Search Paths" entry of your Xcode project so they
 You might find it useful to set up an Xcode config file for this.  The [FTGLES Demo projects](https://github.com/cdave1/ftgles/tree/master/Demos) all use such a config file.
 
 
-## 4. Dependent Frameworks
+## 3. Add Dependent Frameworks
 
 Now you need to add some iPhone SDK frameworks to your project.  Find the following frameworks and add them to the project:
    - CoreGraphics.framework
@@ -44,7 +54,7 @@ Now you need to add some iPhone SDK frameworks to your project.  Find the follow
    - UIKit.framework
 
 
-## 5. #include "FTGL/ftgles.h"
+## 4. #include "FTGL/ftgles.h"
 
 Put "#include "FTGL/ftgles.h" anywhere you want to use FTGLES.  
 

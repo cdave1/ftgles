@@ -12,7 +12,7 @@
 		2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
 		2D500B9A0D5A79CF00DBA0E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
 		630C7FB2135185000051FC15 /* ftgles.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 630C7FB1135185000051FC15 /* ftgles.xcconfig */; };
-		6334B13713518EE6003C63A3 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6334B13613518EE6003C63A3 /* libFTGLES.a */; };
+		63128A6D1351B51100E42D8A /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63128A6C1351B51100E42D8A /* libFTGLES.a */; };
 		63741F6311E5D24A00DFBB47 /* GLES1Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5B11E5D24A00DFBB47 /* GLES1Surface.mm */; };
 		63741F6411E5D24A00DFBB47 /* GLES2Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5D11E5D24A00DFBB47 /* GLES2Surface.mm */; };
 		63741F6511E5D24A00DFBB47 /* GLESSurface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5F11E5D24A00DFBB47 /* GLESSurface.mm */; };
@@ -44,7 +44,7 @@
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		630C7FB1135185000051FC15 /* ftgles.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ftgles.xcconfig; sourceTree = "<group>"; };
 		630C7FB9135187C20051FC15 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		6334B13613518EE6003C63A3 /* libFTGLES.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFTGLES.a; path = ../../../Xcode/ftgles/libFTGLES.a; sourceTree = "<group>"; };
+		63128A6C1351B51100E42D8A /* libFTGLES.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFTGLES.a; path = ../../../Xcode/libFTGLES.a; sourceTree = "<group>"; };
 		63741F5A11E5D24A00DFBB47 /* GLES1Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Surface.h; sourceTree = "<group>"; };
 		63741F5B11E5D24A00DFBB47 /* GLES1Surface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLES1Surface.mm; sourceTree = "<group>"; };
 		63741F5C11E5D24A00DFBB47 /* GLES2Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES2Surface.h; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 				2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */,
 				2D500B9A0D5A79CF00DBA0E3 /* QuartzCore.framework in Frameworks */,
 				63AD97DD0FAA2A9F00A79D15 /* CoreGraphics.framework in Frameworks */,
-				6334B13713518EE6003C63A3 /* libFTGLES.a in Frameworks */,
+				63128A6D1351B51100E42D8A /* libFTGLES.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +104,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				630C7FBA1351884D0051FC15 /* FTGLES */,
+				63128A6C1351B51100E42D8A /* libFTGLES.a */,
 				63AF0F950F5F2F6800BF520B /* Application */,
 				63B7CA9C10A23C1700E709A5 /* Fonts */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -137,14 +137,6 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		630C7FBA1351884D0051FC15 /* FTGLES */ = {
-			isa = PBXGroup;
-			children = (
-				6334B13613518EE6003C63A3 /* libFTGLES.a */,
-			);
-			name = FTGLES;
 			sourceTree = "<group>";
 		};
 		63741F5711E5D24A00DFBB47 /* Common */ = {
@@ -284,10 +276,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_VERSION = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Xcode/ftgles\"",
+					"\"$(SRCROOT)/../../../Xcode\"",
 				);
 			};
 			name = Debug;
@@ -298,7 +289,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Xcode/ftgles\"",
+					"\"$(SRCROOT)/../../../Xcode\"",
 				);
 			};
 			name = Release;

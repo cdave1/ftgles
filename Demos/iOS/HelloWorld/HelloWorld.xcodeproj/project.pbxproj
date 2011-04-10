@@ -17,33 +17,15 @@
 		63741F6411E5D24A00DFBB47 /* GLES2Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5D11E5D24A00DFBB47 /* GLES2Surface.mm */; };
 		63741F6511E5D24A00DFBB47 /* GLESSurface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5F11E5D24A00DFBB47 /* GLESSurface.mm */; };
 		63AD97DD0FAA2A9F00A79D15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */; };
+		63B399AD1351B41800E8F919 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B399AC1351B41800E8F919 /* libFTGLES.a */; };
 		63B7C93E10A218E500E709A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B7C93D10A218E500E709A5 /* main.m */; };
 		63B7CA9710A23BB800E709A5 /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63B7CA9410A23BB800E709A5 /* Diavlo_BLACK_II_37.otf */; };
-		63D4046C11EA5D400051D8F3 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D4046911EA5CE70051D8F3 /* libFTGLES.a */; };
 		63D405A011EA65F60051D8F3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059B11EA65F60051D8F3 /* Default.png */; };
 		63D405A111EA65F60051D8F3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059C11EA65F60051D8F3 /* Icon.png */; };
 		63D405A211EA65F60051D8F3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059D11EA65F60051D8F3 /* Icon@2x.png */; };
 		63D405A311EA65F60051D8F3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059E11EA65F60051D8F3 /* Icon-72.png */; };
-		63D405A411EA65F60051D8F3 /* mousePoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059F11EA65F60051D8F3 /* mousePoint.png */; };
 		7914067C0DBAD8D100C9A379 /* Delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		63D4046811EA5CE70051D8F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 63A6FE900FB1F7AF00C38E72;
-			remoteInfo = FTGLES;
-		};
-		63D40E9911EE67E80051D8F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 63A6FD500FB1F7AF00C38E72;
-			remoteInfo = FTGLES;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,17 +43,16 @@
 		63741F5E11E5D24A00DFBB47 /* GLESSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESSurface.h; sourceTree = "<group>"; };
 		63741F5F11E5D24A00DFBB47 /* GLESSurface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESSurface.mm; sourceTree = "<group>"; };
 		63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		63B399AC1351B41800E8F919 /* libFTGLES.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFTGLES.a; path = ../../../Xcode/libFTGLES.a; sourceTree = "<group>"; };
 		63B7C93D10A218E500E709A5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
 		63B7CA9410A23BB800E709A5 /* Diavlo_BLACK_II_37.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Diavlo_BLACK_II_37.otf; path = Fonts/Diavlo_BLACK_II_37.otf; sourceTree = "<group>"; };
 		63D4059B11EA65F60051D8F3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Common/Resources/Default.png; sourceTree = SOURCE_ROOT; };
 		63D4059C11EA65F60051D8F3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Common/Resources/Icon.png; sourceTree = SOURCE_ROOT; };
 		63D4059D11EA65F60051D8F3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Common/Resources/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		63D4059E11EA65F60051D8F3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Common/Resources/Icon-72.png"; sourceTree = SOURCE_ROOT; };
-		63D4059F11EA65F60051D8F3 /* mousePoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mousePoint.png; path = ../Common/Resources/mousePoint.png; sourceTree = SOURCE_ROOT; };
 		7914067A0DBAD8D100C9A379 /* Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Delegate.h; path = Classes/Delegate.h; sourceTree = "<group>"; };
 		7914067B0DBAD8D100C9A379 /* Delegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Delegate.mm; path = Classes/Delegate.mm; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ftgles.xcodeproj; path = ../../../Xcode/ftgles/ftgles.xcodeproj; sourceTree = SOURCE_ROOT; };
+		8D1107310486CEB800E47090 /* ftgles-info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ftgles-info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +60,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D4046C11EA5D400051D8F3 /* libFTGLES.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */,
 				2D500B9A0D5A79CF00DBA0E3 /* QuartzCore.framework in Frameworks */,
 				63AD97DD0FAA2A9F00A79D15 /* CoreGraphics.framework in Frameworks */,
+				63B399AD1351B41800E8F919 /* libFTGLES.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,11 +83,11 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				63B399AC1351B41800E8F919 /* libFTGLES.a */,
 				63AF0F950F5F2F6800BF520B /* Application */,
-				63AF0C630F5F2E7E00BF520B /* Libraries */,
 				63B7CA9C10A23C1700E709A5 /* Fonts */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
-				8D1107310486CEB800E47090 /* Info.plist */,
+				8D1107310486CEB800E47090 /* ftgles-info.plist */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -120,7 +101,6 @@
 				63D4059C11EA65F60051D8F3 /* Icon.png */,
 				63D4059D11EA65F60051D8F3 /* Icon@2x.png */,
 				63D4059E11EA65F60051D8F3 /* Icon-72.png */,
-				63D4059F11EA65F60051D8F3 /* mousePoint.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -154,14 +134,6 @@
 			path = ../Common;
 			sourceTree = SOURCE_ROOT;
 		};
-		63AF0C630F5F2E7E00BF520B /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */,
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
 		63AF0F950F5F2F6800BF520B /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,14 +153,6 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		63D4046511EA5CE70051D8F3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				63D4046911EA5CE70051D8F3 /* libFTGLES.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,7 +167,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				63D40E9A11EE67E80051D8F3 /* PBXTargetDependency */,
 			);
 			name = HelloWorld;
 			productName = foo;
@@ -227,28 +190,12 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 63D4046511EA5CE70051D8F3 /* Products */;
-					ProjectRef = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* HelloWorld */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		63D4046911EA5CE70051D8F3 /* libFTGLES.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libFTGLES.a;
-			remoteRef = 63D4046811EA5CE70051D8F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -260,7 +207,6 @@
 				63D405A111EA65F60051D8F3 /* Icon.png in Resources */,
 				63D405A211EA65F60051D8F3 /* Icon@2x.png in Resources */,
 				63D405A311EA65F60051D8F3 /* Icon-72.png in Resources */,
-				63D405A411EA65F60051D8F3 /* mousePoint.png in Resources */,
 				630C7F5C1351810C0051FC15 /* ftgles.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,20 +229,16 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		63D40E9A11EE67E80051D8F3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FTGLES;
-			targetProxy = 63D40E9911EE67E80051D8F3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_VERSION = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Xcode\"",
+				);
 			};
 			name = Debug;
 		};
@@ -304,6 +246,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Xcode\"",
+				);
 			};
 			name = Release;
 		};
@@ -316,7 +262,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = "ftgles-info.plist";
+				INSTALL_PATH = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = HelloWorld;
@@ -335,7 +282,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = "ftgles-info.plist";
+				INSTALL_PATH = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = HelloWorld;
 				PROVISIONING_PROFILE = "";
