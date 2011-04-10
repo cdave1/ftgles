@@ -66,13 +66,10 @@ static CFTimeInterval LastFPSUpdate;
 		[[[NSBundle mainBundle] resourcePath] cStringUsingEncoding:NSASCIIStringEncoding];
 
 	float scale = 1.0f;
-	
-#ifdef __IPHONE_4_0
 	if([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) 
 	{
 		scale = [[UIScreen mainScreen] scale];
 	}
-#endif
 	
 	layoutDemoController = new LayoutDemoController(bundleResourcePath, rect.size.width, rect.size.height, scale);
 	

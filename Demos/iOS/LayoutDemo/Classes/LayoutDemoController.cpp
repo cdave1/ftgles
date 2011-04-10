@@ -26,13 +26,10 @@
 #include "TextureLoader.h"
 
 static FTFont *fpsFont;
-char fpsText[32];
+static char fpsText[32];
 static FTFont *fonts[3];
-
 static FTSimpleLayout layouts[3];
-
 static GLuint aTexture;
-
 static float screenWidth, screenHeight, contentScaleFactor;
 
 
@@ -164,7 +161,6 @@ void LayoutDemoController::Draw()
 	glColor4f(0.25f, 0.25f, 0.25f, 1.0f);
 	layouts[2].Render(outlineFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
-	
 	
 	glPopMatrix();
 	
