@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630C7F44135161CE0051FC15 /* libFreetype2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 630C7F43135161CE0051FC15 /* libFreetype2.a */; };
 		63A6FE8C0FB1F7AF00C38E72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		63A6FE930FB1F7DF00C38E72 /* FTVectoriser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63A6FA3C0FB1DBDC00C38E72 /* FTVectoriser.cpp */; };
 		63A6FE940FB1F7DF00C38E72 /* FTBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6382AAE90FB0F19400ECAC02 /* FTBuffer.cpp */; };
@@ -33,7 +34,6 @@
 		63A6FEA90FB1F7DF00C38E72 /* FTFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6382AAD10FB0F16400ECAC02 /* FTFont.cpp */; };
 		63A6FEAA0FB1F7DF00C38E72 /* FTFontGlue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6382AAD20FB0F16400ECAC02 /* FTFontGlue.cpp */; };
 		63BA7ABC10A1DC5C0023F917 /* ftglesGlue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63BA7ABB10A1DC5C0023F917 /* ftglesGlue.cpp */; };
-		E431F799112E8CE100E393A2 /* libFreetype2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E431F798112E8CDA00E393A2 /* libFreetype2.a */; };
 		E4D14580112E5EAA00CAD4E4 /* FTPolygonGlyph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D1457E112E5EAA00CAD4E4 /* FTPolygonGlyph.cpp */; };
 		E4D14581112E5EAA00CAD4E4 /* FTPolygonGlyphImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = E4D1457F112E5EAA00CAD4E4 /* FTPolygonGlyphImpl.h */; };
 		E4D14584112E5EBB00CAD4E4 /* FTPolygonFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D14582112E5EBB00CAD4E4 /* FTPolygonFont.cpp */; };
@@ -73,27 +73,11 @@
 		E4FC75E6117599D0001ED907 /* FTPixmapGlyph.h in Headers */ = {isa = PBXBuildFile; fileRef = E4FC75E5117599D0001ED907 /* FTPixmapGlyph.h */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E431F797112E8CDA00E393A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E431F793112E8CDA00E393A2 /* freetype2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6382B1B10FB0FC5100ECAC02;
-			remoteInfo = Freetype2;
-		};
-		E431F79A112E8CEE00E393A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E431F793112E8CDA00E393A2 /* freetype2.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6382B1B00FB0FC5100ECAC02;
-			remoteInfo = Freetype2;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		630C7F43135161CE0051FC15 /* libFreetype2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFreetype2.a; path = ../freetype2/libFreetype2.a; sourceTree = "<group>"; };
 		6382AACD0FB0F16400ECAC02 /* FTBufferFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTBufferFont.cpp; sourceTree = "<group>"; };
 		6382AACE0FB0F16400ECAC02 /* FTBufferFontImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTBufferFontImpl.h; sourceTree = "<group>"; };
 		6382AAD10FB0F16400ECAC02 /* FTFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTFont.cpp; sourceTree = "<group>"; };
@@ -147,7 +131,7 @@
 		63A6FA1B0FB1D96E00C38E72 /* FTOutlineFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTOutlineFont.cpp; sourceTree = "<group>"; };
 		63A6FA3B0FB1DBDC00C38E72 /* FTVectoriser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTVectoriser.h; sourceTree = "<group>"; };
 		63A6FA3C0FB1DBDC00C38E72 /* FTVectoriser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTVectoriser.cpp; sourceTree = "<group>"; };
-		63A6FE900FB1F7AF00C38E72 /* libFTGLES.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFTGLES.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		63A6FE900FB1F7AF00C38E72 /* lib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = lib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AD91AA0FAA140E00A79D15 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		63AD934B0FAA1AE100A79D15 /* FTBBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTBBox.h; sourceTree = "<group>"; };
 		63AD934C0FAA1AE100A79D15 /* FTBitmapGlyph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTBitmapGlyph.h; sourceTree = "<group>"; };
@@ -165,7 +149,6 @@
 		63BA7ABA10A1DA040023F917 /* ftglesGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftglesGlue.h; sourceTree = "<group>"; };
 		63BA7ABB10A1DC5C0023F917 /* ftglesGlue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ftglesGlue.cpp; sourceTree = "<group>"; };
 		63BA7CB110A1EC6F0023F917 /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
-		E431F793112E8CDA00E393A2 /* freetype2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = freetype2.xcodeproj; path = ../freetype2/freetype2.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E4D1457E112E5EAA00CAD4E4 /* FTPolygonGlyph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTPolygonGlyph.cpp; sourceTree = "<group>"; };
 		E4D1457F112E5EAA00CAD4E4 /* FTPolygonGlyphImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPolygonGlyphImpl.h; sourceTree = "<group>"; };
 		E4D14582112E5EBB00CAD4E4 /* FTPolygonFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTPolygonFont.cpp; sourceTree = "<group>"; };
@@ -210,8 +193,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E431F799112E8CE100E393A2 /* libFreetype2.a in Frameworks */,
 				63A6FE8C0FB1F7AF00C38E72 /* Foundation.framework in Frameworks */,
+				630C7F44135161CE0051FC15 /* libFreetype2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +204,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63A6FE900FB1F7AF00C38E72 /* libFTGLES.a */,
+				63A6FE900FB1F7AF00C38E72 /* lib.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -378,17 +361,9 @@
 		E431F77F112E8CCC00E393A2 /* freetype2 */ = {
 			isa = PBXGroup;
 			children = (
-				E431F793112E8CDA00E393A2 /* freetype2.xcodeproj */,
+				630C7F43135161CE0051FC15 /* libFreetype2.a */,
 			);
 			name = freetype2;
-			sourceTree = "<group>";
-		};
-		E431F794112E8CDA00E393A2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E431F798112E8CDA00E393A2 /* libFreetype2.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E4D145DE112E6D6500CAD4E4 /* include */ = {
@@ -493,11 +468,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				E431F79B112E8CEE00E393A2 /* PBXTargetDependency */,
 			);
 			name = FTGLES;
 			productName = freetype;
-			productReference = 63A6FE900FB1F7AF00C38E72 /* libFTGLES.a */;
+			productReference = 63A6FE900FB1F7AF00C38E72 /* lib.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -517,28 +491,12 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E431F794112E8CDA00E393A2 /* Products */;
-					ProjectRef = E431F793112E8CDA00E393A2 /* freetype2.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				63A6FD500FB1F7AF00C38E72 /* FTGLES */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		E431F798112E8CDA00E393A2 /* libFreetype2.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libFreetype2.a;
-			remoteRef = E431F797112E8CDA00E393A2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		63A6FDD30FB1F7AF00C38E72 /* Sources */ = {
@@ -593,79 +551,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		E431F79B112E8CEE00E393A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Freetype2;
-			targetProxy = E431F79A112E8CEE00E393A2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
 		63A6FE8E0FB1F7AF00C38E72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_SYMBOL_SEPARATION = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_LINK_WITH_DYNAMIC_LIBRARIES = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"FT2_BUILD_LIBRARY=1",
-					"FT_OPTION_AUTOFIT2=1",
-				);
-				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = 4.2;
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = "../../freetype-2.3.9/include/freetype/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				PRODUCT_NAME = FTGLES;
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../../freetype-2.3.9/include ../../ftgles/src";
-				WARNING_CFLAGS = "-Wall";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../freetype2\"",
+				);
 			};
 			name = Debug;
 		};
 		63A6FE8F0FB1F7AF00C38E72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				COMPRESS_PNG_FILES = NO;
-				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"FT_OPTION_AUTOFIT2=1",
-					"FT2_BUILD_LIBRARY=1",
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../freetype2\"",
 				);
-				GCC_THUMB_SUPPORT = YES;
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = "../../freetype-2.3.9/include/freetype/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "";
-				PREBINDING = NO;
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				PRODUCT_NAME = FTGLES;
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../../ftgles/src ../../freetype-2.3.9/include";
-				WARNING_CFLAGS = "-Wall";
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -673,12 +580,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: David Petrie (DFQZ94R4C6)";
+				CODE_SIGN_IDENTITY = "";
 				COMPRESS_PNG_FILES = NO;
-				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 2.0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"FT2_BUILD_LIBRARY=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"../freetype2/include/**",
+					../../ftgles/src,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "2F9B69AF-CD22-482D-8459-3C8DA79AF8C5";
+				PRODUCT_NAME = FTGLES;
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -689,7 +603,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				HEADER_SEARCH_PATHS = "";
+				CODE_SIGN_IDENTITY = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "FT2_BUILD_LIBRARY=1";
+				HEADER_SEARCH_PATHS = (
+					"../freetype2/include/**",
+					../../ftgles/src,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = FTGLES;
 				SDKROOT = iphoneos;
 			};
 			name = Release;

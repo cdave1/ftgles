@@ -11,6 +11,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
 		2D500B9A0D5A79CF00DBA0E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
+		630C7F5C1351810C0051FC15 /* ftgles.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 630C7F5B1351810C0051FC15 /* ftgles.xcconfig */; };
 		63741F6211E5D24A00DFBB47 /* GLESView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5911E5D24A00DFBB47 /* GLESView.mm */; };
 		63741F6311E5D24A00DFBB47 /* GLES1Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5B11E5D24A00DFBB47 /* GLES1Surface.mm */; };
 		63741F6411E5D24A00DFBB47 /* GLES2Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5D11E5D24A00DFBB47 /* GLES2Surface.mm */; };
@@ -50,6 +51,7 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		630C7F5B1351810C0051FC15 /* ftgles.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ftgles.xcconfig; sourceTree = "<group>"; };
 		63741F5811E5D24A00DFBB47 /* GLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESView.h; sourceTree = "<group>"; };
 		63741F5911E5D24A00DFBB47 /* GLESView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESView.mm; sourceTree = "<group>"; };
 		63741F5A11E5D24A00DFBB47 /* GLES1Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Surface.h; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		63741F5711E5D24A00DFBB47 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				630C7F5B1351810C0051FC15 /* ftgles.xcconfig */,
 				63741F5811E5D24A00DFBB47 /* GLESView.h */,
 				63741F5911E5D24A00DFBB47 /* GLESView.mm */,
 				63741F5A11E5D24A00DFBB47 /* GLES1Surface.h */,
@@ -258,6 +261,7 @@
 				63D405A211EA65F60051D8F3 /* Icon@2x.png in Resources */,
 				63D405A311EA65F60051D8F3 /* Icon-72.png in Resources */,
 				63D405A411EA65F60051D8F3 /* mousePoint.png in Resources */,
+				630C7F5C1351810C0051FC15 /* ftgles.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,84 +295,15 @@
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"FT_OPTION_AUTOFIT2=1",
-					"FT2_BUILD_LIBRARY=1",
-					"TARGET_OS_IPHONE=1",
-					"DEBUG=1",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_THUMB_SUPPORT = YES;
 				GCC_VERSION = 4.2;
-				GENERATE_MASTER_OBJECT_FILE = NO;
-				HEADER_SEARCH_PATHS = (
-					"../../../freetype-2.3.9/include/**",
-					../../../ftgles/src,
-				);
-				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				KEEP_PRIVATE_EXTERNS = NO;
-				LIBRARY_SEARCH_PATHS = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PREBINDING = YES;
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				PRODUCT_NAME = HelloWorld;
-				PROVISIONING_PROFILE = "";
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "";
-				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				DEAD_CODE_STRIPPING = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_OS_IPHONE=1";
-				GCC_THUMB_SUPPORT = YES;
-				HEADER_SEARCH_PATHS = (
-					"../../../freetype-2.3.9/include/**",
-					../../../ftgles/src,
-				);
-				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				LIBRARY_SEARCH_PATHS = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "";
-				PREBINDING = NO;
-				PRODUCT_NAME = HelloWorld;
-				PROVISIONING_PROFILE = "";
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "";
-				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;
 		};
@@ -376,15 +311,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: David Petrie (DFQZ94R4C6)";
-				COMPRESS_PNG_FILES = NO;
-				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 2.0;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"../../../freetype2/include/**",
+					../../../ftgles/src,
+				);
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "2F9B69AF-CD22-482D-8459-3C8DA79AF8C5";
+				PRODUCT_NAME = HelloWorld;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				STRIP_INSTALLED_PRODUCT = NO;
-				USER_HEADER_SEARCH_PATHS = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -392,8 +332,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				HEADER_SEARCH_PATHS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"../../../freetype2/include/**",
+					../../../ftgles/src,
+				);
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = HelloWorld;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
