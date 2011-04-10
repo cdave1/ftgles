@@ -41,5 +41,4 @@ profile
 *.moved-aside
 
 # Freetype 2
-Xcode/freetype2/include/*
-Xcode/freetype2/src/*
+freetype2/
