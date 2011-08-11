@@ -1,0 +1,6 @@
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := ftgles-prebuilt
+LOCAL_SRC_FILES := ../obj/local/$(TARGET_ARCH_ABI)/libftgles-static.a
+include $(PREBUILT_STATIC_LIBRARY)

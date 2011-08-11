@@ -49,11 +49,11 @@ FTGL_BEGIN_C_DECLS
         ftgl->type = cxxtype; \
         return ftgl; \
     }
-
+/*
 // FTBitmapGlyph::FTBitmapGlyph();
 C_TOR(ftglCreateBitmapGlyph, (FT_GlyphSlot glyph),
       FTBitmapGlyph, (glyph), GLYPH_BITMAP);
-
+*/
 // FTBufferGlyph::FTBufferGlyph();
 // FIXME: not implemented
 
@@ -64,16 +64,16 @@ C_TOR(ftglCreateExtrudeGlyph, (FT_GlyphSlot glyph, float depth,
                    float frontOutset, float backOutset, int useDisplayList),
       FTExtrudeGlyph, (glyph, depth, frontOutset, backOutset, (useDisplayList != 0)),
       GLYPH_EXTRUDE);
-
+*/
 // FTOutlineGlyph::FTOutlineGlyph();
 C_TOR(ftglCreateOutlineGlyph, (FT_GlyphSlot glyph, float outset,
                                int useDisplayList),
       FTOutlineGlyph, (glyph, outset, (useDisplayList != 0)), GLYPH_OUTLINE);
-*/
+/*
 // FTPixmapGlyph::FTPixmapGlyph();
 C_TOR(ftglCreatePixmapGlyph, (FT_GlyphSlot glyph),
       FTPixmapGlyph, (glyph), GLYPH_PIXMAP);
-
+*/
 // FTPolygonGlyph::FTPolygonGlyph();
 C_TOR(ftglCreatePolygonGlyph, (FT_GlyphSlot glyph, float outset,
                                int useDisplayList),

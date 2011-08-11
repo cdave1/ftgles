@@ -31,7 +31,11 @@
 #ifndef __glu_h__
 #define __glu_h__
 
+#if TARGET_OS_IPHONE == 1 || TARGET_IPHONE_SIMULATOR == 1
 #include <OpenGLES/ES1/gl.h>
+#elif ANDROID_NDK
+#include <GLES/gl.h>
+#endif
 
 #ifndef GLAPIENTRY
 #define GLAPIENTRY

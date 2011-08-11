@@ -25,8 +25,13 @@
 #ifndef FTGL_ES_GLUE_H
 #define FTGL_ES_GLUE_H
 
+#if TARGET_OS_IPHONE == 1 || TARGET_IPHONE_SIMULATOR == 1
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>
+#elif ANDROID_NDK
+#include <GLES/gl.h>
+#include <GLES/glext.h>
+#endif
 
 #include <stdio.h>
 #include <assert.h>

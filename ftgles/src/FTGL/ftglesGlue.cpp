@@ -248,25 +248,25 @@ GLvoid ftglError(const char *source)
 		case GL_NO_ERROR:
 			break;
 		case GL_INVALID_ENUM:
-			printf("GL Error (%x): GL_INVALID_ENUM. %s\n\n", error, source);
+		  fprintf(stderr, "GL Error (%x): GL_INVALID_ENUM. %s\n\n", error, source);
 			break;
 		case GL_INVALID_VALUE:
-			printf("GL Error (%x): GL_INVALID_VALUE. %s\n\n", error, source);
+		  fprintf(stderr, "GL Error (%x): GL_INVALID_VALUE. %s\n\n", error, source);
 			break;
 		case GL_INVALID_OPERATION:
-			printf("GL Error (%x): GL_INVALID_OPERATION. %s\n\n", error, source);
+		  fprintf(stderr,"GL Error (%x): GL_INVALID_OPERATION. %s\n\n", error, source);
 			break;
 		case GL_STACK_OVERFLOW:
-			printf("GL Error (%x): GL_STACK_OVERFLOW. %s\n\n", error, source);
+		  fprintf(stderr,"GL Error (%x): GL_STACK_OVERFLOW. %s\n\n", error, source);
 			break;
 		case GL_STACK_UNDERFLOW:
-			printf("GL Error (%x): GL_STACK_UNDERFLOW. %s\n\n", error, source);
+		  fprintf(stderr,"GL Error (%x): GL_STACK_UNDERFLOW. %s\n\n", error, source);
 			break;
 		case GL_OUT_OF_MEMORY:
-			printf("GL Error (%x): GL_OUT_OF_MEMORY. %s\n\n", error, source);
+		  fprintf(stderr,"GL Error (%x): GL_OUT_OF_MEMORY. %s\n\n", error, source);
 			break;
 		default:
-			printf("GL Error (%x): %s\n\n", error, source);
+		  fprintf(stderr,"GL Error (%x): %s\n\n", error, source);
 			break;
 	}
 }

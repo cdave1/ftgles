@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: res/layout/main.xml
+SHA1-Digest: Xal5w1XkBBgw1JtbLohBa8RxDDk=
+
+Name: lib/armeabi/libhelloftgles.so
+SHA1-Digest: g0sGpxMDH705X8k6pKIUsFPVX3o=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: i7vxaosoiS+9HzKB7ZgIsXMYRLY=
+
+Name: AndroidManifest.xml
+SHA1-Digest: ftvzrEv/T3sr/t9S8V6vg8TeHac=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: 7Ft/Rirt+l/JRX2KjDREScdbCZk=
+
+Name: resources.arsc
+SHA1-Digest: m5o8VHL9TX8nAGeSHSOqvBB8dX8=
+
+Name: lib/armeabi-v7a/libhelloftgles.so
+SHA1-Digest: g0sGpxMDH705X8k6pKIUsFPVX3o=
+
+Name: classes.dex
+SHA1-Digest: MPdiFtAfOWO/1A+epHdPt6xIc64=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: Vj/qhxk8ic8FE0/kT6E3vgRJ4mE=
+
