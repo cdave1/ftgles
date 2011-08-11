@@ -10,6 +10,8 @@
 *.Plo
 build/
 objs/
+obj/
+libs/
 
 # Compiled Object files
 *.slo
