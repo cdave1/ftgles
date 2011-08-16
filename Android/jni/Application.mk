@@ -1,10 +1,10 @@
-APP_BUILD_SCRIPT := Android.mk
-$(info $(APP_BUILD_SCRIPT))
+#APP_BUILD_SCRIPT := Android.mk
+#$(info $(APP_BUILD_SCRIPT))
 # Defines the native projects that must be compiled. These names point to the libs
 # defined in the Android.mk file.
-APP_MODULES      := ftgles freetype2-prebuilt
+#APP_MODULES      := ftgles freetype2-prebuilt
 # Can be set to release or debug. For optimization purpose.
-APP_OPTIM        := debug
+#APP_OPTIM        := debug
 
 
 APP_ABI := armeabi armeabi-v7a

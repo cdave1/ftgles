@@ -270,4 +270,3 @@ GLvoid ftglError(const char *source)
 			break;
 	}
 }
-
