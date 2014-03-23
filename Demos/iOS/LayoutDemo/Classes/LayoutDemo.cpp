@@ -22,7 +22,7 @@
  * Demo iPhone app showing ftgles in action.
  */
 
-#include "LayoutDemoController.h"
+#include "LayoutDemo.h"
 #include "TextureLoader.h"
 
 static FTFont *fpsFont;
@@ -33,13 +33,12 @@ static GLuint aTexture;
 static float screenWidth, screenHeight, contentScaleFactor;
 
 
-const char *polygonFontText = "(Left aligned) polygon font.";
+const char *polygonFontText = "(Left aligned) polygon font with enough text for multiple lines.";
 const char *textureFontText = "(Center aligned) Lorem ipsum dolor sit amet.";
 const char *outlineFontText = "(Right aligned) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 
-LayoutDemoController::LayoutDemoController(const char* path, float width, float height, float scale)
-{
+LayoutDemo::LayoutDemo(const char* path, float width, float height, float scale) {
 	contentScaleFactor = scale;
 	screenWidth = contentScaleFactor * width;
 	screenHeight = contentScaleFactor * height;
@@ -70,7 +69,7 @@ LayoutDemoController::LayoutDemoController(const char* path, float width, float 
     layouts[0].SetFont(fonts[0]);
 	layouts[0].SetAlignment(FTGL::ALIGN_LEFT);
 	
-	snprintf(fontname, 256, "%s/RosewoodStd-Regular.otf", path);
+	snprintf(fontname, 256, "%s/BorisBlackBloxx.ttf", path);
 	fonts[1] = new FTTextureFont(fontname);
 	if (fonts[1]->Error())
 	{
@@ -90,7 +89,7 @@ LayoutDemoController::LayoutDemoController(const char* path, float width, float 
 	{
         printf("Could not load font `%s'\n", fontname);	
 	}
-	fonts[2]->FaceSize(contentScaleFactor * 14);
+	fonts[2]->FaceSize(contentScaleFactor * 28);
 	fonts[2]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
 	layouts[2].SetLineLength(screenWidth - 20.0f);
@@ -102,24 +101,20 @@ LayoutDemoController::LayoutDemoController(const char* path, float width, float 
 }
 
 
-LayoutDemoController::~LayoutDemoController() 
-{
+LayoutDemo::~LayoutDemo() {
 	delete fonts[0];
 	delete fonts[1];
 	delete fonts[2];
 }
 
 
-void LayoutDemoController::SetFPS(const unsigned int fps)
-{
+void LayoutDemo::SetFPS(const unsigned int fps) {
 	snprintf(fpsText, 32, "FPS: %d", fps);
 }
 
 
-static float angle = 0.0f;
 static float color = 0.0f;
-void LayoutDemoController::Draw()
-{
+void LayoutDemo::Draw() {
 	float halfScreenWidth = screenWidth * 0.5f;
 	float halfScreenHeight = screenHeight * 0.5f;
 	
@@ -140,24 +135,23 @@ void LayoutDemoController::Draw()
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	
-	glPushMatrix();	
-	glRotatef(angle, 0.0f, 0.0f, 1.0f);
+	glPushMatrix();
 	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
 
 	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 420.0f, 0.0f);
+	glTranslatef(0.0f, contentScaleFactor * 720.0f, 0.0f);
 	glColor4f(color, 0.6f, 0.3f, 1.0f);
 	layouts[0].Render(polygonFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
 	
 	glPushMatrix();
-	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 280.0f, 0.0f);
-	glColor4f(0.4f, 0.4f, 0.0f, 1.0f);
+	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 520.0f, 0.0f);
+	glColor4f(0.2f, 0.4f, 0.75f, 1.0f);
 	layouts[1].Render(textureFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
 	
 	glPushMatrix();
-	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 140.0f, 0.0f);
+	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 240.0f, 0.0f);
 	glColor4f(0.25f, 0.25f, 0.25f, 1.0f);
 	layouts[2].Render(outlineFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
@@ -180,9 +174,6 @@ void LayoutDemoController::Draw()
 	
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
-	
-	angle += 0.1f;
-	if (angle >= 360.0f) angle = 0.0f;
 	
 	color += 0.01f;
 	if (color > 1.0f) color = 0.0f;

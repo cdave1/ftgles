@@ -18,52 +18,30 @@
  
  */
 
+#ifndef _HELLO_WORLD_APP_H_
+#define _HELLO_WORLD_APP_H_
 
-#import "GLESSurface.h"
-
-@implementation GLESSurface
-
-@synthesize delegate=_delegate,
-	context = _context;
+class FTTextureFont;
 
 
-+ (Class) layerClass
-{
-	return [CAEAGLLayer class];
-}
+class HelloWorldApp {
+public:
+    HelloWorldApp() {}
+    
+    ~HelloWorldApp() {}
+    
+    void SetupFonts(const char *fontpath);
+    
+    void SetScreenDimensions(float width, float height, float scale);
+    
+    void ShowFPS();
+    
+    void Render();
+    
+    FTTextureFont *m_font;
+    
+    float m_screenWidth, m_screenHeight, m_scale;
+    
+};
 
-
-- (id) init
-{
-	if ((self = [super init]))
-	{
-		return self;
-	}
-	return nil;
-}
-
-
-- (void) setCurrentContext
-{
-	if(![EAGLContext setCurrentContext:_context]) {
-		printf("Failed to set current context %p in %s\n", _context, __FUNCTION__);
-	}
-}
-
-
-- (BOOL) isCurrentContext
-{
-	return ([EAGLContext currentContext] == _context ? YES : NO);
-}
-
-
-- (void) clearCurrentContext
-{
-	if(![EAGLContext setCurrentContext:nil])
-		printf("Failed to clear current context in %s\n", __FUNCTION__);
-}
-
-
-
-
-@end
+#endif

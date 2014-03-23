@@ -30,8 +30,7 @@
  * Goal: full screen of 10pt characters at 30+ fps
  */
 
-class PerformanceController
-{		
+class PerformanceController {
 public:
 	PerformanceController(const char* path, float width, float height, float scale);
 	

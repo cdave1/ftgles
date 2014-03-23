@@ -22,24 +22,19 @@
 #include "TextureLoader.h"
 #include <assert.h>
 
-typedef struct
-{
+typedef struct {
 	FTSimpleLayout layout;
 	float shade;
 	short shadeDir;
 } coloredLayout_t;
 
 
-const unsigned int kLayoutCount = 12;
-
+static const unsigned int kLayoutCount = 12;
 static FTFont *fpsFont;
-char fpsText[32];
+static char fpsText[32];
 static FTFont *fonts[3];
-
 static coloredLayout_t layouts[kLayoutCount];
-
 static GLuint aTexture;
-
 static float screenWidth, screenHeight, contentScaleFactor;
 
 
@@ -89,8 +84,7 @@ const char *txtD = "sunt in culpa qui officia deserunt mollit anim id est laboru
  */
 //#define PERF_TESTING_CLASS FTOutlineFont
 
-PerformanceController::PerformanceController(const char* path, float width, float height, float scale)
-{
+PerformanceController::PerformanceController(const char* path, float width, float height, float scale) {
 	contentScaleFactor = scale;
 	screenWidth = contentScaleFactor * width;
 	screenHeight = contentScaleFactor * height;
@@ -129,8 +123,7 @@ PerformanceController::PerformanceController(const char* path, float width, floa
 	fonts[2]->FaceSize(contentScaleFactor * 15);
 	fonts[2]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
-	for (unsigned i = 0; i < kLayoutCount; ++i)
-	{
+	for (unsigned i = 0; i < kLayoutCount; ++i) {
 		layouts[i].shade = (float)i/kLayoutCount;
 		layouts[i].shadeDir = layouts[i].shade > 0.5f;
 		layouts[i].layout.SetLineLength(screenWidth);
@@ -153,16 +146,14 @@ PerformanceController::PerformanceController(const char* path, float width, floa
 }
 
 
-PerformanceController::~PerformanceController() 
-{
+PerformanceController::~PerformanceController()  {
 	delete fonts[0];
 	delete fonts[1];
 	delete fonts[2];
 }
 
 
-void PerformanceController::DrawNonLayoutText(const float shade, const float yLoc)
-{
+void PerformanceController::DrawNonLayoutText(const float shade, const float yLoc) {
 	unsigned fontIdx = rand() % 3; // Jitter fonts :)
 	glColor4f(CLAMP(shade, 0.0f, 1.0f), CLAMP(shade, 0.0f, 1.0f), CLAMP(shade, 0.0f, 1.0f), 1.0f);
 	glPushMatrix();
@@ -188,8 +179,7 @@ void PerformanceController::DrawNonLayoutText(const float shade, const float yLo
 
 
 
-void PerformanceController::DrawLayoutText(FTSimpleLayout *layout, const float shade, const float yLoc)
-{
+void PerformanceController::DrawLayoutText(FTSimpleLayout *layout, const float shade, const float yLoc) {
 	glColor4f(1.0f, 1.0f, 1.0f, CLAMP(shade, 0.1f, 1.0f));
 	glPushMatrix();
 	glTranslatef(0.0f, yLoc, 0.0f);
@@ -208,9 +198,7 @@ void PerformanceController::SetFPS(const unsigned int fps)
 
 
 static float angle = 0.0f;
-void PerformanceController::Draw()
-{
-
+void PerformanceController::Draw() {
 	float halfScreenWidth = screenWidth * 0.5f;
 	float halfScreenHeight = screenHeight * 0.5f;
 	
@@ -234,7 +222,7 @@ void PerformanceController::Draw()
 	
 	glPushMatrix();
 	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
-#if 0
+#if 1
 	
 	DrawNonLayoutText(0.0f, contentScaleFactor * 940.0f);
 	DrawNonLayoutText(0.1f, contentScaleFactor * 890.0f);

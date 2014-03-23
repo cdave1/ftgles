@@ -18,8 +18,8 @@
  
  */
 
-#ifndef LAYOUT_DEMO_CONTROLLER_H
-#define LAYOUT_DEMO_CONTROLLER_H
+#ifndef LAYOUT_DEMO_H
+#define LAYOUT_DEMO_H
 
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>
@@ -30,12 +30,12 @@
 #include "FTGL/ftgles.h"
 
 
-class LayoutDemoController
+class LayoutDemo
 {		
 public:
-	LayoutDemoController(const char* path, float width, float height, float scale);
+	LayoutDemo(const char* path, float width, float height, float scale);
 	
-	~LayoutDemoController();
+	~LayoutDemo();
 	
 	void SetFPS(const unsigned int fps);
 	

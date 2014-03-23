@@ -25,23 +25,12 @@
 #ifndef UNICODE_DEMO_CONTROLLER_H
 #define UNICODE_DEMO_CONTROLLER_H
 
-#include <OpenGLES/ES1/gl.h>
-#include <OpenGLES/ES1/glext.h>
-
-/*
- * FTGL Includes
- */ 
-#include "FTGL/ftgles.h"
-
-
-
-
-class UnicodeDemoController
+class UnicodeDemo
 {		
 public:
-	UnicodeDemoController(const char* path, float width, float height, float scale);
+	UnicodeDemo(const char* path, float width, float height, float scale);
 	
-	~UnicodeDemoController();
+	~UnicodeDemo();
 	
 	void Draw();
 };

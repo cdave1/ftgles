@@ -22,17 +22,17 @@
  
  */
 
-#include <stdio.h>
-#include <assert.h> 
-#import "GLESView.h"
+#import <UIKit/UIKit.h>
+#import "ViewController.h"
 
-@interface AppController : NSObject
-{
-	UIWindow * window;
-	GLESView * glView;
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
 }
 
+@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) ViewController *viewController;
+
+- (void) Update;
+- (void) ReportFPS:(NSNumber *)frames;
+- (void) Render;
+
 @end
-
-
-

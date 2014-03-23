@@ -21,8 +21,7 @@
 #import "TextureLoader.h"
 #import <UIKit/UIKit.h>
 
-extern void LoadTexture(const char *filename, GLuint *handle)
-{
+extern void LoadTexture(const char *filename, GLuint *handle) {
 	CGImageRef spriteImage;
 	size_t	width, height;
 	CGContextRef spriteContext;
@@ -39,8 +38,7 @@ extern void LoadTexture(const char *filename, GLuint *handle)
 	width = CGImageGetWidth(spriteImage);
 	height = CGImageGetHeight(spriteImage);
 	
-	if(spriteImage) 
-	{
+	if(spriteImage) {
 		spriteData = (GLubyte *)calloc(1, width * height * 4);
 		spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width * 4, 
 											  CGImageGetColorSpace(spriteImage), 

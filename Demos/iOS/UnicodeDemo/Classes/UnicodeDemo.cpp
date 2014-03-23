@@ -26,7 +26,11 @@
  * Unicode fonts
  */
 
-#include "UnicodeDemoController.h"
+#include "UnicodeDemo.h"
+
+#include <OpenGLES/ES1/gl.h>
+#include <OpenGLES/ES1/glext.h>
+#include "FTGL/ftgles.h"
 
 static FTFont *font;
 static FTSimpleLayout layout;
@@ -38,9 +42,10 @@ const wchar_t *mystring = L"OpenGL™ 是行业领域中最为广泛接纳的 2D
 "现实等行业领域中， OpenGL™ 帮助程序员实现在 PC、工作站、超级计算"
 "机等硬件设备上的高性能、极具冲击力的高视觉表现力图形处理软件的开"
 "发。";
+
 static float screenWidth, screenHeight, contentScaleFactor;
 
-UnicodeDemoController::UnicodeDemoController(const char* path, float width, float height, float scale)
+UnicodeDemo::UnicodeDemo(const char* path, float width, float height, float scale)
 {
 	contentScaleFactor = scale;
 	screenWidth = contentScaleFactor * width;
@@ -67,13 +72,13 @@ UnicodeDemoController::UnicodeDemoController(const char* path, float width, floa
 }
 
 
-UnicodeDemoController::~UnicodeDemoController() 
+UnicodeDemo::~UnicodeDemo() 
 {
 	delete font;
 }
 
 
-void UnicodeDemoController::Draw()
+void UnicodeDemo::Draw()
 {
 	glClearColor(0.0f, 0.0f, 0.25f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
