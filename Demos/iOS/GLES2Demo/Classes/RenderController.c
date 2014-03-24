@@ -9,16 +9,13 @@
 
 #include "RenderController.h"
 
-
 static vertex_t vertices[MAX_VERTEX_COUNT];
 static vertex_t vertex;
 static GLenum currentPrimitive = GL_TRIANGLES;
 static int vertexCount = 0;
 
 
-
-void aglBegin(GLenum prim)
-{
+void aglBegin(GLenum prim) {
 	currentPrimitive = prim;
 	vertexCount = 0;
 
@@ -30,8 +27,7 @@ void aglBegin(GLenum prim)
 }
 
 
-void aglVertex3f(float x, float y, float z)
-{
+void aglVertex3f(float x, float y, float z) {
 	if (vertexCount > MAX_VERTEX_COUNT) return;
     vec3Set(vertex.xyz, x, y, z);
 	vertices[vertexCount] = vertex;
@@ -39,22 +35,18 @@ void aglVertex3f(float x, float y, float z)
 }
 
 
-void aglColor4f(float r, float g, float b, float a)
-{
+void aglColor4f(float r, float g, float b, float a) {
     vec4Set(vertex.rgba, r, g, b, a);
 }
 
 
-void aglTexCoord2f(float s, float t)
-{
+void aglTexCoord2f(float s, float t) {
     vec2Set(vertex.st, s, t);
 }
 
 
-void aglEnd()
-{
-	if (vertexCount == 0) 
-	{
+void aglEnd() {
+	if (vertexCount == 0) {
 		currentPrimitive = 0;
 		return;
 	}
@@ -64,39 +56,38 @@ void aglEnd()
 }
 
 
-void aglMatrixTranslation(
-					   float	*mOut,
-					   const float	fX,
-					   const float	fY,
-					   const float	fZ)
-{
-	mOut[__11] = 1;	mOut[__12] = 0;	mOut[__13] = 0;	mOut[__14] = 0;
-	mOut[__21] = 0;	mOut[__22] = 1;	mOut[__23] = 0;	mOut[__24] = 0;
-	mOut[__31] = 0;	mOut[__32] = 0;	mOut[__33] = 1;	mOut[__34] = 0;
-	mOut[__41] = fX;	mOut[__42] = fY;	mOut[__43] = fZ;	mOut[__44] = 1;
+void aglMatrixIdentity(float *mOut) {
+	mOut[ 0] = 1;	mOut[ 4] = 0;	mOut[ 8] = 0;	mOut[12] = 0;
+	mOut[ 1] = 0;	mOut[ 5] = 1;	mOut[ 9] = 0;	mOut[13] = 0;
+	mOut[ 2] = 0;	mOut[ 6] = 0;	mOut[10] = 1;	mOut[14] = 0;
+	mOut[ 3] = 0;	mOut[ 7] = 0;	mOut[11] = 0;	mOut[15] = 1;
 }
 
 
-void aglMatrixRotationZ(float	*mOut,
-					 const float fAngle)
-{
+void aglMatrixTranslation(float *mOut, const float fX, const float fY, const float fZ) {
+	mOut[ 0] = 1;	mOut[ 4] = 0;	mOut[ 8] = 0;	mOut[12] = fX;
+	mOut[ 1] = 0;	mOut[ 5] = 1;	mOut[ 9] = 0;	mOut[13] = fY;
+	mOut[ 2] = 0;	mOut[ 6] = 0;	mOut[10] = 1;	mOut[14] = fZ;
+	mOut[ 3] = 0;	mOut[ 7] = 0;	mOut[11] = 0;	mOut[15] = 1;
+}
+
+
+void aglMatrixRotationZ(float *mOut, const float fAngle) {
 	float fsin = sinf(fAngle);
 	float fcos = cosf(fAngle);
-	
-	mOut[__11] = fcos;	mOut[__12] = fsin;	mOut[__13] = 0;	mOut[__14] = 0;
-	mOut[__21] = -fsin;	mOut[__22] = fcos;	mOut[__23] = 0;	mOut[__24] = 0;
-	mOut[__31] = 0;		mOut[__32] = 0;		mOut[__33] = 1;	mOut[__34] = 0;
-	mOut[__41] = 0;		mOut[__42] = 0;	mOut[__43] = 0;	mOut[__44] = 1;
+    
+    mOut[ 0] = fcos;	mOut[ 4] = fsin;	mOut[ 8] = 0;	mOut[12] = 0;
+	mOut[ 1] = -fsin;	mOut[ 5] = fcos;	mOut[ 9] = 0;	mOut[13] = 0;
+	mOut[ 2] = 0;       mOut[ 6] = 0;       mOut[10] = 1;	mOut[14] = 0;
+	mOut[ 3] = 0;       mOut[ 7] = 0;       mOut[11] = 0;	mOut[15] = 1;
 }
 
 
-void aglMatrixPerspectiveFovRH(
-							float	*mOut,
+void aglMatrixPerspectiveFovRH(float *mOut,
 							const float	fFOVy,
 							const float	fAspect,
 							const float	fNear,
-							const float	fFar)
-{
+							const float	fFar) {
 	float f, n, fRealAspect;
 	
 	fRealAspect = fAspect;
@@ -127,8 +118,7 @@ void aglMatrixPerspectiveFovRH(
 }
 
 
-void aglCross3(vec3_t vOut, const vec3_t a, const vec3_t b)
-{
+void aglCross3(vec3_t vOut, const vec3_t a, const vec3_t b) {
 	vec3Set(vOut,
 			(a[1] * b[2]) - (a[2] * b[1]),
 			(a[2] * b[0]) - (a[0] * b[2]),
@@ -136,8 +126,7 @@ void aglCross3(vec3_t vOut, const vec3_t a, const vec3_t b)
 }
 
 
-void aglNormalize3(vec3_t vOut, const vec3_t vec)
-{
+void aglNormalize3(vec3_t vOut, const vec3_t vec) {
 	float	f;
 	double temp;
 	
@@ -148,8 +137,7 @@ void aglNormalize3(vec3_t vOut, const vec3_t vec)
 }
 
 
-void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const vec3_t vUp)
-{
+void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const vec3_t vUp) {
 	vec3_t f, vUpActual, s, u;
 	float	t[16];
 	
@@ -189,60 +177,25 @@ void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const v
 
 void aglMatrixMultiply(float *mOut,
 					  const float *mA,
-					  const float *mB)
-{
-	mOut[__11] = mA[__11]*mB[__11] + mA[__12]*mB[__21] + mA[__13]*mB[__31] + mA[__14]*mB[__41];	
-	mOut[__12] = mA[__11]*mB[__12] + mA[__12]*mB[__22] + mA[__13]*mB[__32] + mA[__14]*mB[__42];	
-	mOut[__13] = mA[__11]*mB[__13] + mA[__12]*mB[__23] + mA[__13]*mB[__33] + mA[__14]*mB[__43];	
-	mOut[__14] = mA[__11]*mB[__14] + mA[__12]*mB[__24] + mA[__13]*mB[__34] + mA[__14]*mB[__44];
-	
-	mOut[__21] = mA[__21]*mB[__11] + mA[__22]*mB[__21] + mA[__23]*mB[__31] + mA[__24]*mB[__41];	
-	mOut[__22] = mA[__21]*mB[__12] + mA[__22]*mB[__22] + mA[__23]*mB[__32] + mA[__24]*mB[__42];	
-	mOut[__23] = mA[__21]*mB[__13] + mA[__22]*mB[__23] + mA[__23]*mB[__33] + mA[__24]*mB[__43];	
-	mOut[__24] = mA[__21]*mB[__14] + mA[__22]*mB[__24] + mA[__23]*mB[__34] + mA[__24]*mB[__44];
-	
-	mOut[__31] = mA[__31]*mB[__11] + mA[__32]*mB[__21] + mA[__33]*mB[__31] + mA[__34]*mB[__41];	
-	mOut[__32] = mA[__31]*mB[__12] + mA[__32]*mB[__22] + mA[__33]*mB[__32] + mA[__34]*mB[__42];	
-	mOut[__33] = mA[__31]*mB[__13] + mA[__32]*mB[__23] + mA[__33]*mB[__33] + mA[__34]*mB[__43];	
-	mOut[__34] = mA[__31]*mB[__14] + mA[__32]*mB[__24] + mA[__33]*mB[__34] + mA[__34]*mB[__44];
-	
-	mOut[__41] = mA[__41]*mB[__11] + mA[__42]*mB[__21] + mA[__43]*mB[__31] + mA[__44]*mB[__41];
-	mOut[__42] = mA[__41]*mB[__12] + mA[__42]*mB[__22] + mA[__43]*mB[__32] + mA[__44]*mB[__42];
-	mOut[__43] = mA[__41]*mB[__13] + mA[__42]*mB[__23] + mA[__43]*mB[__33] + mA[__44]*mB[__43];
-	mOut[__44] = mA[__41]*mB[__14] + mA[__42]*mB[__24] + mA[__43]*mB[__34] + mA[__44]*mB[__44];
+					  const float *mB) {
+    for(int i = 0; i < 4; i++) {
+        mOut[i*4] =   mA[i*4] * mB[ 0] + mA[i*4+1] * mB[ 4] + mA[i*4+2] * mB[ 8] + mA[i*4+3] * mB[12];
+        mOut[i*4+1] = mA[i*4] * mB[ 1] + mA[i*4+1] * mB[ 5] + mA[i*4+2] * mB[ 9] + mA[i*4+3] * mB[13];
+        mOut[i*4+2] = mA[i*4] * mB[ 2] + mA[i*4+1] * mB[ 6] + mA[i*4+2] * mB[10] + mA[i*4+3] * mB[14];
+        mOut[i*4+3] = mA[i*4] * mB[ 3] + mA[i*4+1] * mB[ 7] + mA[i*4+2] * mB[11] + mA[i*4+3] * mB[15];
+    }
 }
 
 
-void aglOrtho(float *mOut, float left, float right, float bottom, float top, float zNear, float zFar)
-{
-    bzero(mOut, sizeof(float) * 16);
+void aglOrtho(float *mOut, float left, float right, float bottom, float top, float near, float far) {
+    aglMatrixIdentity(mOut);
     
-    if (right != left)
-    {
-        mOut[ 0] = 2 / (right - left);
-        mOut[ 1] = 0;
-        mOut[ 2] = 0;
-        mOut[ 3] = - ((right + left) / (right - left));
-    }
+    float w = (right - left);
+    float h = (top - bottom);
+    float d = (far - near);
     
-    if (top != bottom)
-    {
-        mOut[ 4] = 0;
-        mOut[ 5] = 2 / (top - bottom);
-        mOut[ 6] = 0;
-        mOut[ 7] = - ((top + bottom) / (top - bottom));
-    }
-	
-    if (zFar != zNear)
-    {
-        mOut[ 8] = 0;
-        mOut[ 9] = 0;
-        mOut[10] = -2 / (zFar - zNear);
-        mOut[11] = - ((zFar + zNear) / (zFar - zNear));
-    }
-	
-	mOut[12] = 0;
-	mOut[13] = 0;
-	mOut[14] = 0;
-	mOut[15] = 1;
+    mOut[ 0] = 2.0f / w;    mOut[ 4] = 0;           mOut[ 8] = 0;       mOut[12] = -1;
+	mOut[ 1] = 0;           mOut[ 5] = 2.0f / h;    mOut[ 9] = 0;       mOut[13] = 1;
+	mOut[ 2] = 0;           mOut[ 6] = 0;           mOut[10] = -2.0f/d;  mOut[14] = 0;
+	mOut[ 3] = 0;           mOut[ 7] = 0;           mOut[11] = 0;       mOut[15] = 1;
 }

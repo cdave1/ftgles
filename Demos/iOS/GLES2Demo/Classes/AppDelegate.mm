@@ -1,0 +1,233 @@
+/*
+ 
+ Copyright (c) 2010 David Petrie david@davidpetrie.com
+ 
+ This software is provided 'as-is', without any express or implied warranty.
+ In no event will the authors be held liable for any damages arising from the 
+ use of this software. Permission is granted to anyone to use this software for
+ any purpose, including commercial applications, and to alter it and 
+ redistribute it freely, subject to the following restrictions:
+ 
+ 1. The origin of this software must not be misrepresented; you must not claim 
+ that you wrote the original software. If you use this software in a product, an 
+ acknowledgment in the product documentation would be appreciated but is not 
+ required.
+ 2. Altered source versions must be plainly marked as such, and must not be 
+ misrepresented as being the original software.
+ 3. This notice may not be removed or altered from any source distribution.
+ 
+ */
+
+
+#import "AppDelegate.h"
+#include <stdio.h>
+#include <OpenGLES/ES2/gl.h>
+#include <OpenGLES/ES2/glext.h>
+#include "RenderController.h"
+
+
+@interface AppDelegate ()
+- (void) SetupFonts;
+- (GLuint)compileShader:(NSString *)filePath withType:(GLenum)type;
+- (void) SetupGL;
+@end
+
+
+static GLuint shaderProgram = 0;
+static GLuint cameraUniform;
+
+static float cameraMatrix[16];
+static float screenWidth, screenHeight, scale;
+
+
+@implementation AppDelegate
+
+- (void) SetupFonts {
+	NSString *fontpath = [NSString stringWithFormat:@"%@/Diavlo_BLACK_II_37.otf", 
+						  [[NSBundle mainBundle] resourcePath]];
+	
+	polygonFont = new FTPolygonFont([fontpath UTF8String]);
+    assert (!polygonFont->Error());
+	polygonFont->FaceSize(screenWidth * 0.16f);
+    
+    textureFont = new FTTextureFont([fontpath UTF8String]);
+	assert (!textureFont->Error());
+	textureFont->FaceSize(screenWidth * 0.24f);
+}
+
+
+- (GLuint)compileShader:(NSString *)filePath withType:(GLenum)type {
+    assert(shaderProgram);
+    
+    GLuint shader;
+    GLint status;
+    const GLchar *source;
+	
+    if (!(source = (GLchar *)[[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil] UTF8String])) {
+        NSLog(@"Failed to load vertex shader");
+        return FALSE;
+    }
+    
+    shader = glCreateShader(type);
+    glShaderSource(shader, 1, &source, NULL);
+    glCompileShader(shader);
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
+    if (status == GL_FALSE ) {
+        char *log;
+        GLint length;
+        glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
+        log = (char *)calloc(0, length);
+        glGetShaderInfoLog(shader, length, &status, log);
+        fprintf(stderr, "Shader error: %s %s\n", [filePath cStringUsingEncoding:NSASCIIStringEncoding], log);
+        free(log);
+        glDeleteShader(shader);
+        return 0;
+    }
+
+    glAttachShader(shaderProgram, shader);
+    return shader;
+}
+
+
+- (void)SetupGL {
+    GLint status;
+    
+    shaderProgram = glCreateProgram();
+    
+    NSString *vshPath = [[NSBundle mainBundle] pathForResource:@"vertex" ofType:@"vsh"];
+    NSString *fshPath = [[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"fsh"];
+    
+    GLuint vertexShader = [self compileShader:vshPath withType:GL_VERTEX_SHADER];
+    GLuint fragmentShader = [self compileShader:fshPath withType:GL_FRAGMENT_SHADER];
+    
+    glBindAttribLocation(shaderProgram, RENDER_ATTRIB_VERTEX, "position");
+    glBindAttribLocation(shaderProgram, RENDER_ATTRIB_COLOR, "color");
+    
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
+    
+    glLinkProgram(shaderProgram);
+    
+    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &status);
+    if (status == GL_FALSE) {
+        GLint length;
+        char *log;
+        glGetProgramiv(shaderProgram, GL_INFO_LOG_LENGTH, &length);
+        log = (char *)calloc(0, length);
+        glGetProgramInfoLog(shaderProgram, length, &status, log);
+        fprintf(stderr, "Shader link error: %s\n", log);
+        free(log);
+        glDeleteProgram(shaderProgram);
+        shaderProgram = 0;
+    }
+    
+    cameraUniform = glGetUniformLocation(shaderProgram, "camera");
+    
+    aglOrtho(cameraMatrix, -screenWidth, screenWidth, -screenHeight, screenHeight, -10000.0f, 10000.0f);
+}
+
+
+- (void) Setup {
+	[self SetupFonts];
+    [self SetupGL];
+	glClearColor(0, 0, 0, 1.0f);
+}
+
+
+- (void) Update {
+}
+
+
+void glerr(const char *src) {
+    GLenum error = glGetError();
+	switch (error) {
+		case GL_NO_ERROR:
+			break;
+		case GL_INVALID_ENUM:
+			printf("GL Error (%x): GL_INVALID_ENUM. %s\n", error, src);
+			break;
+		case GL_INVALID_VALUE:
+			printf("GL Error (%x): GL_INVALID_VALUE. %s\n", error, src);
+			break;
+		case GL_INVALID_OPERATION:
+			printf("GL Error (%x): GL_INVALID_OPERATION. %s\n", error, src);
+			break;
+		case GL_OUT_OF_MEMORY:
+			printf("GL Error (%x): GL_OUT_OF_MEMORY. %s\n", error, src);
+			break;
+		default:
+			printf("GL Error (%x): %s\n", error, src);
+			break;
+	}
+}
+
+
+static float pos = 0.0f;
+- (void) Render {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glUseProgram(shaderProgram);
+    
+    float translationMatrix[16];
+    float resultMatrix[16];
+    
+    pos += 0.01f;
+    
+    aglOrtho(cameraMatrix, 0, screenWidth, 0, screenHeight, 0.1f, 1000.0f);
+    aglMatrixIdentity(translationMatrix);
+    aglMatrixTranslation(translationMatrix, 0.0f, -2.0f, 0.0f);
+    //aglMatrixTranslation(translationMatrix, 2.0f, 0.0f, 0.0f);
+    aglMatrixMultiply(resultMatrix, cameraMatrix, translationMatrix);
+    
+    glUniformMatrix4fv(cameraUniform, 1, GL_FALSE, resultMatrix);
+    
+	if (polygonFont)
+		polygonFont->Render("Hello world!");
+
+  
+    //if (textureFont)
+	//	textureFont->Render("Hello world!");
+    
+    //glDisable(GL_TEXTURE_2D);
+    glLineWidth(16.0f);
+    aglBegin(GL_LINE_LOOP);
+    aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    aglVertex3f(0.0f, 0.0f, 0.0f);
+    aglVertex3f(screenWidth, 0.0f, 0.0f);
+    aglVertex3f(screenWidth, screenHeight, 0.0f);
+    aglVertex3f(0.0f, screenHeight, 0.0f);
+    aglEnd();
+}
+
+
+- (void) ReportFPS:(NSNumber *)frames {
+	printf("fps: %d\n", [frames intValue]);
+}
+
+
+- (void) applicationDidFinishLaunching:(UIApplication*)application {
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil] autorelease];
+    } else {
+        self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil] autorelease];
+    }
+    
+    scale = [[UIScreen mainScreen] scale];
+	screenWidth = scale * [[UIScreen mainScreen] bounds].size.width;
+	screenHeight = scale * [[UIScreen mainScreen] bounds].size.height;
+	
+    self.viewController.delegate = self;
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
+}
+
+
+- (void) dealloc {
+	delete textureFont;
+    delete polygonFont;
+	[self.window release];
+	[super dealloc];
+}
+
+@end

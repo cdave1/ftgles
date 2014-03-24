@@ -26,8 +26,7 @@ typedef vec4_t color4_t;
 #define vec3Set(__v, __x, __y, __z) __v[0] = __x; __v[1] = __y; __v[2] = __z;
 #define vec4Set(__v, __x, __y, __z, __u) __v[0] = __x; __v[1] = __y; __v[2] = __z; __v[3] = __u;
 
-typedef struct vertex 
-{
+typedef struct vertex {
 	float xyz[3];
 	float st[2];
 	float rgba[4];
@@ -39,34 +38,22 @@ enum {
     RENDER_NUM_ATTRIBUTES
 };
 
+/* __XY, but we want to store things in column major order for OpenGL
 
-#define __11 0
-#define __21 1
-#define __31 2
-#define __41 3
-#define __12 4
-#define __22 5
-#define __32 6
-#define __42 7
-#define __13 8
-#define __23 9
-#define __33 10
-#define __43 11
-#define __14 12
-#define __24 13
-#define __34 14
-#define __44 15
+ m[0]  m[4]  m[ 8]  m[12]
+ m[1]  m[5]  m[ 9]  m[13]
+ m[2]  m[6]  m[10]  m[14]
+ m[3]  m[7]  m[11]  m[15]
+ 
+*/
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-
 void aglCross3(vec3_t vOut, const vec3_t a, const vec3_t b);
 
-
 void aglNormalize3(vec3_t vOut, const vec3_t vec);
-
 
 void aglMatrixMultiply(float *mOut,
 					   const float *mA,
@@ -84,6 +71,8 @@ void aglTexCoord2f(float s, float t);
 void aglEnd();
 
 void aglError(const char *source);
+    
+    void aglMatrixIdentity(float *mOut);
 
 void aglMatrixTranslation(
 					   float	*mOut,
@@ -103,16 +92,10 @@ void aglMatrixPerspectiveFovRH(
 
 void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const vec3_t vUp);
 
-
-
 void aglOrtho(float *mOut, float left, float right, float bottom, float top, float zNear, float zFar);
-
-
 
 #ifdef __cplusplus
 }
 #endif
 
-
-
-#endif // GLES2_RENDER_CONTROLLER_H
+#endif

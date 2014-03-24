@@ -224,7 +224,7 @@ GLvoid ftglEnd()
 	
 	if (!colorArrayEnabled)
 		glEnableClientState(GL_COLOR_ARRAY);
-	*/
+     */
     
     int currentProgram;
     
@@ -291,7 +291,6 @@ GLvoid ftglEnd()
 	if (!colorArrayEnabled)
 		glDisableClientState(GL_COLOR_ARRAY);
      */
-    ftglError("z");
 }
 
 

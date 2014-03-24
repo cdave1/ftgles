@@ -310,7 +310,7 @@ inline FTPoint FTBufferFontImpl::RenderI(const T* string, const int len,
     FTPoint up = position + bbox.Upper();
 
     ftglBegin(GL_QUADS);
-        glNormal3f(0.0f, 0.0f, 1.0f);
+        //glNormal3f(0.0f, 0.0f, 1.0f);
         ftglTexCoord2f(padding / texWidth,
                      (texHeight - height + padding) / texHeight);
         ftglVertex2f(low.Xf(), up.Yf());

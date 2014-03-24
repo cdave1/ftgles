@@ -8,52 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
 		2D500B9A0D5A79CF00DBA0E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
-		63741F6311E5D24A00DFBB47 /* GLES1Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5B11E5D24A00DFBB47 /* GLES1Surface.mm */; };
-		63741F6411E5D24A00DFBB47 /* GLES2Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5D11E5D24A00DFBB47 /* GLES2Surface.mm */; };
-		63741F6511E5D24A00DFBB47 /* GLESSurface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F5F11E5D24A00DFBB47 /* GLESSurface.mm */; };
+		630C7FB2135185000051FC15 /* ftgles.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 630C7FB1135185000051FC15 /* ftgles.xcconfig */; };
 		63741F6611E5D24A00DFBB47 /* TextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63741F6111E5D24A00DFBB47 /* TextureLoader.mm */; };
 		63AD97DD0FAA2A9F00A79D15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */; };
-		63AF0FA20F5F2FA300BF520B /* LayoutDemoController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63AF0F9C0F5F2FA300BF520B /* LayoutDemoController.cpp */; };
 		63B7C93E10A218E500E709A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B7C93D10A218E500E709A5 /* main.m */; };
 		63B7CA9610A23BB800E709A5 /* Gartentika.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63B7CA9310A23BB800E709A5 /* Gartentika.ttf */; };
 		63B7CA9710A23BB800E709A5 /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63B7CA9410A23BB800E709A5 /* Diavlo_BLACK_II_37.otf */; };
 		63B7CA9810A23BB800E709A5 /* brown_bear_funk.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63B7CA9510A23BB800E709A5 /* brown_bear_funk.ttf */; };
-		63D4046C11EA5D400051D8F3 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D4046911EA5CE70051D8F3 /* libFTGLES.a */; };
 		63D405A011EA65F60051D8F3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059B11EA65F60051D8F3 /* Default.png */; };
 		63D405A111EA65F60051D8F3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059C11EA65F60051D8F3 /* Icon.png */; };
 		63D405A211EA65F60051D8F3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059D11EA65F60051D8F3 /* Icon@2x.png */; };
 		63D405A311EA65F60051D8F3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059E11EA65F60051D8F3 /* Icon-72.png */; };
-		63D405A411EA65F60051D8F3 /* mousePoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059F11EA65F60051D8F3 /* mousePoint.png */; };
-		63D4070611EB1B5B0051D8F3 /* GLESView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63D4070511EB1B5B0051D8F3 /* GLESView.mm */; };
-		7914067C0DBAD8D100C9A379 /* Delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7914067B0DBAD8D100C9A379 /* Delegate.mm */; };
+		7914067C0DBAD8D100C9A379 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7914067B0DBAD8D100C9A379 /* AppDelegate.mm */; };
+		E420B17718CD840D00AA93F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E420B17618CD840D00AA93F4 /* UIKit.framework */; };
+		E420B17918CD841F00AA93F4 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E420B17818CD841F00AA93F4 /* OpenGLES.framework */; };
+		E420B17A18CD843900AA93F4 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E420B17218CD83C000AA93F4 /* libFTGLES.a */; };
 		E4451145112E95AC00AF94E6 /* BorisBlackBloxx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E445113F112E95AC00AF94E6 /* BorisBlackBloxx.ttf */; };
 		E4451146112E95AC00AF94E6 /* Cardo98s.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4451140112E95AC00AF94E6 /* Cardo98s.ttf */; };
 		E4451147112E95AC00AF94E6 /* Charybdis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4451141112E95AC00AF94E6 /* Charybdis.ttf */; };
 		E4451148112E95AC00AF94E6 /* RosewoodStd-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E4451142112E95AC00AF94E6 /* RosewoodStd-Regular.otf */; };
 		E4451149112E95AC00AF94E6 /* TOONISH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4451143112E95AC00AF94E6 /* TOONISH.ttf */; };
+		E4D61C0618DE9C1000B121ED /* LayoutDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D61C0418DE9C1000B121ED /* LayoutDemo.cpp */; };
+		E4D61C0918DE9C3000B121ED /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D61C0818DE9C3000B121ED /* ViewController.mm */; };
+		E4D61C0B18DE9D7100B121ED /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D61C0A18DE9D7100B121ED /* GLKit.framework */; };
+		E4D61C0E18DE9DA100B121ED /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D61C0C18DE9DA100B121ED /* ViewController_iPad.xib */; };
+		E4D61C0F18DE9DA100B121ED /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D61C0D18DE9DA100B121ED /* ViewController_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		631ABB5E12FBB65C00243329 /* PBXContainerItemProxy */ = {
+		E420B17118CD83C000AA93F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 631AB71412FA906200243329;
-			remoteInfo = FTGLES2;
-		};
-		63D4046811EA5CE70051D8F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
+			containerPortal = E420B16D18CD83C000AA93F4 /* ftgles.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 63A6FE900FB1F7AF00C38E72;
 			remoteInfo = FTGLES;
 		};
-		63D40E7A11EE67CA0051D8F3 /* PBXContainerItemProxy */ = {
+		E420B17B18CD843E00AA93F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
+			containerPortal = E420B16D18CD83C000AA93F4 /* ftgles.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 63A6FD500FB1F7AF00C38E72;
 			remoteInfo = FTGLES;
@@ -63,20 +56,12 @@
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* LayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		63741F5A11E5D24A00DFBB47 /* GLES1Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Surface.h; sourceTree = "<group>"; };
-		63741F5B11E5D24A00DFBB47 /* GLES1Surface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLES1Surface.mm; sourceTree = "<group>"; };
-		63741F5C11E5D24A00DFBB47 /* GLES2Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES2Surface.h; sourceTree = "<group>"; };
-		63741F5D11E5D24A00DFBB47 /* GLES2Surface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLES2Surface.mm; sourceTree = "<group>"; };
-		63741F5E11E5D24A00DFBB47 /* GLESSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESSurface.h; sourceTree = "<group>"; };
-		63741F5F11E5D24A00DFBB47 /* GLESSurface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESSurface.mm; sourceTree = "<group>"; };
+		630C7FB1135185000051FC15 /* ftgles.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ftgles.xcconfig; sourceTree = "<group>"; };
+		630C7FB9135187C20051FC15 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		63741F6011E5D24A00DFBB47 /* TextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureLoader.h; sourceTree = "<group>"; };
 		63741F6111E5D24A00DFBB47 /* TextureLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextureLoader.mm; sourceTree = "<group>"; };
 		63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		63AF0F9C0F5F2FA300BF520B /* LayoutDemoController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LayoutDemoController.cpp; path = Classes/LayoutDemoController.cpp; sourceTree = "<group>"; };
-		63AF0F9D0F5F2FA300BF520B /* LayoutDemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayoutDemoController.h; path = Classes/LayoutDemoController.h; sourceTree = "<group>"; };
 		63B7C93D10A218E500E709A5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
 		63B7CA9310A23BB800E709A5 /* Gartentika.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Gartentika.ttf; path = Fonts/Gartentika.ttf; sourceTree = "<group>"; };
 		63B7CA9410A23BB800E709A5 /* Diavlo_BLACK_II_37.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Diavlo_BLACK_II_37.otf; path = Fonts/Diavlo_BLACK_II_37.otf; sourceTree = "<group>"; };
@@ -85,18 +70,26 @@
 		63D4059C11EA65F60051D8F3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Common/Resources/Icon.png; sourceTree = SOURCE_ROOT; };
 		63D4059D11EA65F60051D8F3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Common/Resources/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		63D4059E11EA65F60051D8F3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Common/Resources/Icon-72.png"; sourceTree = SOURCE_ROOT; };
-		63D4059F11EA65F60051D8F3 /* mousePoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mousePoint.png; path = ../Common/Resources/mousePoint.png; sourceTree = SOURCE_ROOT; };
-		63D4070411EB1B5B0051D8F3 /* GLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESView.h; sourceTree = "<group>"; };
-		63D4070511EB1B5B0051D8F3 /* GLESView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESView.mm; sourceTree = "<group>"; };
-		7914067A0DBAD8D100C9A379 /* Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Delegate.h; path = Classes/Delegate.h; sourceTree = "<group>"; };
-		7914067B0DBAD8D100C9A379 /* Delegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Delegate.mm; path = Classes/Delegate.mm; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ftgles.xcodeproj; path = ../../../Xcode/ftgles/ftgles.xcodeproj; sourceTree = SOURCE_ROOT; };
+		7914067A0DBAD8D100C9A379 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
+		7914067B0DBAD8D100C9A379 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Classes/AppDelegate.mm; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* ftgles-info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ftgles-info.plist"; sourceTree = "<group>"; };
+		E420B16D18CD83C000AA93F4 /* ftgles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ftgles.xcodeproj; path = ../../../Xcode/ftgles.xcodeproj; sourceTree = "<group>"; };
+		E420B17618CD840D00AA93F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E420B17818CD841F00AA93F4 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E445113F112E95AC00AF94E6 /* BorisBlackBloxx.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BorisBlackBloxx.ttf; path = Fonts/BorisBlackBloxx.ttf; sourceTree = "<group>"; };
 		E4451140112E95AC00AF94E6 /* Cardo98s.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Cardo98s.ttf; path = Fonts/Cardo98s.ttf; sourceTree = "<group>"; };
 		E4451141112E95AC00AF94E6 /* Charybdis.ttf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Charybdis.ttf; path = Fonts/Charybdis.ttf; sourceTree = "<group>"; };
 		E4451142112E95AC00AF94E6 /* RosewoodStd-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RosewoodStd-Regular.otf"; path = "Fonts/RosewoodStd-Regular.otf"; sourceTree = "<group>"; };
 		E4451143112E95AC00AF94E6 /* TOONISH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = TOONISH.ttf; path = Fonts/TOONISH.ttf; sourceTree = "<group>"; };
+		E4D61C0418DE9C1000B121ED /* LayoutDemo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LayoutDemo.cpp; path = Classes/LayoutDemo.cpp; sourceTree = "<group>"; };
+		E4D61C0518DE9C1000B121ED /* LayoutDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayoutDemo.h; path = Classes/LayoutDemo.h; sourceTree = "<group>"; };
+		E4D61C0718DE9C3000B121ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E4D61C0818DE9C3000B121ED /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		E4D61C0A18DE9D7100B121ED /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		E4D61C0C18DE9DA100B121ED /* ViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController_iPad.xib; path = ../PerformanceTest/ViewController_iPad.xib; sourceTree = "<group>"; };
+		E4D61C0D18DE9DA100B121ED /* ViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController_iPhone.xib; path = ../PerformanceTest/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		E4D61C1018DEAA6100B121ED /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		E4D61C1218DEAA7600B121ED /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +97,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D4046C11EA5D400051D8F3 /* libFTGLES.a in Frameworks */,
+				E420B17A18CD843900AA93F4 /* libFTGLES.a in Frameworks */,
+				E420B17918CD841F00AA93F4 /* OpenGLES.framework in Frameworks */,
+				E420B17718CD840D00AA93F4 /* UIKit.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
-				2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */,
+				E4D61C0B18DE9D7100B121ED /* GLKit.framework in Frameworks */,
 				2D500B9A0D5A79CF00DBA0E3 /* QuartzCore.framework in Frameworks */,
 				63AD97DD0FAA2A9F00A79D15 /* CoreGraphics.framework in Frameworks */,
 			);
@@ -127,11 +121,12 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				E420B16D18CD83C000AA93F4 /* ftgles.xcodeproj */,
 				63AF0F950F5F2F6800BF520B /* Application */,
-				63AF0C630F5F2E7E00BF520B /* Libraries */,
 				63B7CA9C10A23C1700E709A5 /* Fonts */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
-				8D1107310486CEB800E47090 /* Info.plist */,
+				630C7FB9135187C20051FC15 /* Prefix.pch */,
+				8D1107310486CEB800E47090 /* ftgles-info.plist */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -141,11 +136,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4D61C0C18DE9DA100B121ED /* ViewController_iPad.xib */,
+				E4D61C0D18DE9DA100B121ED /* ViewController_iPhone.xib */,
 				63D4059B11EA65F60051D8F3 /* Default.png */,
 				63D4059C11EA65F60051D8F3 /* Icon.png */,
 				63D4059D11EA65F60051D8F3 /* Icon@2x.png */,
 				63D4059E11EA65F60051D8F3 /* Icon-72.png */,
-				63D4059F11EA65F60051D8F3 /* mousePoint.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -153,10 +149,13 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4D61C1218DEAA7600B121ED /* libc++.dylib */,
+				E4D61C1018DEAA6100B121ED /* libstdc++.dylib */,
+				E4D61C0A18DE9D7100B121ED /* GLKit.framework */,
+				E420B17818CD841F00AA93F4 /* OpenGLES.framework */,
+				E420B17618CD840D00AA93F4 /* UIKit.framework */,
 				63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */,
 				2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */,
-				2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */,
-				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -165,38 +164,25 @@
 		63741F5711E5D24A00DFBB47 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				63D4070411EB1B5B0051D8F3 /* GLESView.h */,
-				63D4070511EB1B5B0051D8F3 /* GLESView.mm */,
-				63741F5A11E5D24A00DFBB47 /* GLES1Surface.h */,
-				63741F5B11E5D24A00DFBB47 /* GLES1Surface.mm */,
-				63741F5C11E5D24A00DFBB47 /* GLES2Surface.h */,
-				63741F5D11E5D24A00DFBB47 /* GLES2Surface.mm */,
-				63741F5E11E5D24A00DFBB47 /* GLESSurface.h */,
-				63741F5F11E5D24A00DFBB47 /* GLESSurface.mm */,
+				630C7FB1135185000051FC15 /* ftgles.xcconfig */,
 				63741F6011E5D24A00DFBB47 /* TextureLoader.h */,
 				63741F6111E5D24A00DFBB47 /* TextureLoader.mm */,
+				E4D61C0718DE9C3000B121ED /* ViewController.h */,
+				E4D61C0818DE9C3000B121ED /* ViewController.mm */,
 			);
 			name = Common;
 			path = ../Common;
 			sourceTree = SOURCE_ROOT;
-		};
-		63AF0C630F5F2E7E00BF520B /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */,
-			);
-			name = Libraries;
-			sourceTree = "<group>";
 		};
 		63AF0F950F5F2F6800BF520B /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				63741F5711E5D24A00DFBB47 /* Common */,
 				63B7C93D10A218E500E709A5 /* main.m */,
-				63AF0F9D0F5F2FA300BF520B /* LayoutDemoController.h */,
-				63AF0F9C0F5F2FA300BF520B /* LayoutDemoController.cpp */,
-				7914067A0DBAD8D100C9A379 /* Delegate.h */,
-				7914067B0DBAD8D100C9A379 /* Delegate.mm */,
+				E4D61C0418DE9C1000B121ED /* LayoutDemo.cpp */,
+				E4D61C0518DE9C1000B121ED /* LayoutDemo.h */,
+				7914067A0DBAD8D100C9A379 /* AppDelegate.h */,
+				7914067B0DBAD8D100C9A379 /* AppDelegate.mm */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -216,11 +202,10 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		63D4046511EA5CE70051D8F3 /* Products */ = {
+		E420B16E18CD83C000AA93F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63D4046911EA5CE70051D8F3 /* libFTGLES.a */,
-				631ABB5F12FBB65C00243329 /* libFTGLES2.a */,
+				E420B17218CD83C000AA93F4 /* libFTGLES.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,7 +224,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				63D40E7B11EE67CA0051D8F3 /* PBXTargetDependency */,
+				E420B17C18CD843E00AA93F4 /* PBXTargetDependency */,
 			);
 			name = LayoutDemo;
 			productName = foo;
@@ -251,6 +236,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "LayoutDemo" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -265,8 +252,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 63D4046511EA5CE70051D8F3 /* Products */;
-					ProjectRef = E431F7E0112E8EED00E393A2 /* ftgles.xcodeproj */;
+					ProductGroup = E420B16E18CD83C000AA93F4 /* Products */;
+					ProjectRef = E420B16D18CD83C000AA93F4 /* ftgles.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -277,18 +264,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		631ABB5F12FBB65C00243329 /* libFTGLES2.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libFTGLES2.a;
-			remoteRef = 631ABB5E12FBB65C00243329 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		63D4046911EA5CE70051D8F3 /* libFTGLES.a */ = {
+		E420B17218CD83C000AA93F4 /* libFTGLES.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libFTGLES.a;
-			remoteRef = 63D4046811EA5CE70051D8F3 /* PBXContainerItemProxy */;
+			remoteRef = E420B17118CD83C000AA93F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -308,9 +288,11 @@
 				E4451149112E95AC00AF94E6 /* TOONISH.ttf in Resources */,
 				63D405A011EA65F60051D8F3 /* Default.png in Resources */,
 				63D405A111EA65F60051D8F3 /* Icon.png in Resources */,
+				E4D61C0E18DE9DA100B121ED /* ViewController_iPad.xib in Resources */,
 				63D405A211EA65F60051D8F3 /* Icon@2x.png in Resources */,
 				63D405A311EA65F60051D8F3 /* Icon-72.png in Resources */,
-				63D405A411EA65F60051D8F3 /* mousePoint.png in Resources */,
+				630C7FB2135185000051FC15 /* ftgles.xcconfig in Resources */,
+				E4D61C0F18DE9DA100B121ED /* ViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,24 +303,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7914067C0DBAD8D100C9A379 /* Delegate.mm in Sources */,
-				63AF0FA20F5F2FA300BF520B /* LayoutDemoController.cpp in Sources */,
+				7914067C0DBAD8D100C9A379 /* AppDelegate.mm in Sources */,
+				E4D61C0618DE9C1000B121ED /* LayoutDemo.cpp in Sources */,
+				E4D61C0918DE9C3000B121ED /* ViewController.mm in Sources */,
 				63B7C93E10A218E500E709A5 /* main.m in Sources */,
-				63741F6311E5D24A00DFBB47 /* GLES1Surface.mm in Sources */,
-				63741F6411E5D24A00DFBB47 /* GLES2Surface.mm in Sources */,
-				63741F6511E5D24A00DFBB47 /* GLESSurface.mm in Sources */,
 				63741F6611E5D24A00DFBB47 /* TextureLoader.mm in Sources */,
-				63D4070611EB1B5B0051D8F3 /* GLESView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		63D40E7B11EE67CA0051D8F3 /* PBXTargetDependency */ = {
+		E420B17C18CD843E00AA93F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FTGLES;
-			targetProxy = 63D40E7A11EE67CA0051D8F3 /* PBXContainerItemProxy */;
+			targetProxy = E420B17B18CD843E00AA93F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -346,112 +325,50 @@
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"FT_OPTION_AUTOFIT2=1",
-					"FT2_BUILD_LIBRARY=1",
-					"TARGET_OS_IPHONE=1",
-					"DEBUG=1",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_THUMB_SUPPORT = YES;
-				GCC_VERSION = 4.2;
-				GENERATE_MASTER_OBJECT_FILE = NO;
-				HEADER_SEARCH_PATHS = (
-					"../../../freetype-2.3.9/include/**",
-					../../../ftgles/src,
-				);
-				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
-				KEEP_PRIVATE_EXTERNS = NO;
-				LIBRARY_SEARCH_PATHS = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PREBINDING = YES;
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				PRODUCT_NAME = LayoutDemo;
-				PROVISIONING_PROFILE = "";
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "";
-				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				DEAD_CODE_STRIPPING = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_OS_IPHONE=1";
-				GCC_THUMB_SUPPORT = YES;
-				HEADER_SEARCH_PATHS = (
-					"../../../freetype-2.3.9/include/**",
-					../../../ftgles/src,
-				);
-				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
-				LIBRARY_SEARCH_PATHS = "";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "";
-				PREBINDING = NO;
-				PRODUCT_NAME = LayoutDemo;
-				PROVISIONING_PROFILE = "";
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "";
-				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 630C7FB1135185000051FC15 /* ftgles.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COMPRESS_PNG_FILES = NO;
-				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 2.0;
-				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Prefix.pch;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "ftgles-info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = LayoutDemo;
 				SDKROOT = iphoneos;
-				STRIP_INSTALLED_PRODUCT = NO;
-				USER_HEADER_SEARCH_PATHS = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 630C7FB1135185000051FC15 /* ftgles.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				HEADER_SEARCH_PATHS = "";
-				PROVISIONING_PROFILE = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Prefix.pch;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "ftgles-info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = LayoutDemo;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

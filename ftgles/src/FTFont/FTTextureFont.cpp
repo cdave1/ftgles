@@ -177,7 +177,7 @@ void FTTextureFontImpl::CalculateTextureSize()
    //     glGetIntegerv(GL_MAX_TEXTURE_SIZE, (GLint*)&maximumGLTextureSize);
     //    assert(maximumGLTextureSize); // If you hit this then you have an invalid OpenGL context.
    // }
-	maximumGLTextureSize = 512;
+	maximumGLTextureSize = 1024;
     textureWidth = NextPowerOf2((remGlyphs * glyphWidth) + (padding * 2));
     textureWidth = textureWidth > maximumGLTextureSize ? maximumGLTextureSize : textureWidth;
 
