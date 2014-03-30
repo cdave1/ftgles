@@ -144,7 +144,7 @@ void FTPolygonGlyphImpl::DoRender(const FTPoint& pen)
         ftglBindTexture(0);
 		
         ftglBegin(polygonType);
-		ftglColor4f(1.0f, 1.0f, 1.0f, 1.0f);  //colors[0], colors[1], colors[2], colors[3]);
+		//ftglColor4f(1.0f, 1.0f, 1.0f, 1.0f);  //colors[0], colors[1], colors[2], colors[3]);
 		for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
 		{
 			FTPoint point = subMesh->Point(i);

@@ -13,8 +13,11 @@ varying vec2 texture_coordinate;
 
 uniform mat4 camera;
 
+varying lowp vec4 colorVarying;
+
 void main()
 {
 	gl_Position = (camera * position);
     texture_coordinate = texCoord;
+    colorVarying = color;
 }

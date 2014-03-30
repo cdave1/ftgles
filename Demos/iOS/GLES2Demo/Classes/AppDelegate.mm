@@ -25,6 +25,8 @@
 #include <OpenGLES/ES2/glext.h>
 #include "RenderController.h"
 
+#include <FTGL/ftglesGlue.h>
+
 
 @interface AppDelegate ()
 - (void) SetupFonts;
@@ -48,11 +50,11 @@ static float screenWidth, screenHeight, scale;
 	
 	polygonFont = new FTPolygonFont([fontpath UTF8String]);
     assert (!polygonFont->Error());
-	polygonFont->FaceSize(screenWidth * 0.16f);
+	polygonFont->FaceSize(screenWidth * 0.2f);
     
     textureFont = new FTTextureFont([fontpath UTF8String]);
 	assert (!textureFont->Error());
-	textureFont->FaceSize(screenWidth * 0.24f);
+	textureFont->FaceSize(screenWidth * 0.2f);
 }
 
 
@@ -162,32 +164,71 @@ void glerr(const char *src) {
 }
 
 
-static float pos = 0.0f;
+static float mover = 0.0f;
 - (void) Render {
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(shaderProgram);
     
+    float orthoMatrix[16];
     float translationMatrix[16];
     float resultMatrix[16];
+    float perspectiveMatrix[16];
     
-    pos += 0.01f;
+    mover += 0.01f;
     
-    aglOrtho(cameraMatrix, 0, screenWidth, 0, screenHeight, 0.1f, 1000.0f);
+    //aglOrtho(cameraMatrix, 0, screenWidth, 0, screenHeight, 0.1f, 1000.0f);
+    //aglMatrixIdentity(translationMatrix);
+    //aglMatrixTranslation(translationMatrix, sinf(pos)-1.2f, -2.0f, 0.0f);
+    //aglMatrixMultiply(resultMatrix, cameraMatrix, translationMatrix);
+    
+    vec3_t pos, at, up;
+    
+    vec3Set(pos, 500, 400, -500.0f);
+    vec3Set(at,  500.0f + 100.0f * sinf(mover), 400, -1000.0f);
+    vec3Set(up,  0.0f, 1.0f, 0.0f);
+    
+    aglMatrixLookAtRH(cameraMatrix, pos, at, up);
+    aglMatrixPerspectiveFovRH(perspectiveMatrix, 90.0f, screenWidth/screenHeight, 0.01f, 1000.0f);
+    aglMatrixMultiply(cameraMatrix, cameraMatrix, perspectiveMatrix);
     aglMatrixIdentity(translationMatrix);
-    aglMatrixTranslation(translationMatrix, 0.0f, -2.0f, 0.0f);
-    //aglMatrixTranslation(translationMatrix, 2.0f, 0.0f, 0.0f);
     aglMatrixMultiply(resultMatrix, cameraMatrix, translationMatrix);
     
     glUniformMatrix4fv(cameraUniform, 1, GL_FALSE, resultMatrix);
     
+    ftglColor4f(0.5f, 0.5f, 0.5f, 1.0f);
 	if (polygonFont)
-		polygonFont->Render("Hello world!");
+		polygonFont->Render("Polygon Font");
 
-  
-    //if (textureFont)
-	//	textureFont->Render("Hello world!");
+    glLineWidth(16.0f);
+    aglBegin(GL_LINE_LOOP);
+    aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    aglVertex3f(0.0f, 0.0f, 0.0f);
+    aglVertex3f(screenWidth, 0.0f, 0.0f);
+    aglVertex3f(screenWidth, screenHeight, 0.0f);
+    aglVertex3f(0.0f, screenHeight, 0.0f);
+    aglEnd();
+
+    aglMatrixIdentity(cameraMatrix);
+    aglMatrixIdentity(resultMatrix);
+    aglMatrixIdentity(translationMatrix);
+    aglMatrixLookAtRH(cameraMatrix, pos, at, up);
+    aglMatrixMultiply(cameraMatrix, cameraMatrix, perspectiveMatrix);
+    aglMatrixTranslation(translationMatrix, 0.1f * sinf(mover), 0.25f, 0.0f);
+    aglMatrixMultiply(resultMatrix, cameraMatrix, translationMatrix);
     
-    //glDisable(GL_TEXTURE_2D);
+    glUniformMatrix4fv(cameraUniform, 1, GL_FALSE, resultMatrix);
+    ftglColor4f(0.5f, 0.5f, 0.5f, 1.0f);
+    if (textureFont)
+		textureFont->Render("Texture Font");
+    
+    
+    aglOrtho(cameraMatrix, 0, screenWidth, 0, screenHeight, 0.1f, 1000.0f);
+    aglMatrixIdentity(translationMatrix);
+    aglMatrixTranslation(translationMatrix, 0.0f, -2.0f, 0.0f);
+    aglMatrixMultiply(resultMatrix, cameraMatrix, translationMatrix);
+    
+    glUniformMatrix4fv(cameraUniform, 1, GL_FALSE, resultMatrix);
+    
     glLineWidth(16.0f);
     aglBegin(GL_LINE_LOOP);
     aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);

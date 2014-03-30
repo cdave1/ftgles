@@ -29,8 +29,8 @@
 
 
 enum {
-    ATTRIB_VERTEX,
-    ATTRIB_COLOR,
+    FTGLES_ATTRIB_VERTEX,
+    FTGLES_ATTRIB_COLOR,
     NUM_ATTRIBUTES
 };
 
@@ -78,8 +78,8 @@ GLvoid ftglBegin(GLenum prim)
     
 	ftglesGlueArrays.currIndex = 0;
 	ftglesCurrentPrimitive = prim;
-	glEnableVertexAttribArray(ATTRIB_VERTEX);
-	glEnableVertexAttribArray(ATTRIB_COLOR);
+	glEnableVertexAttribArray(FTGLES_ATTRIB_VERTEX);
+	glEnableVertexAttribArray(FTGLES_ATTRIB_COLOR);
 }
 
 
@@ -243,13 +243,13 @@ GLvoid ftglEnd()
 		return;
 	}
     
-    glVertexAttribPointer(ATTRIB_VERTEX, 3, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].xyz);
-    glVertexAttribPointer(ATTRIB_COLOR, 4, GL_UNSIGNED_BYTE, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].rgba);
+    glVertexAttribPointer(FTGLES_ATTRIB_VERTEX, 3, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].xyz);
+    glVertexAttribPointer(FTGLES_ATTRIB_COLOR, 4, GL_UNSIGNED_BYTE, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].rgba);
 	
     glVertexAttribPointer(texCoordLocation, 2, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].st); 
     glEnableVertexAttribArray(texCoordLocation);
     
-	if (ftglesCurrentPrimitive == GL_QUADS) 
+	if (ftglesCurrentPrimitive == GL_QUADS)
 	{
 		glDrawElements(GL_TRIANGLES, ftglesGlueArrays.currIndex / 4 * 6, GL_UNSIGNED_SHORT, ftglesGlueArrays.quadIndices);
 	} 

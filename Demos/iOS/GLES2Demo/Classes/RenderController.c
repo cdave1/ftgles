@@ -56,6 +56,11 @@ void aglEnd() {
 }
 
 
+float aglDot(const vec3_t a, const vec3_t b) {
+    return a[0]*b[0] + a[1]*b[1] + a[2]*b[2];
+}
+
+
 void aglMatrixIdentity(float *mOut) {
 	mOut[ 0] = 1;	mOut[ 4] = 0;	mOut[ 8] = 0;	mOut[12] = 0;
 	mOut[ 1] = 0;	mOut[ 5] = 1;	mOut[ 9] = 0;	mOut[13] = 0;
@@ -84,37 +89,22 @@ void aglMatrixRotationZ(float *mOut, const float fAngle) {
 
 
 void aglMatrixPerspectiveFovRH(float *mOut,
-							const float	fFOVy,
-							const float	fAspect,
-							const float	fNear,
-							const float	fFar) {
-	float f, n, fRealAspect;
+							const float	fov_y,
+							const float	aspect,
+							const float	near,
+							const float	far) {
+	float f, n, realAspect;
 	
-	fRealAspect = fAspect;
+	realAspect = aspect;
 	
 	// cotangent(a) == 1.0f / tan(a);
-	f = 1.0f / (float)tan(fFOVy * 0.5f);
-	n = 1.0f / (fNear - fFar);
-	
-	mOut[ 0] = f / fRealAspect;
-	mOut[ 1] = 0;
-	mOut[ 2] = 0;
-	mOut[ 3] = 0;
-	
-	mOut[ 4] = 0;
-	mOut[ 5] = f;
-	mOut[ 6] = 0;
-	mOut[ 7] = 0;
-	
-	mOut[ 8] = 0;
-	mOut[ 9] = 0;
-	mOut[10] = (fFar + fNear) * n;
-	mOut[11] = -1;
-	
-	mOut[12] = 0;
-	mOut[13] = 0;
-	mOut[14] = (2 * fFar * fNear) * n;
-	mOut[15] = 0;
+	f = 1.0f / (float)tan(fov_y * 0.5f);
+	n = 1.0f / (near - far);
+    
+    mOut[ 0] = f / realAspect; mOut[ 4] = 0;   mOut[ 8] = 0;                 mOut[12] = 0;
+	mOut[ 1] = 0;              mOut[ 5] = f;   mOut[ 9] = 0;                 mOut[13] = 0;
+	mOut[ 2] = 0;              mOut[ 6] = 0;   mOut[10] = (far + near) * n;  mOut[14] = (2 * far * near) * n;
+	mOut[ 3] = 0;              mOut[ 7] = 0;   mOut[11] = -1;                mOut[15] = 0;
 }
 
 
@@ -137,41 +127,24 @@ void aglNormalize3(vec3_t vOut, const vec3_t vec) {
 }
 
 
-void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const vec3_t vUp) {
+void aglMatrixLookAtRH(float *mOut, const vec3_t pos, const vec3_t target, const vec3_t up) {
 	vec3_t f, vUpActual, s, u;
-	float	t[16];
-	
-	f[0] = vAt[0] - vEye[0];
-	f[1] = vAt[1] - vEye[1];
-	f[2] = vAt[2] - vEye[2];
-	
-	aglNormalize3(f, f);
-	aglNormalize3(vUpActual, vUp);
-	aglCross3(s, f, vUpActual);
-	aglCross3(u, s, f);
-	
-	mOut[ 0] = s[0];
-	mOut[ 1] = u[0];
-	mOut[ 2] = -f[0];
-	mOut[ 3] = 0;
-	
-	mOut[ 4] = s[1];
-	mOut[ 5] = u[1];
-	mOut[ 6] = -f[1];
-	mOut[ 7] = 0;
-	
-	mOut[ 8] = s[2];
-	mOut[ 9] = u[2];
-	mOut[10] = -f[2];
-	mOut[11] = 0;
-	
-	mOut[12] = 0;
-	mOut[13] = 0;
-	mOut[14] = 0;
-	mOut[15] = 1;
-	
-	aglMatrixTranslation(t, -vEye[0], -vEye[1], -vEye[2]);
-	aglMatrixMultiply(mOut, t, mOut);
+    float t[16];
+    vec3_t x_axis, y_axis, z_axis;
+    
+    f[0] = pos[0] - target[0];
+	f[1] = pos[1] - target[1];
+	f[2] = pos[2] - target[2];
+    
+    aglNormalize3(z_axis, f);
+    aglCross3(x_axis, up, z_axis);
+    aglNormalize3(x_axis, x_axis);
+    aglCross3(y_axis, z_axis, x_axis);
+    
+    mOut[ 0] = x_axis[0];   mOut[ 4] = x_axis[1];   mOut[ 8] = x_axis[2];   mOut[12] = -aglDot(x_axis, pos);
+	mOut[ 1] = y_axis[0];   mOut[ 5] = y_axis[1];   mOut[ 9] = y_axis[2];   mOut[13] = -aglDot(y_axis, pos);
+	mOut[ 2] = z_axis[0];   mOut[ 6] = z_axis[1];   mOut[10] = z_axis[2];   mOut[14] = -aglDot(z_axis, pos);
+	mOut[ 3] = 0;           mOut[ 7] = 0;           mOut[11] = 0;           mOut[15] = 1;
 }
 
 
@@ -196,6 +169,6 @@ void aglOrtho(float *mOut, float left, float right, float bottom, float top, flo
     
     mOut[ 0] = 2.0f / w;    mOut[ 4] = 0;           mOut[ 8] = 0;       mOut[12] = -1;
 	mOut[ 1] = 0;           mOut[ 5] = 2.0f / h;    mOut[ 9] = 0;       mOut[13] = 1;
-	mOut[ 2] = 0;           mOut[ 6] = 0;           mOut[10] = -2.0f/d;  mOut[14] = 0;
+	mOut[ 2] = 0;           mOut[ 6] = 0;           mOut[10] = -2.0f/d; mOut[14] = 0;
 	mOut[ 3] = 0;           mOut[ 7] = 0;           mOut[11] = 0;       mOut[15] = 1;
 }

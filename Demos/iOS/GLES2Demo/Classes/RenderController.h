@@ -38,7 +38,7 @@ enum {
     RENDER_NUM_ATTRIBUTES
 };
 
-/* __XY, but we want to store things in column major order for OpenGL
+/* We want to store things in column major order for OpenGL
 
  m[0]  m[4]  m[ 8]  m[12]
  m[1]  m[5]  m[ 9]  m[13]
