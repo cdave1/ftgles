@@ -29,6 +29,7 @@
 		E4D61C2818DEAE5500B121ED /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D61C2718DEAE5500B121ED /* libc++.dylib */; };
 		E4D61C2D18DEAEAE00B121ED /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D61C2B18DEAEAE00B121ED /* ViewController_iPad.xib */; };
 		E4D61C2E18DEAEAE00B121ED /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D61C2C18DEAEAE00B121ED /* ViewController_iPhone.xib */; };
+		E4DE90D6198367090035B3D1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE90D5198367090035B3D1 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		E4D61C2718DEAE5500B121ED /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		E4D61C2B18DEAEAE00B121ED /* ViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController_iPad.xib; path = ../PerformanceTest/ViewController_iPad.xib; sourceTree = "<group>"; };
 		E4D61C2C18DEAEAE00B121ED /* ViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController_iPhone.xib; path = ../PerformanceTest/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		E4DE90D5198367090035B3D1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				E4DE90D5198367090035B3D1 /* Default-568h@2x.png */,
 				E4D61C1918DEADD700B121ED /* ftgles.xcodeproj */,
 				63AF0F950F5F2F6800BF520B /* Application */,
 				63B7CA9C10A23C1700E709A5 /* Fonts */,
@@ -264,6 +267,7 @@
 				E44141641164662E00C502EB /* ipam.ttf in Resources */,
 				E44141661164663A00C502EB /* zh_tw.ttf in Resources */,
 				E4D61C2E18DEAEAE00B121ED /* ViewController_iPhone.xib in Resources */,
+				E4DE90D6198367090035B3D1 /* Default-568h@2x.png in Resources */,
 				E44141681164664500C502EB /* zh_cn.ttf in Resources */,
 				63D405F911EA66710051D8F3 /* Default.png in Resources */,
 				E4D61C2D18DEAEAE00B121ED /* ViewController_iPad.xib in Resources */,
