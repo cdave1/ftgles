@@ -24,7 +24,9 @@
 		E44691A219835F1900166021 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E44691A119835F1900166021 /* ViewController.mm */; };
 		E44691A51983622700166021 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E446919B19835EA600166021 /* libFTGLES.a */; };
 		E44691A71983624500166021 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44691A61983624500166021 /* GLKit.framework */; };
-		E4E7CFE811646AAC008FAD8A /* BorisBlackBloxx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4E7CFE711646AAC008FAD8A /* BorisBlackBloxx.ttf */; };
+		E44691A91983639600166021 /* BorisBlackBloxx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E44691A81983639600166021 /* BorisBlackBloxx.ttf */; };
+		E44691AC198363DA00166021 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44691AA198363DA00166021 /* ViewController_iPad.xib */; };
+		E44691AD198363DA00166021 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44691AB198363DA00166021 /* ViewController_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +71,9 @@
 		E44691A019835F1900166021 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E44691A119835F1900166021 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		E44691A61983624500166021 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		E4E7CFE711646AAC008FAD8A /* BorisBlackBloxx.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BorisBlackBloxx.ttf; path = Fonts/BorisBlackBloxx.ttf; sourceTree = "<group>"; };
+		E44691A81983639600166021 /* BorisBlackBloxx.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BorisBlackBloxx.ttf; path = Fonts/BorisBlackBloxx.ttf; sourceTree = "<group>"; };
+		E44691AA198363DA00166021 /* ViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController_iPad.xib; path = ../PerformanceTest/ViewController_iPad.xib; sourceTree = "<group>"; };
+		E44691AB198363DA00166021 /* ViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController_iPhone.xib; path = ../PerformanceTest/ViewController_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E44691AA198363DA00166021 /* ViewController_iPad.xib */,
+				E44691AB198363DA00166021 /* ViewController_iPhone.xib */,
 				63D4080A11EB224E0051D8F3 /* Icon-72.png */,
 				63D405C611EA662D0051D8F3 /* Default.png */,
 				63D405C711EA662D0051D8F3 /* Icon.png */,
@@ -166,7 +172,7 @@
 		63B7CA9C10A23C1700E709A5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E4E7CFE711646AAC008FAD8A /* BorisBlackBloxx.ttf */,
+				E44691A81983639600166021 /* BorisBlackBloxx.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -248,11 +254,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4E7CFE811646AAC008FAD8A /* BorisBlackBloxx.ttf in Resources */,
 				63D405CB11EA662D0051D8F3 /* Default.png in Resources */,
 				63D405CC11EA662D0051D8F3 /* Icon.png in Resources */,
 				63D405CD11EA662D0051D8F3 /* Icon@2x.png in Resources */,
+				E44691AD198363DA00166021 /* ViewController_iPhone.xib in Resources */,
+				E44691AC198363DA00166021 /* ViewController_iPad.xib in Resources */,
 				63D4080B11EB224E0051D8F3 /* Icon-72.png in Resources */,
+				E44691A91983639600166021 /* BorisBlackBloxx.ttf in Resources */,
 				E446919319835E5200166021 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

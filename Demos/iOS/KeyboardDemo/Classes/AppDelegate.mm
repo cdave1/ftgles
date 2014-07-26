@@ -43,13 +43,11 @@ static CFTimeInterval	LastFPSUpdate;
         self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil] autorelease];
     }
 	
-	NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Diavlo_BLACK_II_37.otf"];
-    
     float scale = [[UIScreen mainScreen] scale];
     float width = [[UIScreen mainScreen] bounds].size.width;
     float height = [[UIScreen mainScreen] bounds].size.height;
     
-    keyboardDemoController.SetupFonts([path UTF8String]);
+    keyboardDemoController.SetupFonts([[[NSBundle mainBundle] resourcePath] UTF8String]);
     keyboardDemoController.SetScreenDimensions(width, height, scale);
     
     self.viewController.delegate = self;
