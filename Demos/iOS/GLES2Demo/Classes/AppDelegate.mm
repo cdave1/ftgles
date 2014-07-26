@@ -15,7 +15,8 @@
 
 
 static GLuint shaderProgram = 0;
-static GLuint cameraUniform;
+static int cameraUniform = 0;
+static int colorUniform = 0;
 
 static float cameraMatrix[16];
 static float screenWidth, screenHeight, scale;
@@ -53,14 +54,19 @@ static float screenWidth, screenHeight, scale;
     glShaderSource(shader, 1, &source, NULL);
     glCompileShader(shader);
     glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
-    if (status == GL_FALSE ) {
-        char *log;
-        GLint length;
-        glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
-        log = (char *)calloc(0, length);
+
+    char *log;
+    GLint length;
+    glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
+
+    if (length > 0) {
+        log = (char *)calloc(1, length);
         glGetShaderInfoLog(shader, length, &status, log);
         fprintf(stderr, "Shader error: %s %s\n", [filePath cStringUsingEncoding:NSASCIIStringEncoding], log);
         free(log);
+    }
+
+    if (status == GL_FALSE ) {
         glDeleteShader(shader);
         return 0;
     }
@@ -81,28 +87,31 @@ static float screenWidth, screenHeight, scale;
     GLuint vertexShader = [self compileShader:vshPath withType:GL_VERTEX_SHADER];
     GLuint fragmentShader = [self compileShader:fshPath withType:GL_FRAGMENT_SHADER];
     
-    glBindAttribLocation(shaderProgram, RENDER_ATTRIB_VERTEX, "position");
-    glBindAttribLocation(shaderProgram, RENDER_ATTRIB_COLOR, "color");
-    
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
     
     glLinkProgram(shaderProgram);
     
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &status);
-    if (status == GL_FALSE) {
-        GLint length;
-        char *log;
-        glGetProgramiv(shaderProgram, GL_INFO_LOG_LENGTH, &length);
-        log = (char *)calloc(0, length);
+
+    GLint length;
+    char *log;
+    glGetProgramiv(shaderProgram, GL_INFO_LOG_LENGTH, &length);
+
+    if (length > 0) {
+        log = (char *)calloc(1, length);
         glGetProgramInfoLog(shaderProgram, length, &status, log);
         fprintf(stderr, "Shader link error: %s\n", log);
         free(log);
+    }
+
+    if (status == GL_FALSE) {
         glDeleteProgram(shaderProgram);
         shaderProgram = 0;
     }
     
     cameraUniform = glGetUniformLocation(shaderProgram, "camera");
+    colorUniform = glGetUniformLocation(shaderProgram, "color");
     
     aglOrtho(cameraMatrix, -screenWidth, screenWidth, -screenHeight, screenHeight, -10000.0f, 10000.0f);
 }
@@ -111,7 +120,6 @@ static float screenWidth, screenHeight, scale;
 - (void) Setup {
 	[self SetupFonts];
     [self SetupGL];
-	glClearColor(0, 0, 0, 1.0f);
 }
 
 
@@ -145,36 +153,32 @@ void glerr(const char *src) {
 
 static float mover = 0.0f;
 - (void) Render {
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glUseProgram(shaderProgram);
-    
+
     float orthoMatrix[16];
     float translationMatrix[16];
     float resultMatrix[16];
     float perspectiveMatrix[16];
-    
+
     mover += 0.01f;
-    
-    //aglOrtho(cameraMatrix, 0, screenWidth, 0, screenHeight, 0.1f, 1000.0f);
-    //aglMatrixIdentity(translationMatrix);
-    //aglMatrixTranslation(translationMatrix, sinf(pos)-1.2f, -2.0f, 0.0f);
-    //aglMatrixMultiply(resultMatrix, cameraMatrix, translationMatrix);
     
     vec3_t pos, at, up;
     
     vec3Set(pos, 500, 400, -500.0f);
     vec3Set(at,  500.0f + 100.0f * sinf(mover), 400, -1000.0f);
     vec3Set(up,  0.0f, 1.0f, 0.0f);
-    
+
     aglMatrixLookAtRH(cameraMatrix, pos, at, up);
     aglMatrixPerspectiveFovRH(perspectiveMatrix, 90.0f, screenWidth/screenHeight, 0.01f, 1000.0f);
     aglMatrixMultiply(cameraMatrix, cameraMatrix, perspectiveMatrix);
     aglMatrixIdentity(translationMatrix);
     aglMatrixMultiply(resultMatrix, cameraMatrix, translationMatrix);
-    
+
     glUniformMatrix4fv(cameraUniform, 1, GL_FALSE, resultMatrix);
-    
-    ftglColor4f(0.5f, 0.5f, 0.5f, 1.0f);
+    glUniform4f(colorUniform, 0.3f, 0.7f, 1.0f, 1.0f);
+
 	if (polygonFont)
 		polygonFont->Render("Polygon Font");
 
@@ -194,12 +198,14 @@ static float mover = 0.0f;
     aglMatrixMultiply(cameraMatrix, cameraMatrix, perspectiveMatrix);
     aglMatrixTranslation(translationMatrix, 0.1f * sinf(mover), 0.25f, 0.0f);
     aglMatrixMultiply(resultMatrix, cameraMatrix, translationMatrix);
-    
+
+    int textureLocation = glGetUniformLocation(shaderProgram, "texture0");
+    glUniform1i(textureLocation, 0);
+
     glUniformMatrix4fv(cameraUniform, 1, GL_FALSE, resultMatrix);
-    ftglColor4f(0.5f, 0.5f, 0.5f, 1.0f);
+    glUniform4f(colorUniform, 1.0f, 0.0f, 1.0f, 1.0f);
     if (textureFont)
 		textureFont->Render("Texture Font");
-    
     
     aglOrtho(cameraMatrix, 0, screenWidth, 0, screenHeight, 0.1f, 1000.0f);
     aglMatrixIdentity(translationMatrix);
@@ -207,7 +213,6 @@ static float mover = 0.0f;
     aglMatrixMultiply(resultMatrix, cameraMatrix, translationMatrix);
     
     glUniformMatrix4fv(cameraUniform, 1, GL_FALSE, resultMatrix);
-    
     glLineWidth(16.0f);
     aglBegin(GL_LINE_LOOP);
     aglColor4f(1.0f, 1.0f, 1.0f, 1.0f);

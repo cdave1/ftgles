@@ -118,21 +118,23 @@ const FTPoint& FTTextureGlyphImpl::RenderImpl(const FTPoint& pen,
     dx = floor(pen.Xf() + corner.Xf());
     dy = floor(pen.Yf() + corner.Yf());
 	
-    ///ftglColor4f(1, 1, 1, 1);
+   // ftglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	ftglTexCoord2f(uv[0].Xf(), uv[0].Yf());
 	ftglVertex2f(dx, dy);
 
-   // ftglColor4f(1, 1, 1, 1);
+  //  ftglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	ftglTexCoord2f(uv[0].Xf(), uv[1].Yf());
 	ftglVertex2f(dx, dy - destHeight);
 
-   // ftglColor4f(1, 1, 1, 1);
+  //  ftglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	ftglTexCoord2f(uv[1].Xf(), uv[1].Yf());
 	ftglVertex2f(dx + destWidth, dy - destHeight);
 
-       // ftglColor4f(1, 1, 1, 1);
+  //  ftglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	ftglTexCoord2f(uv[1].Xf(), uv[0].Yf());
 	ftglVertex2f(dx + destWidth, dy);
+
+    fprintf(stderr, "%3.3f %3.3f, %3.3f %3.3f\n", uv[0].Xf(), uv[0].Yf(), uv[1].Xf(), uv[1].Yf());
 	
     return advance;
 }

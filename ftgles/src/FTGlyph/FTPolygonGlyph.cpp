@@ -130,40 +130,24 @@ const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
 
 void FTPolygonGlyphImpl::DoRender(const FTPoint& pen)
 {
-#if 1
-    GLfloat colors[4];
-	
     const FTMesh *mesh = vectoriser->GetMesh();
 
-    for(unsigned int t = 0; t < mesh->TesselationCount(); ++t)
+    for (unsigned int t = 0; t < mesh->TesselationCount(); ++t)
     {
         const FTTesselation* subMesh = mesh->Tesselation(t);
         unsigned int polygonType = subMesh->PolygonType();
 		
-		//glGetFloatv(GL_CURRENT_COLOR, colors);
         ftglBindTexture(0);
 		
         ftglBegin(polygonType);
-		//ftglColor4f(1.0f, 1.0f, 1.0f, 1.0f);  //colors[0], colors[1], colors[2], colors[3]);
 		for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
 		{
 			FTPoint point = subMesh->Point(i);
+            ftglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			ftglTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
 			ftglVertex3f(pen.Xf() + point.Xf() / 64.0f, pen.Yf() + point.Yf() / 64.0f, 0.0f);
 		}
         ftglEnd();
     }
-#else
-    ftglBegin(GL_TRIANGLE_STRIP);
-	ftglVertex3f(-50.0f, -50.0f, 0.0f);
-	ftglColor4f(1.0f, 1.0f, 0.0f, 1.0f);
-	ftglVertex3f(50.0f, -50.0f, 0.0f);
-	ftglColor4f(1.0f, 0.0f, 1.0f, 1.0f);
-	ftglVertex3f(-50.0f, 50.0f, 0.0f);
-	ftglColor4f(0.0f, 1.0f, 1.0f, 1.0f);
-	ftglVertex3f(50.0f, 50.0f, 0.0f);
-	ftglColor4f(1.0f, 1.0f, 0.0f, 1.0f);
-	ftglEnd();
-#endif
 }
 

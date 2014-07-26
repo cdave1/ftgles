@@ -30,6 +30,7 @@
 
 enum {
     FTGLES_ATTRIB_VERTEX,
+    FTGLES_ATTRIB_TEXCOORD,
     FTGLES_ATTRIB_COLOR,
     NUM_ATTRIBUTES
 };
@@ -37,9 +38,9 @@ enum {
 
 typedef struct 
 {
-	float xyz[3];
-	float st[2];
-	GLubyte rgba[4];
+	float position[4];
+	float texCoord[2];
+	GLubyte color[4];
 } ftglesVertex_t;
 
 
@@ -78,8 +79,6 @@ GLvoid ftglBegin(GLenum prim)
     
 	ftglesGlueArrays.currIndex = 0;
 	ftglesCurrentPrimitive = prim;
-	glEnableVertexAttribArray(FTGLES_ATTRIB_VERTEX);
-	glEnableVertexAttribArray(FTGLES_ATTRIB_COLOR);
 }
 
 
@@ -96,9 +95,10 @@ GLvoid ftglVertex3f(float x, float y, float z)
 		return;
 	}
 	
-	ftglesGlueArrays.currVertex.xyz[0] = x;
-	ftglesGlueArrays.currVertex.xyz[1] = y;
-	ftglesGlueArrays.currVertex.xyz[2] = z;
+	ftglesGlueArrays.currVertex.position[0] = x;
+	ftglesGlueArrays.currVertex.position[1] = y;
+	ftglesGlueArrays.currVertex.position[2] = z;
+	ftglesGlueArrays.currVertex.position[3] = 1.0f;
 	ftglesGlueArrays.vertices[ftglesGlueArrays.currIndex] = ftglesGlueArrays.currVertex;
 	ftglesGlueArrays.currIndex++;
 }
@@ -111,9 +111,10 @@ GLvoid ftglVertex2f(float x, float y)
 		return;
 	}
 	
-	ftglesGlueArrays.currVertex.xyz[0] = x;
-	ftglesGlueArrays.currVertex.xyz[1] = y;
-	ftglesGlueArrays.currVertex.xyz[2] = 0.0f;
+	ftglesGlueArrays.currVertex.position[0] = x;
+	ftglesGlueArrays.currVertex.position[1] = y;
+	ftglesGlueArrays.currVertex.position[2] = 0.0f;
+	ftglesGlueArrays.currVertex.position[3] = 1.0f;
 	ftglesGlueArrays.vertices[ftglesGlueArrays.currIndex] = ftglesGlueArrays.currVertex;
 	ftglesGlueArrays.currIndex++;
 }
@@ -121,26 +122,26 @@ GLvoid ftglVertex2f(float x, float y)
 
 GLvoid ftglColor4ub(GLubyte r, GLubyte g, GLubyte b, GLubyte a) 
 {
-	ftglesGlueArrays.currVertex.rgba[0] = r;
-	ftglesGlueArrays.currVertex.rgba[1] = g;
-	ftglesGlueArrays.currVertex.rgba[2] = b;
-	ftglesGlueArrays.currVertex.rgba[3] = a;
+	ftglesGlueArrays.currVertex.color[0] = r;
+	ftglesGlueArrays.currVertex.color[1] = g;
+	ftglesGlueArrays.currVertex.color[2] = b;
+	ftglesGlueArrays.currVertex.color[3] = a;
 }
 
 
 GLvoid ftglColor4f(GLfloat r, GLfloat g, GLfloat b, GLfloat a) 
 {
-	ftglesGlueArrays.currVertex.rgba[0] = (GLubyte) (r * 255);
-	ftglesGlueArrays.currVertex.rgba[1] = (GLubyte) (g * 255);
-	ftglesGlueArrays.currVertex.rgba[2] = (GLubyte) (b * 255);
-	ftglesGlueArrays.currVertex.rgba[3] = (GLubyte) (a * 255);
+	ftglesGlueArrays.currVertex.color[0] = (GLubyte) (r * 255);
+	ftglesGlueArrays.currVertex.color[1] = (GLubyte) (g * 255);
+	ftglesGlueArrays.currVertex.color[2] = (GLubyte) (b * 255);
+	ftglesGlueArrays.currVertex.color[3] = (GLubyte) (a * 255);
 }
 
 
 GLvoid ftglTexCoord2f(GLfloat s, GLfloat t) 
 {
-	ftglesGlueArrays.currVertex.st[0] = s;
-	ftglesGlueArrays.currVertex.st[1] = t;
+	ftglesGlueArrays.currVertex.texCoord[0] = s;
+	ftglesGlueArrays.currVertex.texCoord[1] = t;
 }
 
 
@@ -152,145 +153,75 @@ GLvoid bindArrayBuffers()
 
 GLvoid ftglBindTexture(unsigned int textureId)
 {
+    ftglError("QQQ");
     GLint activeTextureID;
-    glGetIntegerv(GL_TEXTURE_BINDING_2D, &activeTextureID);
-    if((unsigned int)activeTextureID != textureId)
+    //glGetIntegerv(GL_TEXTURE_BINDING_2D, &activeTextureID);
+    //if((unsigned int)activeTextureID != textureId)
     {
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, textureId);
+
+
+        ftglError("AAA");
     }
 }
 
 
 GLvoid ftglEnd() 
 {
-    /*
-	GLboolean vertexArrayEnabled;
-	GLboolean texCoordArrayEnabled;
-	GLboolean colorArrayEnabled;
-	
-	GLvoid * vertexArrayPointer;
-	GLvoid * texCoordArrayPointer;
-	GLvoid * colorArrayPointer;
-	
-	GLint vertexArrayType, texCoordArrayType, colorArrayType;
-	GLint vertexArraySize, texCoordArraySize, colorArraySize;
-	GLsizei vertexArrayStride, texCoordArrayStride, colorArrayStride;
-	
-	bool resetPointers = false;
-	
-	glGetPointerv(GL_VERTEX_ARRAY_POINTER, &vertexArrayPointer);
-	glGetPointerv(GL_TEXTURE_COORD_ARRAY_POINTER, &texCoordArrayPointer);
-	glGetPointerv(GL_COLOR_ARRAY_POINTER, &colorArrayPointer);
-
-	glGetBooleanv(GL_VERTEX_ARRAY, &vertexArrayEnabled);
-	glGetBooleanv(GL_TEXTURE_COORD_ARRAY, &texCoordArrayEnabled);
-	glGetBooleanv(GL_COLOR_ARRAY, &colorArrayEnabled);
-
-	if (!vertexArrayEnabled)
-	{
-		glEnableClientState(GL_VERTEX_ARRAY);
-	}
-	
-	if (vertexArrayPointer != &ftglesGlueArrays.vertices[0].xyz)
-	{
-		glGetIntegerv(GL_VERTEX_ARRAY_TYPE, &vertexArrayType);
-		glGetIntegerv(GL_VERTEX_ARRAY_SIZE, &vertexArraySize);
-		glGetIntegerv(GL_VERTEX_ARRAY_STRIDE, &vertexArrayStride);
-		if (texCoordArrayEnabled)
-		{
-			glGetIntegerv(GL_TEXTURE_COORD_ARRAY_TYPE, &texCoordArrayType);
-			glGetIntegerv(GL_TEXTURE_COORD_ARRAY_SIZE, &texCoordArraySize);
-			glGetIntegerv(GL_TEXTURE_COORD_ARRAY_STRIDE, &texCoordArrayStride);
-		}	
-		if (colorArrayEnabled)
-		{
-			glGetIntegerv(GL_COLOR_ARRAY_TYPE, &colorArrayType);
-			glGetIntegerv(GL_COLOR_ARRAY_SIZE, &colorArraySize);
-			glGetIntegerv(GL_COLOR_ARRAY_STRIDE, &colorArrayStride);
-		}
-        
-
-        
-		//glVertexPointer(3, GL_FLOAT, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].xyz);
-		//glTexCoordPointer(2, GL_FLOAT, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].st);
-		//glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].rgba);
-		
-		resetPointers = true;
-	}
-	
-	if (!texCoordArrayEnabled)
-		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	
-	if (!colorArrayEnabled)
-		glEnableClientState(GL_COLOR_ARRAY);
-     */
-    
+    ftglError("A");
     int currentProgram;
-    
+
+    ftglError("B");
     glGetIntegerv(GL_CURRENT_PROGRAM, &currentProgram);
     
     if (currentProgram == 0)
     {
         return;
     }
+    ftglError("C");
     
-    GLint texCoordLocation = glGetAttribLocation(currentProgram, "texCoord");
-    
+    GLint positionLocation = glGetAttribLocation(currentProgram, "vertexPosition");
+    GLint texCoordLocation = glGetAttribLocation(currentProgram, "vertexTexCoord");
+    GLint colorLocation = glGetAttribLocation(currentProgram, "vertexColor");
+
+    ftglError("D");
 	if (ftglesGlueArrays.currIndex == 0) 
 	{
 		ftglesCurrentPrimitive = 0;
 		return;
 	}
-    
-    glVertexAttribPointer(FTGLES_ATTRIB_VERTEX, 3, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].xyz);
-    glVertexAttribPointer(FTGLES_ATTRIB_COLOR, 4, GL_UNSIGNED_BYTE, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].rgba);
-	
-    glVertexAttribPointer(texCoordLocation, 2, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].st); 
+
+    ftglError("E");
+    glEnableVertexAttribArray(positionLocation);
     glEnableVertexAttribArray(texCoordLocation);
-    
+    glEnableVertexAttribArray(colorLocation);
+
+    ftglError("F");
+    glVertexAttribPointer(positionLocation, 4, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].position);
+    glVertexAttribPointer(texCoordLocation, 2, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].texCoord);
+    glVertexAttribPointer(colorLocation, 4, GL_UNSIGNED_BYTE, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].color);
+
+    ftglError("G");
 	if (ftglesCurrentPrimitive == GL_QUADS)
 	{
 		glDrawElements(GL_TRIANGLES, ftglesGlueArrays.currIndex / 4 * 6, GL_UNSIGNED_SHORT, ftglesGlueArrays.quadIndices);
+        ftglError("H");
 	} 
 	else 
 	{
 		glDrawArrays(ftglesCurrentPrimitive, 0, ftglesGlueArrays.currIndex);
 	}
+
+    ftglError("I");
+    glDisableVertexAttribArray(positionLocation);
+    glDisableVertexAttribArray(texCoordLocation);
+    glDisableVertexAttribArray(colorLocation);
+
 	ftglesGlueArrays.currIndex = 0;
 	ftglesCurrentPrimitive = 0;
-    
-    
-	
-    /*
-	if (resetPointers)
-	{
-		if (vertexArrayEnabled)
-		{
-			glVertexPointer(vertexArraySize, vertexArrayType, 
-							vertexArrayStride, vertexArrayPointer);	
-		}
-		if (texCoordArrayEnabled)
-		{
-			glTexCoordPointer(texCoordArraySize, texCoordArrayType, 
-							  texCoordArrayStride, texCoordArrayPointer);
-		}
-		if (colorArrayEnabled)
-		{
-			glColorPointer(colorArraySize, colorArrayType, 
-						   colorArrayStride, colorArrayPointer);
-		}
-	}
-	
-	if (!vertexArrayEnabled)
-		glDisableClientState(GL_VERTEX_ARRAY);
-	
-	if (!texCoordArrayEnabled)
-		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-	
-	if (!colorArrayEnabled)
-		glDisableClientState(GL_COLOR_ARRAY);
-     */
+
+    ftglError("J");
 }
 
 

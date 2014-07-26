@@ -37,7 +37,7 @@ static BOOL clientInitted = NO;
     
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
-    view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    //view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     [view  setMultipleTouchEnabled:YES];
     
     self.preferredFramesPerSecond = 60;
@@ -68,7 +68,6 @@ static BOOL clientInitted = NO;
     
     glEnable(GL_LINE_SMOOTH);
 	glLineWidth(1.0f);
-    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     
     if (self.delegate) {
         [self.delegate performSelector:@selector(Setup)];
