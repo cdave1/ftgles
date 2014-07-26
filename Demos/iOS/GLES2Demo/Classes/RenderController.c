@@ -1,12 +1,3 @@
-/*
- *  RenderController.c
- *  OpenGLTest3
- *
- *  Created by David Petrie on 18/05/10.
- *  Copyright 2010 n/a. All rights reserved.
- *
- */
-
 #include "RenderController.h"
 
 static vertex_t vertices[MAX_VERTEX_COUNT];

@@ -24,8 +24,7 @@ objs/
 *.la
 *.a
 
-# Xcode
-build/*
+build/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -34,10 +33,13 @@ build/*
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-project.xcworkspace
 xcuserdata
-profile
+*.xccheckout
 *.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
 
 # Freetype 2
 freetype2/

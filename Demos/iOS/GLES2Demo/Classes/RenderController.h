@@ -1,12 +1,3 @@
-/*
- *  RenderController.h
- *  OpenGLTest3
- *
- *  Created by David Petrie on 18/05/10.
- *  Copyright 2010 n/a. All rights reserved.
- *
- */
-
 #ifndef GLES2_RENDER_CONTROLLER_H
 #define GLES2_RENDER_CONTROLLER_H
 
@@ -72,7 +63,7 @@ void aglEnd();
 
 void aglError(const char *source);
     
-    void aglMatrixIdentity(float *mOut);
+void aglMatrixIdentity(float *mOut);
 
 void aglMatrixTranslation(
 					   float	*mOut,

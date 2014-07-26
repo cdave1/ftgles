@@ -21,6 +21,7 @@
 		63D405A211EA65F60051D8F3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059D11EA65F60051D8F3 /* Icon@2x.png */; };
 		63D405A311EA65F60051D8F3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D4059E11EA65F60051D8F3 /* Icon-72.png */; };
 		7914067C0DBAD8D100C9A379 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7914067B0DBAD8D100C9A379 /* AppDelegate.mm */; };
+		E48D9DE21905E521001776B1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48D9DE11905E520001776B1 /* Default-568h@2x.png */; };
 		E4D61C3E18DF626700B121ED /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D61C3C18DF626700B121ED /* ViewController.mm */; };
 		E4D61C4018DF627D00B121ED /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = E4D61C3F18DF627D00B121ED /* Diavlo_BLACK_II_37.otf */; };
 		E4D61C4318DF628900B121ED /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D61C4118DF628900B121ED /* ViewController_iPad.xib */; };
@@ -56,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = .app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -73,6 +74,7 @@
 		7914067A0DBAD8D100C9A379 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		7914067B0DBAD8D100C9A379 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Classes/AppDelegate.mm; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E48D9DE11905E520001776B1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E4D61C3A18DF626700B121ED /* ftgles.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ftgles.xcconfig; sourceTree = "<group>"; };
 		E4D61C3B18DF626700B121ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E4D61C3C18DF626700B121ED /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
@@ -106,7 +108,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* HelloWorld.app */,
+				1D6058910D05DD3D006BFB54 /* .app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +116,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				E48D9DE11905E520001776B1 /* Default-568h@2x.png */,
 				63AF0F950F5F2F6800BF520B /* Application */,
 				631AB80412FAA6B200243329 /* Shaders */,
 				63AF0C630F5F2E7E00BF520B /* Libraries */,
@@ -229,7 +232,7 @@
 			);
 			name = GLES2Demo;
 			productName = foo;
-			productReference = 1D6058910D05DD3D006BFB54 /* HelloWorld.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* .app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -290,6 +293,7 @@
 				631AB81A12FAAD5800243329 /* fragment.fsh in Resources */,
 				631AB81B12FAAD5800243329 /* vertex.vsh in Resources */,
 				E4D61C4018DF627D00B121ED /* Diavlo_BLACK_II_37.otf in Resources */,
+				E48D9DE21905E521001776B1 /* Default-568h@2x.png in Resources */,
 				63D405A011EA65F60051D8F3 /* Default.png in Resources */,
 				63D405A111EA65F60051D8F3 /* Icon.png in Resources */,
 				E4D61C4318DF628900B121ED /* ViewController_iPad.xib in Resources */,
@@ -326,11 +330,10 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4D61C3A18DF626700B121ED /* ftgles.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -347,71 +350,60 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THUMB_SUPPORT = YES;
 				GENERATE_MASTER_OBJECT_FILE = NO;
-				HEADER_SEARCH_PATHS = (
-					"../../../freetype-2.3.9/include/**",
-					../../../ftgles/src,
-				);
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				KEEP_PRIVATE_EXTERNS = NO;
-				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PREBINDING = YES;
-				PRODUCT_NAME = HelloWorld;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
-				USER_HEADER_SEARCH_PATHS = "";
 				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4D61C3A18DF626700B121ED /* ftgles.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_OPTIMIZATION_LEVEL = 2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_OS_IPHONE=1";
 				GCC_THUMB_SUPPORT = YES;
-				HEADER_SEARCH_PATHS = (
-					"../../../freetype-2.3.9/include/**",
-					../../../ftgles/src,
-				);
 				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_CFLAGS = "";
 				PREBINDING = NO;
-				PRODUCT_NAME = HelloWorld;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
-				USER_HEADER_SEARCH_PATHS = "";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4D61C3A18DF626700B121ED /* ftgles.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COMPRESS_PNG_FILES = NO;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS)";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = GLES2Demo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4D61C3A18DF626700B121ED /* ftgles.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS)";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = GLES2Demo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,17 +1,8 @@
-//
-//  Shader.fsh
-//  OpenGLTest3
-//
-//  Created by David Petrie on 18/05/10.
-//  Copyright n/a 2010. All rights reserved.
-//
-
-varying lowp vec4 colorVarying;
-precision mediump float;
-//attribute vec4 color;
+precision highp float;
+varying vec4 colorVarying;
 varying vec2 texture_coordinate;
-uniform sampler2D color_sampler;
 
+uniform sampler2D color_sampler;
 
 void main() {
     vec4 color = texture2D(color_sampler, texture_coordinate);

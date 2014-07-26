@@ -4,6 +4,6 @@
 @interface ViewController : GLKViewController {
 }
 
-@property id delegate;
+@property (assign) id delegate;
 
 @end
