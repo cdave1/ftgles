@@ -1,6 +1,6 @@
 # FTGLES 0.3
 
-FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of [FTGL](http://homepages.paradise.net.nz/henryj/code/#FTGL).  It currently targets the iPhone and iPad, with plans to port to Android in the very near future.  iOS 4.2 is currently supported.
+FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of [FTGL](http://homepages.paradise.net.nz/henryj/code/#FTGL).  It currently targets the iPhone and iPad, with plans to port to Android in the very near future.  iOS 7.0 is currently supported.
 
 From the FTGL notes:
 
@@ -13,12 +13,11 @@ OpenGL ES 2.0 support has not yet been added to the main branch.  Please see the
 
 ## QUICK INSTALL
 
-	git clone git@github.com:cdave1/ftgles.git
-	git clone git@github.com:cdave1/freetype2-ios.git
-	cd freetype2-ios/
+	git clone https://github.com/cdave1/ftgles.git ftgles
+	git clone https://github.com/cdave1/freetype2-ios.git freetype2
+	cd freetype2/
 	bash install.sh
 	cd ../ftgles
-	ln -s ../freetype2-ios freetype2
 	cd Xcode
 	bash install.sh
 
