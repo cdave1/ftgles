@@ -40,11 +40,18 @@
 class KeyboardDemoController
 {		
 public:
-	KeyboardDemoController(const char* path, float width, float height, float scale);
-	
-	~KeyboardDemoController();
+    KeyboardDemoController();
+    
+    ~KeyboardDemoController();
+    
+    void SetupFonts(const char *path);
+    
+    void SetScreenDimensions(float width, float height, float scale);
 	
 	void Draw();
+    
+    float m_screenWidth, m_screenHeight, m_scale;
+    
 };
 
 #endif

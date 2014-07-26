@@ -35,9 +35,18 @@ static FTSimpleLayout layouts[3];
 
 static int renderMode = FTGL::RENDER_FRONT | FTGL::RENDER_BACK;
 
+KeyboardDemoController::KeyboardDemoController() {
+}
 
-KeyboardDemoController::KeyboardDemoController(const char* path, float width, float height, float scale)
-{
+
+KeyboardDemoController::~KeyboardDemoController()  {
+	delete fonts[0];
+	delete fonts[1];
+	delete fonts[2];
+}
+
+
+void KeyboardDemoController::SetupFonts(const char *path) {
 	char fontname[256];
 	
 	glDepthFunc(GL_LEQUAL);
@@ -88,17 +97,15 @@ KeyboardDemoController::KeyboardDemoController(const char* path, float width, fl
 }
 
 
-KeyboardDemoController::~KeyboardDemoController() 
-{
-	delete fonts[0];
-	delete fonts[1];
-	delete fonts[2];
+void KeyboardDemoController::SetScreenDimensions(float width, float height, float scale) {
+    m_screenWidth = width;
+    m_screenHeight = height;
+    m_scale = scale;
 }
 
 
 static float angle = 0.0f;
-void KeyboardDemoController::Draw()
-{
+void KeyboardDemoController::Draw() {
 	glClearColor(0.0f, 0.0f, 0.25f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
