@@ -200,8 +200,8 @@ GLuint FTTextureFontImpl::CreateTexture()
     glGenTextures(1, (GLuint*)&textID);
 
     ftglBindTexture(textID);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, textureWidth, textureHeight,
@@ -255,44 +255,48 @@ void FTTextureFontImpl::PreRender()
 {
 	disableTexture2D = false;
 	disableBlend = false;
-	GLfloat colors[4];
 	preRendered = true;
-    ftglError("ZZZZ");
-	if (!glIsEnabled(GL_BLEND))
-	{
-        ftglError("ZZZZ");
-		//glEnable(GL_BLEND);
-		disableBlend = true;
-        ftglError("ZZZZ");
-	}
-	else 
-	{
+
 #ifdef FTGLES2
+    if (!glIsEnabled(GL_BLEND))
+	{
+        glEnable(GL_BLEND);
+		disableBlend = true;
+	}
+	else
+	{
         originalBlendSfactor = 1.0f;
         originalBlendDfactor = 1.0f;
+	}
+
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	ftglBegin(GL_QUADS);
+
 #else
+	if (!glIsEnabled(GL_BLEND))
+	{
+        glEnable(GL_BLEND);
+		disableBlend = true;
+	}
+	else
+	{
         glGetIntegerv(GL_BLEND_SRC, &originalBlendSfactor);
 		glGetIntegerv(GL_BLEND_DST, &originalBlendDfactor);
-#endif
 	}
-	
-	ftglError("ZZZZ");
-	//if (!glIsEnabled(GL_TEXTURE_2D))
+
+	if (!glIsEnabled(GL_TEXTURE_2D))
 	{
-		//glEnable(GL_TEXTURE_2D);
+		glEnable(GL_TEXTURE_2D);
 		disableTexture2D = true;
 	}
-	ftglError("ZZZZ");
-    //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    ftglError("ZZZZ");
-#ifdef FTGLES2
-    //colors[0] = 1.0f; colors[1] = 1.0f; colors[2] = 1.0f; colors[3] = 1.0f;
-#else
-	//glGetFloatv(GL_CURRENT_COLOR, colors);
-#endif
-	
-	//ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
+
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	GLfloat colors[4];
+	glGetFloatv(GL_CURRENT_COLOR, colors);
+    ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
 	ftglBegin(GL_QUADS);
+#endif
 }
 
 
@@ -300,18 +304,20 @@ void FTTextureFontImpl::PostRender()
 {
 	preRendered = false;
 	ftglEnd();
-	
+
 	if (disableBlend)
 	{
 		glDisable(GL_BLEND);
 	}
 	else
 	{
-		//glBlendFunc(originalBlendSfactor, originalBlendDfactor);
+		glBlendFunc(originalBlendSfactor, originalBlendDfactor);
 	}
-	
-	//if (disableTexture2D)
-	//	glDisable(GL_TEXTURE_2D);
+
+#ifndef FTGLES2
+	if (disableTexture2D)
+		glDisable(GL_TEXTURE_2D);
+#endif
 }
 
 
