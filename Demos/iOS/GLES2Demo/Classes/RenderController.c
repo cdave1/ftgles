@@ -6,21 +6,34 @@ static GLenum currentPrimitive = GL_TRIANGLES;
 static int vertexCount = 0;
 
 
+
+void aglBindPositionAttribute(GLint attributeHandle) {
+	glVertexAttribPointer(attributeHandle, 4, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].xyz);
+    glEnableVertexAttribArray(attributeHandle);
+}
+
+
+void aglBindColorAttribute(GLint attributeHandle) {
+	glVertexAttribPointer(attributeHandle, 4, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].rgba);
+    glEnableVertexAttribArray(attributeHandle);
+}
+
+
+void aglBindTextureAttribute(GLint attributeHandle) {
+    glVertexAttribPointer(attributeHandle, 2, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].st);
+    glEnableVertexAttribArray(attributeHandle);
+}
+
+
 void aglBegin(GLenum prim) {
 	currentPrimitive = prim;
 	vertexCount = 0;
-
-	glVertexAttribPointer(RENDER_ATTRIB_VERTEX, 3, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].xyz);
-	glVertexAttribPointer(RENDER_ATTRIB_COLOR, 4, GL_FLOAT, 0, sizeof(vertex_t), vertices[0].rgba);
-	
-	glEnableVertexAttribArray(RENDER_ATTRIB_VERTEX);
-	glEnableVertexAttribArray(RENDER_ATTRIB_COLOR);
 }
 
 
 void aglVertex3f(float x, float y, float z) {
 	if (vertexCount > MAX_VERTEX_COUNT) return;
-    vec3Set(vertex.xyz, x, y, z);
+    vec4Set(vertex.xyz, x, y, z, 1.0f);
 	vertices[vertexCount] = vertex;
 	vertexCount++;
 }
@@ -44,6 +57,7 @@ void aglEnd() {
 	glDrawArrays(currentPrimitive, 0, vertexCount);
 	vertexCount = 0;
 	currentPrimitive = 0;
+
 }
 
 
@@ -151,15 +165,10 @@ void aglMatrixMultiply(float *mOut,
 }
 
 
-void aglOrtho(float *mOut, float left, float right, float bottom, float top, float near, float far) {
-    aglMatrixIdentity(mOut);
-    
-    float w = (right - left);
-    float h = (top - bottom);
-    float d = (far - near);
-    
-    mOut[ 0] = 2.0f / w;    mOut[ 4] = 0;           mOut[ 8] = 0;       mOut[12] = -1;
-	mOut[ 1] = 0;           mOut[ 5] = 2.0f / h;    mOut[ 9] = 0;       mOut[13] = 1;
-	mOut[ 2] = 0;           mOut[ 6] = 0;           mOut[10] = -2.0f/d; mOut[14] = 0;
-	mOut[ 3] = 0;           mOut[ 7] = 0;           mOut[11] = 0;       mOut[15] = 1;
+void aglOrtho(float *m, float l, float r, float b, float t, float n, float f) {
+    m[ 0] = 2.0f / (r - l); m[ 4] = 0;              m[ 8] = 0;              m[12] = -(r + l) / (r - l);
+	m[ 1] = 0;              m[ 5] = 2.0f / (t - b); m[ 9] = 0;              m[13] = -(t + b) / (t - b);
+	m[ 2] = 0;              m[ 6] = 0;              m[10] = -1.0f/ (f - n); m[14] = -n / (f - n);
+	m[ 3] = 0;              m[ 7] = 0;              m[11] = 0;              m[15] = 1;
+
 }

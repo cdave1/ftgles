@@ -18,16 +18,10 @@ typedef vec4_t color4_t;
 #define vec4Set(__v, __x, __y, __z, __u) __v[0] = __x; __v[1] = __y; __v[2] = __z; __v[3] = __u;
 
 typedef struct vertex {
-	float xyz[3];
-	float st[2];
-	float rgba[4];
+	GLfloat xyz[4];
+	GLfloat st[2];
+	GLfloat rgba[4];
 } vertex_t;
-
-enum {
-    RENDER_ATTRIB_VERTEX,
-    RENDER_ATTRIB_COLOR,
-    RENDER_NUM_ATTRIBUTES
-};
 
 /* We want to store things in column major order for OpenGL
 
@@ -42,49 +36,52 @@ enum {
 extern "C" {
 #endif
 
-void aglCross3(vec3_t vOut, const vec3_t a, const vec3_t b);
+    void aglBindPositionAttribute(GLint attributeHandle);
 
-void aglNormalize3(vec3_t vOut, const vec3_t vec);
+    void aglBindColorAttribute(GLint attributeHandle);
 
-void aglMatrixMultiply(float *mOut,
-					   const float *mA,
-					   const float *mB);
+    void aglBindTextureAttribute(GLint attributeHandle);
 
+    void aglBegin(GLenum prim);
 
-void aglBegin(GLenum prim);
+    void aglCross3(vec3_t vOut, const vec3_t a, const vec3_t b);
 
-void aglVertex3f(float x, float y, float z);
+    void aglNormalize3(vec3_t vOut, const vec3_t vec);
 
-void aglColor4f(float r, float g, float b, float a);
+    void aglMatrixMultiply(float *mOut,
+                           const float *mA,
+                           const float *mB);
 
-void aglTexCoord2f(float s, float t);
+    void aglVertex3f(float x, float y, float z);
 
-void aglEnd();
+    void aglColor4f(float r, float g, float b, float a);
 
-void aglError(const char *source);
+    void aglTexCoord2f(float s, float t);
+
+    void aglEnd();
+
+    void aglError(const char *source);
+
+    void aglMatrixIdentity(float *mOut);
+
+    void aglMatrixTranslation(float	*mOut,
+                              const float	fX,
+                              const float	fY,
+                              const float	fZ);
+
+    void aglMatrixRotationZ(float	*mOut,
+                            const float fAngle);
+
+    void aglMatrixPerspectiveFovRH(float	*mOut,
+                                   const float	fFOVy,
+                                   const float	fAspect,
+                                   const float	fNear,
+                                   const float	fFar);
     
-void aglMatrixIdentity(float *mOut);
-
-void aglMatrixTranslation(
-					   float	*mOut,
-					   const float	fX,
-					   const float	fY,
-					   const float	fZ);
-
-void aglMatrixRotationZ(float	*mOut,
-						const float fAngle);
-
-void aglMatrixPerspectiveFovRH(
-							float	*mOut,
-							const float	fFOVy,
-							const float	fAspect,
-							const float	fNear,
-							const float	fFar);
-
-void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const vec3_t vUp);
-
-void aglOrtho(float *mOut, float left, float right, float bottom, float top, float zNear, float zFar);
-
+    void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const vec3_t vUp);
+    
+    void aglOrtho(float *m, float l, float r, float b, float t, float n, float f);
+    
 #ifdef __cplusplus
 }
 #endif

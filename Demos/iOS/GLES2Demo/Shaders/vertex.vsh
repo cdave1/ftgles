@@ -1,17 +1,18 @@
-attribute vec4 vertexPosition;
-attribute vec2 vertexTexCoord;
-attribute vec4 vertexColor;
+attribute vec4 position;
+attribute vec4 color;
+attribute vec2 texCoord;
 
 uniform mat4 camera;
-uniform vec4 color;
+uniform vec4 altColor;
 
-varying vec2 fragmentTexCoord;
-varying vec4 fragmentColor;
 varying vec4 colorVarying;
+varying vec2 texCoordVarying;
+varying vec4 altColorVarying;
 
 void main() {
-	gl_Position = (camera * vertexPosition);
-    fragmentTexCoord = vertexTexCoord;
-    fragmentColor = vertexColor;
+	gl_Position = (camera * position);
+
     colorVarying = color;
+    texCoordVarying = texCoord;
+    altColorVarying = altColor;
 }
