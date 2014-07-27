@@ -27,20 +27,11 @@
 
 #define FTGLES_GLUE_MAX_VERTICES 32768
 
-
-enum {
-    FTGLES_ATTRIB_VERTEX,
-    FTGLES_ATTRIB_TEXCOORD,
-    FTGLES_ATTRIB_COLOR,
-    NUM_ATTRIBUTES
-};
-
-
 typedef struct 
 {
-	float position[4];
-	float texCoord[2];
-	GLubyte color[4];
+	GLfloat position[4];
+	GLfloat color[4];
+	GLfloat texCoord[2];
 } ftglesVertex_t;
 
 
@@ -57,6 +48,23 @@ ftglesGlueArrays_t ftglesGlueArrays;
 GLenum ftglesCurrentPrimitive = GL_TRIANGLES;
 bool ftglesQuadIndicesInitted = false;
 
+
+void ftglBindPositionAttribute(GLint attributeHandle) {
+	glVertexAttribPointer(attributeHandle, 4, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].position);
+    glEnableVertexAttribArray(attributeHandle);
+}
+
+
+void ftglBindColorAttribute(GLint attributeHandle) {
+	glVertexAttribPointer(attributeHandle, 4, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].color);
+    glEnableVertexAttribArray(attributeHandle);
+}
+
+
+void ftglBindTextureAttribute(GLint attributeHandle) {
+    glVertexAttribPointer(attributeHandle, 2, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].texCoord);
+    glEnableVertexAttribArray(attributeHandle);
+}
 
 
 GLvoid ftglBegin(GLenum prim) 
@@ -122,19 +130,19 @@ GLvoid ftglVertex2f(float x, float y)
 
 GLvoid ftglColor4ub(GLubyte r, GLubyte g, GLubyte b, GLubyte a) 
 {
-	ftglesGlueArrays.currVertex.color[0] = r;
-	ftglesGlueArrays.currVertex.color[1] = g;
-	ftglesGlueArrays.currVertex.color[2] = b;
-	ftglesGlueArrays.currVertex.color[3] = a;
+	ftglesGlueArrays.currVertex.color[0] = GLfloat(r) / 255.0f;
+	ftglesGlueArrays.currVertex.color[1] = GLfloat(g) / 255.0f;
+	ftglesGlueArrays.currVertex.color[2] = GLfloat(b) / 255.0f;
+	ftglesGlueArrays.currVertex.color[3] = GLfloat(a) / 255.0f;
 }
 
 
 GLvoid ftglColor4f(GLfloat r, GLfloat g, GLfloat b, GLfloat a) 
 {
-	ftglesGlueArrays.currVertex.color[0] = (GLubyte) (r * 255);
-	ftglesGlueArrays.currVertex.color[1] = (GLubyte) (g * 255);
-	ftglesGlueArrays.currVertex.color[2] = (GLubyte) (b * 255);
-	ftglesGlueArrays.currVertex.color[3] = (GLubyte) (a * 255);
+	ftglesGlueArrays.currVertex.color[0] = r;
+	ftglesGlueArrays.currVertex.color[1] = g;
+	ftglesGlueArrays.currVertex.color[2] = b;
+	ftglesGlueArrays.currVertex.color[3] = a;
 }
 
 
@@ -145,7 +153,6 @@ GLvoid ftglTexCoord2f(GLfloat s, GLfloat t)
 }
 
 
-
 GLvoid bindArrayBuffers()
 {
 }
@@ -153,75 +160,35 @@ GLvoid bindArrayBuffers()
 
 GLvoid ftglBindTexture(unsigned int textureId)
 {
-    ftglError("QQQ");
     GLint activeTextureID;
-    //glGetIntegerv(GL_TEXTURE_BINDING_2D, &activeTextureID);
-    //if((unsigned int)activeTextureID != textureId)
+    glGetIntegerv(GL_TEXTURE_BINDING_2D, &activeTextureID);
+    if((unsigned int)activeTextureID != textureId)
     {
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, textureId);
-
-
-        ftglError("AAA");
     }
 }
 
 
 GLvoid ftglEnd() 
 {
-    ftglError("A");
-    int currentProgram;
-
-    ftglError("B");
-    glGetIntegerv(GL_CURRENT_PROGRAM, &currentProgram);
-    
-    if (currentProgram == 0)
-    {
-        return;
-    }
-    ftglError("C");
-    
-    GLint positionLocation = glGetAttribLocation(currentProgram, "vertexPosition");
-    GLint texCoordLocation = glGetAttribLocation(currentProgram, "vertexTexCoord");
-    GLint colorLocation = glGetAttribLocation(currentProgram, "vertexColor");
-
-    ftglError("D");
 	if (ftglesGlueArrays.currIndex == 0) 
 	{
 		ftglesCurrentPrimitive = 0;
 		return;
 	}
 
-    ftglError("E");
-    glEnableVertexAttribArray(positionLocation);
-    glEnableVertexAttribArray(texCoordLocation);
-    glEnableVertexAttribArray(colorLocation);
-
-    ftglError("F");
-    glVertexAttribPointer(positionLocation, 4, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].position);
-    glVertexAttribPointer(texCoordLocation, 2, GL_FLOAT, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].texCoord);
-    glVertexAttribPointer(colorLocation, 4, GL_UNSIGNED_BYTE, 0, sizeof(ftglesVertex_t), ftglesGlueArrays.vertices[0].color);
-
-    ftglError("G");
 	if (ftglesCurrentPrimitive == GL_QUADS)
 	{
 		glDrawElements(GL_TRIANGLES, ftglesGlueArrays.currIndex / 4 * 6, GL_UNSIGNED_SHORT, ftglesGlueArrays.quadIndices);
-        ftglError("H");
 	} 
 	else 
 	{
 		glDrawArrays(ftglesCurrentPrimitive, 0, ftglesGlueArrays.currIndex);
 	}
 
-    ftglError("I");
-    glDisableVertexAttribArray(positionLocation);
-    glDisableVertexAttribArray(texCoordLocation);
-    glDisableVertexAttribArray(colorLocation);
-
 	ftglesGlueArrays.currIndex = 0;
 	ftglesCurrentPrimitive = 0;
-
-    ftglError("J");
 }
 
 
@@ -249,4 +216,3 @@ GLvoid ftglError(const char *source)
 			break;
 	}
 }
-

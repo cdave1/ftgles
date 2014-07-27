@@ -45,7 +45,16 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-	
+
+#ifdef FTGLES2
+    extern void ftglBindPositionAttribute(GLint attributeHandle);
+
+    extern void ftglBindColorAttribute(GLint attributeHandle);
+
+    extern void ftglBindTextureAttribute(GLint attributeHandle);
+
+#endif
+
 	extern void ftglBegin(unsigned int prim);
     
     extern void ftglTranslatef(float x, float y, float z);
