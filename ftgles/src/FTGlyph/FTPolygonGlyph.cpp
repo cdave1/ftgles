@@ -4,6 +4,7 @@
  * Copyright (c) 2001-2004 Henry Maddocks <ftgl@opengl.geek.nz>
  * Copyright (c) 2008 Éric Beets <ericbeets@free.fr>
  * Copyright (c) 2008 Sam Hocevar <sam@zoy.org>
+ * Copyright (c) 2014 David Petrie <david@davidpetrie.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -41,7 +42,7 @@
 
 FTPolygonGlyph::FTPolygonGlyph(FT_GlyphSlot glyph, float outset,
                                bool useDisplayList) :
-    FTGlyph(new FTPolygonGlyphImpl(glyph, outset, useDisplayList))
+FTGlyph(new FTPolygonGlyphImpl(glyph, outset, useDisplayList))
 {}
 
 
@@ -64,7 +65,7 @@ const FTPoint& FTPolygonGlyph::Render(const FTPoint& pen, int renderMode)
 FTPolygonGlyphImpl::FTPolygonGlyphImpl(FT_GlyphSlot glyph, float _outset,
                                        bool useDisplayList)
 :   FTGlyphImpl(glyph),
-    glList(0)
+glList(0)
 {
     if(ft_glyph_format_outline != glyph->format)
     {
@@ -81,34 +82,34 @@ FTPolygonGlyphImpl::FTPolygonGlyphImpl(FT_GlyphSlot glyph, float _outset,
         return;
     }
 
-	/*
-	 * David Petrie Note:
-	 * 
-	 * The original FTGL code included support for gl display lists (via 
-	 * glGenList, etc). This has been removed because OpenGL ES 1.1 has
-	 * no support for them.
-	 */
-	
+    /*
+     * David Petrie Note:
+     *
+     * The original FTGL code included support for gl display lists (via
+     * glGenList, etc). This has been removed because OpenGL ES 1.1 has
+     * no support for them.
+     */
+
     hscale = glyph->face->size->metrics.x_ppem * 64;
     vscale = glyph->face->size->metrics.y_ppem * 64;
     outset = _outset;
-	
-	/*
-	 * David Petrie Note:
-	 * 
-	 * vectoriser->MakeMesh was being called every DoRender() in the
-	 * original FTGL code. I've shifted it here so it is only called once,
-	 * as the iPhone is not powerful enough to handle a tesselation
-	 * on each frame.
-	 */
-	if (vectoriser)
-		vectoriser->MakeMesh(1.0, 1, outset);
+
+    /*
+     * David Petrie Note:
+     *
+     * vectoriser->MakeMesh was being called every DoRender() in the
+     * original FTGL code. I've shifted it here so it is only called once,
+     * as the iPhone is not powerful enough to handle a tesselation
+     * on each frame.
+     */
+    if (vectoriser)
+        vectoriser->MakeMesh(1.0, 1, outset);
 }
 
 
 FTPolygonGlyphImpl::~FTPolygonGlyphImpl()
 {
-	if (vectoriser)
+    if (vectoriser)
     {
         delete vectoriser;
     }
@@ -119,9 +120,9 @@ const FTPoint& FTPolygonGlyphImpl::RenderImpl(const FTPoint& pen,
                                               int renderMode)
 {
     if (vectoriser)
-	{
-		DoRender(pen);
-	}
+    {
+        DoRender(pen);
+    }
     return advance;
 }
 
@@ -134,17 +135,17 @@ void FTPolygonGlyphImpl::DoRender(const FTPoint& pen)
     {
         const FTTesselation* subMesh = mesh->Tesselation(t);
         unsigned int polygonType = subMesh->PolygonType();
-		
+
         ftglBindTexture(0);
-		
+        
         ftglBegin(polygonType);
-		for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
-		{
-			FTPoint point = subMesh->Point(i);
+        for(unsigned int i = 0; i < subMesh->PointCount(); ++i)
+        {
+            FTPoint point = subMesh->Point(i);
             ftglColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			ftglTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
-			ftglVertex3f(pen.Xf() + point.Xf() / 64.0f, pen.Yf() + point.Yf() / 64.0f, 0.0f);
-		}
+            ftglTexCoord2f(point.Xf() / hscale, point.Yf() / vscale);
+            ftglVertex3f(pen.Xf() + point.Xf() / 64.0f, pen.Yf() + point.Yf() / 64.0f, 0.0f);
+        }
         ftglEnd();
     }
 }

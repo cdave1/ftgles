@@ -17,37 +17,37 @@
 @implementation AppDelegate
 
 - (void) Setup {
-	[self SetupFonts];
+    [self SetupFonts];
     [self SetupGL];
 }
 
 
 - (void) SetupFonts {
-	NSString *fontpath = [NSString stringWithFormat:@"%@/Diavlo_BLACK_II_37.otf", 
-						  [[NSBundle mainBundle] resourcePath]];
-	
-	polygonFont = new FTPolygonFont([fontpath UTF8String]);
+    NSString *fontpath = [NSString stringWithFormat:@"%@/Diavlo_BLACK_II_37.otf",
+                          [[NSBundle mainBundle] resourcePath]];
+
+    polygonFont = new FTPolygonFont([fontpath UTF8String]);
     assert (!polygonFont->Error());
-	polygonFont->FaceSize(screenWidth * 0.2f);
-    
+    polygonFont->FaceSize(screenWidth * 0.2f);
+
     textureFont = new FTTextureFont([fontpath UTF8String]);
-	assert (!textureFont->Error());
-	textureFont->FaceSize(screenWidth * 0.2f);
+    assert (!textureFont->Error());
+    textureFont->FaceSize(screenWidth * 0.2f);
 }
 
 
 - (GLuint)compileShader:(NSString *)filePath withType:(GLenum)type {
     assert(shaderProgram);
-    
+
     GLuint shader;
     GLint status;
     const GLchar *source;
-	
+
     if (!(source = (GLchar *)[[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil] UTF8String])) {
         NSLog(@"Failed to load vertex shader");
         return FALSE;
     }
-    
+
     shader = glCreateShader(type);
     glShaderSource(shader, 1, &source, NULL);
     glCompileShader(shader);
@@ -76,12 +76,12 @@
 
 - (void)SetupGL {
     GLint status;
-    
+
     shaderProgram = glCreateProgram();
-    
+
     NSString *vshPath = [[NSBundle mainBundle] pathForResource:@"vertex" ofType:@"vsh"];
     NSString *fshPath = [[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"fsh"];
-    
+
     GLuint vertexShader = [self compileShader:vshPath withType:GL_VERTEX_SHADER];
     GLuint fragmentShader = [self compileShader:fshPath withType:GL_FRAGMENT_SHADER];
 
@@ -89,7 +89,7 @@
 
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
-    
+
     cameraUniform = glGetUniformLocation(shaderProgram, "camera");
     colorUniform = glGetUniformLocation(shaderProgram, "altColor");
     useTextureUniform = glGetUniformLocation(shaderProgram, "useTexture");
@@ -127,25 +127,25 @@ static float mover = 0.0f;
 
 void glerr(const char *src) {
     GLenum error = glGetError();
-	switch (error) {
-		case GL_NO_ERROR:
-			break;
-		case GL_INVALID_ENUM:
-			printf("GL Error (%x): GL_INVALID_ENUM. %s\n", error, src);
-			break;
-		case GL_INVALID_VALUE:
-			printf("GL Error (%x): GL_INVALID_VALUE. %s\n", error, src);
-			break;
-		case GL_INVALID_OPERATION:
-			printf("GL Error (%x): GL_INVALID_OPERATION. %s\n", error, src);
-			break;
-		case GL_OUT_OF_MEMORY:
-			printf("GL Error (%x): GL_OUT_OF_MEMORY. %s\n", error, src);
-			break;
-		default:
-			printf("GL Error (%x): %s\n", error, src);
-			break;
-	}
+    switch (error) {
+        case GL_NO_ERROR:
+            break;
+        case GL_INVALID_ENUM:
+            printf("GL Error (%x): GL_INVALID_ENUM. %s\n", error, src);
+            break;
+        case GL_INVALID_VALUE:
+            printf("GL Error (%x): GL_INVALID_VALUE. %s\n", error, src);
+            break;
+        case GL_INVALID_OPERATION:
+            printf("GL Error (%x): GL_INVALID_OPERATION. %s\n", error, src);
+            break;
+        case GL_OUT_OF_MEMORY:
+            printf("GL Error (%x): GL_OUT_OF_MEMORY. %s\n", error, src);
+            break;
+        default:
+            printf("GL Error (%x): %s\n", error, src);
+            break;
+    }
 }
 
 
@@ -163,8 +163,8 @@ void glerr(const char *src) {
     ftglBindColorAttribute(colorLocation);
     ftglBindTextureAttribute(texCoordLocation);
 
-	if (polygonFont)
-		polygonFont->Render("Polygon Font");
+    if (polygonFont)
+        polygonFont->Render("Polygon Font");
 
     // Render the texture font
     glUniformMatrix4fv(cameraUniform, 1, GL_FALSE, textureFontViewMatrix);
@@ -172,28 +172,28 @@ void glerr(const char *src) {
     glUniform1i(useTextureUniform, 1);
 
     if (textureFont)
-		textureFont->Render("Texture Font");
+        textureFont->Render("Texture Font");
 }
 
 
 - (void) ReportFPS:(NSNumber *)frames {
-	printf("fps: %d\n", [frames intValue]);
+    printf("fps: %d\n", [frames intValue]);
 }
 
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    
+
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil] autorelease];
     } else {
         self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil] autorelease];
     }
-    
+
     scale = [[UIScreen mainScreen] scale];
-	screenWidth = scale * [[UIScreen mainScreen] bounds].size.width;
-	screenHeight = scale * [[UIScreen mainScreen] bounds].size.height;
-	
+    screenWidth = scale * [[UIScreen mainScreen] bounds].size.width;
+    screenHeight = scale * [[UIScreen mainScreen] bounds].size.height;
+    
     self.viewController.delegate = self;
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
@@ -201,10 +201,10 @@ void glerr(const char *src) {
 
 
 - (void) dealloc {
-	delete textureFont;
+    delete textureFont;
     delete polygonFont;
-	[self.window release];
-	[super dealloc];
+    [self.window release];
+    [super dealloc];
 }
 
 @end

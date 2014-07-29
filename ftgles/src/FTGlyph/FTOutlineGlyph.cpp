@@ -41,7 +41,7 @@
 
 FTOutlineGlyph::FTOutlineGlyph(FT_GlyphSlot glyph, float outset,
                                bool useDisplayList) :
-    FTGlyph(new FTOutlineGlyphImpl(glyph, outset, useDisplayList))
+FTGlyph(new FTOutlineGlyphImpl(glyph, outset, useDisplayList))
 {}
 
 
@@ -64,7 +64,7 @@ const FTPoint& FTOutlineGlyph::Render(const FTPoint& pen, int renderMode)
 FTOutlineGlyphImpl::FTOutlineGlyphImpl(FT_GlyphSlot glyph, float _outset,
                                        bool useDisplayList)
 :   FTGlyphImpl(glyph),
-    glList(0)
+glList(0)
 {
     if(ft_glyph_format_outline != glyph->format)
     {
@@ -87,7 +87,7 @@ FTOutlineGlyphImpl::FTOutlineGlyphImpl(FT_GlyphSlot glyph, float _outset,
 
 FTOutlineGlyphImpl::~FTOutlineGlyphImpl()
 {
-	if (vectoriser)
+    if (vectoriser)
     {
         delete vectoriser;
     }
@@ -108,26 +108,24 @@ const FTPoint& FTOutlineGlyphImpl::RenderImpl(const FTPoint& pen,
 
 void FTOutlineGlyphImpl::RenderContours(const FTPoint& pen)
 {
-	for(unsigned int c = 0; c < vectoriser->ContourCount(); ++c)
+    for(unsigned int c = 0; c < vectoriser->ContourCount(); ++c)
     {
         const FTContour* contour = vectoriser->Contour(c);
-		
-		for(unsigned int i = 0; i < contour->PointCount(); ++i)
-		{
-			unsigned ii = (i+1 == contour->PointCount()) ? 0 : i+1;
-			
-			FTPoint point1 = FTPoint(contour->Point(i).X() + contour->Outset(i).X() * outset,
-									 contour->Point(i).Y() + contour->Outset(i).Y() * outset,
-									 0);
-			FTPoint point2 = FTPoint(contour->Point(ii).X() + contour->Outset(ii).X() * outset,
-									 contour->Point(ii).Y() + contour->Outset(ii).Y() * outset,
-									 0);
-			ftglVertex2f((point1.Xf() / 64.0f) + pen.Xf(), 
-						 (point1.Yf() / 64.0f) + pen.Yf());
-			ftglVertex2f((point2.Xf() / 64.0f) + pen.Xf(), 
-						 (point2.Yf() / 64.0f) + pen.Yf());
-		}
-        
+
+        for(unsigned int i = 0; i < contour->PointCount(); ++i)
+        {
+            unsigned ii = (i+1 == contour->PointCount()) ? 0 : i+1;
+
+            FTPoint point1 = FTPoint(contour->Point(i).X() + contour->Outset(i).X() * outset,
+                                     contour->Point(i).Y() + contour->Outset(i).Y() * outset,
+                                     0);
+            FTPoint point2 = FTPoint(contour->Point(ii).X() + contour->Outset(ii).X() * outset,
+                                     contour->Point(ii).Y() + contour->Outset(ii).Y() * outset,
+                                     0);
+            ftglVertex2f((point1.Xf() / 64.0f) + pen.Xf(), 
+                         (point1.Yf() / 64.0f) + pen.Yf());
+            ftglVertex2f((point2.Xf() / 64.0f) + pen.Xf(), 
+                         (point2.Yf() / 64.0f) + pen.Yf());
+        }
     }
 }
-

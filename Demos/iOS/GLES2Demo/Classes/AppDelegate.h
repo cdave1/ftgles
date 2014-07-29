@@ -4,7 +4,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
 @private
-	FTFont *polygonFont;
+    FTFont *polygonFont;
     FTFont *textureFont;
 
     GLint positionLocation;

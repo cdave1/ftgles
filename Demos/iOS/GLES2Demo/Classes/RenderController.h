@@ -18,19 +18,18 @@ typedef vec4_t color4_t;
 #define vec4Set(__v, __x, __y, __z, __u) __v[0] = __x; __v[1] = __y; __v[2] = __z; __v[3] = __u;
 
 typedef struct vertex {
-	GLfloat xyz[4];
-	GLfloat st[2];
-	GLfloat rgba[4];
+    GLfloat xyz[4];
+    GLfloat st[2];
+    GLfloat rgba[4];
 } vertex_t;
 
 /* We want to store things in column major order for OpenGL
-
- m[0]  m[4]  m[ 8]  m[12]
- m[1]  m[5]  m[ 9]  m[13]
- m[2]  m[6]  m[10]  m[14]
- m[3]  m[7]  m[11]  m[15]
- 
-*/
+ *
+ * m[0]  m[4]  m[ 8]  m[12]
+ * m[1]  m[5]  m[ 9]  m[13]
+ * m[2]  m[6]  m[10]  m[14]
+ * m[3]  m[7]  m[11]  m[15]
+ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -64,22 +63,22 @@ extern "C" {
 
     void aglMatrixIdentity(float *mOut);
 
-    void aglMatrixTranslation(float	*mOut,
-                              const float	fX,
-                              const float	fY,
-                              const float	fZ);
+    void aglMatrixTranslation(float *mOut,
+                              const float fX,
+                              const float fY,
+                              const float fZ);
 
-    void aglMatrixRotationZ(float	*mOut,
+    void aglMatrixRotationZ(float *mOut,
                             const float fAngle);
 
-    void aglMatrixPerspectiveFovRH(float	*mOut,
-                                   const float	fFOVy,
-                                   const float	fAspect,
-                                   const float	fNear,
-                                   const float	fFar);
-    
+    void aglMatrixPerspectiveFovRH(float *mOut,
+                                   const float fFOVy,
+                                   const float fAspect,
+                                   const float fNear,
+                                   const float fFar);
+
     void aglMatrixLookAtRH(float *mOut, const vec3_t vEye, const vec3_t vAt, const vec3_t vUp);
-    
+
     void aglOrtho(float *m, float l, float r, float b, float t, float n, float f);
     
 #ifdef __cplusplus

@@ -28,18 +28,17 @@ static BOOL clientInitted = NO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.context = [[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2] autorelease];
-    
+
     if (!self.context) {
         NSLog(@"Failed to create ES context");
     }
-    
+
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
-    //view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     [view  setMultipleTouchEnabled:YES];
-    
+
     self.preferredFramesPerSecond = 60;
     [self setupGL];
 }
@@ -47,9 +46,9 @@ static BOOL clientInitted = NO;
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    
+
     [self tearDownGL];
-    
+
     if ([EAGLContext currentContext] == self.context) {
         [EAGLContext setCurrentContext:nil];
     }
@@ -65,10 +64,10 @@ static BOOL clientInitted = NO;
 
 - (void)setupGL {
     [EAGLContext setCurrentContext:self.context];
-    
+
     glEnable(GL_LINE_SMOOTH);
-	glLineWidth(1.0f);
-    
+    glLineWidth(1.0f);
+
     if (self.delegate) {
         [self.delegate performSelector:@selector(Setup)];
     }
@@ -86,19 +85,19 @@ static BOOL clientInitted = NO;
     if (self.delegate) {
         [self.delegate performSelector:@selector(Update)];
     }
-    
+
     ++frames;
-	CurrentTime = CACurrentMediaTime();
-	
-	if ((CurrentTime - LastFPSUpdate) > 1.0f) {
+    CurrentTime = CACurrentMediaTime();
+
+    if ((CurrentTime - LastFPSUpdate) > 1.0f) {
         if (self.delegate) {
             [self.delegate performSelector:@selector(ReportFPS:) withObject:[NSNumber numberWithFloat:frames]];
         }
         
-		printf("fps: %d\n", frames);
-		frames = 0;
-		LastFPSUpdate = CurrentTime;
-	}
+        printf("fps: %d\n", frames);
+        frames = 0;
+        LastFPSUpdate = CurrentTime;
+    }
 }
 
 
