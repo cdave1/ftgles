@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Ftgles : A truetype font rendering library for OpenGL ES on iOS devices (iPad and iPhone)" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Ftgles</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/cdave1/ftgles">View on GitHub</a>
+
+          <h1 id="project_title">Ftgles</h1>
+          <h2 id="project_tagline">A truetype font rendering library for OpenGL ES on iOS devices (iPad and iPhone)</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/cdave1/ftgles/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/cdave1/ftgles/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="ftgles" class="anchor" href="#ftgles"><span class="octicon octicon-link"></span></a>FTGLES</h1>
+
+<p>FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of <a href="http://homepages.paradise.net.nz/henryj/code/#FTGL">FTGL</a>.  It currently targets the iPhone and iPad, with plans to port to Android in the very near future.  iOS 7.0 is currently supported.</p>
+
+<p>From the FTGL notes:</p>
+
+<p>"Unlike other OpenGL font libraries FTGL uses standard font file formats so doesn't need a preprocessing step to convert the high quality font data into a lesser quality, proprietary format."</p>
+
+<p>"FTGL uses the <a href="http://www.freetype.org">Freetype</a> font library to open and 'decode' the fonts. It then takes that output and stores it in a format most efficient for OpenGL rendering."</p>
+
+<p>OpenGL ES 2.0 support has not yet been added to the main branch.  Please see the <a href="https://github.com/cdave1/ftgles/tree/gles2">gles2 branch</a> for an experimental version of FTGLES that supports OpenGL ES 2.0.</p>
+
+<h2>
+<a name="quick-install" class="anchor" href="#quick-install"><span class="octicon octicon-link"></span></a>QUICK INSTALL</h2>
+
+<p>There is default Xcode project within the repository.  This also depends on another Xcode project containing the Freetype2 source code, configured for iOS.  You can get both projects with these git commands:</p>
+
+<pre><code>git clone https://github.com/cdave1/ftgles.git ftgles
+git clone https://github.com/cdave1/freetype2-ios.git freetype2
+</code></pre>
+
+<p>At this point, it should be possible to compile and run the Xcode projects in your ftgles/Demos/iOS folder.</p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>INSTALL</h2>
+
+<p>See <a href="http://github.com/cdave1/ftgles/blob/master/INSTALL.md">INSTALL NOTES</a> for instructions on how to add FTGLES to your Xcode project or build using automake.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>USAGE</h2>
+
+<p>Include the library in your code:</p>
+
+<pre><code>#include "FTGL/ftgles.h"
+</code></pre>
+
+<p>Create a font from a truetype file or opentype font:</p>
+
+<pre><code>FTFont *font = new FTTextureFont("/path/to/myfont.ttf");
+FTFont *font2 = new FTTextureFont("/path/to/myotherfont.otf");
+font-&gt;FaceSize(72);
+</code></pre>
+
+<p>To render the text within your render loop (fonts are rendered at the origin along the positive x-axis):</p>
+
+<pre><code>glColor4f(0.0f, 0.0f, 0.0f, 1.0f); // Black text
+font-&gt;Render("Lorem ipsum dolor sit amet");
+</code></pre>
+
+<p>The <a href="http://github.com/cdave1/ftgles/blob/master/Demos/iOS/HelloWorld/Classes/Delegate.mm">Hello World Demo</a> example class shows a minimal implementation of a render loop.</p>
+
+<p>See the <a href="http://github.com/cdave1/ftgles/tree/master/iPhone/">Demos</a> folder for several comprehensive sample iPhone apps.  The demo apps include a unicode demo, as well as a demonstration of how to use layouts to easily align and position your text.</p>
+
+<h2>
+<a name="differences-between-ftgl-and-ftgles" class="anchor" href="#differences-between-ftgl-and-ftgles"><span class="octicon octicon-link"></span></a>Differences between FTGL and FTGLES</h2>
+
+<p>FTGLES supports the following font types from the original FTGL library:</p>
+
+<ul>
+<li>FTBufferFont</li>
+<li>FTGLOutlineFont</li>
+<li>FTGLPolygonFont</li>
+<li>FTGLTextureFont</li>
+</ul><p>Extrusion and pixmap rendering from the original FTGL library are currently not supported.  Bitmap font support is currently in progress.</p>
+
+<h2>
+<a name="performance-notes" class="anchor" href="#performance-notes"><span class="octicon octicon-link"></span></a>Performance Notes</h2>
+
+<p>If you need to render large amounts of text, Texture fonts are preferable, and also currently look much better than other font types.  Texture fonts allow you to render a full screen of text without any appreciable drop in frame rate.</p>
+
+<p>For Polygon and Outline fonts, rendering speeds depend very much on the type face being rendered.  More complex glyphs will almost always contain more vertices, and thus FTGLES will need to draw more polygons or lines.  </p>
+
+<p>While you may get acceptable results by switching to a simple typeface, it is generally recommended that you avoid excessive use of Polygon and Outline fonts in iOS applications.  Expect to see large drops in frame rate when drawing any more than 100-200 Polygon or Outline glyphs on screen.   </p>
+
+<p>Performance of the SimpleLayout class was previously very slow, but was recently improved in a recent build.  </p>
+
+<p>There is a <a href="https://github.com/cdave1/ftgles/tree/master/Demos/iOS/PerformanceTest/">Performance test application</a> that will show the framerate of a screen full of text rendered using the SimpleLayout class, along with several font faces.</p>
+
+<h2>
+<a name="licenses" class="anchor" href="#licenses"><span class="octicon octicon-link"></span></a>Licenses</h2>
+
+<ul>
+<li>FTGLES License <a href="http://github.com/cdave1/ftgles/blob/master/LICENSE.md">here</a>
+</li>
+<li>Original FTGL License <a href="https://github.com/cdave1/ftgles/blob/master/ftgles/COPYING">here</a>
+</li>
+<li>Freetype 2 License <a href="http://www.freetype.org/FTL.TXT">here</a>
+</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ftgles maintained by <a href="https://github.com/cdave1">cdave1</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
