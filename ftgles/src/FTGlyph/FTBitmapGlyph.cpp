@@ -40,7 +40,7 @@
 
 
 FTBitmapGlyph::FTBitmapGlyph(FT_GlyphSlot glyph) :
-    FTGlyph(new FTBitmapGlyphImpl(glyph))
+FTGlyph(new FTBitmapGlyphImpl(glyph))
 {}
 
 
@@ -109,7 +109,7 @@ FTBitmapGlyphImpl::~FTBitmapGlyphImpl()
 
 const FTPoint& FTBitmapGlyphImpl::RenderImpl(const FTPoint& pen, int renderMode)
 {
-    if(data)
+    if (data)
     {
         float dx, dy;
 
@@ -121,20 +121,17 @@ const FTPoint& FTBitmapGlyphImpl::RenderImpl(const FTPoint& pen, int renderMode)
         //glBitmap(destWidth, destHeight, 0.0f, 0.0, 0.0, 0.0,
         //         (const GLubyte*)data);
         //glBitmap(0, 0, 0.0f, 0.0f, -dx, -dy, (const GLubyte*)0);
-		
-		//glRasterPos
-		/*
-		glTexSubImage2D(GL_TEXTURE_2D,
-						0,
-						0.0f, 0.0f,
-						destWidth, destHeight,
-						GL_RGBA, GL_UNSIGNED_BYTE,
-						(const GLubyte*)data);
-		*/
-		
-		
+        
+        //glRasterPos
+        /*
+         glTexSubImage2D(GL_TEXTURE_2D,
+         0,
+         0.0f, 0.0f,
+         destWidth, destHeight,
+         GL_RGBA, GL_UNSIGNED_BYTE,
+         (const GLubyte*)data);
+         */
     }
-
+    
     return advance;
 }
-

@@ -38,13 +38,13 @@
 
 
 FTOutlineFont::FTOutlineFont(char const *fontFilePath) :
-    FTFont(new FTOutlineFontImpl(this, fontFilePath))
+FTFont(new FTOutlineFontImpl(this, fontFilePath))
 {}
 
 
 FTOutlineFont::FTOutlineFont(const unsigned char *pBufferBytes,
                              size_t bufferSizeInBytes) :
-    FTFont(new FTOutlineFontImpl(this, pBufferBytes, bufferSizeInBytes))
+FTFont(new FTOutlineFontImpl(this, pBufferBytes, bufferSizeInBytes))
 {}
 
 
@@ -72,10 +72,10 @@ FTGlyph* FTOutlineFont::MakeGlyph(FT_GlyphSlot ftGlyph)
 
 FTOutlineFontImpl::FTOutlineFontImpl(FTFont *ftFont, const char* fontFilePath)
 : FTFontImpl(ftFont, fontFilePath),
-  outset(0.0f)
+outset(0.0f)
 {
     load_flags = FT_LOAD_NO_HINTING;
-	preRendered = false;
+    preRendered = false;
 }
 
 
@@ -83,10 +83,10 @@ FTOutlineFontImpl::FTOutlineFontImpl(FTFont *ftFont,
                                      const unsigned char *pBufferBytes,
                                      size_t bufferSizeInBytes)
 : FTFontImpl(ftFont, pBufferBytes, bufferSizeInBytes),
-  outset(0.0f)
+outset(0.0f)
 {
     load_flags = FT_LOAD_NO_HINTING;
-	preRendered = false;
+    preRendered = false;
 }
 
 
@@ -95,19 +95,19 @@ inline FTPoint FTOutlineFontImpl::RenderI(const T* string, const int len,
                                           FTPoint position, FTPoint spacing,
                                           int renderMode)
 {
-	FTPoint tmp;
-	if (preRendered)
-	{
-		tmp = FTFontImpl::Render(string, len,
-										 position, spacing, renderMode);
-	}
-	else 
-	{
-		PreRender();
-		tmp = FTFontImpl::Render(string, len,
-										 position, spacing, renderMode);
-		PostRender();
-	}
+    FTPoint tmp;
+    if (preRendered)
+    {
+        tmp = FTFontImpl::Render(string, len,
+                                 position, spacing, renderMode);
+    }
+    else
+    {
+        PreRender();
+        tmp = FTFontImpl::Render(string, len,
+                                 position, spacing, renderMode);
+        PostRender();
+    }
 
     return tmp;
 }
@@ -115,25 +115,25 @@ inline FTPoint FTOutlineFontImpl::RenderI(const T* string, const int len,
 
 void FTOutlineFontImpl::PreRender()
 {
-	preRendered = true;
-	GLfloat colors[4];
+    preRendered = true;
+    GLfloat colors[4];
     glDisable(GL_TEXTURE_2D);
     glEnable(GL_LINE_SMOOTH);
     glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // GL_ONE
-	glBindTexture(GL_TEXTURE_2D, 0);
-	
-	glGetFloatv(GL_CURRENT_COLOR, colors);
-	ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
-	ftglBegin(GL_LINES);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glGetFloatv(GL_CURRENT_COLOR, colors);
+    ftglColor4f(colors[0], colors[1], colors[2], colors[3]);
+    ftglBegin(GL_LINES);
 }
 
 
 void FTOutlineFontImpl::PostRender()
 {
-	preRendered = false;
-	ftglEnd();
+    preRendered = false;
+    ftglEnd();
 }
 
 

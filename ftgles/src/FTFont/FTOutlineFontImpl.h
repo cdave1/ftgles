@@ -35,48 +35,46 @@ class FTOutlineFontImpl : public FTFontImpl
 {
     friend class FTOutlineFont;
 
-    protected:
-        FTOutlineFontImpl(FTFont *ftFont, const char* fontFilePath);
+protected:
+    FTOutlineFontImpl(FTFont *ftFont, const char* fontFilePath);
 
-        FTOutlineFontImpl(FTFont *ftFont, const unsigned char *pBufferBytes,
-                          size_t bufferSizeInBytes);
+    FTOutlineFontImpl(FTFont *ftFont, const unsigned char *pBufferBytes,
+                      size_t bufferSizeInBytes);
 
-        /**
-         * Set the outset distance for the font. Only implemented by
-         * FTOutlineFont, FTPolygonFont and FTExtrudeFont
-         *
-         * @param outset  The outset distance.
-         */
-        virtual void Outset(float o) { outset = o; }
+    /**
+     * Set the outset distance for the font. Only implemented by
+     * FTOutlineFont, FTPolygonFont and FTExtrudeFont
+     *
+     * @param outset  The outset distance.
+     */
+    virtual void Outset(float o) { outset = o; }
 
-        virtual FTPoint Render(const char *s, const int len,
-                               FTPoint position, FTPoint spacing,
-                               int renderMode);
+    virtual FTPoint Render(const char *s, const int len,
+                           FTPoint position, FTPoint spacing,
+                           int renderMode);
 
-        virtual FTPoint Render(const wchar_t *s, const int len,
-                               FTPoint position, FTPoint spacing,
-                               int renderMode);
+    virtual FTPoint Render(const wchar_t *s, const int len,
+                           FTPoint position, FTPoint spacing,
+                           int renderMode);
+
+private:
+    /**
+     * The outset distance for the font.
+     */
+    float outset;
 
 
-	
-    private:
-        /**
-         * The outset distance for the font.
-         */
-        float outset;
-	
-	
-	bool preRendered;
+    bool preRendered;
 
-        /* Internal generic Render() implementation */
-        template <typename T>
-        inline FTPoint RenderI(const T *s, const int len,
-                               FTPoint position, FTPoint spacing, int mode);
+    /* Internal generic Render() implementation */
+    template <typename T>
+    inline FTPoint RenderI(const T *s, const int len,
+                           FTPoint position, FTPoint spacing, int mode);
 
-	 void PreRender();
-	
-	
-	void PostRender();
+    void PreRender();
+
+
+    void PostRender();
 
 };
 

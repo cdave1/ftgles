@@ -35,25 +35,25 @@ class FTPixmapFontImpl : public FTFontImpl
 {
     friend class FTPixmapFont;
 
-    protected:
-        FTPixmapFontImpl(FTFont *ftFont, const char* fontFilePath);
+protected:
+    FTPixmapFontImpl(FTFont *ftFont, const char* fontFilePath);
 
-        FTPixmapFontImpl(FTFont *ftFont, const unsigned char *pBufferBytes,
-                         size_t bufferSizeInBytes);
+    FTPixmapFontImpl(FTFont *ftFont, const unsigned char *pBufferBytes,
+                     size_t bufferSizeInBytes);
 
-        virtual FTPoint Render(const char *s, const int len,
-                               FTPoint position, FTPoint spacing,
-                               int renderMode);
+    virtual FTPoint Render(const char *s, const int len,
+                           FTPoint position, FTPoint spacing,
+                           int renderMode);
 
-        virtual FTPoint Render(const wchar_t *s, const int len,
-                               FTPoint position, FTPoint spacing,
-                               int renderMode);
+    virtual FTPoint Render(const wchar_t *s, const int len,
+                           FTPoint position, FTPoint spacing,
+                           int renderMode);
 
-    private:
-        /* Internal generic Render() implementation */
-        template <typename T>
-        inline FTPoint RenderI(const T *s, const int len,
-                               FTPoint position, FTPoint spacing, int mode);
+private:
+    /* Internal generic Render() implementation */
+    template <typename T>
+    inline FTPoint RenderI(const T *s, const int len,
+                           FTPoint position, FTPoint spacing, int mode);
 };
 
 #endif  //  __FTPixmapFontImpl__

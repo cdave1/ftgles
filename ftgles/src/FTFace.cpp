@@ -42,7 +42,7 @@ FTFace::FTFace(const char* fontFilePath, bool precomputeKerning)
 
     err = FT_New_Face(*FTLibrary::Instance().GetLibrary(), fontFilePath,
                       DEFAULT_FACE_INDEX, ftFace);
-	
+
     if(err)
     {
         delete ftFace;

@@ -40,7 +40,7 @@
 
 
 FTPixmapGlyph::FTPixmapGlyph(FT_GlyphSlot glyph) :
-    FTGlyph(new FTPixmapGlyphImpl(glyph))
+FTGlyph(new FTPixmapGlyphImpl(glyph))
 {}
 
 
@@ -62,9 +62,9 @@ const FTPoint& FTPixmapGlyph::Render(const FTPoint& pen, int renderMode)
 
 FTPixmapGlyphImpl::FTPixmapGlyphImpl(FT_GlyphSlot glyph)
 :   FTGlyphImpl(glyph),
-    destWidth(0),
-    destHeight(0),
-    data(0)
+destWidth(0),
+destHeight(0),
+data(0)
 {
     err = FT_Render_Glyph(glyph, FT_RENDER_MODE_NORMAL);
     if(err || ft_glyph_format_bitmap != glyph->format)
@@ -125,17 +125,17 @@ const FTPoint& FTPixmapGlyphImpl::RenderImpl(const FTPoint& pen,
         dx = floor(pen.Xf() + pos.Xf());
         dy = floor(pen.Yf() - pos.Yf());
 
-		/*
-        glBitmap(0, 0, 0.0f, 0.0f, dx, dy, (const GLubyte*)0);
-        glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
-        glPixelStorei(GL_UNPACK_ALIGNMENT, 2);
+        /*
+         glBitmap(0, 0, 0.0f, 0.0f, dx, dy, (const GLubyte*)0);
+         glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+         glPixelStorei(GL_UNPACK_ALIGNMENT, 2);
 
-        glDrawPixels(destWidth, destHeight, GL_LUMINANCE_ALPHA,
-                     GL_UNSIGNED_BYTE, (const GLvoid*)data);
-        glBitmap(0, 0, 0.0f, 0.0f, -dx, -dy, (const GLubyte*)0);
-		 */
+         glDrawPixels(destWidth, destHeight, GL_LUMINANCE_ALPHA,
+         GL_UNSIGNED_BYTE, (const GLvoid*)data);
+         glBitmap(0, 0, 0.0f, 0.0f, -dx, -dy, (const GLubyte*)0);
+         */
     }
-
+    
     return advance;
 }
 

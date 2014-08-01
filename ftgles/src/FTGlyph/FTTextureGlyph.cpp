@@ -41,7 +41,7 @@
 
 FTTextureGlyph::FTTextureGlyph(FT_GlyphSlot glyph, int id, int xOffset,
                                int yOffset, int width, int height) :
-    FTGlyph(new FTTextureGlyphImpl(glyph, id, xOffset, yOffset, width, height))
+FTGlyph(new FTTextureGlyphImpl(glyph, id, xOffset, yOffset, width, height))
 {}
 
 
@@ -66,9 +66,9 @@ GLint FTTextureGlyphImpl::activeTextureID = 0;
 FTTextureGlyphImpl::FTTextureGlyphImpl(FT_GlyphSlot glyph, int id, int xOffset,
                                        int yOffset, int width, int height)
 :   FTGlyphImpl(glyph),
-    destWidth(0),
-    destHeight(0),
-    glTextureID(id)
+destWidth(0),
+destHeight(0),
+glTextureID(id)
 {
     /* FIXME: need to propagate the render mode all the way down to
      * here in order to get FT_RENDER_MODE_MONO aliased fonts.
@@ -84,20 +84,20 @@ FTTextureGlyphImpl::FTTextureGlyphImpl(FT_GlyphSlot glyph, int id, int xOffset,
 
     destWidth  = bitmap.width;
     destHeight = bitmap.rows;
-	
+
     if (destWidth && destHeight)
     {
-		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-		glBindTexture(GL_TEXTURE_2D, glTextureID);
+        glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+        glBindTexture(GL_TEXTURE_2D, glTextureID);
         glTexSubImage2D(GL_TEXTURE_2D, 0, xOffset, yOffset, destWidth, destHeight, GL_ALPHA, GL_UNSIGNED_BYTE, bitmap.buffer);
     }
-//      0
-//      +----+
-//      |    |
-//      |    |
-//      |    |
-//      +----+
-//           1
+    //      0
+    //      +----+
+    //      |    |
+    //      |    |
+    //      |    |
+    //      +----+
+    //           1
     uv[0].X(static_cast<float>(xOffset) / static_cast<float>(width));
     uv[0].Y(static_cast<float>(yOffset) / static_cast<float>(height));
     uv[1].X(static_cast<float>(xOffset + destWidth) / static_cast<float>(width));
@@ -115,29 +115,29 @@ const FTPoint& FTTextureGlyphImpl::RenderImpl(const FTPoint& pen,
                                               int renderMode)
 {
     float dx, dy;
-	
-	glGetIntegerv(GL_TEXTURE_BINDING_2D, &activeTextureID);
+
+    glGetIntegerv(GL_TEXTURE_BINDING_2D, &activeTextureID);
     if(activeTextureID != glTextureID)
     {
-		glBindTexture(GL_TEXTURE_2D, (GLuint)glTextureID);
+        glBindTexture(GL_TEXTURE_2D, (GLuint)glTextureID);
         //activeTextureID = glTextureID;
     }
-	
+
     dx = floor(pen.Xf() + corner.Xf());
     dy = floor(pen.Yf() + corner.Yf());
-	
-	ftglTexCoord2f(uv[0].Xf(), uv[0].Yf());
-	ftglVertex2f(dx, dy);
-	
-	ftglTexCoord2f(uv[0].Xf(), uv[1].Yf());
-	ftglVertex2f(dx, dy - destHeight);
-	
-	ftglTexCoord2f(uv[1].Xf(), uv[1].Yf());
-	ftglVertex2f(dx + destWidth, dy - destHeight);
-	
-	ftglTexCoord2f(uv[1].Xf(), uv[0].Yf());
-	ftglVertex2f(dx + destWidth, dy);
-	
+
+    ftglTexCoord2f(uv[0].Xf(), uv[0].Yf());
+    ftglVertex2f(dx, dy);
+    
+    ftglTexCoord2f(uv[0].Xf(), uv[1].Yf());
+    ftglVertex2f(dx, dy - destHeight);
+    
+    ftglTexCoord2f(uv[1].Xf(), uv[1].Yf());
+    ftglVertex2f(dx + destWidth, dy - destHeight);
+    
+    ftglTexCoord2f(uv[1].Xf(), uv[0].Yf());
+    ftglVertex2f(dx + destWidth, dy);
+    
     return advance;
 }
 

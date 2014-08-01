@@ -36,131 +36,131 @@ class FTGlyph;
 
 class FTFontImpl
 {
-        friend class FTFont;
+    friend class FTFont;
 
-    protected:
-        FTFontImpl(FTFont *ftFont, char const *fontFilePath);
+protected:
+    FTFontImpl(FTFont *ftFont, char const *fontFilePath);
 
-        FTFontImpl(FTFont *ftFont, const unsigned char *pBufferBytes,
-                   size_t bufferSizeInBytes);
+    FTFontImpl(FTFont *ftFont, const unsigned char *pBufferBytes,
+               size_t bufferSizeInBytes);
 
-        virtual ~FTFontImpl();
+    virtual ~FTFontImpl();
 
-        virtual bool Attach(const char* fontFilePath);
+    virtual bool Attach(const char* fontFilePath);
 
-        virtual bool Attach(const unsigned char *pBufferBytes,
-                            size_t bufferSizeInBytes);
+    virtual bool Attach(const unsigned char *pBufferBytes,
+                        size_t bufferSizeInBytes);
 
-        virtual void GlyphLoadFlags(FT_Int flags);
+    virtual void GlyphLoadFlags(FT_Int flags);
 
-        virtual bool CharMap(FT_Encoding encoding);
+    virtual bool CharMap(FT_Encoding encoding);
 
-        virtual unsigned int CharMapCount() const;
+    virtual unsigned int CharMapCount() const;
 
-        virtual FT_Encoding* CharMapList();
+    virtual FT_Encoding* CharMapList();
 
-        virtual void UseDisplayList(bool useList);
+    virtual void UseDisplayList(bool useList);
 
-        virtual float Ascender() const;
+    virtual float Ascender() const;
 
-        virtual float Descender() const;
+    virtual float Descender() const;
 
-        virtual float LineHeight() const;
+    virtual float LineHeight() const;
 
-        virtual bool FaceSize(const unsigned int size,
-                              const unsigned int res);
+    virtual bool FaceSize(const unsigned int size,
+                          const unsigned int res);
 
-        virtual unsigned int FaceSize() const;
+    virtual unsigned int FaceSize() const;
 
-        virtual void Depth(float depth);
+    virtual void Depth(float depth);
 
-        virtual void Outset(float outset);
+    virtual void Outset(float outset);
 
-        virtual void Outset(float front, float back);
+    virtual void Outset(float front, float back);
 
-        virtual FTBBox BBox(const char *s, const int len, FTPoint, FTPoint);
+    virtual FTBBox BBox(const char *s, const int len, FTPoint, FTPoint);
 
-        virtual FTBBox BBox(const wchar_t *s, const int len, FTPoint, FTPoint);
+    virtual FTBBox BBox(const wchar_t *s, const int len, FTPoint, FTPoint);
 
-        virtual float Advance(const char *s, const int len, FTPoint);
+    virtual float Advance(const char *s, const int len, FTPoint);
 
-        virtual float Advance(const wchar_t *s, const int len, FTPoint);
+    virtual float Advance(const wchar_t *s, const int len, FTPoint);
 
-        virtual FTPoint Render(const char *s, const int len,
-                               FTPoint, FTPoint, int);
+    virtual FTPoint Render(const char *s, const int len,
+                           FTPoint, FTPoint, int);
 
-        virtual FTPoint Render(const wchar_t *s, const int len,
-                               FTPoint, FTPoint, int);
+    virtual FTPoint Render(const wchar_t *s, const int len,
+                           FTPoint, FTPoint, int);
 
-	virtual void PreRender() {}
-	
-	
-virtual	void PostRender() {}
-	
-        /**
-         * Current face object
-         */
-        FTFace face;
+    virtual void PreRender() {}
 
-        /**
-         * Current size object
-         */
-        FTSize charSize;
 
-        /**
-         * Flag to enable or disable the use of Display Lists inside FTGL
-         * <code>true</code> turns ON display lists.
-         * <code>false</code> turns OFF display lists.
-         */
-        bool useDisplayLists;
+    virtual void PostRender() {}
 
-        /**
-         * The default glyph loading flags.
-         */
-        FT_Int load_flags;
+    /**
+     * Current face object
+     */
+    FTFace face;
 
-        /**
-         * Current error code. Zero means no error.
-         */
-        FT_Error err;
+    /**
+     * Current size object
+     */
+    FTSize charSize;
 
-    private:
-        /**
-         * A link back to the interface of which we are the implementation.
-         */
-        FTFont *intf;
+    /**
+     * Flag to enable or disable the use of Display Lists inside FTGL
+     * <code>true</code> turns ON display lists.
+     * <code>false</code> turns OFF display lists.
+     */
+    bool useDisplayLists;
 
-        /**
-         * Check that the glyph at <code>chr</code> exist. If not load it.
-         *
-         * @param chr  character index
-         * @return <code>true</code> if the glyph can be created.
-         */
-        bool CheckGlyph(const unsigned int chr);
+    /**
+     * The default glyph loading flags.
+     */
+    FT_Int load_flags;
 
-        /**
-         * An object that holds a list of glyphs
-         */
-        FTGlyphContainer* glyphList;
+    /**
+     * Current error code. Zero means no error.
+     */
+    FT_Error err;
 
-        /**
-         * Current pen or cursor position;
-         */
-        FTPoint pen;
+private:
+    /**
+     * A link back to the interface of which we are the implementation.
+     */
+    FTFont *intf;
 
-        /* Internal generic BBox() implementation */
-        template <typename T>
-        inline FTBBox BBoxI(const T *s, const int len,
-                            FTPoint position, FTPoint spacing);
+    /**
+     * Check that the glyph at <code>chr</code> exist. If not load it.
+     *
+     * @param chr  character index
+     * @return <code>true</code> if the glyph can be created.
+     */
+    bool CheckGlyph(const unsigned int chr);
 
-        /* Internal generic Advance() implementation */
-        template <typename T>
-        inline float AdvanceI(const T *s, const int len, FTPoint spacing);
+    /**
+     * An object that holds a list of glyphs
+     */
+    FTGlyphContainer* glyphList;
 
-        /* Internal generic Render() implementation */
-        template <typename T>
-        inline FTPoint RenderI(const T *s, const int len,
-                               FTPoint position, FTPoint spacing, int mode);
+    /**
+     * Current pen or cursor position;
+     */
+    FTPoint pen;
+
+    /* Internal generic BBox() implementation */
+    template <typename T>
+    inline FTBBox BBoxI(const T *s, const int len,
+                        FTPoint position, FTPoint spacing);
+
+    /* Internal generic Advance() implementation */
+    template <typename T>
+    inline float AdvanceI(const T *s, const int len, FTPoint spacing);
+
+    /* Internal generic Render() implementation */
+    template <typename T>
+    inline FTPoint RenderI(const T *s, const int len,
+                           FTPoint position, FTPoint spacing, int mode);
 };
 
 #endif  //  __FTFontImpl__
