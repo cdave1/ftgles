@@ -154,9 +154,9 @@ GLvoid ftglEnd()
     glGetPointerv(GL_TEXTURE_COORD_ARRAY_POINTER, &texCoordArrayPointer);
     glGetPointerv(GL_COLOR_ARRAY_POINTER, &colorArrayPointer);
 
-    glGetBooleanv(GL_VERTEX_ARRAY, &vertexArrayEnabled);
-    glGetBooleanv(GL_TEXTURE_COORD_ARRAY, &texCoordArrayEnabled);
-    glGetBooleanv(GL_COLOR_ARRAY, &colorArrayEnabled);
+    vertexArrayEnabled = glIsEnabled(GL_VERTEX_ARRAY);
+    texCoordArrayEnabled = glIsEnabled(GL_TEXTURE_COORD_ARRAY);
+    colorArrayEnabled = glIsEnabled(GL_COLOR_ARRAY);
 
     if (!vertexArrayEnabled)
     {
