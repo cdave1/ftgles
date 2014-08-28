@@ -33,11 +33,6 @@ static FTSimpleLayout layouts[3];
 static GLuint aTexture;
 static float screenWidth, screenHeight, contentScaleFactor;
 
-
-const char *textureFontText = "(Center aligned) Lorem ipsum dolor sit amet.";
-const char *outlineFontText = "(Right aligned) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
-
 LayoutDemo::LayoutDemo(const char* path, float width, float height, float scale) {
 	contentScaleFactor = scale;
 	screenWidth = contentScaleFactor * width;
@@ -139,6 +134,8 @@ void LayoutDemo::Draw() {
 	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
 
     std::string polygonFontText = "(Left aligned) polygon font with enough text for multiple lines.";
+    std::string textureFontText = "(Center aligned) Lorem ipsum dolor sit amet.";
+    std::string outlineFontText = "(Right aligned) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 	glPushMatrix();
 	glTranslatef(0.0f, contentScaleFactor * 720.0f, 0.0f);
@@ -149,13 +146,13 @@ void LayoutDemo::Draw() {
 	glPushMatrix();
 	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 520.0f, 0.0f);
 	glColor4f(0.2f, 0.4f, 0.75f, 1.0f);
-	layouts[1].Render(textureFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
+	layouts[1].Render(textureFontText.c_str(), -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
 	
 	glPushMatrix();
 	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 240.0f, 0.0f);
 	glColor4f(0.25f, 0.25f, 0.25f, 1.0f);
-	layouts[2].Render(outlineFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
+	layouts[2].Render(outlineFontText.c_str(), -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
 	
 	glPopMatrix();
