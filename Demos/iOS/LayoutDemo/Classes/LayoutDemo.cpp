@@ -24,6 +24,7 @@
 
 #include "LayoutDemo.h"
 #include "TextureLoader.h"
+#include <string>
 
 static FTFont *fpsFont;
 static char fpsText[32];
@@ -33,7 +34,6 @@ static GLuint aTexture;
 static float screenWidth, screenHeight, contentScaleFactor;
 
 
-const char *polygonFontText = "(Left aligned) polygon font with enough text for multiple lines.";
 const char *textureFontText = "(Center aligned) Lorem ipsum dolor sit amet.";
 const char *outlineFontText = "(Right aligned) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
@@ -64,7 +64,7 @@ LayoutDemo::LayoutDemo(const char* path, float width, float height, float scale)
 	fonts[0]->FaceSize(contentScaleFactor * 40);
 	fonts[0]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
-	layouts[0].SetLineLength(screenWidth);
+	layouts[0].SetLineLength(screenWidth / 1.2);
 	layouts[0].SetLineSpacing(0.75f);
     layouts[0].SetFont(fonts[0]);
 	layouts[0].SetAlignment(FTGL::ALIGN_LEFT);
@@ -138,10 +138,12 @@ void LayoutDemo::Draw() {
 	glPushMatrix();
 	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
 
+    std::string polygonFontText = "(Left aligned) polygon font with enough text for multiple lines.";
+
 	glPushMatrix();
 	glTranslatef(0.0f, contentScaleFactor * 720.0f, 0.0f);
 	glColor4f(color, 0.6f, 0.3f, 1.0f);
-	layouts[0].Render(polygonFontText, -1, FTPoint(), FTGL::RENDER_FRONT);
+	layouts[0].Render(polygonFontText.c_str(), -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
 	
 	glPushMatrix();
