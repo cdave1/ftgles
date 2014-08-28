@@ -214,7 +214,8 @@ private:
 	unsigned int stringCache[4096];
 	
 	unsigned int stringCacheCount;
-	
+
+    void *layoutStringBuffer;
 	
 	/* Internal generic BBox() implementation */
 	template <typename T>

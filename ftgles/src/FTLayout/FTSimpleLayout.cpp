@@ -138,6 +138,7 @@ FTSimpleLayoutImpl::FTSimpleLayoutImpl()
     alignment = FTGL::ALIGN_LEFT;
     lineSpacing = 1.0f;
 	stringCacheCount = 0;
+    layoutStringBuffer = NULL;
 }
 
 
@@ -207,8 +208,6 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
                                           FTPoint position, int renderMode,
                                           FTBBox *bounds)
 {
-    FTUnicodeStringItr<T> breakItr(buf);          // points to the last break character
-    FTUnicodeStringItr<T> lineStart(buf);         // points to the line start
     float nextStart = 0.0;     // total width of the current line
     float breakWidth = 0.0;    // width of the line up to the last word break
     float currentWidth = 0.0;  // width of all characters on the current line
@@ -246,10 +245,29 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
 	{
 		stringCacheCount = 0;
         layoutGlyphCache.clear();
-		
+
+        unsigned int bufferLen = 0;
+		FTUnicodeStringItr<T> lenItr(buf);
+        while (*lenItr) {
+            bufferLen++;
+            lenItr++;
+        }
+
+        if (layoutStringBuffer) {
+            free(layoutStringBuffer);
+        }
+
+        if (bufferLen > 0) {
+            layoutStringBuffer = (void *)calloc(1, sizeof(T) * bufferLen);
+            memcpy(layoutStringBuffer, buf, sizeof(T) * bufferLen);
+        }
+
+        FTUnicodeStringItr<T> breakItr(static_cast<T *>(layoutStringBuffer));
+        FTUnicodeStringItr<T> lineStart(static_cast<T *>(layoutStringBuffer));
+
 		// Scan the input for all characters that need output
-		FTUnicodeStringItr<T> prevItr(buf);
-		for (FTUnicodeStringItr<T> itr(buf); *itr; prevItr = itr++, charCount++)
+		FTUnicodeStringItr<T> prevItr(static_cast<T *>(layoutStringBuffer));
+		for (FTUnicodeStringItr<T> itr(static_cast<T *>(layoutStringBuffer)); *itr; prevItr = itr++, charCount++)
 		{
 			stringCache[stringCacheCount++] = (unsigned int)*itr;
 			
@@ -320,7 +338,7 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
 				breakCharCount = charCount;
 				
 				// Check to see if this is the first whitespace character in a run
-				if(buf == itr.getBufferFromHere() || !iswspace(*prevItr))
+				if(layoutStringBuffer == itr.getBufferFromHere() || !iswspace(*prevItr))
 				{
 					// Record the width of the start of the block
 					breakWidth = currentWidth;
