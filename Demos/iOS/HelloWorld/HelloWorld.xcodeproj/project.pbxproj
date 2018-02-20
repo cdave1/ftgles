@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
 		2D500B9A0D5A79CF00DBA0E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
 		63AD97DD0FAA2A9F00A79D15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */; };
 		63B7C93E10A218E500E709A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B7C93D10A218E500E709A5 /* main.m */; };
@@ -24,6 +22,8 @@
 		E420B1AB18DE630500AA93F4 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E420B1A918DE630500AA93F4 /* ViewController_iPhone.xib */; };
 		E47530F518CD7C5B0043A864 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E47530F218CD7B700043A864 /* libFTGLES.a */; };
 		E492F9A9198348E9007DF0C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E492F9A8198348E9007DF0C8 /* Default-568h@2x.png */; };
+		E4B51A501EEA003A00770C96 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B51A4F1EEA003A00770C96 /* OpenGLES.framework */; };
+		E4B51A521EEA004600770C96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B51A511EEA004600770C96 /* UIKit.framework */; };
 		E4D61BF518DE6CD900B121ED /* HelloWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D61BF318DE6CD900B121ED /* HelloWorld.cpp */; };
 		E4D61BFD18DE7D2700B121ED /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D61BFC18DE7D2700B121ED /* GLKit.framework */; };
 /* End PBXBuildFile section */
@@ -48,8 +48,6 @@
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		630C7F5B1351810C0051FC15 /* ftgles.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ftgles.xcconfig; sourceTree = "<group>"; };
 		63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -68,6 +66,8 @@
 		E420B1A918DE630500AA93F4 /* ViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController_iPhone.xib; path = ../PerformanceTest/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		E47530ED18CD7B700043A864 /* ftgles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ftgles.xcodeproj; path = ../../../Xcode/ftgles.xcodeproj; sourceTree = "<group>"; };
 		E492F9A8198348E9007DF0C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E4B51A4F1EEA003A00770C96 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		E4B51A511EEA004600770C96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E4D61BF318DE6CD900B121ED /* HelloWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorld.cpp; path = Classes/HelloWorld.cpp; sourceTree = "<group>"; };
 		E4D61BF418DE6CD900B121ED /* HelloWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorld.h; path = Classes/HelloWorld.h; sourceTree = "<group>"; };
 		E4D61BFC18DE7D2700B121ED /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -78,11 +78,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B51A521EEA004600770C96 /* UIKit.framework in Frameworks */,
+				E4B51A501EEA003A00770C96 /* OpenGLES.framework in Frameworks */,
 				E4D61BFD18DE7D2700B121ED /* GLKit.framework in Frameworks */,
 				E47530F518CD7C5B0043A864 /* libFTGLES.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
-				2D500B940D5A79C200DBA0E3 /* OpenGLES.framework in Frameworks */,
 				2D500B9A0D5A79CF00DBA0E3 /* QuartzCore.framework in Frameworks */,
 				63AD97DD0FAA2A9F00A79D15 /* CoreGraphics.framework in Frameworks */,
 			);
@@ -130,11 +130,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4B51A511EEA004600770C96 /* UIKit.framework */,
+				E4B51A4F1EEA003A00770C96 /* OpenGLES.framework */,
 				E4D61BFC18DE7D2700B121ED /* GLKit.framework */,
 				63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */,
 				2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */,
-				2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */,
-				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -310,9 +310,6 @@
 				GCC_PREFIX_HEADER = Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ftgles-info.plist";
-				INSTALL_PATH = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = HelloWorld;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -328,8 +325,6 @@
 				GCC_PREFIX_HEADER = Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ftgles-info.plist";
-				INSTALL_PATH = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = HelloWorld;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

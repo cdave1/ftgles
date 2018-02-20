@@ -205,8 +205,8 @@ void FTSimpleLayoutImpl::Render(const wchar_t* string, const int len,
  */
 template <typename T>
 inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
-                                          FTPoint position, int renderMode,
-                                          FTBBox *bounds)
+                                          const size_t stringLen, FTPoint position,
+                                          int renderMode, FTBBox *bounds)
 {
     float nextStart = 0.0;     // total width of the current line
     float breakWidth = 0.0;    // width of the line up to the last word break
@@ -246,21 +246,13 @@ inline void FTSimpleLayoutImpl::WrapTextI(const T *buf, const int len,
 		stringCacheCount = 0;
         layoutGlyphCache.clear();
 
-        unsigned int bufferLen = 0;
-		FTUnicodeStringItr<T> lenItr(buf);
-        while (*lenItr) {
-            bufferLen++;
-            lenItr++;
-        }
-
         if (layoutStringBuffer) {
             free(layoutStringBuffer);
+            layoutStringBuffer = NULL;
         }
 
-        if (bufferLen > 0) {
-            layoutStringBuffer = (void *)calloc(1, sizeof(T) * bufferLen);
-            memcpy(layoutStringBuffer, buf, sizeof(T) * bufferLen);
-        }
+        layoutStringBuffer = (void *)calloc(1, sizeof(T) * stringLen);
+        memcpy(layoutStringBuffer, buf, sizeof(T) * stringLen);
 
         FTUnicodeStringItr<T> breakItr(static_cast<T *>(layoutStringBuffer));
         FTUnicodeStringItr<T> lineStart(static_cast<T *>(layoutStringBuffer));
@@ -400,7 +392,7 @@ void FTSimpleLayoutImpl::WrapText(const char *buf, const int len,
                                   FTPoint position, int renderMode,
                                   FTBBox *bounds)
 {
-    WrapTextI(buf, len, position, renderMode, bounds);
+    WrapTextI(buf, len, strlen(buf), position, renderMode, bounds);
 }
 
 
@@ -408,7 +400,7 @@ void FTSimpleLayoutImpl::WrapText(const wchar_t* buf, const int len,
                                   FTPoint position, int renderMode,
                                   FTBBox *bounds)
 {
-    WrapTextI(buf, len, position, renderMode, bounds);
+    WrapTextI(buf, len, wcslen(buf), position, renderMode, bounds);
 }
 
 

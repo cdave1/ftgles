@@ -1,5 +1,7 @@
 #import "ViewController.h"
 
+
+
 static int frames;
 static CFTimeInterval CurrentTime;
 static CFTimeInterval LastFPSUpdate;
@@ -65,9 +67,9 @@ static BOOL clientInitted = NO;
 
 - (void)setupGL {
     [EAGLContext setCurrentContext:self.context];
-    
+
     glEnable(GL_LINE_SMOOTH);
-	glLineWidth(1.0f);
+    glLineWidth(1.0f);
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 }
 

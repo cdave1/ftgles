@@ -234,9 +234,10 @@ private:
 	
 	/* Internal generic WrapText() implementation */
 	template <typename T>
-	void WrapTextI(const T* buf, const int len, FTPoint position,
-				   int renderMode, FTBBox *bounds);
-	
+	void WrapTextI(const T *buf, const int len,
+                   const size_t stringLen, FTPoint position,
+                   int renderMode, FTBBox *bounds);
+
 	/* Internal generic OutputWrapped() implementation */
 	template <typename T>
 	void OutputWrappedI(const T* buf, const int len, FTPoint position,
