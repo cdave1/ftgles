@@ -10,12 +10,12 @@ From the FTGL notes:
 
 > OpenGL ES 2.0 support has not yet been added to the main branch.  Please see the [gles2 branch](https://github.com/cdave1/ftgles/tree/gles2) for an experimental version of FTGLES that supports OpenGL ES 2.0.
 
-# SCREENSHOTS
+## SCREENSHOTS
 
 <img src="https://github.com/cdave1/ftgles/raw/master/screenshots/demo.png" width="250" />
-![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/paragraphs_landscape.png | width=250)
-![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/performance.png | width=250)
-![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/unicode.png | width=250)
+<img src="https://github.com/cdave1/ftgles/raw/master/screenshots/paragraphs_landscape.png" width="250" />
+<img src="https://github.com/cdave1/ftgles/raw/master/screenshots/performance.png" width="250" />
+<img src="https://github.com/cdave1/ftgles/raw/master/screenshots/unicode.png" width="250" />
 
 ## QUICK INSTALL
 
