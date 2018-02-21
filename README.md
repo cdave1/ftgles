@@ -10,12 +10,24 @@ From the FTGL notes:
 
 > OpenGL ES 2.0 support has not yet been added to the main branch.  Please see the [gles2 branch](https://github.com/cdave1/ftgles/tree/gles2) for an experimental version of FTGLES that supports OpenGL ES 2.0.
 
-## SCREENSHOTS
+## Examples
 
-<img src="https://github.com/cdave1/ftgles/raw/master/screenshots/demo.png" width="250" />
-<img src="https://github.com/cdave1/ftgles/raw/master/screenshots/paragraphs_landscape.png" width="250" />
-<img src="https://github.com/cdave1/ftgles/raw/master/screenshots/performance.png" width="250" />
-<img src="https://github.com/cdave1/ftgles/raw/master/screenshots/unicode.png" width="250" />
+### Basic demo
+
+<a href="https://github.com/cdave1/ftgles/raw/master/screenshots/demo.png"><img src="https://github.com/cdave1/ftgles/raw/master/screenshots/demo.png" width="500" /></a>
+
+### Unicode
+
+<a href="https://github.com/cdave1/ftgles/raw/master/screenshots/unicode.png"><img src="https://github.com/cdave1/ftgles/raw/master/screenshots/unicode.png" width="500" /></a>
+
+### Paragraphs
+
+<a href="https://github.com/cdave1/ftgles/raw/master/screenshots/paragraphs_landscape.png"><img src="https://github.com/cdave1/ftgles/raw/master/screenshots/paragraphs_landscape.png" width="500" /></a>
+
+### Performance Test
+
+<a href="https://github.com/cdave1/ftgles/raw/master/screenshots/performance.png">
+<img src="https://github.com/cdave1/ftgles/raw/master/screenshots/performance.png" width="500" /></a>
 
 ## QUICK INSTALL
 
@@ -49,9 +61,9 @@ To render the text within your render loop (fonts are rendered at the origin alo
 	glColor4f(0.0f, 0.0f, 0.0f, 1.0f); // Black text
 	font->Render("Lorem ipsum dolor sit amet");
 
-The [Hello World Demo](http://github.com/cdave1/ftgles/blob/master/Demos/iOS/HelloWorld/Classes/Delegate.mm) example class shows a minimal implementation of a render loop.
+The [Hello World Demo](https://github.com/cdave1/ftgles/blob/master/Demos/iOS/HelloWorld/Classes/AppDelegate.mm) example class shows a minimal implementation of a render loop.
 
-See the [Demos](http://github.com/cdave1/ftgles/tree/master/iPhone/) folder for several comprehensive sample iPhone apps.  The demo apps include a unicode demo, as well as a demonstration of how to use layouts to easily align and position your text.
+See the [Demos](http://github.com/cdave1/ftgles/tree/master/Demos/) folder for several comprehensive sample iPhone apps.  The demo apps include a unicode demo, as well as a demonstration of how to use layouts to easily align and position your text.
 
 
 ## Differences between FTGL and FTGLES
@@ -76,10 +88,12 @@ While you may get acceptable results by switching to a simple typeface, it is ge
 
 Performance of the SimpleLayout class was previously very slow, but was recently improved in a recent build.  
 
-There is a [Performance test application](https://github.com/cdave1/ftgles/tree/master/Demos/iOS/PerformanceTest/) that will show the framerate of a screen full of text rendered using the SimpleLayout class, along with several font faces.
+There is a [Performance test application](https://github.com/cdave1/ftgles/tree/master/Demos/iOS/PerformanceTest) that will show the framerate of a screen full of text rendered using the SimpleLayout class, along with several font faces.
 
 
 ## Licenses
+
+MIT License:
 
  - FTGLES License [here](http://github.com/cdave1/ftgles/blob/master/LICENSE.md)
  - Original FTGL License [here](https://github.com/cdave1/ftgles/blob/master/ftgles/COPYING)
