@@ -1,15 +1,21 @@
 # FTGLES
 
-FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of [FTGL](http://homepages.paradise.net.nz/henryj/code/#FTGL).  It currently targets the iPhone and iPad, with plans to port to Android in the very near future.  iOS 7.0 is currently supported.
+FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of [FTGL](http://homepages.paradise.net.nz/henryj/code/#FTGL).  It currently targets the iPhone and iPad.  Up to iOS 11.0 is currently supported.
 
 From the FTGL notes:
 
-"Unlike other OpenGL font libraries FTGL uses standard font file formats so doesn't need a preprocessing step to convert the high quality font data into a lesser quality, proprietary format."
+> "Unlike other OpenGL font libraries FTGL uses standard font file formats so doesn't need a preprocessing step to convert the high quality font data into a lesser quality, proprietary format."
 
-"FTGL uses the [Freetype](http://www.freetype.org) font library to open and 'decode' the fonts. It then takes that output and stores it in a format most efficient for OpenGL rendering."
+> "FTGL uses the [Freetype](http://www.freetype.org) font library to open and 'decode' the fonts. It then takes that output and stores it in a format most efficient for OpenGL rendering."
 
-OpenGL ES 2.0 support has not yet been added to the main branch.  Please see the [gles2 branch](https://github.com/cdave1/ftgles/tree/gles2) for an experimental version of FTGLES that supports OpenGL ES 2.0.
+> OpenGL ES 2.0 support has not yet been added to the main branch.  Please see the [gles2 branch](https://github.com/cdave1/ftgles/tree/gles2) for an experimental version of FTGLES that supports OpenGL ES 2.0.
 
+# SCREENSHOTS
+
+![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/demo.png)
+![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/paragraphs_landscape.png)
+![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/performance.png)
+![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/unicode.png)
 
 ## QUICK INSTALL
 
