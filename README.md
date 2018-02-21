@@ -12,10 +12,10 @@ From the FTGL notes:
 
 # SCREENSHOTS
 
-![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/demo.png =250x)
-![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/paragraphs_landscape.png =250x)
-![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/performance.png =250x)
-![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/unicode.png =250x)
+![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/demo.png | width=250)
+![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/paragraphs_landscape.png | width=250)
+![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/performance.png | width=250)
+![Screenshot](https://github.com/cdave1/ftgles/raw/master/screenshots/unicode.png | width=250)
 
 ## QUICK INSTALL
 
