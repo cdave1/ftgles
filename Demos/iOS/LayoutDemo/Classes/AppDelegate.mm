@@ -41,15 +41,14 @@ static LayoutDemo *demo = NULL;
 	NSString *path = [[NSBundle mainBundle] resourcePath];
     
     float scale = [[UIScreen mainScreen] scale];
-    float width = [[UIScreen mainScreen] bounds].size.width;
-    float height = [[UIScreen mainScreen] bounds].size.height;
+    float width = MAX([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
+    float height =MIN([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
     
     demo = new LayoutDemo([path UTF8String], width, height, scale);
     
     self.viewController.delegate = self;
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
-    return YES;
 }
 
 

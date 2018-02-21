@@ -26,11 +26,7 @@
 #import "AppDelegate.h"
 #include "KeyboardDemoController.h"
 
-static KeyboardDemoController keyboardDemoController;
-
-static int frames;
-static CFTimeInterval	CurrentTime;
-static CFTimeInterval	LastFPSUpdate;
+static KeyboardDemoController *keyboardDemoController = nullptr;
 
 @implementation AppDelegate
 
@@ -46,14 +42,13 @@ static CFTimeInterval	LastFPSUpdate;
     float scale = [[UIScreen mainScreen] scale];
     float width = [[UIScreen mainScreen] bounds].size.width;
     float height = [[UIScreen mainScreen] bounds].size.height;
-    
-    keyboardDemoController.SetupFonts([[[NSBundle mainBundle] resourcePath] UTF8String]);
-    keyboardDemoController.SetScreenDimensions(width, height, scale);
+
+    keyboardDemoController = new KeyboardDemoController([[[NSBundle mainBundle] resourcePath] UTF8String],
+                                                        width, height, scale);
     
     self.viewController.delegate = self;
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
-    return YES;
 }
 
 
@@ -66,7 +61,7 @@ static CFTimeInterval	LastFPSUpdate;
 
 
 - (void) Render {
-	keyboardDemoController.Draw();
+	keyboardDemoController->Draw();
 }
 
 @end

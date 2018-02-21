@@ -35,18 +35,12 @@
 #include "FTGL/ftglesGlue.h"
 
 
-
-
 class KeyboardDemoController
 {		
 public:
-    KeyboardDemoController();
+    KeyboardDemoController(const char *path, float width, float height, float scale);
     
     ~KeyboardDemoController();
-    
-    void SetupFonts(const char *path);
-    
-    void SetScreenDimensions(float width, float height, float scale);
 	
 	void Draw();
     
