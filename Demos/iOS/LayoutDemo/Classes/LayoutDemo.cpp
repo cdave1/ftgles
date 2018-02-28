@@ -28,8 +28,8 @@
 
 static FTFont *fpsFont;
 static char fpsText[32];
-static FTFont *fonts[3];
-static FTSimpleLayout layouts[3];
+static FTFont *fonts[4];
+static FTSimpleLayout layouts[4];
 static GLuint aTexture;
 static float screenWidth, screenHeight, contentScaleFactor;
 
@@ -39,6 +39,15 @@ LayoutDemo::LayoutDemo(const char* path, float width, float height, float scale)
 	screenHeight = contentScaleFactor * height;
 	
 	char fontname[256];
+
+     const char * fontFiles[] = {
+        "Brandon_thin.otf",
+        "Brandon_light.otf",
+        "Brandon_reg.otf",
+        "Brandon_med.otf",
+        "Brandon_bld.otf",
+        "Brandon_blk.otf"
+    };
 	
 	glDepthFunc(GL_LEQUAL);
 	glClearDepthf(1.0);
@@ -50,47 +59,61 @@ LayoutDemo::LayoutDemo(const char* path, float width, float height, float scale)
 	fpsFont->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	snprintf(fpsText, 32, "FPS: 0");
 	
-	snprintf(fontname, 256, "%s/Diavlo_BLACK_II_37.otf", path);
-	fonts[0] = new FTPolygonFont(fontname);
+	snprintf(fontname, 256, "%s/%s", path, fontFiles[5]);
+	fonts[0] = new FTTextureFont(fontname);
 	if(fonts[0]->Error())
     {
         printf("Could not load font `%s'\n", fontname);
     }
-	fonts[0]->FaceSize(contentScaleFactor * 40);
+	fonts[0]->FaceSize(contentScaleFactor * 84.0);
 	fonts[0]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
-	layouts[0].SetLineLength(screenWidth / 1.2);
+	layouts[0].SetLineLength(screenWidth);
 	layouts[0].SetLineSpacing(0.75f);
     layouts[0].SetFont(fonts[0]);
-	layouts[0].SetAlignment(FTGL::ALIGN_LEFT);
+	layouts[0].SetAlignment(FTGL::ALIGN_CENTER);
 	
-	snprintf(fontname, 256, "%s/BorisBlackBloxx.ttf", path);
+	snprintf(fontname, 256, "%s/%s", path, fontFiles[1]);
 	fonts[1] = new FTTextureFont(fontname);
 	if (fonts[1]->Error())
 	{
         printf("Could not load font `%s'\n", fontname);	
 	}
-	fonts[1]->FaceSize(contentScaleFactor * 48);
+	fonts[1]->FaceSize(contentScaleFactor * 36.0);
 	fonts[1]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
-	layouts[1].SetLineLength(screenWidth);
+	layouts[1].SetLineLength((screenWidth * 0.5f) - 50.0f);
 	layouts[1].SetLineSpacing(0.75f);
     layouts[1].SetFont(fonts[1]);
-	layouts[1].SetAlignment(FTGL::ALIGN_CENTER);
+	layouts[1].SetAlignment(FTGL::ALIGN_LEFT);
+
+    snprintf(fontname, 256, "%s/%s", path, fontFiles[3]);
+    fonts[2] = new FTTextureFont(fontname);
+    if (fonts[2]->Error())
+    {
+        printf("Could not load font `%s'\n", fontname);
+    }
+    fonts[2]->FaceSize(contentScaleFactor * 36.0);
+    fonts[2]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
+
+    layouts[2].SetLineLength((screenWidth * 0.5f) - 50.0f);
+    layouts[2].SetLineSpacing(0.75f);
+    layouts[2].SetFont(fonts[2]);
+    layouts[2].SetAlignment(FTGL::ALIGN_RIGHT);
 	
-	snprintf(fontname, 256, "%s/Cardo98s.ttf", path);
-	fonts[2] = new FTTextureFont(fontname);
-	if (fonts[2]->Error())
+	snprintf(fontname, 256, "%s/%s", path, fontFiles[2]);
+	fonts[3] = new FTTextureFont(fontname);
+	if (fonts[3]->Error())
 	{
         printf("Could not load font `%s'\n", fontname);	
 	}
-	fonts[2]->FaceSize(contentScaleFactor * 28);
-	fonts[2]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
+	fonts[3]->FaceSize(contentScaleFactor * 28);
+	fonts[3]->CharMap(FT_ENCODING_ADOBE_LATIN_1);
 	
-	layouts[2].SetLineLength(screenWidth - 20.0f);
-	layouts[2].SetLineSpacing(0.75f);
-    layouts[2].SetFont(fonts[2]);
-	layouts[2].SetAlignment(FTGL::ALIGN_RIGHT);
+	layouts[3].SetLineLength(screenWidth - 50.0f);
+	layouts[3].SetLineSpacing(0.75f);
+    layouts[3].SetFont(fonts[3]);
+	layouts[3].SetAlignment(FTGL::ALIGN_JUSTIFY);
 	
 	printf("Loaded texture: %d\n", aTexture);
 }
@@ -113,7 +136,7 @@ void LayoutDemo::Draw() {
 	float halfScreenWidth = screenWidth * 0.5f;
 	float halfScreenHeight = screenHeight * 0.5f;
 	
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClearColor(0.92f, 0.92f, 0.92f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	glMatrixMode(GL_PROJECTION);
@@ -133,26 +156,33 @@ void LayoutDemo::Draw() {
 	glPushMatrix();
 	glTranslatef(-halfScreenWidth, -halfScreenHeight, 0.0f);
 
-    std::string polygonFontText = "(Left aligned) polygon font with enough text for multiple lines.";
-    std::string textureFontText = "(Center aligned) Lorem ipsum dolor sit amet.";
-    std::string outlineFontText = "(Right aligned) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+    std::string polygonFontText = "FTGLES Layout Demo";
+    std::string leftParagraph = "(Left aligned) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    std::string rightParagraph = "(Right aligned) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    std::string outlineFontText = "(Justify aligned) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 	glPushMatrix();
-	glTranslatef(0.0f, contentScaleFactor * 720.0f, 0.0f);
-	glColor4f(color, 0.6f, 0.3f, 1.0f);
+	glTranslatef(0.0f, contentScaleFactor * 620.0f, 0.0f);
+	glColor4f(0.25f, 0.25f, 0.25f, 1.0f);
 	layouts[0].Render(polygonFontText.c_str(), -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
 	
 	glPushMatrix();
-	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 520.0f, 0.0f);
+	glTranslatef(25.0f, contentScaleFactor * 500.0f, 0.0f);
 	glColor4f(0.2f, 0.4f, 0.75f, 1.0f);
-	layouts[1].Render(textureFontText.c_str(), -1, FTPoint(), FTGL::RENDER_FRONT);
+	layouts[1].Render(leftParagraph.c_str(), -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef((screenWidth * 0.5f) + 25.0f, contentScaleFactor * 500.0f, 0.0f);
+    glColor4f(0.2f, 0.4f, 0.75f, 1.0f);
+    layouts[2].Render(rightParagraph.c_str(), -1, FTPoint(), FTGL::RENDER_FRONT);
+    glPopMatrix();
 	
 	glPushMatrix();
-	glTranslatef(contentScaleFactor * 10.0f, contentScaleFactor * 240.0f, 0.0f);
-	glColor4f(0.25f, 0.25f, 0.25f, 1.0f);
-	layouts[2].Render(outlineFontText.c_str(), -1, FTPoint(), FTGL::RENDER_FRONT);
+	glTranslatef(25.0f, contentScaleFactor * 240.0f, 0.0f);
+	glColor4f(0.1f, 0.1f, 0.1f, 1.0f);
+	layouts[3].Render(outlineFontText.c_str(), -1, FTPoint(), FTGL::RENDER_FRONT);
 	glPopMatrix();
 	
 	glPopMatrix();

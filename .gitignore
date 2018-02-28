@@ -41,3 +41,53 @@ profile
 
 # Freetype 2
 freetype2/
+
+# http://www.gnu.org/software/automake
+
+Makefile.in
+
+# http://www.gnu.org/software/autoconf
+
+/autom4te.cache
+/autoscan.log
+/autoscan-*.log
+/aclocal.m4
+/compile
+/config.h.in
+/configure
+/configure.scan
+/depcomp
+/install-sh
+/missing
+/stamp-h1
+
+*.[oa]
+*~
+*.po
+*.lo
+*.la
+autom4te.cache/*
+*.in
+*/.deps/*
+m4/*
+swig/*
+*.swp
+*.patch
+aclocal.m4
+config.h
+config.log
+config.sub
+config.guess
+config.status
+configure
+depcomp
+install-sh
+compile
+main
+ltmain.sh
+missing
+mkinstalldirs
+libtool
+*Makefile
+py-compile
+stamp-h1

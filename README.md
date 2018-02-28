@@ -63,7 +63,7 @@ To render the text within your render loop (fonts are rendered at the origin alo
 
 The [Hello World Demo](https://github.com/cdave1/ftgles/blob/master/Demos/iOS/HelloWorld/Classes/AppDelegate.mm) example class shows a minimal implementation of a render loop.
 
-See the [Demos](http://github.com/cdave1/ftgles/tree/master/Demos/) folder for several comprehensive sample iPhone apps.  The demo apps include a unicode demo, as well as a demonstration of how to use layouts to easily align and position your text.
+See the [Demos](http://github.com/cdave1/ftgles/tree/master/Demos/iOS/) folder for several comprehensive sample iPhone apps.  The demo apps include a unicode demo, as well as a demonstration of how to use layouts to easily align and position your text.
 
 
 ## Differences between FTGL and FTGLES
