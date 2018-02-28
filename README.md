@@ -16,7 +16,7 @@ From the FTGL notes:
 
 ### Paragraphs
 
-<a href="https://github.com/cdave1/ftgles/raw/master/screenshots/paras.png"><img src="https://github.com/cdave1/ftgles/raw/master/screenshots/paras.png" width="500" /></a>
+<a href="https://github.com/cdave1/ftgles/raw/master/screenshots/paras.png"><img src="https://github.com/cdave1/ftgles/raw/master/screenshots/paras.png" /></a>
 
 ### Polygons
 
