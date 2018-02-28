@@ -2,6 +2,8 @@
 
 FTGLES is a C++ library for rendering fonts on mobile operating systems with OpenGL ES 1.1.  It is a port of [FTGL](http://homepages.paradise.net.nz/henryj/code/#FTGL).  It currently targets the iPhone and iPad.  Up to iOS 11.0 is currently supported.
 
+<a href="https://github.com/cdave1/ftgles/raw/master/screenshots/layout.png"><img src="https://github.com/cdave1/ftgles/raw/master/screenshots/layout.png" width="500" /></a>
+
 From the FTGL notes:
 
 > "Unlike other OpenGL font libraries FTGL uses standard font file formats so doesn't need a preprocessing step to convert the high quality font data into a lesser quality, proprietary format."
@@ -12,7 +14,11 @@ From the FTGL notes:
 
 ## Examples
 
-### Basic demo
+### Paragraphs
+
+<a href="https://github.com/cdave1/ftgles/raw/master/screenshots/paras.png"><img src="https://github.com/cdave1/ftgles/raw/master/screenshots/paras.png" width="500" /></a>
+
+### Polygons
 
 <a href="https://github.com/cdave1/ftgles/raw/master/screenshots/demo.png"><img src="https://github.com/cdave1/ftgles/raw/master/screenshots/demo.png" width="500" /></a>
 
@@ -20,14 +26,12 @@ From the FTGL notes:
 
 <a href="https://github.com/cdave1/ftgles/raw/master/screenshots/unicode.png"><img src="https://github.com/cdave1/ftgles/raw/master/screenshots/unicode.png" width="500" /></a>
 
-### Paragraphs
-
-<a href="https://github.com/cdave1/ftgles/raw/master/screenshots/paragraphs_landscape.png"><img src="https://github.com/cdave1/ftgles/raw/master/screenshots/paragraphs_landscape.png" width="500" /></a>
-
 ### Performance Test
 
 <a href="https://github.com/cdave1/ftgles/raw/master/screenshots/performance.png">
 <img src="https://github.com/cdave1/ftgles/raw/master/screenshots/performance.png" width="500" /></a>
+
+Should run at 60fps on a 2nd gen iPad.
 
 ## QUICK INSTALL
 
