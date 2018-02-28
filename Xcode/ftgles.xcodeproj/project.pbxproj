@@ -116,6 +116,7 @@
 		63B399271351AE0E00E8F919 /* gluint.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B398121351AE0E00E8F919 /* gluint.h */; };
 		63B399281351AE0E00E8F919 /* project.c in Sources */ = {isa = PBXBuildFile; fileRef = 63B398131351AE0E00E8F919 /* project.c */; };
 		63B399291351AE0E00E8F919 /* registry.c in Sources */ = {isa = PBXBuildFile; fileRef = 63B398141351AE0E00E8F919 /* registry.c */; };
+		E45200B620466C32005530D2 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = E45200B520466C32005530D2 /* config.h */; };
 		E4B51A4C1EE9FD1D00770C96 /* libFreetype2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B51A491EE9FD0D00770C96 /* libFreetype2.a */; };
 /* End PBXBuildFile section */
 
@@ -142,8 +143,6 @@
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		63A6FE900FB1F7AF00C38E72 /* libFTGLES.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFTGLES.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		63B3975C1351ADF800E8F919 /* AUTHORS */ = {isa = PBXFileReference; lastKnownFileType = text; name = AUTHORS; path = ftgles/AUTHORS; sourceTree = "<group>"; };
-		63B3975D1351ADF800E8F919 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = config.h; path = ftgles/config.h; sourceTree = "<group>"; };
 		63B397941351AE0E00E8F919 /* FTBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTBuffer.cpp; sourceTree = "<group>"; };
 		63B397951351AE0E00E8F919 /* FTCharmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTCharmap.cpp; sourceTree = "<group>"; };
 		63B397961351AE0E00E8F919 /* FTCharmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCharmap.h; sourceTree = "<group>"; };
@@ -254,6 +253,7 @@
 		63B398121351AE0E00E8F919 /* gluint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gluint.h; sourceTree = "<group>"; };
 		63B398131351AE0E00E8F919 /* project.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = project.c; sourceTree = "<group>"; };
 		63B398141351AE0E00E8F919 /* registry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = registry.c; sourceTree = "<group>"; };
+		E45200B520466C32005530D2 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = ftgles/config.h; sourceTree = "<group>"; };
 		E4B51A441EE9FD0D00770C96 /* freetype2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = freetype2.xcodeproj; path = "../../freetype2-ios/freetype2.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -485,9 +485,8 @@
 		E431F77C112E8C1E00E393A2 /* ftgles */ = {
 			isa = PBXGroup;
 			children = (
+				E45200B520466C32005530D2 /* config.h */,
 				63B3975E1351AE0E00E8F919 /* src */,
-				63B3975C1351ADF800E8F919 /* AUTHORS */,
-				63B3975D1351ADF800E8F919 /* config.h */,
 			);
 			name = ftgles;
 			path = ../../ftgles;
@@ -524,6 +523,7 @@
 				63B398C21351AE0E00E8F919 /* FTBufferFontImpl.h in Headers */,
 				63B398C71351AE0E00E8F919 /* FTFontImpl.h in Headers */,
 				63B398C91351AE0E00E8F919 /* FTOutlineFontImpl.h in Headers */,
+				E45200B620466C32005530D2 /* config.h in Headers */,
 				63B398CB1351AE0E00E8F919 /* FTPixmapFontImpl.h in Headers */,
 				63B398CD1351AE0E00E8F919 /* FTPolygonFontImpl.h in Headers */,
 				63B398CF1351AE0E00E8F919 /* FTTextureFontImpl.h in Headers */,

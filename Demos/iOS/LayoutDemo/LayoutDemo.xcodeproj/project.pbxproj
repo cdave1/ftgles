@@ -28,12 +28,6 @@
 		E4451147112E95AC00AF94E6 /* Charybdis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4451141112E95AC00AF94E6 /* Charybdis.ttf */; };
 		E4451148112E95AC00AF94E6 /* RosewoodStd-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E4451142112E95AC00AF94E6 /* RosewoodStd-Regular.otf */; };
 		E4451149112E95AC00AF94E6 /* TOONISH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4451143112E95AC00AF94E6 /* TOONISH.ttf */; };
-		E4CFE0BE2045E3CA00E02452 /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = E4CFE0B82045E3C900E02452 /* Brandon_bld.otf */; };
-		E4CFE0BF2045E3CA00E02452 /* Brandon_med.otf in Resources */ = {isa = PBXBuildFile; fileRef = E4CFE0B92045E3CA00E02452 /* Brandon_med.otf */; };
-		E4CFE0C02045E3CA00E02452 /* Brandon_blk.otf in Resources */ = {isa = PBXBuildFile; fileRef = E4CFE0BA2045E3CA00E02452 /* Brandon_blk.otf */; };
-		E4CFE0C12045E3CA00E02452 /* Brandon_thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E4CFE0BB2045E3CA00E02452 /* Brandon_thin.otf */; };
-		E4CFE0C22045E3CA00E02452 /* Brandon_light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E4CFE0BC2045E3CA00E02452 /* Brandon_light.otf */; };
-		E4CFE0C32045E3CA00E02452 /* Brandon_reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = E4CFE0BD2045E3CA00E02452 /* Brandon_reg.otf */; };
 		E4D61C0618DE9C1000B121ED /* LayoutDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D61C0418DE9C1000B121ED /* LayoutDemo.cpp */; };
 		E4D61C0918DE9C3000B121ED /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D61C0818DE9C3000B121ED /* ViewController.mm */; };
 		E4D61C0B18DE9D7100B121ED /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D61C0A18DE9D7100B121ED /* GLKit.framework */; };
@@ -87,12 +81,6 @@
 		E4451141112E95AC00AF94E6 /* Charybdis.ttf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Charybdis.ttf; path = Fonts/Charybdis.ttf; sourceTree = "<group>"; };
 		E4451142112E95AC00AF94E6 /* RosewoodStd-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RosewoodStd-Regular.otf"; path = "Fonts/RosewoodStd-Regular.otf"; sourceTree = "<group>"; };
 		E4451143112E95AC00AF94E6 /* TOONISH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = TOONISH.ttf; path = Fonts/TOONISH.ttf; sourceTree = "<group>"; };
-		E4CFE0B82045E3C900E02452 /* Brandon_bld.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Brandon_bld.otf; path = Fonts/Brandon_bld.otf; sourceTree = "<group>"; };
-		E4CFE0B92045E3CA00E02452 /* Brandon_med.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Brandon_med.otf; path = Fonts/Brandon_med.otf; sourceTree = "<group>"; };
-		E4CFE0BA2045E3CA00E02452 /* Brandon_blk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Brandon_blk.otf; path = Fonts/Brandon_blk.otf; sourceTree = "<group>"; };
-		E4CFE0BB2045E3CA00E02452 /* Brandon_thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Brandon_thin.otf; path = Fonts/Brandon_thin.otf; sourceTree = "<group>"; };
-		E4CFE0BC2045E3CA00E02452 /* Brandon_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Brandon_light.otf; path = Fonts/Brandon_light.otf; sourceTree = "<group>"; };
-		E4CFE0BD2045E3CA00E02452 /* Brandon_reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Brandon_reg.otf; path = Fonts/Brandon_reg.otf; sourceTree = "<group>"; };
 		E4D61C0418DE9C1000B121ED /* LayoutDemo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LayoutDemo.cpp; path = Classes/LayoutDemo.cpp; sourceTree = "<group>"; };
 		E4D61C0518DE9C1000B121ED /* LayoutDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayoutDemo.h; path = Classes/LayoutDemo.h; sourceTree = "<group>"; };
 		E4D61C0718DE9C3000B121ED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -100,8 +88,6 @@
 		E4D61C0A18DE9D7100B121ED /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		E4D61C0C18DE9DA100B121ED /* ViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController_iPad.xib; path = ../PerformanceTest/ViewController_iPad.xib; sourceTree = "<group>"; };
 		E4D61C0D18DE9DA100B121ED /* ViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController_iPhone.xib; path = ../PerformanceTest/ViewController_iPhone.xib; sourceTree = "<group>"; };
-		E4D61C1018DEAA6100B121ED /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
-		E4D61C1218DEAA7600B121ED /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		E4DE90C7198365B20035B3D1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,8 +149,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E4D61C1218DEAA7600B121ED /* libc++.dylib */,
-				E4D61C1018DEAA6100B121ED /* libstdc++.dylib */,
 				E4D61C0A18DE9D7100B121ED /* GLKit.framework */,
 				E420B17818CD841F00AA93F4 /* OpenGLES.framework */,
 				E420B17618CD840D00AA93F4 /* UIKit.framework */,
@@ -204,12 +188,6 @@
 		63B7CA9C10A23C1700E709A5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E4CFE0B82045E3C900E02452 /* Brandon_bld.otf */,
-				E4CFE0BA2045E3CA00E02452 /* Brandon_blk.otf */,
-				E4CFE0BC2045E3CA00E02452 /* Brandon_light.otf */,
-				E4CFE0B92045E3CA00E02452 /* Brandon_med.otf */,
-				E4CFE0BD2045E3CA00E02452 /* Brandon_reg.otf */,
-				E4CFE0BB2045E3CA00E02452 /* Brandon_thin.otf */,
 				E445113F112E95AC00AF94E6 /* BorisBlackBloxx.ttf */,
 				E4451140112E95AC00AF94E6 /* Cardo98s.ttf */,
 				E4451141112E95AC00AF94E6 /* Charybdis.ttf */,
@@ -306,7 +284,6 @@
 			files = (
 				63B7CA9610A23BB800E709A5 /* Gartentika.ttf in Resources */,
 				63B7CA9710A23BB800E709A5 /* Diavlo_BLACK_II_37.otf in Resources */,
-				E4CFE0C02045E3CA00E02452 /* Brandon_blk.otf in Resources */,
 				63B7CA9810A23BB800E709A5 /* brown_bear_funk.ttf in Resources */,
 				E4451145112E95AC00AF94E6 /* BorisBlackBloxx.ttf in Resources */,
 				E4451146112E95AC00AF94E6 /* Cardo98s.ttf in Resources */,
@@ -316,15 +293,10 @@
 				E4DE90C8198365B20035B3D1 /* Default-568h@2x.png in Resources */,
 				63D405A011EA65F60051D8F3 /* Default.png in Resources */,
 				63D405A111EA65F60051D8F3 /* Icon.png in Resources */,
-				E4CFE0C12045E3CA00E02452 /* Brandon_thin.otf in Resources */,
-				E4CFE0BE2045E3CA00E02452 /* Brandon_bld.otf in Resources */,
-				E4CFE0C32045E3CA00E02452 /* Brandon_reg.otf in Resources */,
 				E4D61C0E18DE9DA100B121ED /* ViewController_iPad.xib in Resources */,
 				63D405A211EA65F60051D8F3 /* Icon@2x.png in Resources */,
 				63D405A311EA65F60051D8F3 /* Icon-72.png in Resources */,
-				E4CFE0BF2045E3CA00E02452 /* Brandon_med.otf in Resources */,
 				E4D61C0F18DE9DA100B121ED /* ViewController_iPhone.xib in Resources */,
-				E4CFE0C22045E3CA00E02452 /* Brandon_light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

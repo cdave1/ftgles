@@ -1,6 +1,6 @@
 dnl Minimum version of autoconf required.  Should coincide with the
 dnl setting in the autogen.sh script.
-AC_PREREQ(2.58)
+AC_PREREQ([2.69])
 
 AC_INIT(FTGLES, 0.1, [david@davidpetrie.com], ftgles)
 AC_CONFIG_SRCDIR(src/FTPoint.cpp)
